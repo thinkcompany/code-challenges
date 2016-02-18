@@ -2,7 +2,9 @@
 
 Hello, hopeful Think Brownstone development team member! Thanks for taking time to help us assess your front-end development skills with this SEPTA Regional Rail fare data challenge. Part of the work we frequently are tasked with is combining complex business data with our design team's fresh new interfaces and making it come to life in the form of semantic, accessible HTML/CSS and Javascript.
 
-The data in [fares.json](fares.json) here is based upon the information found on [SEPTA's website here](http://www.septa.org/fares/ticket/index.html). When you take regional rail in and out of the city, the fare price is affected by where you purchase the ticket, when you board, and how far you travel. Let's make this information easier to understand by making an interactive fare purchase widget, illustrated in the screenshot below.
+![SEPTA Zone Map](img/zone-map.jpg)
+
+The data in [fares.json](fares.json) here is based upon the information found on [SEPTA's website](http://www.septa.org/fares/ticket/index.html). When you take regional rail in and out of the city, the fare price is affected by where you purchase the ticket, when you board, and how far you travel. Let's make this information easier to understand by making an interactive fare purchase widget, illustrated in the screenshot below.
 
 ## Instructions
 * Develop the front-end HTML and CSS for the widget seen in the screenshot above. 

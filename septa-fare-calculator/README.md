@@ -6,10 +6,13 @@ Hello, hopeful Think Brownstone development team member! Thanks for taking time 
 
 The data in [fares.json](fares.json) here is based upon the information found on [SEPTA's website](http://www.septa.org/fares/ticket/index.html). When you take regional rail in and out of the city, the fare price is affected by where you purchase the ticket, when you board, and how far you travel. Let's make this information easier to understand by making an interactive fare purchase widget, illustrated in the screenshot below.
 
+![Widget mockup](img/widget.png)
+
 ## Instructions
 * Develop the front-end HTML and CSS for the widget seen in the screenshot above. 
 * Assume that this widget would be handed off to a backend template integration developer who would be placing it on a page with other content and widgets when you are making decisions about naming conventions.
 * Write Javascript to request [fares.json](fares.json) via AJAX and populate the widget with live data. Users should be able to see the fare total update when they use the widget controls.
+* We care more about functionality than style - we'd rather see a partially styled working prototype than a pixel-perfect widget that isn't doing fare calculations.
 * Add lots of comments to your code stating any assumptions or decisions you're making during this assignment -- or just to say hi. :-)
 
 ## Requirements
@@ -22,3 +25,4 @@ The data in [fares.json](fares.json) here is based upon the information found on
 ## Resources
 * [Think Brownstone Development Standards](http://ph.ly/styleguide)
 * [SEPTA Fares](http://www.septa.org/fares/ticket/index.html)
+* [SEPTA Logo (SVG)](https://commons.wikimedia.org/wiki/File:SEPTA.svg)

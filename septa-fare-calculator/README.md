@@ -20,7 +20,7 @@ When you take regional rail in and out of the city, the fare price is affected b
 * It should go without saying - please comment your code to state any assumptions or decisions you're making during this assignment -- or just to say hi. :-)
 
 ## Requirements
-* *Browsers*: Internet Explorer 8+, Google Chrome, Firefox, Safari for iOS, and Chrome for Android.
+* *Browser Support*: Internet Explorer 8+, Google Chrome, Firefox, Safari for iOS, and Chrome for Android.
 * *Libraries & Frameworks*: You are welcome to bring in JavaScript libraries (like jQuery) or frameworks (like Angular or React). You may also author your JS with vanilla DOM methods, as long as they are compatible with the browser requirements. Please don't include an entire CSS framework like Bootstrap -- we want to see your HTML and CSS, not theirs.
 * *Standards*: Your solution should be valid, semantic, accessible, and performant. To get an idea of what how we're doing things, please feel free to review our [development standards](http://ph.ly/styleguide).
 * *Time*: Please limit yourself to 60 minutes to work on your solution. We don't expect you to overexert yourself to deliver a perfectly finished product!

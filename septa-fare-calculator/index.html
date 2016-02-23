@@ -1,10 +1,66 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<title>SEPTA Regional Rail Fare Calculator</title>
-</head>
-<body>
-	
-</body>
+<html data-ng-app="septaFareCalculator" lang="en">
+  <head>
+      <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <title>SEPTA Regional Rail Fare Calculator</title>
+      <meta name="description" content="SEPTA Regional Rail Fares Sample App">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+      <link href="/css/septa-fare-calculator.css" type="text/css" media="screen" rel="stylesheet"/>
+  </head>
+  <body>
+    <div class="septa-widget" data-ng-controller="SeptaCalCulatorController as septaCtrl">
+      <h3>Regional Rail Fares</h3>
+      <form name="septaCalCulatorForm" data-ng-submit="septaCalCulatorForm.$valid" novalidate>
+        <!-- SEPTA origin zone -->
+        <!-- Assuming all rides are from the city center -->
+
+        <!-- SEPTA destination zone -->
+        <p>
+            <label for="select-septa-zone">Where are you going?</label>
+            <span class="field">
+              <select id="select-septa-zone" data-ng-model="septaCtrl.zoneSelected" data-ng-options="zone as zone.name for zone in septaCtrl.zones track by zone.zone" data-ng-change="septaCtrl.update()">
+                <option value>Choose zone</option>
+              </select>
+            </span>
+        </p>
+        <!-- when you ride -->
+        <p>
+            <label for="select-travel-time">When are you riding?</label>
+            <span class="field">
+              <select id="select-travel-time" data-ng-model="septaCtrl.timeSelected" data-ng-options="time as time.name for time in septaCtrl.travel_times track by time.type" data-ng-change="septaCtrl.update()">
+                <option value>Choose travel time</option>
+              </select>
+            </span>
+            <span class="info">{{septaCtrl.helperMsg}}</span>
+        </p>
+        <!-- where you purchase the ticket -->
+        <fieldset>
+            <legend>Where will you purchase the fare?</legend>
+            <p>
+                <input type="radio" name="radio-purchase" value="advance_purchase" id="radio-purchase-advanced" data-ng-model="septaCtrl.purchase" data-ng-change="septaCtrl.update()"/>
+                <label for="radio-purchase-advanced" title="{{septaCtrl.info.advance_purchase}}">Station Kiosk</label>
+            </p>
+            <p>
+                <input type="radio" name="radio-purchase" value="onboard_purchase" id="radio-purchase-onboard" data-ng-model="septaCtrl.purchase" data-ng-change="septaCtrl.update()"/>
+                <label for="radio-purchase-onboard" title="{{septaCtrl.info.onboard_purchase}}">Onboard</label>
+            </p>
+        </fieldset>
+        <!-- number of rides to be purchased -->
+        <p>
+            <label for="septa-reides-number">How many rides will you need?</label>
+            <span class="field">
+              <input type="text" maxlength="2" class="input-number" id="septa-rides-number" data-ng-model="septaCtrl.ridesNumber" data-ng-change="septaCtrl.update()" numbers-only="numbers-only"/>
+            </span>
+        </p>
+      </form>
+      <div class="result-fare">
+        <div data-ng-show="septaCtrl.fareCost">Your fare will cost <em>{{septaCtrl.fareCost | currency}}</em></div>
+      </div>
+    </div>
+
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular.min.js"></script>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular-resource.js"></script>
+    <script type="text/javascript" src="/js/septa-fare-calculator.js"></script>
+  </body>
 </html>

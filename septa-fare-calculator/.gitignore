@@ -1,0 +1,6 @@
+node_modules
+tmp
+.env
+Dockerfile
+docker-compose.yml
+mockup.png

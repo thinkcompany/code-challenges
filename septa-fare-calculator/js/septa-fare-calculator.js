@@ -37,8 +37,6 @@
         this.helperMsg = "";
       }
       if (this.zoneSelected && this.timeSelected && this.purchase && this.ridesNumber) {
-        console.log(this.zoneSelected.zone + " - " + this.timeSelected.type + " - " + this.purchase + " - " + this.ridesNumber);
-
         this.fareCost = 0;
         var fares = this.zones[this.zoneSelected.zone - 1].fares,
             time = this.timeSelected.type,

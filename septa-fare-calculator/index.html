@@ -3,8 +3,83 @@
 <head>
 	<meta charset="UTF-8">
 	<title>SEPTA Regional Rail Fare Calculator</title>
+	<link rel="stylesheet" href="style/main.css"/>
 </head>
 <body>
-	
+	<div id="main" class="wrapper">
+		<div class="row">
+			<header class="row">
+				<div class="col-1">
+					<object type="image/svg+xml" data="img/SEPTA.svg" class="septa-brand-logo">Your browser does not support SVG</object>
+				</div>
+				<h3>Regional Rail Fares</h3>
+			</header>
+		</div>
+		<div class="row input-group">
+			<div class="col-2-4">
+				<label for="zoneSelect" class="input-label">Where are you going?</label>
+			</div>
+			<div class="col-2-4">
+				<select id="zoneSelect" class="rate-filter">
+					<option disabled selected>Select a Zone</option>
+					<option value="1">CCP/1</option>
+					<option value="2">Zone 2</option>
+					<option value="3">Zone 3</option>
+					<option value="4">Zone 4</option>
+					<option value="5">NJ</option>
+				</select>
+			</div>
+		</div>
+		<div class="row input-group">
+			<div class="col-2-4">
+				<label for="typeSelect" class="input-label">When are you riding?</label>
+			</div>
+			<div class="col-2-4">
+				<select id="typeSelect" class="rate-filter">
+					<option disabled selected>Select a Time</option>
+					<option value="anytime">Anytime</option>
+					<option value="weekday">Weekday</option>
+					<option value="evening_weekend">Evening\Weekend</option>
+				</select>
+				<span id="typeHelpText" class="help-text"></span>
+			</div>
+		</div>
+		<div class="row input-group">
+			<div class="col-2-4">
+				<span class="input-label">Where will you purchase the fare?</span>
+			</div>
+			<div class="col-2-4">
+				<label class="col-4">
+					<input type="radio" name="purchase-radio" value="advance_purchase" class="rate-filter"/>Station Kiosk
+				</label>
+				<label class="col-4">
+					<input type="radio" name="purchase-radio" value="onboard_purchase"  class="rate-filter"/>Onboard
+				</label>
+				<span id="purchaseHelpText" class="help-text"></span>
+			</div>
+		</div>
+
+		<div class="row input-group">
+			<div class="col-2-4">
+				<label for="rideQuantity" class="input-label">How many rides will you need?</label>
+			</div>
+			<div class="col-2-4">
+				<input id="rideQuantity" type="number" class="rate-filter">
+			</div>
+		</div>
+		<div class="row mask">
+			<footer class="row">
+					<div class="col-2-4">
+						<span class="input-label">Your fare will cost</span>
+					</div>
+					<div class="col-2-4">
+						<h1 id="fareCalculation" class="col-4">----</h1>
+					</div>
+			</footer>
+		</div>
+	</div>
+	<script type="text/javascript" src="https://code.jquery.com/jquery-1.12.1.min.js"></script>
+	<script type="text/javascript" src="js/util.js"></script>
+	<script type="text/javascript" src="js/fares.js"></script>
 </body>
 </html>

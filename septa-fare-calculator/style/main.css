@@ -1,0 +1,99 @@
+html {
+    box-sizing: border-box;
+    font-family: freight-text-pro,georgia,serif;
+}
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+.wrapper {
+    width: 97%;
+    margin: 0 auto;
+    float: none;
+    max-width: 550px;
+}
+header, footer{
+     background-color: #595959;
+     color: white;
+     padding: 0.5em 0;
+     text-align: center;
+     clear:both;
+ }
+header span,footer span{
+    padding: 1em;
+}
+header h3{
+    padding-right: 1em;
+}
+
+.input-group{
+    border: 0.1em solid lightgray;
+    padding: 1em;
+}
+.input-group select, input[type=number] {
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 0.5em;
+    margin: 0.5em;
+    width: 90%;
+}
+.input-group label{
+    margin: 0.25em;
+    text-align: left;
+    padding-left: 5em;
+}
+.input-group .input-label{
+    font-weight: bold;
+}
+span.help-text{
+    font-size: 0.6em;
+    color: #a9a9a9;
+}
+
+/*Responsive Styles -- On a 4 Column Base*/
+.row {
+    text-align: center;
+    width: 100%;
+}
+.row:before,
+.row:after{
+    content:"";
+    display: table;
+    clear:both;
+}
+[class*='col-']{
+    float: left;
+    margin-left: 2%;
+    min-height: 1px;
+}
+.col-1{
+    width: 22%;
+}
+[class*='col-2']{
+    width: 47%;
+}
+.col-3{
+    width: 72%;
+}
+.col-4{
+    width: 96%;
+}
+@media only screen and (max-width: 29.999em) {
+    .col-2-4{
+        width:96%
+    }
+}
+
+/*--Logo Media Queries--*/
+@media only screen and (max-width: 29.9999em) {
+    object.septa-brand-logo{
+        width: 3.5em;
+    }
+}
+@media only screen and (min-width: 30em) {
+    object.septa-brand-logo{
+        width: 5em;
+    }
+    h3{
+        font-size: 1.5em;
+    }
+}

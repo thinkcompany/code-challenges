@@ -5,12 +5,7 @@ html {
 *, *:before, *:after {
     box-sizing: inherit;
 }
-.wrapper {
-    width: 97%;
-    margin: 0 auto;
-    float: none;
-    max-width: 550px;
-}
+
 header, footer{
      background-color: #595959;
      color: white;
@@ -24,7 +19,15 @@ header span,footer span{
 header h3{
     padding-right: 1em;
 }
-
+object.septa-brand-logo{
+	margin: auto;
+}
+.wrapper {
+    width: 97%;
+    margin: 0 auto;
+    float: none;
+    max-width: 550px;
+}
 .input-group{
     border-width: 0.1em 0.1em 0 0.1em;
     border-color: lightgray;
@@ -90,6 +93,9 @@ span.help-text{
     object.septa-brand-logo{
         width: 3.5em;
     }
+	h3{
+		font-size: 1em;
+	}
 }
 @media only screen and (min-width: 30em) {
     object.septa-brand-logo{

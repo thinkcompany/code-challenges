@@ -3,12 +3,15 @@
  */
 "use strict";
 var fareCalculator = (function iife(){
+	//Cache Main Form
+	var $main = $("#main");
+	
     function getRideParameters() {
         return {
-            zone: $("#zoneSelect").val(),
-            type: $("#typeSelect").val(),
-            purchase: $("input[name=purchase-radio]:checked").val(),
-            trips: $("#rideQuantity").val()
+            zone: $main.find("#zoneSelect").val(),
+            type: $main.find("#typeSelect").val(),
+            purchase: $main.find("input[name=purchase-radio]:checked").val(),
+            trips: $main.find("#rideQuantity").val()
         }
     }
     function updateFare(data,params){
@@ -22,12 +25,12 @@ var fareCalculator = (function iife(){
             totalCost = fare.price;
         else
             totalCost = fare.price * Math.ceil(params.trips/fare.trips);
-        $("#fareCalculation").text(utilJS.formatCurrency(totalCost));
+        $main.find("#fareCalculation").text(utilJS.formatCurrency(totalCost));
     }
 
     function updateHelperText(data,params){
-        $("#typeHelpText").text(data.info[params.type]);
-        $("#purchaseHelpText").text(data.info[params.purchase]);
+        $main.find("#typeHelpText").text(data.info[params.type]);
+        $main.find("#purchaseHelpText").text(data.info[params.purchase]);
     }
     function queryFare(fareData,params){
         var zone = utilJS.getObjects(fareData,"zone",params.zone);
@@ -44,7 +47,7 @@ var fareCalculator = (function iife(){
     }
     function init(){
         //Bind Event Listener
-        $("#main").on("change",".rate-filter",function(){
+        $main.on("change",".rate-filter",function(){
             var params = getRideParameters();
             $.getJSON("./content/fares.json").done(function(data){
                 updateHelperText(data,params);

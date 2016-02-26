@@ -30,7 +30,7 @@
 
       <div class="input-group">
           <label for="num_rides">How many rides will you need?</label>
-          <input type="number" id="num_rides" v-model="num_rides" :step="fare.trips" min="0">
+          <input type="number" id="num_rides" v-model="num_rides" :step="fare.trips" min="1">
       </div>
 
       <div class="fare">Your fare will cost:&nbsp;<span class="cost">${{ cost }}</span></div>
@@ -44,12 +44,15 @@ import _ from 'underscore';
 export default {
   data () {
     return {
+      // This is the data fetched from the .json
       info: undefined,
       zones: undefined,
 
+      // Calculated based on selected input
       available_times: [],
       available_locations: [],
 
+      // These are the models selected from the input
       destination: undefined,
       when: undefined,
       purchase_location: undefined,
@@ -65,6 +68,8 @@ export default {
       if (!_.contains(this.available_locations, this.purchase_location)) {
           this.purchase_location = this.available_locations[0];
       }
+      var fare = _.findWhere(this.destination.fares, {type: this.when, purchase: this.purchase_location});
+      if (this.num_rides % this.fare.trips != 0) this.num_rides = this.fare.trips;
     }
   },
   computed: {

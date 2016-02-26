@@ -2,7 +2,7 @@
   <div class="app-container">
 
   <div class="app">
-      <h1>Regional Rail Fares</h1>
+      <h1 class="app-title"><img src="img/logo.png" width="50" height="50"> Regional Rail Fares</h1>
 
       <div class="input-group">
           <label for="destination">Where are you going?</label>
@@ -149,6 +149,11 @@ small {
   max-width: 32rem;
   width: 100%;
   border: 1px solid #eee;
+}
+.app-title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .fare {
   font-size: 1.5rem;

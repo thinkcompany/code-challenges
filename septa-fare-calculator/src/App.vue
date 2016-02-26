@@ -5,33 +5,35 @@
       <h1>Regional Rail Fares</h1>
 
       <div class="input-group">
-      <label for="destination">Where are you going?</label>
-      <select v-model="destination" id="destination" @change="update_zone">
-      <option v-for="zone in zones" :value="zone">{{ zone.name }}</option>
-      </select>
+          <label for="destination">Where are you going?</label>
+          <select v-model="destination" id="destination" @change="update_zone">
+              <option v-for="zone in zones" :value="zone">{{ zone.name }}</option>
+          </select>
       </div>
 
       <div class="input-group">
-      <label for="when">When are you riding?</label>
-      <select v-model="when" id="when" @change="update_type">
-      <option v-for="time in available_times" :value="time">{{ time }}</option>
-      </select>
+          <label for="when">When are you riding?</label>
+          <select v-model="when" id="when" @change="update_type">
+              <option v-for="time in available_times" :value="time">{{ time }}</option>
+          </select>
+          <small class="info">{{ info[when] }}</small>
       </div>
 
       <div class="input-group">
-      <label>Where will you purchase the fare?</label>
-      <span v-for="location in available_locations">
-      <input type="radio" :id="location" value="{{ location }}" v-model="purchase_location">
-      <label for="{{ location }}">{{ location }}</label>
-      </span>
+          <label>Where will you purchase the fare?</label>
+          <span v-for="location in available_locations">
+              <input type="radio" :id="location" value="{{ location }}" v-model="purchase_location">
+              <label for="{{ location }}">{{ location }}</label>
+          </span>
+          <small class="info">{{ info[purchase_location] }}</small>
       </div>
 
       <div class="input-group">
           <label for="num_rides">How many rides will you need?</label>
-          <input type="number" id="num_rides" v-model="num_rides" :step="fare.trips">
+          <input type="number" id="num_rides" v-model="num_rides" :step="fare.trips" min="0">
       </div>
 
-      <div class="fare">Your fare will cost: $ {{ cost }}</div>
+      <div class="fare">Your fare will cost:&nbsp;<span class="cost">${{ cost }}</span></div>
   </div>
 
 </template>
@@ -72,8 +74,9 @@ export default {
     },
     cost: function() {
       if (!this.destination) return 0;
+      if (this.num_rides == 0) return 0;
       var fare = _.findWhere(this.destination.fares, {type: this.when, purchase: this.purchase_location});
-      return fare.price * this.num_rides;
+      return fare.price * (this.num_rides / fare.trips);
     }
   },
   ready: function() {
@@ -96,23 +99,17 @@ export default {
 </script>
 
 <style lang="sass">
-html, body {
-  height: 100%;
-}
 body {
   font-family: Helvetica, sans-serif;
   font-size: 16px;
+  @media (max-width: 32rem) {
+    font-size: 12px;
+  }
   margin: 0;
   padding: 0;
 }
 h1 {
   text-align: center;
-}
-.input-group {
-  border: none;
-  display: flex;
-  flex-flow: column wrap;
-  align-items: center;
 }
 label {
   text-align: center;
@@ -122,21 +119,44 @@ input[type="text"] {
   width: 100%;
   line-height: 2rem;
 }
+small {
+  color: #555;
+}
+.input-group {
+  border: none;
+  display: flex;
+  flex-flow: column wrap;
+  align-items: center;
+  padding: 1rem;
+  border-bottom: 1px solid #eee;
+}
+.info {
+  text-align: center;
+  margin: 0.5rem 0;
+}
 .app-container {
   display: flex;
   flex-flow: row-wrap;
   justify-content: center;
-  align-items: center;
-  height: 100%;
+  margin: 1rem;
 }
 .app {
   max-width: 32rem;
   width: 100%;
   border: 1px solid #eee;
-  padding: 1rem;
 }
 .fare {
+  font-size: 1.5rem;
+  background: #333;
+  color: #eee;
+  padding: 1rem;
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+  justify-content: center;
+}
+.cost {
   font-size: 2rem;
-  text-align: center;
+  font-weight: bold;
 }
 </style>

@@ -1,32 +1,88 @@
 # SEPTA Rail Fare Calculator Challenge
 
-Hello, hopeful Think Brownstone development team member! 
+Hi!
+This is my solution to the SEPTA Rail Fare Calculator Challenge.
 
-Thank you for taking time to help us assess your front-end development skills. Part of the work we frequently are tasked with is combining complex business data with our design team's fresh new interfaces. Our development team makes these come to life with semantic, accessible HTML, CSS, and JavaScript. All of our philosophies are documented in [our standards](http://ph.ly/styleguide).
+I like to give a post-mortem after challenges so I can explain design choices, talk about difficulties and discuss changes and improvements I would like to make.
 
-Your challenge is to create an interactive widget for calculating SEPTA Regional Rail fare prices. (In case you're not familiar with Philadelphia's preeminent mass transit agency, here are all the railroads in map form.)
+# Introduction
 
-![SEPTA Zone Map](img/zone-map.jpg) 
+This application has been implemented using the [VueJS](http://blog.evanyou.me/2015/10/25/vuejs-re-introduction/) framework.
+The application is dynamic and pulls all information from the `fares.json` file.
+As a result, there is no hard coded information and if any changes need to be made to the fares, then they can be made directly to the `fares.json` file.
 
-When you take regional rail in and out of the city, the fare price is affected by where you purchase the ticket, when you ride, and how far you travel. You can learn more about the details on [SEPTA's website](http://www.septa.org/fares/ticket/index.html) -- or trust that we've correctly compiled this information into this [JSON file](fares.json). We'd like you to make this information easier to understand by making an interactive fare purchase widget, illustrated in the screenshot below.
+All in all, the implementation took ~50 minutes (not including this write up).
 
-![Widget mockup](img/widget.png)
+Due to the nature of AJAX and cross domain requests, you need to run a simple HTTP server.
+Provided you are on a \*nix or OSX box, you can simply do the following:
 
-## Instructions
-* Develop the HTML and CSS for the widget seen in the screenshot above. Feel free to make this responsive, and keep accessibility in mind.
-* Assume that your code would be handed off to a back-end developer for integration. It could end up on a page with other content and widgets, so keep this in mind when you are making decisions about naming conventions.
-* Write JavaScript to request [fares.json](fares.json) via AJAX and populate the widget with live data. End users should be able to see the fare total update when they use the widget controls.
-* We care more about functionality than style - we'd rather see a partially-styled working prototype than a pixel-perfect widget that isn't doing fare calculations. Try to balance your time appropriately!
-* It should go without saying - please comment your code to state any assumptions or decisions you're making during this assignment -- or just to say hi. :-)
+    cd ~/code-challenges/septa-fare-calculator/
+    python -M SimpleHTTPServer
 
-## Requirements
-* *Browser Support*: Internet Explorer 8+, Google Chrome, Firefox, Safari for iOS, and Chrome for Android.
-* *Libraries & Frameworks*: You are welcome to bring in JavaScript libraries (like jQuery) or frameworks (like Angular or React). You may also author your JS with vanilla DOM methods, as long as they are compatible with the browser requirements. Please don't include an entire CSS framework like Bootstrap -- we want to see your HTML and CSS, not theirs.
-* *Standards*: Your solution should be valid, semantic, accessible, and performant. To get an idea of what how we're doing things, please feel free to review our [development standards](http://ph.ly/styleguide).
-* *Time*: Please limit yourself to 60 minutes to work on your solution. We don't expect you to overexert yourself to deliver a perfectly finished product!
-* *Submission*: Fork this repository and make a pull request for us to review your code. If you're not familiar with git or Github, you can download this repo and send us a ZIP file when you're done.
+This makes a simple HTTP server available on [127.0.0.1:8000](http://127.0.0.1:8000).
 
-## Resources
-* [Think Brownstone Development Standards](http://ph.ly/styleguide)
-* [SEPTA Fares](http://www.septa.org/fares/ticket/index.html)
-* [SEPTA Logo (SVG)](https://commons.wikimedia.org/wiki/File:SEPTA.svg)
+Alternatively, since was built using the [vue-cli](https://github.com/vuejs/vue-cli) scaffolding, you can run `npm run dev`.
+Make sure to `npm install` first though!
+This will boot a server on [127.0.0.1:8080](http://127.0.0.1:8080), with the added advantage of hotreloading whilst developing.
+
+# Design Choices
+
+I chose to use VueJS as the Framework for my solution.
+VueJS is a new JavaScript framework which has begun gaining traction.
+The main advantage it has over a framework like AngularJS, is simplicity.
+Tools like vue-cli, also make it easy to develop apps that function right out ogf the box.
+
+Really, the most important thing for this project was to have two-way binding to make sure that the fare updates in real-time.
+
+For a more complete understanding of VueJs, I would recommend checking out the [documents](http://vuejs.org/guide/).
+However as far as evaluating the project, the main file of interest is `src/App.vue`.
+This file contains HTML, JavaScript and SASS all in one.
+Packaging HTML, JS and SASS all into one file helps when designing larger projects, as we can split the project into self contained 'components'.
+
+I chose to use the FlexBox from the CSS3 specification.
+Although I am aware there is no support for < IE9 (against specification), I hope I can justify this choice as follows:
+
+1. Faster design and development given the time constraint.
+2. I wanted demonstrate my knowledge of the latest CSS3 specification.
+
+# Difficulties
+
+The largest difficulty I faced, relates to the special cases on the input.
+Specifically, when you select 'anytime' then the 'where will you purchase the fair options' change.
+Similarly if you select 'anythime', then the my understanding is that you can you can only purchase rides in multiples of ten.
+
+Implemtation of these special cases was easy enough.
+The difficulty arises when a user inputs 'onboard purchase' then changes to riding from 'anywhere', such that the 'onboard purchase' is no longer available.
+
+The second difficulty was handling the data format from the `fares.json` file, this was more of a logistical issue of how to query this data.
+This was solved by using the [underscore.js](http://underscorejs.org/) library.
+
+# Changes and Improvements
+
+The first thing I want to note, is my lack of comments in the code.
+This is partially due to the relatively simple nature of this application and partly due to VueJS handling most of the complexities.
+I would love to hear feedback as to how correct I am on this though...
+
+Secondly, alot of the text displayed in options and text is read straight from the `fares.json` file.
+One solution would be to add a `display` field to the `fares.json` file, but this would require restructuring a lot of data.
+Perhaps a more modular solution is to add a `lang_en.json` file, or something of the sort.
+This would allow the option for localization as well.
+
+    {
+      "translations": {
+        "anytime": "Anytime",
+        "weekday": "Weekdays",
+        "evening_weekend": "Evenings or Weekends"
+      }
+    }
+
+One other issue I have is that the anytime option doesn't seem to have any information regarding the fact that it seems to package 10 rides.
+This may however be an issue with my understanding.
+
+# Conclusion
+
+I had fun completing the challenge and I hope you enjoy my solution!
+As is often the case, this solution is not perfect and ignores some issues.
+
+I would be happy to answer any questions about my design choices as well as just general questions!
+

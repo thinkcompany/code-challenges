@@ -30,7 +30,7 @@
 
       <div class="input-group">
           <label for="num_rides">How many rides will you need?</label>
-          <input type="number" id="num_rides" v-model="num_rides" :step="fare.trips" min="1">
+          <input type="number" id="num_rides" v-model="num_rides" :step="fare.trips" min="0">
       </div>
 
       <div class="fare">Your fare will cost:&nbsp;<span class="cost">${{ cost }}</span></div>

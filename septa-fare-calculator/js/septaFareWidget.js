@@ -46,19 +46,27 @@ $.ajax({
 	}
 
 	function updateForm() {
-		if ( $("select[name=septaFareWidget__time]").val() === '2' ) {
-			$('#septaFareWidget__location--onboard').attr("disabled", true);
-			$('#septaFareWidget__location--onboardLabel').css("opacity", .3)
-			$('#septaFareWidget__tickets--label').text('How many sets of 10 rides will you need?');
-			$("#septaFareWidget__time--info").text(fares.info.anytime + '. Ticket can only be purchased at a station kiosk.');
-		} else if ( $("select[name=septaFareWidget__time]").val() === '1' ) {
-			$('#septaFareWidget__location--onboard').attr("disabled", false);
-			$('#septaFareWidget__tickets--label').text('How many rides will you need?');
-			$("#septaFareWidget__time--info").text(fares.info.evening_weekend);
+		var $time = $("select[name=septaFareWidget__time]"),
+			$onboard = $('#septaFareWidget__location--onboard'),
+			$onboardLabel = $('#septaFareWidget__location--onboardLabel'),
+			$ticketsLabel = $('#septaFareWidget__tickets--label'),
+			$timeInfo = $("#septaFareWidget__time--info")
+
+		if ( $time.val() === '2' ) {
+			$onboard.attr("disabled", true);
+			$onboardLabel.css("opacity", .3);
+			$ticketsLabel.text('How many sets of 10 rides will you need?');
+			$timeInfo.text(fares.info.anytime + '. Ticket can only be purchased at a station kiosk.');
+		} else if ( $time.val() === '1' ) {
+			$onboard.attr("disabled", false);
+			$onboardLabel.css("opacity", 1);
+			$ticketsLabel.text('How many rides will you need?');
+			$timeInfo.text(fares.info.evening_weekend);
 		} else {
-			$('#septaFareWidget__location--onboard').attr("disabled", false);
-			$('#septaFareWidget__tickets--label').text('How many rides will you need?');
-			$("#septaFareWidget__time--info").text(fares.info.weekday);
+			$onboard.attr("disabled", false);
+			$onboardLabel.css("opacity", 1);
+			$ticketsLabel.text('How many rides will you need?');
+			$timeInfo.text(fares.info.weekday);
 		}
 	}
 

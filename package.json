@@ -1,0 +1,22 @@
+{
+  "name": "code-challenges",
+  "version": "1.0.0",
+  "description": "Septa fare calculator for Think Brownstone",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alexjhannan/code-challenges.git"
+  },
+  "author": "Alex Hannan",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/alexjhannan/code-challenges/issues"
+  },
+  "homepage": "https://github.com/alexjhannan/code-challenges#readme",
+  "dependencies": {
+    "express": "4.13.4"
+  }
+}

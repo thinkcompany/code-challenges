@@ -55,6 +55,12 @@ input[type=number]::-webkit-outer-spin-button {
 
 .septaFareWidget__block input[name=septaFareWidget__location]{
 	width: 20px;
+	cursor: pointer;
+}
+
+.septaFareWidget__block input[disabled='disabled']{
+	cursor: default;
+	opacity: .3;
 }
 
 #septaFareWidget__time--info {

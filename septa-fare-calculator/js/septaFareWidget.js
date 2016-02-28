@@ -48,8 +48,9 @@ $.ajax({
 	function updateForm() {
 		if ( $("select[name=septaFareWidget__time]").val() === '2' ) {
 			$('#septaFareWidget__location--onboard').attr("disabled", true);
+			$('#septaFareWidget__location--onboardLabel').css("opacity", .3)
 			$('#septaFareWidget__tickets--label').text('How many sets of 10 rides will you need?');
-			$("#septaFareWidget__time--info").text(fares.info.anytime);
+			$("#septaFareWidget__time--info").text(fares.info.anytime + '. Ticket can only be purchased at a station kiosk.');
 		} else if ( $("select[name=septaFareWidget__time]").val() === '1' ) {
 			$('#septaFareWidget__location--onboard').attr("disabled", false);
 			$('#septaFareWidget__tickets--label').text('How many rides will you need?');

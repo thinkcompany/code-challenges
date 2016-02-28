@@ -6,8 +6,11 @@ $.ajax({
 		console.log(err)
 	}
 }).then(function(fares){
-	// init form with time-based data
+	// everything fires off inside of this callback, which means this script has no global footprint other than the AJAX request
+
+	// update the form to initialize
 	updateForm();
+
 	// on form input, update the fare
 	$(".septaFareWidget__form").on('input', updateFare)
 
@@ -20,6 +23,7 @@ $.ajax({
 	$("select[name=septaFareWidget__time]").on('change', updateForm)
 
 	function updateFare() {
+		// grabs data from the form and updates the fare accordingly
 		var result = '?',
 			zone = $("select[name=septaFareWidget__zone]").val(),
 			time = $("select[name=septaFareWidget__time]").val(),
@@ -46,6 +50,10 @@ $.ajax({
 	}
 
 	function updateForm() {
+		// depending on the selected time, changes a couple elements
+		// 1) Label for number of tickets
+		// 2) Whether or not "Onboard" is selectable (opacity set to .3 when disabled, 1 when active)
+		// 3) Info label for what each time means
 		var $time = $("select[name=septaFareWidget__time]"),
 			$onboard = $('#septaFareWidget__location--onboard'),
 			$onboardLabel = $('#septaFareWidget__location--onboardLabel'),
@@ -56,6 +64,7 @@ $.ajax({
 			$onboard.attr("disabled", true);
 			$onboardLabel.css("opacity", .3);
 			$ticketsLabel.text('How many sets of 10 rides will you need?');
+			// added a line of text to the existing info for 'Anytime' to be more informative.
 			$timeInfo.text(fares.info.anytime + '. Ticket can only be purchased at a station kiosk.');
 		} else if ( $time.val() === '1' ) {
 			$onboard.attr("disabled", false);

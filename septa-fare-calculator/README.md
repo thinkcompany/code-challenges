@@ -2,7 +2,7 @@
 
 Hello, hopeful Think Brownstone development team member! 
 
-Thank you for taking time to help us assess your front-end development skills. Part of the work we frequently are tasked with is combining complex business data with our design team's fresh new interfaces. Our development team makes these come to life with semantic, accessible HTML, CSS, and JavaScript. All of our philosophies are documented in [our standards](http://ph.ly/styleguide).
+Thank you for taking time to help us assess your front-end development skills. Part of the work we frequently are tasked with is combining complex business data with our design team's fresh new interfaces. Our development team makes these come to life with semantic, accessible HTML, CSS, and JavaScript. All of our philosophies are documented in [our standards](https://bitbucket.org/thinkbrownstone/tbi_dev-standards/src).
 
 Your challenge is to create an interactive widget for calculating SEPTA Regional Rail fare prices. (In case you're not familiar with Philadelphia's preeminent mass transit agency, here are all the railroads in map form.)
 
@@ -22,11 +22,11 @@ When you take regional rail in and out of the city, the fare price is affected b
 ## Requirements
 * *Browser Support*: Internet Explorer 8+, Google Chrome, Firefox, Safari for iOS, and Chrome for Android.
 * *Libraries & Frameworks*: You are welcome to bring in JavaScript libraries (like jQuery) or frameworks (like Angular or React). You may also author your JS with vanilla DOM methods, as long as they are compatible with the browser requirements. Please don't include an entire CSS framework like Bootstrap -- we want to see your HTML and CSS, not theirs.
-* *Standards*: Your solution should be valid, semantic, accessible, and performant. To get an idea of what how we're doing things, please feel free to review our [development standards](http://ph.ly/styleguide).
+* *Standards*: Your solution should be valid, semantic, accessible, and performant. To get an idea of what how we're doing things, please feel free to review our [development standards](https://bitbucket.org/thinkbrownstone/tbi_dev-standards/src).
 * *Time*: Please limit yourself to 60 minutes to work on your solution. We don't expect you to overexert yourself to deliver a perfectly finished product!
 * *Submission*: Fork this repository and make a pull request for us to review your code. If you're not familiar with git or Github, you can download this repo and send us a ZIP file when you're done.
 
 ## Resources
-* [Think Brownstone Development Standards](http://ph.ly/styleguide)
+* [Think Brownstone Development Standards](https://bitbucket.org/thinkbrownstone/tbi_dev-standards/src)
 * [SEPTA Fares](http://www.septa.org/fares/ticket/index.html)
 * [SEPTA Logo (SVG)](https://commons.wikimedia.org/wiki/File:SEPTA.svg)

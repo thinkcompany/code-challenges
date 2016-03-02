@@ -6,6 +6,7 @@ TO-DO:
 - All data-query code should be moved to a factory function, but time prevented it today 
 - Module needs an init method to display correct total fare and help text when first viewed.
 - Needs support for 10-ride fares
+- Remove event listeners from HTML page
 - General cleanup...
 */
 

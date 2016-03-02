@@ -1,10 +1,53 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-ng-app="fareFinder">
 <head>
 	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/normalize.css" />
+    <link rel="stylesheet" href="css/fare-finder.css" />
 	<title>SEPTA Regional Rail Fare Calculator</title>
 </head>
 <body>
-	
+	<div class="container">
+		<div class="fare-finder" ng-controller="mainController">
+			<header>
+				<span class="logo"><img src="img/SEPTA.svg"></span>
+				<span class="title">Regional Rail Fares</span>
+			</header>
+			<form>
+				<p>
+					<label for="dest">Where are you going?</label>
+					<select id="dest" data-ng-model="tripDetails.destination" data-ng-change="getPrice()" data-ng-options="zone.zone as zone.name for zone in zones">
+
+					</select>
+				</p>
+				<p>
+					<label for="dest">When are you riding?</label>
+					<select id="dest" data-ng-model="tripDetails.type" data-ng-change="getPrice()">
+						<option value="weekday">Weekdays</option>
+						<option value="evening_weekend">Evenings/Weekends</option>
+					</select>
+					<span class="helper-text">{{helperText}}</span>
+				</p>
+				<p>
+					<span class="label">Where will you purchase the fare?</span>
+					<label for="station" class="horizontal"><input type="radio" id="station" name="purchase" data-ng-model="tripDetails.purchase" value="advance_purchase" data-ng-click="getPrice()">Station Kiosk</label>
+					<label for="onboard" class="horizontal"><input type="radio" id="onboard" name="purchase" data-ng-model="tripDetails.purchase" value="onboard_purchase" data-ng-click="getPrice()">Onboard</label>
+				</p>
+				<p>
+					<label for="qty">How many rides will you need?</label>
+					<input type="text" class="text-small" data-ng-model="tripDetails.qty" data-ng-change="getPrice()">
+				</p>
+				<footer>
+					<span class="label">Your fare will cost</span>
+					<output class="" data-ng-model="fare">{{fare | currency}}</output>
+				</footer>
+			</form>
+		</div>
+	</div>
+	<script src="js/vendor/jquery-1.12.1.min.js"></script>
+    <script src="js/vendor/angular.min.js"></script>
+    <script src="js/fare-finder.js"></script>
 </body>
 </html>

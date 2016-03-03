@@ -6,37 +6,37 @@
   <link rel="stylesheet" type="text/css" href="index.css">
 </head>
 <body>
-	<section class="widget" id="fare">
-    <h1 class="bookend">Regional Rail Fares</h1>
+	<section class="septa" id="fare">
+    <div class="bookend">
+      <h1>Regional Rail Fares</h1>
+    </div>
     <form>
-      <article>
+      <fieldset class="septa-fieldset">
         <label>Where are you going?</label>
-        <select id="faresOne">
-        </select>
-      </article>
-      <article>
+        <select septaQ="destination"></select>
+      </fieldset>
+      <fieldset class="septa-fieldset">
         <label>When are you riding?</label>
-        <select id="faresTwo">
-          <option value="weekday">Weekday</option>
+        <select septaQ="time">
+          <option value="weekday" select="true">Weekday</option>
           <option value="evening_weekend">Evening/Weekend</option>
-          <option value="anytime">Anytime</option>
         </select>
-      </article>
-      <article>
+      </fieldset>
+      <fieldset class="septa-fieldset">
         <label>Where will you purchase the fare?</label>
-        <div id="faresThree">
-          <input type="radio" name="where" value="advance_purchase">Station Kiosk</input><br />
-          <input type="radio" name="where" value="onboard_purchase">Onboard</input>
+        <div septaQ="purchaseLoc">
+          <input id="septa-purchaseAdv" type="radio" name="where" value="advance_purchase" checked="checked" /><label for="septa-purchaseAdv">Station Kiosk</label><br />
+          <input id="septa-purchaseOnb" type="radio" name="where" value="onboard_purchase" /><label for="septa-purchaseOnb">Onboard</label>
         </div>
-      </article>
-      <article>
+      </fieldset>
+      <fieldset class="septa-fieldset test">
         <label>How many rides will you need?</label>
-        <input id="faresFour" type="text"></input>
-      </article>
-      <article class="bookend">
+        <input septaQ="tixAmount" type="text"></input>
+      </fieldset>
+      <div class="bookend">
         <p>Your fare will cost<p>
         <div id="fareCost"></div>
-      </article>
+      </div>
     </form>
   </section>
   <script src="http://code.jquery.com/jquery-1.12.0.min.js"></script>

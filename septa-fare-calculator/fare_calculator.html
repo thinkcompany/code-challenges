@@ -38,21 +38,21 @@
                 <br>
                 <label>
                     Where will you purchase the fare?<br>
-                    <input type="radio" name="place" value="station-kiosk"> Station Kiosk<br>
-                    <input type="radio" name="place" value="onboard" checked> Onboard<br>
+                    <input type="radio" name="place" value="advance_purchase"> Station Kiosk<br>
+                    <input type="radio" name="place" value="onboard_purchase" checked> Onboard<br>
                 </label>
                 <br>
                 <label>
                     How many rides will you need?<br>
-                    <input type="numRides" id="quantity">
+                    <input type="numRides" id="numRides">
                 </label>
-                <button type="button" id="calculate">Calculate!</button>
             </form>
         </div><!-- calculator -->
         <div id="totalFare">
             <sup>$</sup><span id="fare">0.00</span>
         </div><!--totalFare-->
     </div><!-- container -->
+    
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
     <script type="text/javascript" src="script.js"></script>
 </body>

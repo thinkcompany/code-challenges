@@ -1,28 +1,49 @@
 // script.json
 
-// Custom function
-function calculateFare() {
-    // Store data of inputs
-    var zones = document.getElementById("zones").value;
-    var travelTime = document.getElementById("travelTime").value;
-    var place = document.getElementById("place").value;
-    var numRides = document.getElementById("numRides").value;
+$(document).ready(function() {
+   var price=0;
 
-   // Check to see if this input  is less than or equal to 1
-   if(numRides <= 1) {
-        numRides = 1;
+  $("#numRides").keyup(function() {
+   ajaxCall();   
+  });
 
-        document.getElementById("Your fare will cost").style.display = "none";
-   } else {
-        document.getElementById("Your fare will cost").style.display = "block";
-   }
+  $("select").change(function() {
+   ajaxCall(); 
+  });
 
-   //
-}
+  $("input[name='place']").change(function() {
+   ajaxCall();  
+  });
 
-// Hide fare amount on load
-document.getElementById("totalFare").style.display = "none";
-document.getElementById("Your fare will cost").style.display = "none";
 
-// Clicking the button for Calling our custom function
-document.getElementById("calculate").onclick = function() { calculateFare(); };
+  function ajaxCall(){
+    $.ajax({
+            url: "fares.json",
+            type: "POST",
+            dataType: "json",
+            success: function(data) {
+
+                $.each(data.zones, function(index, value) {
+                    if(value.name==$("#zones").find("option:selected").text()){
+                      
+                            for(var i=0;i<value.fares.length;i++){
+                                if((value.fares[i].type==$("#travelTime").val()) && (value.fares[i].purchase==$("input[name='place']:checked").val())){
+                                   price= value.fares[i].price;
+                                   var number = $("#numRides").val();  
+                                   $("#fare").text("$"+ (price*number).toFixed(2));
+                            }
+
+                     }    
+                                
+                       // }
+                 }
+                        
+
+            });
+                 
+        },
+
+        });
+
+    }   
+});

@@ -40,7 +40,11 @@
                     } else {
                         $scope.model.fareTotal = rides * farePrice;
                     }
-                } else $scope.model.fareTotal = farePrice;
+                } else {
+                    // no fare found for selected options (example case: Anytime, Onboard Purchase)
+                    $scope.model.fareTotal = farePrice;
+                }
+
             }
         };
     });

@@ -1,10 +1,83 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+
+	<link href="styles.css" rel="stylesheet" media="screen" />
+
 	<title>SEPTA Regional Rail Fare Calculator</title>
 </head>
+
 <body>
-	
+
+	<!-- Begin Form Div -->
+	<div class="septa-fare-calculator">
+		<form>
+
+			<!-- Begin Regional Rail Fares -->
+			<div class="form-top">
+					<img src="img/septa-logo.png">
+					<h1>Regional Rail Fares</h1>
+			</div>
+			<!-- End Regional Rail Fares -->
+
+			<!-- Begin Zone -->
+			<div class="form-input">
+				<h2>Where are you going?</h2>
+					<select name="zone">
+						<option value="zone1">Zone 1</option>
+						<option value="zone2">Zone 2</option>
+						<option value="zone3">Zone 3</option>
+						<option value="zone4">Zone 4</option>
+					</select>
+			</div>
+			<!-- End Zone -->
+
+			<!-- Begin Fare Type -->
+			<div class="form-input">
+				<h2>When are you riding?</h2>
+					<select name="fare_type">
+						<option value="weekday">Weekday</option>
+						<option value="evening_weekend">Evening/Weekend</option>
+						<option value="anytime">Anytime</option>
+					</select>
+				<div class="helper-text">
+					<p>Weekday fares are valid Monday through Friday, 4:00 a.m. - 7:00 p.m. On trains arriving or departing 30th Street Station, Suburban and Jefferson Station</p>
+					<p>Evening/Weekend fares are valid weekdays after 7:00 p.m.; all day Saturday, Sunday and major holidays. On trains arriving or departing 30th Street Station, Suburban and Jefferson Station</p>
+					<p>Anytime fares are valid at any time.</p>
+				</div>
+			</div>
+			<!-- End Fare Type -->
+
+			<!-- Begin Purchase Location -->
+			<div class="form-input">
+				<h2>Where will you purchase the fare?</h2>
+					<input type="radio" name="purchase_location" value="advance_purchase">Station Kiosk<br>
+					<input type="radio" name="purchase_location" value="onboard_purchase">Onboard<br>
+			</div>
+			<!-- End Purchase Location -->
+
+			<!-- Begin # Rides -->
+			<div class="form-input">
+				<h2>How many rides will you need?</h2>
+					<input type="text" name="quantity">
+			</div>
+			<!-- End # Rides -->
+
+			<!-- Begin Total $ -->
+			<div class="form-bottom">
+				<h2>Your fare will cost</h2>
+				<div>$28.00</div>
+
+			</div>
+			<!-- End Total $ -->
+
+		</form>
+	</div>
+	<!-- End Form Div -->
+
 </body>
+
 </html>

@@ -1,10 +1,62 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="UTF-8">
-	<title>SEPTA Regional Rail Fare Calculator</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>SEPTA Regional Rail Fare Calculator</title>
+
+    <link rel="shortcut icon" href="img/favicon.ico" type='image/x-icon'>
+    <link rel="stylesheet" href="css/main.css">
 </head>
 <body>
-	
+    <div class="widget">
+        <div class="header">
+            <img src="img/regional-fares-masthead.gif" alt="Regional Rail Fares">
+        </div><!-- /header -->
+
+        <div class="status hide">Status: <span data-bind="text: appStatus()"></span></div>
+
+        <!-- zone -->
+        <div class="request_info">
+            <p>Where are you going?</p>
+            <select name="zones" data-bind="foreach: zoneNames">
+                <option data-bind="text: $data, attr: {value: $data}">choose an option</option>
+            </select>
+        </div><!-- /zone -->
+
+        <!-- when -->
+        <div class="request_info">
+            <p>When are you riding?</p>
+            <select name="when" data-bind="foreach: when()">
+                <option data-bind="text: $data, attr: {value: $data}">choose an option</option>
+            </select>
+        </div><!-- when -->
+
+        <!-- purchase where -->
+        <div class="request_info">
+            <p>Where will you purchase the fare?</p>
+            <input type="radio" name="where" data-bind="attr: {value: purchaseLoc()[0]}" checked>Station Kisok<br>
+            <input type="radio" name="where" value="There will be a value">OnBoard<br>
+        </div><!-- purchase where -->
+
+        <!-- rides -->
+        <div class="request_info">
+            <p>How many rides will you need?</p>
+            <input type="number" name="rides" min="1" max="10" data-bind="attr: {value: rides()}">
+        </div><!-- /rides -->
+
+        <!-- total -->
+        <div class="total">
+            Your fare will cost<br>
+            <span class="total_cost">$</span>
+        </div><!-- /total -->
+
+    </div><!-- /widget -->
+
+    <script type="text/javascript" src="https://code.jquery.com/jquery-1.12.1.min.js"></script>
+    <script type="text/javascript" src="js/lib/knockout-3.4.0.js"></script>
+    <script type="text/javascript" src="js/main.js"></script>
 </body>
 </html>

@@ -16,41 +16,43 @@
             <img src="img/regional-fares-masthead.gif" alt="Regional Rail Fares">
         </div><!-- /header -->
 
+        <!-- for testing only -->
         <div class="status hide">Status: <span data-bind="text: appStatus()"></span></div>
 
         <!-- zone -->
         <div class="request_info">
             <p>Where are you going?</p>
-            <select name="zones" data-bind="foreach: zoneNames">
-                <option data-bind="text: $data, attr: {value: $data}">choose an option</option>
+            <select class="zone" name="zone" data-bind="foreach: zones(), event: {change: getFare}">
+                <option data-bind="text: 'Zone ' + $data.zone, value: $data.zone"></option>
             </select>
         </div><!-- /zone -->
 
         <!-- when -->
         <div class="request_info">
             <p>When are you riding?</p>
-            <select name="when" data-bind="foreach: when()">
-                <option data-bind="text: $data, attr: {value: $data}">choose an option</option>
+            <select class="when" name="when" data-bind="foreach: when(), event: {change: getFare}">
+                <option data-bind="text: $data, attr: {value: $data}"></option>
             </select>
         </div><!-- when -->
 
         <!-- purchase where -->
         <div class="request_info">
             <p>Where will you purchase the fare?</p>
-            <input type="radio" name="where" data-bind="attr: {value: purchaseLoc()[0]}" checked>Station Kisok<br>
-            <input type="radio" name="where" value="There will be a value">OnBoard<br>
+            <select class="where" data-bind="foreach: purchaseLocs(), event: {change: getFare}">
+                <option name="where" data-bind="text: $data, value: $index"></option>
+            </select>
         </div><!-- purchase where -->
 
         <!-- rides -->
         <div class="request_info">
             <p>How many rides will you need?</p>
-            <input type="number" name="rides" min="1" max="10" data-bind="attr: {value: rides()}">
+            <input class="rides" type="number" name="rides" min="1" max="10" data-bind="value: rides(), event: {change: getFare}">
         </div><!-- /rides -->
 
         <!-- total -->
         <div class="total">
             Your fare will cost<br>
-            <span class="total_cost">$</span>
+            <span class="total_cost" data-bind="text: '$' + currentPrice()"></span>
         </div><!-- /total -->
 
     </div><!-- /widget -->

@@ -5,7 +5,7 @@
 var fareCalculator = (function iife(){
 	//Cache Main Form
 	var $main = $("#main");
-	
+    var data = null;
     function getRideParameters() {
         return {
             zone: $main.find("#zoneSelect").val(),
@@ -15,9 +15,6 @@ var fareCalculator = (function iife(){
         }
     }
     function updateFare(data,params){
-        if(params.zone == null || params.purchase == null || params.type == null || params.trips === "") {
-            return false;
-        }
         var fare = queryFare(data,params);
         var totalCost;
         //If Bulk Purchasing is necessary use that price
@@ -27,7 +24,6 @@ var fareCalculator = (function iife(){
             totalCost = fare.price * Math.ceil(params.trips/fare.trips);
         $main.find("#fareCalculation").text(utilJS.formatCurrency(totalCost));
     }
-
     function updateHelperText(data,params){
         $main.find("#typeHelpText").text(data.info[params.type]);
         $main.find("#purchaseHelpText").text(data.info[params.purchase]);
@@ -46,13 +42,17 @@ var fareCalculator = (function iife(){
         }
     }
     function init(){
+        //Kick of Fares Data Call to cache
+        $.getJSON("./content/fares.json").done(function(data) {
+            iife.data = data;
+        });
         //Bind Event Listener
         $main.on("change",".rate-filter",function(){
             var params = getRideParameters();
-            $.getJSON("./content/fares.json").done(function(data){
-                updateHelperText(data,params);
-                updateFare(data,params);
-            });
+            updateHelperText(iife.data,params);
+            if(params.zone !== null && params.purchase !== null && params.type !== null && params.trips !== "") {
+                updateFare(iife.data,params);
+            }
         });
     }
     return {

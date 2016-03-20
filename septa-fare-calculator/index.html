@@ -10,73 +10,76 @@
 	<title>SEPTA Regional Rail Fare Calculator</title>
 </head>
 
-<body>
+<body ng-app="SeptaFareCalculator">
 
 	<!-- Begin Form Div -->
-	<div class="septa-fare-calculator">
+	<div class="septa-fare-calculator" ng-controller="SeptaFareCalculatorController">
 		<form>
 
 			<!-- Begin Regional Rail Fares -->
 			<div class="form-top">
 				<img src="img/septa-logo.png">
-				<h1>Regional Rail Fares</h1>
+				<h2>Regional Rail Fares</h2>
 			</div>
 			<!-- End Regional Rail Fares -->
 
 			<!-- Begin Zone -->
 			<div class="form-input">
-				<h2>Where are you going?</h2>
-				<select name="zone">
-					<option value="zone1">Zone 1</option>
-					<option value="zone2">Zone 2</option>
-					<option value="zone3">Zone 3</option>
-					<option value="zone4">Zone 4</option>
+				<h3>Where are you going?</h3>
+				<select ng-model="zone">
+					<option value="1">Zone 1</option>
+					<option value="2">Zone 2</option>
+					<option value="3">Zone 3</option>
+					<option value="4">Zone 4</option>
 				</select>
 			</div>
 			<!-- End Zone -->
 
 			<!-- Begin Fare Type -->
 			<div class="form-input">
-				<h2>When are you riding?</h2>
-				<select name="fare_type">
+				<h3>When are you riding?</h3>
+				<select ng-model="fare_type">
 					<option value="weekday">Weekday</option>
 					<option value="evening_weekend">Evening/Weekend</option>
-					<option value="anytime">Anytime</option>
 				</select>
 				<div class="helper-text">
-					<p>Weekday fares are valid Monday through Friday, 4:00 a.m. - 7:00 p.m. On trains arriving or departing 30th Street Station, Suburban and Jefferson Station</p>
-					<p>Evening/Weekend fares are valid weekdays after 7:00 p.m.; all day Saturday, Sunday and major holidays. On trains arriving or departing 30th Street Station, Suburban and Jefferson Station</p>
-					<p>Anytime fares are valid at any time.</p>
+					<p>Weekday fares are valid Monday through Friday, 4:00 a.m. - 7:00 p.m.</p>
+					<p>Evening/Weekend fares are valid weekdays after 7:00 p.m.; all day Saturday, Sunday and major holidays.</p>
+					<!-- Although 'anytime' is a valid option, it can only be purchased in a block of 10.
+					This would require some additional explanation and probably a much more advanced user interface.
+					For the purposes of this exercise, I thought it makes sense to leave this option out. -->
 				</div>
 			</div>
 			<!-- End Fare Type -->
 
 			<!-- Begin Purchase Location -->
 			<div class="form-input">
-				<h2>Where will you purchase the fare?</h2>
-				<input type="radio" name="purchase_location" value="advance_purchase">Station Kiosk<br>
-				<input type="radio" name="purchase_location" value="onboard_purchase">Onboard<br>
+				<h3>Where will you purchase the fare?</h3>
+				<input type="radio" ng-model="purchase_location" value="advance_purchase">Station Kiosk<br>
+				<input type="radio" ng-model="purchase_location" value="onboard_purchase">Onboard<br>
 			</div>
 			<!-- End Purchase Location -->
 
 			<!-- Begin # Rides -->
 			<div class="form-input">
-				<h2>How many rides will you need?</h2>
-				<input type="text" name="quantity">
+				<h3>How many rides will you need?</h3>
+				<input type="number" min="1" value="1" ng-model="quantity">
 			</div>
 			<!-- End # Rides -->
 
 			<!-- Begin Total $ -->
 			<div class="form-bottom">
-				<h2>Your fare will cost</h2>
-				<div>$28.00</div>
-
+				<h3>Your fare will cost</h3>
+				<h1>{{fareCostCalculator(zone, fare_type, purchase_location, quantity) | currency}}</h1>
 			</div>
 			<!-- End Total $ -->
 
 		</form>
 	</div>
 	<!-- End Form Div -->
+
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular.min.js"></script>
+	<script src="app.js"></script>
 
 </body>
 

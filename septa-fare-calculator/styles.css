@@ -8,7 +8,15 @@ h1 {
 }
 
 h2 {
+	color: white;
+}
+
+.form-input h3 {
 	color: #4D4D4D;
+}
+
+.form-bottom h3 {
+	color: white;
 }
 
 .septa-fare-calculator {
@@ -29,7 +37,6 @@ h2 {
 .form-bottom {
 	background-color: gray;
 	padding: 50px;
-	font: white;
 }
 
 .helper-text {

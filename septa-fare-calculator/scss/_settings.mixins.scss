@@ -1,0 +1,96 @@
+/* ===========================================================
+   MIXINS & EXTENDS
+=========================================================== */
+
+/* This contains mixins & extends for this project. */
+
+%clearfix {
+    &:after {
+        content: ".";
+        display: block;
+        clear: both;
+        height: 0;
+        overflow: hidden;
+        visibility: hidden;
+    }
+    .lte-ie8 & {
+        zoom: 1;
+    }
+}
+
+@mixin hide-text {
+    overflow: hidden;
+    text-indent: -9999px;
+}
+
+@mixin show-text {
+    overflow: visible;
+    text-indent: 0;
+}
+
+@mixin pseudo {
+    display: block;
+    content: '';
+}
+
+@mixin transition($prop, $time, $ease: ease) {
+    -webkit-transition: $prop $time $ease;
+    -moz-transition: $prop $time $ease;
+    -o-transition: $prop $time $ease;
+     transition: $prop $time $ease;
+} /*ex: @include transition(color, 0.1s); */
+
+@mixin rotate($deg) {
+    -moz-transform: rotate(#{$deg}deg);
+    -webkit-transform: rotate(#{$deg}deg);
+    transform: rotate(#{$deg}deg);
+} /*ex: @include rotate(90); */
+
+@mixin valign {
+    position: relative;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    -moz-transform: translateY(-50%);
+    -o-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+}
+
+@mixin noalign {
+    position: relative;
+    top: auto;
+    -webkit-transform: none;
+    -moz-transform: none;
+    -o-transform: none;
+    -ms-transform: none;
+    transform: none;
+}
+
+@mixin boxsize {
+   -moz-box-sizing:    border-box;   /* Firefox 1, probably can drop this */
+   -webkit-box-sizing: border-box;   /* Safari 3-4, also probably droppable */
+    box-sizing:        border-box;   /* Everything else */
+}
+
+@mixin placeholder {
+    &::-webkit-input-placeholder { @content; }
+    &:-moz-placeholder { @content; }
+    &::-moz-placeholder { @content; }
+    &:-ms-input-placeholder { @content; }
+}
+
+@mixin vendorize( $property, $value ) {
+    -webkit-#{$property}: $value;
+    -moz-#{$property}: $value;
+    -ms-#{$property}: $value;
+    -o-#{$property}: $value;
+    #{$property}: $value;
+}
+
+@mixin bp($point) {
+    @media (max-width: $point) { @content; }
+}
+
+@mixin bpmin($point) {
+    @media (min-width: $point) { @content; }
+}

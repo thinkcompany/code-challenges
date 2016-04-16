@@ -1,10 +1,71 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-	<meta charset="UTF-8">
-	<title>SEPTA Regional Rail Fare Calculator</title>
+    <meta charset="UTF-8">
+    <title>SEPTA Regional Rail Fare Calculator</title>
+    <link rel="stylesheet" type="text/css" href="./css/style.css">
 </head>
-<body>
-	
+
+<body ng-app='fareCalc' ng-controller='fareCalcController'>
+    <div id='fareMain' class='mainBox' ng-show='fareData'>
+        <!-- I'm not gonna show the fare calculator until the data are loaded. -->
+        <div id='fareMainTitle'>
+             <img id='logo' src='./img/septLog.png'><div>SEPTA Regional Rail Fares</div>
+        </div>
+        <div id='fareCont'>
+            <div id='fareWhen' class='fareInpDiv'>
+                <div ng-class='{"fareLbl":fareData,"fareLblMobile":isMobile}'>
+                    <label for='fareWhenInp'>When do you wanna travel?</label>
+                </div>
+                <div ng-class='{"fareInp":fareData,"fareInpMobile":isMobile}'>
+                    <select id='fareWhenInp' ng-model='when' ng-change='parseTrip()'>
+                        <option ng-repeat='whn in whens' value='{{whn}}' ng-if='whn.name && whn.name!=""'>{{whn.name}}{{whn.name=="ANYTIME"?' (10-trip, advanced-purchase tickets only)':''}}</option>
+                    </select>
+                    <hr/>{{when?Objectify(when).info:''}}
+                </div>
+            </div>
+            <div id='fareWhere' class='fareInpDiv'>
+                <div ng-class='{"fareLbl":fareData,"fareLblMobile":isMobile}'>
+                    <label for='fareWhereInp'>Where are you traveling to/from?</label>
+                </div>
+                <div ng-class='{"fareInp":fareData,"fareInpMobile":isMobile}'>
+                    <select id='fareWhereInp' ng-model='where' ng-change='parseTrip()'>
+                        <option ng-repeat='whr in wheres' value='{{whr}}' ng-if='whr.name && whr.name!=""'>{{whr.name}}</option>
+                    </select>
+                    <div id='showZonesToggle' ng-click='expl(0)' title='View Zone Map'>?</div>
+                    <hr/>
+                </div>
+            </div>
+            <div id='fareNumTrips' class='fareInpDiv'>
+                <div ng-class='{"fareLbl":fareData,"fareLblMobile":isMobile}'
+                    <label for='fareNumInp'>How many trips are you taking?</label>
+                </div>
+                <div ng-class='{"fareInp":fareData,"fareInpMobile":isMobile}'>
+                    <input type='number' min=1 max=500 value=1 ng-model='num' id='fareNumInp' ng-change='parseTrip()' ng-disabled='numsValid(when)' /> Trip<span ng-if='num>1'>s</span>
+                    <hr/>
+                </div>
+            </div>
+            <div id='fareAdvOrOnbrd' class='fareInpDiv'>
+                <div ng-class='{"fareLbl":fareData,"fareLblMobile":isMobile}'>
+                    <label for='fareAOInp'>Do you plan to buy tickets in advance, or on onboard the train?</label>
+                </div>
+                <div ng-class='{"fareInp":fareData,"fareInpMobile":isMobile}'>
+                    <select id='fareAOInp' ng-model='onOrOff' ng-change='parseTrip()' ng-disabled='numsValid(when)'>
+                        <option ng-repeat='AO in advOnb' value='{{AO}}' ng-if='AO.name && AO.name!=""'>{{advOSanitize(AO.name)}}</option>
+                    </select>
+                    <hr/>{{onOrOff?Objectify(onOrOff).info:''}}
+                </div>
+            </div>
+        </div>
+        <div id='priceResult'>Trip cost: {{tripRes|currency}}</div>
+    </div>
+    <div id='fareLoading' class='mainBox' ng-show='fareData==false'>Loading Data!</div>
+    <div id="zoneMap" ng-click='expl(1)'>&nbsp;
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+    <script src='./js/fareCalc.js'></script>
 </body>
+
 </html>

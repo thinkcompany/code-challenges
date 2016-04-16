@@ -1,0 +1,123 @@
+/*while this is by no means required, explicitly 
+specifying the width and height and margin 
+can prevent nastiness later on!*/
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    font-size: large;
+    font-family:'arial';
+}
+
+.mainBox {
+    width: 90%;
+    box-shadow: 3px 3px 6px #555;
+    margin: 15px auto;
+    border-radius: 20px;
+}
+
+#fareMain {
+    /*main fare box container*/
+}
+
+#fareMainTitle {
+    width: 100%;
+    height: 60px;
+    background: #333;
+    color:#fff;
+    font-size: 20pt;
+    border-radius: 20px 20px 0px 0px;
+}
+#logo{
+	position: relative;
+	left:5px;
+	width:55px;
+	height:55px;
+	display:inline-block;
+}
+#fareMainTitle div{
+	left:15px;
+	top:-15px;
+	position: relative;
+	display:inline-block;
+}
+.fareLbl{
+	display:inline-block;
+	width:30%;
+	padding:3px;
+	border-bottom:1px solid #000;
+	margin-bottom:2px;
+	font-style: italic;
+	font-size:larger;
+	color:#fff;
+	background:linear-gradient(rgba(0,0,0,.7),rgba(0,0,0,.7)),url('../img/septaBg.jpg');
+	background-attachment: fixed;
+	background-size: contain;
+	transition-duration:.5s;
+}
+.fareLblMobile{
+	width:99.4%;
+}
+.fareInp{
+	position: relative;
+	top:0;
+	display:inline-block;
+	width:69%;
+
+	transition-duration:.5s;
+}
+.fareInpMobile{
+	width:100%;
+}
+.fareInp select, .fareInp input{
+	border:none;
+	border-radius: 0px;
+	background:#888;
+}
+.fareInpDiv{
+	width:100%;
+	border-bottom:1px solid #000;
+	background:linear-gradient(rgba(255,255,255,.7),rgba(255,255,255,.7)),url('../img/septaBg2.jpg');
+	background-attachment: fixed;
+	background-size: contain;
+}
+#priceResult {
+    width: 100%;
+    height: 60px;
+    padding-top: 15px;
+    text-align: center;
+    background: #333;
+    color:#fff;
+    font-family:'arial';
+    font-size: 20pt;
+    border-radius: 0px 0px 20px 20px;
+}
+#showZonesToggle{
+	display:inline-block;
+	padding:2px;
+	width:20px;
+	text-align: center;
+	border-radius:4px;
+	box-shadow:2px 2px 4px #000;
+	background: #900;
+	color:#fff;
+	cursor:pointer;
+	transition-duration:.5s;
+}
+#showZonesToggle:hover{
+	box-shadow:1px 1px 2px #000;
+	background: #a00;
+}
+#zoneMap{
+	width:100%;
+	height:200%;
+	top:0;
+	position:absolute;
+	z-index: 99;
+	display:none;
+	background:url('../img/zone-map.jpg');
+	background-size: contain;
+	background-repeat: no-repeat;
+}

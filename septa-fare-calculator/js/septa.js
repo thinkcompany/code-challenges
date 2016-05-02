@@ -21,7 +21,6 @@ $(document).ready(function() {
         "dataType": "json",
         "success": function(data) {
             scriptData = data;
-            $("#inputRides").val("2");
             howMany = $("#inputRides").val();
             console.log(scriptData);
             $.each(data, function(key, value) {
@@ -34,7 +33,8 @@ $(document).ready(function() {
                         $("#selectZone").append(optText);
 
                         selectedZone = $("#selectZone option:selected").text();
-                        console.log(selectedZone);
+                        //console.log(selectedZone);
+                        checkAnytime();
 
                     });
                 } else if (key === "info") {
@@ -58,6 +58,7 @@ $(document).ready(function() {
 
     function calculateTotal() {
         selectedWhere = $("input:checked").val();
+        howMany = $("#inputRides").val();
         checkAnytime();
         console.log(selectedZone);
         console.log(selectedWhen);
@@ -78,8 +79,13 @@ $(document).ready(function() {
                             if (howMany % 10 === 0) {
                                 if ((fareValue.type === niceText2) && (fareValue.purchase === selectedWhere)) {
                                     //console.log("cost: " + fareValue.price);
-                                    var total = fareValue.price;
-                                    $(".fareCost").text("$ " + total.toFixed(2));
+                                    if (fareValue.type === "anytime") {
+                                        var total = fareValue.price;
+                                        $(".fareCost").text("$ " + total.toFixed(2));
+                                    } else {
+                                        var total = fareValue.price * howMany;
+                                        $(".fareCost").text("$" + total.toFixed(2));
+                                    }
                                 }
                             } else {
                                 if ((fareValue.type === niceText2) && (fareValue.purchase === selectedWhere)) {
@@ -146,6 +152,11 @@ $(document).ready(function() {
     });
 
     $("#inputRides").change(function() {
+        howMany = $("#inputRides").val();
+        calculateTotal();
+    });
+
+    $("#inputRides").keyup(function() {
         howMany = $("#inputRides").val();
         calculateTotal();
     });

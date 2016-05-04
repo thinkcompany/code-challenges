@@ -1,0 +1,109 @@
+body{
+	font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+p{
+	line-height: 1.2;
+}
+
+.septa-fare{
+	margin: 0 auto;
+	width: 100%;
+	max-width: 320px;
+	border: 1px solid #ccc;
+}
+
+.septa-fare_header{
+	padding: 8px 0;
+	background: #595959;
+	color: #fff;
+	font-size: 16px;
+	position: relative;
+}
+
+.septa-fare_header:before{
+    content: '';
+    position: absolute;
+    top: 11px;
+    left: 38px;
+    width: 28px;
+    height: 20px;
+    background-image: url('img/septa.svg');
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.septa-fare_header h1{
+	margin: 0;
+	text-align: center;
+	font-size: 20px;
+}
+
+.septa-fare_section{
+	padding: 50px 20px 40px;
+	border-bottom: 1px solid #e6e6e6;
+	text-align: center;
+}
+
+.septa-fare_helper-text,
+.septa-fare_discount{
+	font-size: 12px; /* I typically wouldn't go this small, but since the design has inline helper text I will */
+	color: #595959;
+    text-align: left;
+}
+
+.septa-fare_helper-text{
+    margin-bottom: 0;
+    min-height: 56px;
+}
+
+.septa-fare_discount{
+	display: none;
+	text-align: center;
+}
+
+.septa-fare legend{
+	width: 100%;
+	text-align: center;
+	margin-bottom: 16px;
+}
+
+.septa-center_radios{
+	text-align: left;
+	width: 114px;
+	margin: 0 auto;
+}
+
+.septa-fare input[type='text'], .septa-fare select{
+	margin-top: 16px;
+	display: block;
+	width: 100%;
+	font-size: 18px;
+}
+
+.septa-fare input[type='text'].septa-numberOfRides{
+    width: 50px;
+ 	margin: 0 auto;
+    margin-top: 15px;
+    padding: 10px;
+	display: block;
+    text-align: center;
+}
+
+.septa-fare_total{
+	padding: 40px 0;
+	background: #595959;
+	text-align: center;
+	color: #fff;
+}
+
+.septa-fare_total p{
+	margin: 0;
+}
+
+.septa-fare_total_Amt{
+	margin: 0;
+    font-size: 38px;
+    font-weight: bold;
+    min-height: 45px;
+}

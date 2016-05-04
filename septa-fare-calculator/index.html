@@ -3,8 +3,57 @@
 <head>
 	<meta charset="UTF-8">
 	<title>SEPTA Regional Rail Fare Calculator</title>
+	<link rel="stylesheet" type="text/css" href="septa-fare.css" />
 </head>
 <body>
-	
+	<div class="septa-fare">
+		<div class="septa-fare_header">
+			<h1>Regional Rail Fares</h1>
+		</div>
+		<form>
+			<div class="septa-fare_section">
+				<label>
+					Where are you going?
+					<select id="septaDestination" name="septaDestination">
+						<option disabled="disabled">Select a destination</option>
+					</select>
+				</label>
+			</div>
+			<div class="septa-fare_section">
+				<label>
+					When are you riding?
+					<select id="septaTimeTravelling" name="septaTimeTravelling">
+						<option disabled="disabled">Select a ride time</option>
+					</select>
+				</label>
+				<p id="fareHelperInfo" class="septa-fare_helper-text"></p>
+			</div>
+			<div class="septa-fare_section">
+				<p>
+					Where will you purchase the fare?
+				</p>
+				<div class="septa-center_radios">
+					<input type="radio" name="farepurchaselocation" value="advance_purchase" id="purchaseStationKiosk" checked><label for="purchaseStationKiosk" >Station Kiosk</label>
+					<br>
+					<input type="radio" name="farepurchaselocation" value="onboard_purchase" id="purchaseOnboard"><label id="purchaseOnboardLabel" for="purchaseOnboard">Onboard</label>
+				</div>
+				
+			</div>
+			<div class="septa-fare_section">
+				<label>
+					How many rides will you need?
+					<input onkeypress='return event.charCode >= 48 && event.charCode <= 57' type="text" name="numberOfSeptaRides" class="septa-numberOfRides" id="numberOfSeptaRides" />
+				</label>
+				<p id="sfDiscount" class="septa-fare_discount">Discounted rate! Each pass has 10 rides.</p>
+			</div>
+		</form>
+		<div id="sfTotal" class="septa-fare_total">
+			<p>Your fare will cost</p>
+			<p id="sfTotalAmt" class="septa-fare_total_Amt"></p>
+		</div>
+	</div>
+
+	<script   src="https://code.jquery.com/jquery-1.12.3.min.js"   integrity="sha256-aaODHAgvwQW1bFOGXMeX+pC4PZIPsvn2h1sArYOhgXQ="   crossorigin="anonymous"></script>
+	<script src="septa-fare.js"></script>
 </body>
 </html>

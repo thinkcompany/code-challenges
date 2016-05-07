@@ -17,24 +17,32 @@
 
       <div class="fc-form-group">
         <label for="fc-select-zone"><h2>Where are you going?</h2></label>
+
         <select id="fc-select-zone" ng-options="zone as zone.name for zone in fareInfo.zones" ng-model="formData.fareZone">
           <option value="">Choose one:</option>
         </select>
+
       </div>
 
       <div class="fc-form-group">
         <label for="fc-select-type"><h2>When are you riding?</h2></label>
+
         <select id="fc-select-type" ng-options="type as type | prettyPrint for type in fareTypes" ng-model="formData.fareType">
+          <!-- Todo: disable the 'anytime' option when 'onboard_purchase' is selected -->
           <option value="">Choose one:</option>
         </select>
+
       </div>
 
       <div class="fc-form-group">
         <label for="fc-select-purchase"><h2>Where will you purchase the fare?</h2></label>
+
         <p ng-repeat="purchase in farePurchases" ng-class="">
+          <!-- Todo: dibable 'onboard_purchase' if 'anytime' is selected -->
           <input type="radio" value="{{purchase}}" id="fc-purchase-{{purchase}}" ng-model="formData.farePurchase" value="{{purchase}}"></input>
           <label for="fc-purchase-{{purchase}}">{{purchase | prettyPrint}}</label>
         </p>
+
       </div>
 
       <div class="fc-form-group">
@@ -47,9 +55,7 @@
         <p id="fc-total-price" class="fc-sm-title">{{totalFare | currency}}</p>
       </div>
 
-
     </form>
-
 
   </div>
 

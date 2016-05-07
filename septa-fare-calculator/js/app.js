@@ -181,23 +181,26 @@ fareCalc.controller('fareCalcCtrl', function($scope, $rootScope){
       $scope.totalFare = 0;
       return;
     }
+
+    // filter all possible zones by the selected zone name
     var zone = $scope.fareInfo.zones.filter(function(z){
       return z.name === $scope.formData.fareZone.name;
     });
 
-    console.log('zone', zone);
-
+    // filter possible fares within the zone by fare type and purchase
     var type = zone[0].fares.filter(function(f){
       return f.type === $scope.formData.fareType && f.purchase === $scope.formData.farePurchase;
     });
 
-    console.log('type', type);
-    if (type.length > 1) {
-      $scope.totalFare = 'invalid';
-    }
-    else {
+
+    // // if type is invalid, return 0
+    // if (type.length > 1) {
+    //   $scope.totalFare = 0;
+    // }
+    // // else return price * qty
+    // else {
       $scope.totalFare = type[0].price * $scope.formData.fareQty;
-    }
+    // }
 
   }, true);
 

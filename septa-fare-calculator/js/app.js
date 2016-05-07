@@ -1,6 +1,6 @@
 var fareCalc = angular.module('FareCalc', []);
 
-fareCalc.controller('fareCalcCtrl', function($scope){
+fareCalc.controller('fareCalcCtrl', function($scope, $rootScope){
   // for debugging purposes only
   window.scope = $scope;
 
@@ -167,10 +167,39 @@ fareCalc.controller('fareCalcCtrl', function($scope){
   $scope.farePurchases = ['onboard_purchase', 'advance_purchase'];
   $scope.fareTypes = ['weekday', 'evening_weekend', 'anytime'];
 
-  $scope.fareZone = null;
-  $scope.fareType = null;
-  $scope.farePurchase = null;
-  $scope.fareQty = 0;
+  $scope.formData = {
+    fareZone: null,
+    fareType: null,
+    farePurchase: null,
+    fareQty: 1
+  };
+
+  $scope.totalFare = 0;
+
+  $scope.$watch('formData', function setTotalFare(){
+    if(!$scope.formData.fareZone || !$scope.formData.fareType || !$scope.formData.farePurchase) {
+      $scope.totalFare = 0;
+      return;
+    }
+    var zone = $scope.fareInfo.zones.filter(function(z){
+      return z.name === $scope.formData.fareZone.name;
+    });
+
+    console.log('zone', zone);
+
+    var type = zone[0].fares.filter(function(f){
+      return f.type === $scope.formData.fareType && f.purchase === $scope.formData.farePurchase;
+    });
+
+    console.log('type', type);
+    if (type.length > 1) {
+      $scope.totalFare = 'invalid';
+    }
+    else {
+      $scope.totalFare = type[0].price * $scope.formData.fareQty;
+    }
+
+  }, true);
 
 })
 .filter('prettyPrint', function(){

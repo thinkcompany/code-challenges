@@ -19,16 +19,29 @@
   }
 }
 
-.fc-title {
+.fc-title, .fc-footer{
   background-color: grey;
   padding: 4px;
   color: white
+}
+.fc-title h1 {
+  display: inline-block;
+}
+
+.fc-title img {
+  height: 2em;
+  float: left;
+  display: inline-block;
+  margin: 1.2em 0;
 }
 
 .fc-form-group {
   margin: 10px;
   border-bottom: 1px solid grey;
   padding: 10px;
+}
+.fc-form-group:last-of-type {
+  border-bottom: none;
 }
 
 .fc-form-group p, .fc-form-group input, .fc-form-group select {

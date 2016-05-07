@@ -3,8 +3,47 @@
 <head>
 	<meta charset="UTF-8">
 	<title>SEPTA Regional Rail Fare Calculator</title>
+  <link rel="stylesheet" type="text/css" href="styles.css">
 </head>
 <body>
-	
+
+  <div class="fare-calc-widget">
+    <div class="fc-title"><h1><img src="">Regional Rail Fares</h1></div>
+
+    <form class="fc-form">
+
+      <div class="fc-form-group">
+        <label for="fc-select-dest"><h2>Where are you going?</h2></label>
+        <select id="fc-select-dest">
+          <option value="">Choose one:</option>
+        </select>
+      </div>
+
+      <div class="fc-form-group">
+        <label for="fc-select-schedule"><h2>When are you riding?</h2></label>
+        <select id="fc-select-schedule">
+          <option value="">Choose one:</option>
+        </select>
+      </div>
+
+      <div class="fc-form-group">
+        <label for="fc-select-purchase"><h2>Where will you purchase the fare?</h2></label>
+        <p>
+          <input type="radio" value="" id="fc-purchase-x"></input>
+          <label for="fc-purchase-x"></label>
+        </p>
+      </div>
+
+      <div class="fc-form-group">
+        <label for="fc-select-qty"><h2>How many rides will you need?</h2></label>
+        <input type="text" id="fc-select-qty"></input>
+      </div>
+
+    </form>
+
+  </div>
+
+  <script type="text/javascript" src="node_modules/angular/angular.js"></script>
+  <script type="text/javascript" src="app.js"></script>
 </body>
 </html>

@@ -102,9 +102,9 @@ fieldset {
 }
 
 .fare-helper-text,
-.fare-availability-text,
-.fare-quantity-helper-text {
-  color:#8E8E8E;
+.fare-availability-text{
+  margin: 5px 0;
+	color:#8E8E8E;
   font-size: .75rem;
 }
 

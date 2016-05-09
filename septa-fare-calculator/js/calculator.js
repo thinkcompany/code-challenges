@@ -12,8 +12,8 @@ function populatezones() {
     type: "GET",
     cache: true,
     data: {},
-    dataType: "json",
-    jsonp: "callback"
+    dataType: 'json',
+    jsonp: 'callback'
   })
   .done(function(data) {
     // Store SEPTA fare info the global var
@@ -26,11 +26,11 @@ function populatezones() {
 
 // Update the fare helper text depending upon current options
 $('[data-fare-time]').change(function(){
-  var $HelperText = $("[data-fare-helper-text]").detach();
-  var $AvailabilityText = $("[data-fare-availability-text]").detach();
-  var $QuantityText = $("[data-fare-quantity-container] > p > label").detach();
+  var $HelperText = $('[data-fare-helper-text]').detach();
+  var $AvailabilityText = $('[data-fare-availability-text]').detach();
+  var $QuantityText = $('[data-fare-quantity-container] > p > label').detach();
   var defaultQuantityText = 'How many rides will you need?';
-  var anytimeQuantityText = 'Anytime tickets sold in packs of 10. <br /> How many 10 packs will you need?';
+  var anytimeQuantityText = 'Anytime tickets sold in packs of 10.<br />How many 10 packs will you need?';
 	var timeValue = $(this).val();
 	var helperTextValue = FAREAPP.info[timeValue] + '.';
   var availabilityTextValue;
@@ -39,7 +39,7 @@ $('[data-fare-time]').change(function(){
   if (timeValue === ''){
 
     $QuantityText.html(defaultQuantityText);
-    $QuantityText.prependTo("[data-fare-quantity-container] > p");
+    $QuantityText.prependTo('[data-fare-quantity-container] > p');
 
     $('[data-fare-purchase-location]').prop('disabled', true);
     $('.radio-purchased-container > fieldset').addClass('disabled');
@@ -48,11 +48,11 @@ $('[data-fare-time]').change(function(){
     availabilityTextValue = '<strong>Note:</strong> Anytime tickets must be purchased at a SEPTA station kiosk.';
 
     $HelperText.html(helperTextValue);
-    $HelperText.appendTo("[data-fare-time-container]");
+    $HelperText.appendTo('[data-fare-time-container]');
     $AvailabilityText.html(availabilityTextValue);
-    $AvailabilityText.appendTo("[data-fare-time-container]");
+    $AvailabilityText.appendTo('[data-fare-time-container]');
     $QuantityText.html(anytimeQuantityText);
-    $QuantityText.prependTo("[data-fare-quantity-container] > p");
+    $QuantityText.prependTo('[data-fare-quantity-container] > p');
 
     $('[data-fare-purchase-location]').prop('disabled',true);
     $('.radio-purchased-container > fieldset').addClass('disabled');
@@ -60,9 +60,9 @@ $('[data-fare-time]').change(function(){
     availabilityTextValue = '<strong>Purchase Details:</strong> ' + FAREAPP.info.advance_purchase + ' ' + FAREAPP.info.onboard_purchase;
 
     $HelperText.html(helperTextValue);
-    $HelperText.appendTo("[data-fare-time-container]");
+    $HelperText.appendTo('[data-fare-time-container]');
     $QuantityText.html(defaultQuantityText);
-    $QuantityText.prependTo("[data-fare-quantity-container] > p");
+    $QuantityText.prependTo('[data-fare-quantity-container] > p');
 
     $('[data-fare-purchase-location]').prop('disabled', false);
     $('.radio-purchased-container > fieldset').removeClass('disabled');
@@ -72,7 +72,7 @@ $('[data-fare-time]').change(function(){
 // Calculate when field changes are detected
 $('[data-fare-destination], [data-fare-time], [data-fare-purchase-location], [data-fare-quantity]').change(function(){
 
-  var $fareCost = $("[data-fare-total-cost]").detach();
+  var $fareCost = $('[data-fare-total-cost]').detach();
   var zone = $('[data-fare-destination]').val();
   var time = $('[data-fare-time]').val();
   var location = $('[data-fare-purchase-location]:checked').val();
@@ -90,10 +90,10 @@ $('[data-fare-destination], [data-fare-time], [data-fare-purchase-location], [da
     totalCost = '$'+(cost*quantity).toFixed(2);
 
     $fareCost.html(totalCost);
-    $fareCost.appendTo("[data-fare-total-cost-container]");
+    $fareCost.appendTo('[data-fare-total-cost-container]');
   } else {
     var totalCost = '$0.00';
     $fareCost.html(totalCost);
-    $fareCost.appendTo("[data-fare-total-cost-container]");
+    $fareCost.appendTo('[data-fare-total-cost-container]');
   }
 });

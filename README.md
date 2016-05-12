@@ -1,6 +1,7 @@
 # SEPTA Fare Calculate Widget
 
 To start widget: 
+
 1. npm install
 2. npm start
 

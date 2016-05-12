@@ -1,4 +1,4 @@
-# SEPTA Fare Calculate Widget
+# SEPTA Fare Calculator Widget
 
 To start widget: 
 

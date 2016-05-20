@@ -14,39 +14,30 @@
 	<form>
 		<div class="septa-fare-widget__section">
 			<h4>Where are you going?</h4>
-			<select>
-				<option>Zone 1</option>
-				<option>Zone 1</option>
-				<option>Zone 1</option>
-				<option>Zone 1</option>
-			</select>
+			<select data-bind="options: availableZones, value: selectedZone"></select>
 		</div>
 		<div class="septa-fare-widget__section">
 			<h4>When are you riding?</h4>
-			<select>
-				<option>Zone 1</option>
-				<option>Zone 1</option>
-				<option>Zone 1</option>
-				<option>Zone 1</option>
-			</select>
+			<select data-bind="options: timesOptions, value: selectedTime"></select>
+			<h6 class="helper-text"></h6>
 		</div>
 		<div class="septa-fare-widget__section">
 			<h4>Where will you purchase the fare?</h4>
-			<label class="radio-label"><input type="radio" name="location" value="station" /><span>Station Kiosk</span></label>
-			<label class="radio-label"><input type="radio" name="location" value="onboard" /><span>Onboard</span></label>
+			<label class="radio-label"><input type="radio" name="location" value="advance_purchase" data-bind="checked: selectedPurchaseMethod" /><span>Station Kiosk</span></label>
+			<label class="radio-label"><input type="radio" name="location" value="onboard_purchase" data-bind="checked: selectedPurchaseMethod"/><span>Onboard</span></label>
 		</div>
 		<div class="septa-fare-widget__section">
 			<h4>How many rides will you need?</h4>
-			<input type="text" class="ride-count"  pattern="\d*"/>
+			<input type="text" class="ride-count"  pattern="\d*" data-bind="textInput: rideCountRaw"/>
 		</div>		
 	</form>
 	<div class="septa-fare-widget__total">
 		<h4>Your fare will cost</h4>
-		<h2 class="cost">$28.00</h2>
+		<h2 class="cost">-------</h2>
 	</div>
 </div>
 	
-	<script type="text/javascript" src="destination/js/knockout-3.4.0.js"></script>
+	<script type="text/javascript" src="destination/js/lib.js"></script>
 	<script type="text/javascript" src="destination/js/app.js"></script>
 </body>
 </html>

@@ -75,7 +75,7 @@ function SeptaViewModel() {
 								return fareObject.purchase === purchaseMethod && fareObject.type == time;
 							})[0];
 
-			debugger;
+			var totalValue = thisFare
 		}		
 	});
 }

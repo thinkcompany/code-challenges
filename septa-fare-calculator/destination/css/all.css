@@ -400,12 +400,21 @@ input[type="radio"] {
   border: 1px solid #c9c9c9;
   max-width: 320px;
   margin: 0 auto; }
+  .septa-fare-widget .logo {
+    background-image: url("/img/septa.svg");
+    height: 20px;
+    width: 27px;
+    display: inline-block;
+    background-size: cover;
+    vertical-align: middle; }
   .septa-fare-widget .septa-fare-widget__header {
     padding: 12px 30px;
     background-color: #535353;
     color: white; }
     .septa-fare-widget .septa-fare-widget__header h3 {
-      margin: 0; }
+      margin: 0;
+      display: inline-block;
+      vertical-align: top; }
   .septa-fare-widget .septa-fare-widget__section {
     padding: 20px 22px;
     border-bottom: 1px solid #c9c9c9; }

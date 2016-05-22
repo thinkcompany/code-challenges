@@ -54,6 +54,15 @@ input[type="radio"] {
 	max-width: 320px;
 	margin: 0 auto;
 
+	.logo {
+		background-image: url('/img/septa.svg');
+		height: 20px;
+	    width: 27px;
+	    display: inline-block;
+	    background-size: cover;
+	    vertical-align: middle;
+	}
+
 	.septa-fare-widget__header {
 		padding: 12px 30px;
 		background-color: $gray;
@@ -61,6 +70,8 @@ input[type="radio"] {
 
 		h3 {
 			margin: 0;
+		    display: inline-block;
+		    vertical-align: top;
 		}
 	}
 

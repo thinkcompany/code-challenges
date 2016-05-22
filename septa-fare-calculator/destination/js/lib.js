@@ -1,3 +1,7 @@
+// Normally I would include JSHint, file concatination etc to make JS dev a little less painful.
+// All the app centric logic is included in app.js
+
+
 /*!
  * Knockout JavaScript library v3.4.0
  * (c) Steven Sanderson - http://knockoutjs.com/

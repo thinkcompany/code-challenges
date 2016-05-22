@@ -3,7 +3,9 @@
 *
 *  Due to the modular nature, I opted to use Knockout for the data-binding. It seemed overkill to include an entire framework
 *  without needing it.
-
+*
+*  I have been running this on a python SimpleHTTPServer to allow for request of the JSON file locally.
+*
 */
 
 function SeptaViewModel() {

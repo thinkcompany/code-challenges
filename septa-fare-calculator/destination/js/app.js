@@ -57,6 +57,10 @@ function SeptaViewModel() {
 	var toMoney = function(num){
 		return '$' + (num.toFixed(2).replace(/(\d)(?=(\d{3})+\.)/g, '$1,') );
 	};
+
+	self.isAnytime = ko.computed(function() {
+		return self.selectedTime() === "Any Time";
+	});
 	
 
 	self.fareResult = ko.computed(function() {
@@ -64,22 +68,43 @@ function SeptaViewModel() {
 		var time = self.readableTimes[self.selectedTime()];
 		var purchaseMethod = self.selectedPurchaseMethod();
 		var tripCount = self.rideCountClean();
-		var totalValue = "";
+
+		// This is awkward and I'd love to re-factor it. Want to try and keep logic out of the view though
+		var totalValue = self.isAnytime() ? ["", ""] : "";
 
 		if (typeof zone != "undefined" && typeof time != "undefined" && typeof purchaseMethod != "undefined" && !isNaN(tripCount)) {
 			var thisZone =  ko.utils.arrayFilter(self.zonesJSON(), function(zoneObject) {
 								return zoneObject.name === zone;
 							})[0];
 
-			var thisFare =  ko.utils.arrayFilter(thisZone.fares, function(fareObject) {
-								return fareObject.purchase === purchaseMethod && fareObject.type == time;
-							})[0];
+			var thisFare;
 
-			totalValue = toMoney(thisFare.price * tripCount);
+			// Due to lack of time, this is where I'd implement the logic for returning info based on 10 rides variations.
+			// I'd want to refactor this to push objects instead of strings, and appropriately show all fare possibilities in the view logic
+			if (time == "anytime") {
+				thisFare =  ko.utils.arrayFilter(thisZone.fares, function(fareObject) {
+					return fareObject.purchase === purchaseMethod && fareObject.trips <= tripCount;
+				});
+
+				var prices = [];
+				for (var i= 0; i < thisFare.length; i++) {
+					prices.push(toMoney(thisFare[i].price));
+				}
+
+				totalValue = [];
+				totalValue = prices;
+
+			} else {
+				thisFare =  ko.utils.arrayFilter(thisZone.fares, function(fareObject) {
+					return fareObject.purchase === purchaseMethod && fareObject.type == time;
+				})[0];
+
+				totalValue = toMoney(thisFare.price * tripCount);
+			}
 			
 		}
 		
-		// Due to lack of time, this is where I'd implement the logic for returning info based on 10 rides variations.
+		
 		return totalValue;
 	});
 }

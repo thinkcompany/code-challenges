@@ -36,7 +36,14 @@
 	</form>
 	<div class="septa-fare-widget__total">
 		<h4>Your fare will cost</h4>
-		<h2 class="cost" data-bind="text: fareResult">-------</h2>
+		<!-- ko if: isAnytime -->
+		<h2 class="cost" data-bind="text: 'Weekdays: ' + fareResult()[0]"></h2>
+		<h2 class="cost" data-bind="text: 'Evenings/Weekends: ' + fareResult()[1]"></h2>
+		<!-- /ko -->
+		<!-- ko ifnot: isAnytime -->
+			<h2 class="cost" data-bind="text: fareResult"></h2>
+		<!-- /ko -->
+		
 	</div>
 </div>
 	

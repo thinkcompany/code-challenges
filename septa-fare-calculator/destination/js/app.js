@@ -1,19 +1,5 @@
-function fare(type, purchase, trips, price) {
-	var self = this;
-
-	self.type = type;
-	self.purchase = purchase;
-	self.trips = trips;
-	self.price = price;
-
-}
-
-function time(label, info) {
-	var self = this;
-
-	self.label = label;
-	self.info = info;
-}
+// Normally I would include JSHint, file concatination etc to make JS dev a little less painful.
+// JQuery and Knockout are included in lib.js
 
 function SeptaViewModel() {
 	var self = this;
@@ -30,41 +16,37 @@ function SeptaViewModel() {
 
 		return value;
 	});
+	
+	self.readableTimes = {
+		"Weekdays": "weekday",
+		"Evenings / Weekends": "evening_weekend",
+		"Any Time" : "anytime"		
+	}
 
 	self.timesOptions = ko.computed(function() {
-		var options = [];
-		ko.utils.objectForEach(self.timesJSON(), function(label, description) {
-			options.push(label);
-		})
-
-		return options;
+		var keys = Object.keys(self.readableTimes);
+		return keys;
 	});
 
-	self.timesDescriptions = ko.computed(function() {
-		var options = [];
-		ko.utils.objectForEach(self.timesJSON(), function(label, description) {
-			options.push(description);
-		})
-
-		return options;
-	});
-
-	
 	self.availableZones = ko.computed(function() {
 		var options = [];
 		ko.utils.objectForEach(self.zonesJSON(), function(index, zoneObject) {
 			options.push(zoneObject.name);
 		})
-
-
 		return options;
 	});
+	
+	var toMoney = function(num){
+		return '$' + (num.toFixed(2).replace(/(\d)(?=(\d{3})+\.)/g, '$1,') );
+	};
+	
 
 	self.fareResult = ko.computed(function() {
 		var zone = self.selectedZone();
-		var time = self.selectedTime();
+		var time = self.readableTimes[self.selectedTime()];
 		var purchaseMethod = self.selectedPurchaseMethod();
 		var tripCount = self.rideCountClean();
+		var totalValue = "";
 
 		if (typeof zone != "undefined" && typeof time != "undefined" && typeof purchaseMethod != "undefined" && !isNaN(tripCount)) {
 			var thisZone =  ko.utils.arrayFilter(self.zonesJSON(), function(zoneObject) {
@@ -75,8 +57,11 @@ function SeptaViewModel() {
 								return fareObject.purchase === purchaseMethod && fareObject.type == time;
 							})[0];
 
-			var totalValue = thisFare
-		}		
+			totalValue = toMoney(thisFare.price * tripCount);
+			
+		}
+		
+		return totalValue;
 	});
 }
 

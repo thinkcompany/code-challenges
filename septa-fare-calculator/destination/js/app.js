@@ -1,5 +1,10 @@
-// Normally I would include JSHint, file concatination etc to make JS dev a little less painful.
-// JQuery and Knockout are included in lib.js
+/* Normally I would include JSHint, file concatination etc to make JS dev a little less painful.
+*  JQuery and Knockout are included in lib.js
+*
+*  Due to the modular nature, I opted to use Knockout for the data-binding. It seemed overkill to include an entire framework
+*  without needing it.
+
+*/
 
 function SeptaViewModel() {
 	var self = this;
@@ -74,6 +79,7 @@ function SeptaViewModel() {
 			
 		}
 		
+		// Due to lack of time, this is where I'd implement the logic for returning info based on 10 rides variations.
 		return totalValue;
 	});
 }

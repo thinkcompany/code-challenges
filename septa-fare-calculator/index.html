@@ -20,12 +20,14 @@
 		<div class="septa-fare-widget__section">
 			<h4>When are you riding?</h4>
 			<select data-bind="options: timesOptions, value: selectedTime"></select>
-			<h6 class="helper-text"></h6>
+			<p class="helper-text" data-bind="text: timeHelperText"></p>
 		</div>
 		<div class="septa-fare-widget__section">
 			<h4>Where will you purchase the fare?</h4>
 			<label class="radio-label"><input type="radio" name="location" value="advance_purchase" data-bind="checked: selectedPurchaseMethod" /><span>Station Kiosk</span></label>
 			<label class="radio-label"><input type="radio" name="location" value="onboard_purchase" data-bind="checked: selectedPurchaseMethod"/><span>Onboard</span></label>
+
+			<p class="helper-text" data-bind="text: purchaseHelperText"></p>
 		</div>
 		<div class="septa-fare-widget__section">
 			<h4>How many rides will you need?</h4>

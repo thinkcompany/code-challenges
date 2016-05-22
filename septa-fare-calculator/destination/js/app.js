@@ -28,6 +28,19 @@ function SeptaViewModel() {
 		return keys;
 	});
 
+	self.timeHelperText = ko.computed(function() {
+		var time = self.readableTimes[self.selectedTime()];
+		var text = self.timesJSON()[time];
+
+		return text;
+	})
+
+	self.purchaseHelperText = ko.computed(function() {
+		var text = self.timesJSON()[self.selectedPurchaseMethod()];
+
+		return text;
+	})
+
 	self.availableZones = ko.computed(function() {
 		var options = [];
 		ko.utils.objectForEach(self.zonesJSON(), function(index, zoneObject) {

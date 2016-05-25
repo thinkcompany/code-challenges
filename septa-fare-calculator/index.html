@@ -3,8 +3,56 @@
 <head>
 	<meta charset="UTF-8">
 	<title>SEPTA Regional Rail Fare Calculator</title>
+	<script src="js/jquery-1.12.0.min.js"></script>
+	<link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-	
+	<form class="septaFareWidget__form">
+		<div class="septaFareWidget__formHeader"><img src="img/SEPTA_logo.svg"> Regional Rail Fares</div>
+		
+		<div class="septaFareWidget__block">
+			<label>Where are you going?</label>
+			<br />
+			<select name="septaFareWidget__zone">
+				<optgroup>
+					<option value="1">Zone 1</option>
+					<option value="2">Zone 2</option>
+					<option value="3">Zone 3</option>
+					<option value="4">Zone 4</option>
+					<option value="5">NJ</option>
+				</optgroup>
+			</select>
+		</div>
+
+		<div class="septaFareWidget__block">
+			<label>When are you riding?</label>
+			<br />
+			<select name="septaFareWidget__time">
+				<optgroup>
+					<option value="0">Weekday</option>
+					<option value="1">Weekend Evening</option>
+					<option value="2">Anytime</option>
+				</optgroup>
+			</select>
+			<br />
+			<span id="septaFareWidget__time--info"></span>
+		</div>
+
+		<div class="septaFareWidget__block">
+			<label>Where will you purchase the fare?</label>
+			<br />
+			<input type="radio" name="septaFareWidget__location" value="0">Station Kiosk
+			<input type="radio" name="septaFareWidget__location" value="1" id="septaFareWidget__location--onboard"><span id="septaFareWidget__location--onboardLabel">Onboard</span>
+		</div>
+
+		<div class="septaFareWidget__block">
+			<label id="septaFareWidget__tickets--label">How many rides will you need?</label>
+			<br />
+			<input type="number" name="septaFareWidget__tickets" min="1">
+		</div>
+		<div class="septaFareWidget__fareBox">Your fare will cost: <br /><span class="septaFareWidget__fare">$0.00</span></div>
+	</form>
+
+	<script src="js/septaFareWidget.js"></script>
 </body>
 </html>

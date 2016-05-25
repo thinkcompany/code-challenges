@@ -1,0 +1,81 @@
+.septaFareWidget__form{
+	background-color: #f9f9f9;
+	width: 450px;
+	border: 2px solid #ccc;
+}
+
+.septaFareWidget__formHeader{
+	background-color: #666;
+	color: white;
+	text-align: center;
+	font-size: 2em;
+	padding: 5px;
+}
+
+.septaFareWidget__formHeader img{
+	width: 30px;
+	margin-right: 10px;
+}
+
+.septaFareWidget__block{
+	border-bottom: 2px solid #ccc;
+	text-align: center;
+	padding: 5px;
+}
+
+.septaFareWidget__block label{
+	font-size: 1.5em;
+}
+
+.septaFareWidget__block input, select{
+	width: 80%;
+	margin: 10px 0;
+}
+
+.septaFareWidget__block select{
+	font-size: 1.5em;
+	border: 2px solid #ccc;
+}
+
+.septaFareWidget__block input[type=number]{
+	width: 100px;
+	text-align: center;
+	border-radius: 5px;
+	border: solid 2px #ccc;
+	font-size: 2em;
+}
+
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    margin: 0; 
+}
+
+.septaFareWidget__block input[name=septaFareWidget__location]{
+	width: 20px;
+	cursor: pointer;
+}
+
+.septaFareWidget__block input[disabled='disabled']{
+	cursor: default;
+	opacity: .3;
+}
+
+#septaFareWidget__time--info {
+	font-size: .8em;
+	color: #666;
+}
+
+.septaFareWidget__fareBox {
+	padding: 20px 0 10px;
+	background-color: #666;
+	color: white;
+	text-align: center;
+}
+
+.septaFareWidget__fare {
+	font-size: 4em;
+	padding-right: 10px;
+}

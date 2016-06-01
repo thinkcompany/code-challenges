@@ -11,4 +11,5 @@
 ### Step 3:
    Run `npm install -g json-server` (to serve up our fares.json file to the ajax)
 
-### Step 4: Open the "index.html" file in your browser, and enjoy!
+### Step 4:
+   Open the "index.html" file in your browser, and enjoy!

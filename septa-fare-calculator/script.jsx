@@ -55,17 +55,26 @@ var SeptaWidget = React.createClass({
       var target = e.target;
       var name = target.name;
       var value = target.value;
-      if (name === "type") {
-         var info = this.state.fares.info[value];
-         return this.setState({
-            info: info,
-            [name]: value
-         })
+      
+      if (name === "trips" && this.state.type === "anytime") {
+         return;
       }
 
-      this.setState({
+      var newState = {
          [name]: value
-      });
+      };
+
+      if (name === "type") {
+         var info = this.state.fares.info[value];
+         newState.info = info
+
+      }
+      if (value === "anytime") {
+         newState.trips = 10;
+         $('trips-input').value = 10;
+      }
+
+      this.setState(newState);
    },
 
    getFarePrice: function () {
@@ -82,13 +91,45 @@ var SeptaWidget = React.createClass({
          trips = this.state.trips;
 
       var fare = zone.fares.find(function (el) {
-         return el.type === type && el.purchase === purchase  
+         return (el.type === type && el.purchase === purchase) || el.type === "anytime"  
       })
+
       // tolocaleString is a handy method for formatting currency.
-      return (fare.price * trips).toLocaleString("us", {style: "currency", currency: "USD", minimumFractionDigits: 2});
+      var total;
+
+      if (type === "anytime") {
+         total = fare.price;
+      } else {
+         total = fare.price * trips;
+      }
+
+      if (parseFloat(total) <= zone.fares[zone.fares.length - 1].price) {
+         return (
+            <strong className="price">
+               {total.toLocaleString("us", {style: "currency", currency: "USD", minimumFractionDigits: 2})}
+            </strong>
+         ); 
+      } else {
+         return (
+            <div>
+               <strong className="price">
+                  {total.toLocaleString("us", {style: "currency", currency: "USD", minimumFractionDigits: 2})}
+                  <br/>
+               </strong>
+               <p className="bargain"> Save money with an anytime ticket bundle! </p>
+            </div>
+         )
+      }
    },
 
    render: function () {
+      var readonly = {}
+
+      if (this.state.type === "anytime") {
+         readonly.readOnly = "readOnly"
+         readonly.disabled = "disabled";
+      }
+
       return (
          <div className="main">
             <div className="header">
@@ -128,7 +169,7 @@ var SeptaWidget = React.createClass({
                   </p>
                   <br/>
                   <p>
-                     <input type="radio" name="purchase" value="onboard_purchase" id="purchase-time-onboard-radio" />
+                     <input type="radio" name="purchase" value="onboard_purchase" id="purchase-time-onboard-radio" {...readonly} />
                      <label className="fieldset-label" htmlFor="purchase-time-onboard-radio">
                         Onboard
                      </label>
@@ -137,13 +178,19 @@ var SeptaWidget = React.createClass({
 
                <p className="input-container">
                   <label htmlFor="trips-input">How many rides will you need?</label>
-                  <input name="trips" type="number" min="0" id="trips-input" placeholder="1" />
+                  <input
+                     name="trips"
+                     type="number"
+                     min="0"
+                     id="trips-input"
+                     placeholder={this.state.trips}
+                     {...readonly} />
                </p>
 
             </form>
             <div className="total-fare">
                <p>Your fare will cost</p>
-               <strong className="price">{this.getFarePrice()}</strong>
+               {this.getFarePrice()}
             </div>
          </div>
       );

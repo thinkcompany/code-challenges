@@ -125,3 +125,7 @@ input[type="number"] {
 .price {
    font-size: 64px;
 }
+
+.bargain {
+   color: red;
+}

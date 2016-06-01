@@ -46,6 +46,8 @@
 
 	'use strict';
 	
+	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+	
 	var _react = __webpack_require__(1);
 	
 	var _react2 = _interopRequireDefault(_react);
@@ -117,14 +119,23 @@
 	      var target = e.target;
 	      var name = target.name;
 	      var value = target.value;
-	      if (name === "type") {
-	         var info = this.state.fares.info[value];
-	         return this.setState(_defineProperty({
-	            info: info
-	         }, name, value));
+	
+	      if (name === "trips" && this.state.type === "anytime") {
+	         return;
 	      }
 	
-	      this.setState(_defineProperty({}, name, value));
+	      var newState = _defineProperty({}, name, value);
+	
+	      if (name === "type") {
+	         var info = this.state.fares.info[value];
+	         newState.info = info;
+	      }
+	      if (value === "anytime") {
+	         newState.trips = 10;
+	         (0, _jquery2.default)('trips-input').value = 10;
+	      }
+	
+	      this.setState(newState);
 	   },
 	
 	   getFarePrice: function getFarePrice() {
@@ -141,13 +152,51 @@
 	          trips = this.state.trips;
 	
 	      var fare = zone.fares.find(function (el) {
-	         return el.type === type && el.purchase === purchase;
+	         return el.type === type && el.purchase === purchase || el.type === "anytime";
 	      });
+	
 	      // tolocaleString is a handy method for formatting currency.
-	      return (fare.price * trips).toLocaleString("us", { style: "currency", currency: "USD", minimumFractionDigits: 2 });
+	      var total;
+	
+	      if (type === "anytime") {
+	         total = fare.price;
+	      } else {
+	         total = fare.price * trips;
+	      }
+	
+	      if (parseFloat(total) <= zone.fares[zone.fares.length - 1].price) {
+	         return _react2.default.createElement(
+	            'strong',
+	            { className: 'price' },
+	            total.toLocaleString("us", { style: "currency", currency: "USD", minimumFractionDigits: 2 })
+	         );
+	      } else {
+	         return _react2.default.createElement(
+	            'div',
+	            null,
+	            _react2.default.createElement(
+	               'strong',
+	               { className: 'price' },
+	               total.toLocaleString("us", { style: "currency", currency: "USD", minimumFractionDigits: 2 }),
+	               _react2.default.createElement('br', null)
+	            ),
+	            _react2.default.createElement(
+	               'p',
+	               { className: 'bargain' },
+	               ' Save money with an anytime ticket bundle! '
+	            )
+	         );
+	      }
 	   },
 	
 	   render: function render() {
+	      var readonly = {};
+	
+	      if (this.state.type === "anytime") {
+	         readonly.readOnly = "readOnly";
+	         readonly.disabled = "disabled";
+	      }
+	
 	      return _react2.default.createElement(
 	         'div',
 	         { className: 'main' },
@@ -258,7 +307,7 @@
 	               _react2.default.createElement(
 	                  'p',
 	                  null,
-	                  _react2.default.createElement('input', { type: 'radio', name: 'purchase', value: 'onboard_purchase', id: 'purchase-time-onboard-radio' }),
+	                  _react2.default.createElement('input', _extends({ type: 'radio', name: 'purchase', value: 'onboard_purchase', id: 'purchase-time-onboard-radio' }, readonly)),
 	                  _react2.default.createElement(
 	                     'label',
 	                     { className: 'fieldset-label', htmlFor: 'purchase-time-onboard-radio' },
@@ -274,7 +323,13 @@
 	                  { htmlFor: 'trips-input' },
 	                  'How many rides will you need?'
 	               ),
-	               _react2.default.createElement('input', { name: 'trips', type: 'number', min: '0', id: 'trips-input', placeholder: '1' })
+	               _react2.default.createElement('input', _extends({
+	                  name: 'trips',
+	                  type: 'number',
+	                  min: '0',
+	                  id: 'trips-input',
+	                  placeholder: this.state.trips
+	               }, readonly))
 	            )
 	         ),
 	         _react2.default.createElement(
@@ -285,11 +340,7 @@
 	               null,
 	               'Your fare will cost'
 	            ),
-	            _react2.default.createElement(
-	               'strong',
-	               { className: 'price' },
-	               this.getFarePrice()
-	            )
+	            this.getFarePrice()
 	         )
 	      );
 	   }

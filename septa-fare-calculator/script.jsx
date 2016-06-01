@@ -2,6 +2,12 @@ import React from 'react';
 import ReactDOM from 'react-dom'
 import $ from 'jquery'
 
+// Normally I would have each input be its own component
+// in a React App like this. This is far too bulky for one
+// component in production, but for the sake of time
+// I kept it all together. Happy to discuss my thoughts
+// on how I would refactor.
+
 var SeptaWidget = React.createClass({
    getInitialState: function () {
       return {
@@ -15,6 +21,10 @@ var SeptaWidget = React.createClass({
       }
    },
    componentDidMount: function() {
+      // This is where we make our one server request
+      // Instead of going back to server on every update,
+      // we're storing all of the fares information in state
+      // which is obviously impractical with larger data sets
       var that = this;
       this.serverRequest = $.ajax({
          url: that.props.source,
@@ -39,6 +49,9 @@ var SeptaWidget = React.createClass({
    },
 
    update: function (e) {
+      // Trigger by our form's onChange property
+      // e has information about what changed,
+      // and we update our state accordingly.
       var target = e.target;
       var name = target.name;
       var value = target.value;
@@ -56,6 +69,8 @@ var SeptaWidget = React.createClass({
    },
 
    getFarePrice: function () {
+      // Using our the information from our app's state,
+      // we render the appropriate amount as a user would expect
       if (this.state.fares.length === 0) {
          return;
       }
@@ -69,7 +84,8 @@ var SeptaWidget = React.createClass({
       var fare = zone.fares.find(function (el) {
          return el.type === type && el.purchase === purchase  
       })
-      return fare.price * trips;
+      // tolocaleString is a handy method for formatting currency.
+      return (fare.price * trips).toLocaleString("us", {style: "currency", currency: "USD", minimumFractionDigits: 2});
    },
 
    render: function () {
@@ -127,7 +143,7 @@ var SeptaWidget = React.createClass({
             </form>
             <div className="total-fare">
                <p>Your fare will cost</p>
-               <strong className="price">${this.getFarePrice()}</strong>
+               <strong className="price">{this.getFarePrice()}</strong>
             </div>
          </div>
       );

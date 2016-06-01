@@ -62,6 +62,12 @@
 	
 	function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 	
+	// Normally I would have each input be its own component
+	// in a React App like this. This is far too bulky for one
+	// component in production, but for the sake of time
+	// I kept it all together. Happy to discuss my thoughts
+	// on how I would refactor.
+	
 	var SeptaWidget = _react2.default.createClass({
 	   displayName: 'SeptaWidget',
 	
@@ -77,6 +83,10 @@
 	      };
 	   },
 	   componentDidMount: function componentDidMount() {
+	      // This is where we make our one server request
+	      // Instead of going back to server on every update,
+	      // we're storing all of the fares information in state
+	      // which is obviously impractical with larger data sets
 	      var that = this;
 	      this.serverRequest = _jquery2.default.ajax({
 	         url: that.props.source,
@@ -101,6 +111,9 @@
 	   },
 	
 	   update: function update(e) {
+	      // Trigger by our form's onChange property
+	      // e has information about what changed,
+	      // and we update our state accordingly.
 	      var target = e.target;
 	      var name = target.name;
 	      var value = target.value;
@@ -115,6 +128,8 @@
 	   },
 	
 	   getFarePrice: function getFarePrice() {
+	      // Using our the information from our app's state,
+	      // we render the appropriate amount as a user would expect
 	      if (this.state.fares.length === 0) {
 	         return;
 	      }
@@ -128,7 +143,8 @@
 	      var fare = zone.fares.find(function (el) {
 	         return el.type === type && el.purchase === purchase;
 	      });
-	      return fare.price * trips;
+	      // tolocaleString is a handy method for formatting currency.
+	      return (fare.price * trips).toLocaleString("us", { style: "currency", currency: "USD", minimumFractionDigits: 2 });
 	   },
 	
 	   render: function render() {
@@ -272,7 +288,6 @@
 	            _react2.default.createElement(
 	               'strong',
 	               { className: 'price' },
-	               '$',
 	               this.getFarePrice()
 	            )
 	         )

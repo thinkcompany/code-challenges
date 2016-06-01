@@ -1,0 +1,118 @@
+.main {
+   width: 480px;
+   margin: 0 auto;
+   border: 3px solid #CCCCCC;
+}
+
+.header {
+   padding: 10px 40px;
+   background-color: #595959;
+   color: white;
+}
+
+.header-img {
+   display: inline;
+   padding: 0 20px 0 0;
+}
+
+.header-text {
+   display: inline;
+   vertical-align: super;
+}
+
+form {
+   text-align: center;
+}
+
+select {
+   width: 90%;
+   height: 50px;
+   padding: 10px;
+   -webkit-appearance:none;
+   -moz-appearance:none;
+   appearance:none;
+   font-weight: 100;
+}
+
+.input-container {
+   margin: 0;
+   border: 0;
+   border-bottom: 2px solid #EEEEEE;
+   padding: 25px;
+}
+
+form p {
+   font-size: 24px;
+}
+
+legend {
+   font-size: 24px;
+}
+
+fieldset {
+   border: 0;
+   padding: 25px 0 0;
+   color: #595959;
+}
+
+fieldset > p {
+   width: 250px;
+}
+
+input[type="radio"] {
+  float: left;
+}
+
+.fieldset-label {
+   line-height: .5;
+   text-align: left;
+   margin: 0 0 0 50px;
+   font-weight: 100;
+}
+
+legend {
+   padding: 25px 0 0;
+}
+
+label {
+   display: block;
+   color: #595959;
+   padding: 0 0 10px 0;
+}
+
+.helper-text {
+   margin: 0 auto;
+   width: 400px;
+   padding: 10px 0 0 0;
+   display: block;
+   line-height: 1.25;
+   font-size: 12px;
+   color: #CCCCCC;
+}
+
+input[type="number"] {
+   background-color: #FFFEFE;
+   border: 2px solid #CCCCCC;
+   width: 100px;
+   height: 50px;
+   -moz-border-radius: 5px;
+   -webkit-border-radius: 5px;
+   border-radius: 5px;
+   text-align: center;
+}
+
+.total-fare {
+   padding: 25px;
+   text-align: center;
+   background: #595959;
+   color: white;
+   font-size: 24px;
+}
+
+p {
+   margin: 0 auto;
+}
+
+.price {
+   font-size: 64px;
+}

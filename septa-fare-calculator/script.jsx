@@ -123,8 +123,11 @@ var SeptaWidget = React.createClass({
    },
 
    render: function () {
+      // This little pre-render acitivity is for disabling
+      // the onboard radio button and the trips counter input
+      // when someone has chosen the anytime "package".
+      // Kinda hacky use of the spread operator.
       var readonly = {}
-
       if (this.state.type === "anytime") {
          readonly.readOnly = "readOnly"
          readonly.disabled = "disabled";

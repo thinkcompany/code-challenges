@@ -274,7 +274,7 @@
 	                  { htmlFor: 'trips-input' },
 	                  'How many rides will you need?'
 	               ),
-	               _react2.default.createElement('input', { name: 'trips', type: 'number', min: '0', id: 'trips-input', 'default': '1' })
+	               _react2.default.createElement('input', { name: 'trips', type: 'number', min: '0', id: 'trips-input', placeholder: '1' })
 	            )
 	         ),
 	         _react2.default.createElement(

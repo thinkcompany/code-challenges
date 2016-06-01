@@ -137,7 +137,7 @@ var SeptaWidget = React.createClass({
 
                <p className="input-container">
                   <label htmlFor="trips-input">How many rides will you need?</label>
-                  <input name="trips" type="number" min="0" id="trips-input" default="1" />
+                  <input name="trips" type="number" min="0" id="trips-input" placeholder="1" />
                </p>
 
             </form>

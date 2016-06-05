@@ -1,10 +1,54 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="UTF-8">
-	<title>SEPTA Regional Rail Fare Calculator</title>
+    <meta charset="UTF-8">
+    <title>SEPTA Regional Rail Fare Calculator</title>
 </head>
 <body>
-	
+
+<div id="septa-fare-calculator">
+    <div class="septa-fare-header">Regional Rail Fares</div>
+    <!--TODO: Add logo-->
+    <p>
+        <label for="septa-calc-destination">Where are you going?</label>
+        <select id="septa-calc-destination" name="select">
+            <option value="value1">Value 1</option>
+            <option value="value2" selected>Value 2</option>
+            <option value="value3">Value 3</option>
+        </select>
+    </p>
+    <p>
+        <label for="septa-calc-when">When are you riding?</label>
+        <select id="septa-calc-when" name="select">
+            <option value="value1">Value 1</option>
+            <option value="value2" selected>Value 2</option>
+            <option value="value3">Value 3</option>
+        </select>
+    </p>
+    <fieldset>
+        <legend>Where will you purchase the fare?</legend>
+        <p>
+            <input type="radio" name="septa-calc-purchase-loc" value="vanilla" id="radio-septa-onboard"/>
+            <label for="radio-septa-onboard">Onboard</label>
+        </p>
+        <p>
+            <input type="radio" name="septa-calc-purchase-loc" value="chocolate" id="radio-septa-station-kiosk"/>
+            <label for="radio-septa-station-kiosk">Station Kiosk</label>
+        </p>
+    </fieldset>
+    <!--TODO: Review max-->
+    <p>
+        <input type="number" name="septa-ride-count" id="septa-ride-count" min="0" max="10"/>
+        <label for="septa-ride-count">How many rides will you need?</label>
+    </p>
+    <div class="septa-fare-footer">
+        <p>Your fare will cost</p>
+        <p class="septa-fare-price">28.00</p>
+    </div>
+
+
+</div>
+<script src="bundle.js"></script>
+
 </body>
 </html>

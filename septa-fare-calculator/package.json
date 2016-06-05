@@ -1,0 +1,23 @@
+{
+  "name": "septa-fare-calculator",
+  "version": "1.0.0",
+  "description": "SEPTA fare calculator for Think Brownstone code challenge",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "knockout": "^3.4.0",
+    "normalize-scss": "^5.0.3",
+    "normalize.css": "^4.1.1"
+  },
+  "devDependencies": {
+    "css-loader": "^0.23.1",
+    "node-sass": "^3.7.0",
+    "sass-loader": "^3.2.0",
+    "style-loader": "^0.13.1",
+    "webpack": "^1.13.1"
+  }
+}

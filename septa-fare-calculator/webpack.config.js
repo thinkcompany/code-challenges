@@ -1,8 +1,8 @@
 module.exports = {
-    entry: "./septaFareCalculator.js",
+    entry: "./scripts/septaFareCalculator.js",
     output: {
-        path: __dirname,
-        filename: "bundle.js"
+        path: __dirname + '/scripts',
+        filename: "septaFareCalculatorBundle.js"
     },
     module: {
         loaders: [

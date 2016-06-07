@@ -6,12 +6,11 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
+  "author": "Nick Laffey",
   "license": "ISC",
   "dependencies": {
-    "knockout": "^3.4.0",
-    "normalize-scss": "^5.0.3",
-    "normalize.css": "^4.1.1"
+    "jquery": "^2.2.4",
+    "knockout": "^3.4.0"
   },
   "devDependencies": {
     "css-loader": "^0.23.1",

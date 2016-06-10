@@ -78,7 +78,12 @@ input[type="number"] {
 .fare-helper-text {
   font-size: 20px;
   font-weight: normal;
-}	
+  padding-top: 2%;
+}
+
+#farepurchase .fare-helper-text {
+  padding-top: 10%;  
+}  
 
 .fare-radio-btn {	
   margin:0 0 0 30px;  
@@ -104,7 +109,6 @@ input[type="number"] {
 
 .fare-radio-btn {	
   margin:0 0 0 0;  
-  padding: 0;
   text-align: left;
 }
 

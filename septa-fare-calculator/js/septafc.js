@@ -2,7 +2,7 @@
 var JSON_FARES="";
 
 //html for septra fare calculator widget
-var widgetHtml = function() {
+var fareWidgetHtml = function() {
 	return '<div class="fare-header-container">'+
            '<h3>Regional Rails Fares</h3>'+
          '</div>'+ 
@@ -105,7 +105,7 @@ var calcFare = function(zone, type, purchased, qty) {
   }   
 };
 
-//populate sfzone with names and zone values 
+//populate sfzone with name and zone values 
 var zoneHtml = function() {
  var sfzoneHtml = '';          
  
@@ -136,14 +136,15 @@ function load_JSON() {
 //plugin septa fare calculator
 $.fn.septaFareCalculator = function() {
 //populate HTML	
-  this.html(widgetHtml);
+  this.html(fareWidgetHtml);
   
-//populate sftype with fare type values  
-  $('#sftype').html(typeHtml); 
-		
 // read in JSON and populate zones 		
   load_JSON();
-    
+  
+//populate sftype with fare type values  
+  $('#sftype').html(typeHtml);		
+  $('#advance_purchase').prop('checked', true);
+
 // on change, display matching help text for selected type value
   $('#sftype').change(function () {     		  
     //$('#type-helptext').displayText($(this).val());

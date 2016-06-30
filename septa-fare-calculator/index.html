@@ -1,10 +1,90 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-US">
 <head>
-	<meta charset="UTF-8">
+	<meta charset="utf-8">
 	<title>SEPTA Regional Rail Fare Calculator</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:400,700">
+  <link rel="stylesheet" href="./septa-fare-calculator.css">
 </head>
 <body>
-	
+  
+  <!-- Going just to BEM a little -->
+  <div id="septa-fare-calculator-app" class="sfc">
+    <form id="sfc-form" action="./old-lame-accessible-no-js-septa-fare-calculator.php" method="get">
+
+      <header class="sfc-head">
+        <h1 class="sfc-header">
+          <!-- Would normaly use an svg here, but IE8 might not like that... -->
+          <img class="sfc-septa-logo" src="./img/septa.png" alt="">
+          Regional Rail Fares
+        </h1>
+      </header>
+
+      <section class="sfc-section sfc-section--zone">
+        <!-- <label> in a header is valid. Learn something new everyday. -->
+        <h1 class="sfc-section__header">
+          <label for="sfc-zone">Where are you going?</label>
+        </h1>
+        <select id="sfc-zone" class="sfc-select sfc-select--zone" name="zone">
+          <option value="1">CPP/1</option>
+          <option value="2">Zone 2</option>
+          <option value="3">Zone 3</option>
+          <option value="4">Zone 4</option>
+          <option value="5">NJ</option>
+        </select>
+      </section>
+
+      <section class="sfc-section sfc-section--type">
+        <h1 class="sfc-section__header">
+          <label for="sfc-type">When are you riding?</label>
+        </h1>
+        <select id="sfc-type" class="sfc-select sfc-select--type" name="type">
+          <option value="weekday">Weekday</option>
+          <option value="evening_weekend">Evening Weekend</option>
+        </select>
+        <p id="sfc__notice" class="sfc-notice" aria-live="polite">...</p>
+      </section>
+
+      <section class="sfc-section sfc-section--purchase">
+        <h1 class="sfc-section__header">Where will you purchase the fare?</h1>
+        <ul class="sfc-radio-list">
+          <li class="sfc-radio-list-item">
+            <label>
+              <input class="sfc-radio sfc-radio--purchase" name="purchase" type="radio" value="advance_purchase" checked>
+              Station Kiosk
+            </label>
+          </li>
+          <li class="sfc-radio-list-item">
+            <label>
+              <input class="sfc-radio sfc-radio--purchase" name="purchase" type="radio" value="onboard_purchase">
+              Onboard
+            </label>
+          </li>
+        </ul>
+      </section>
+
+      <section class="sfc-section sfc-section--rides">
+        <h1 class="sfc-section__header">
+          <label for="sfc-rides">How many rides will you need?</label>
+        </h1>
+        <input id="sfc-rides" class="sfc-input sfc-input--rides" name="trips" type="number"pattern="\d*" value="1">
+      </section>
+  
+      <!-- aria-live is being used since the cost updates dynamically -->
+      <section class="sfc-section sfc-section--cost" aria-live="polite">
+        <h2 class="sfc-section__header">Your fare will cost</h2>
+        <span id="sfc__cost" class="sfc-cost">$0</span>
+      </section>
+
+      <noscript>
+        <!-- No JS, no auto calculating. Boooo -->
+        <button>Calculate Cost</button>
+      </noscript>
+    </form>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+  <script src="./septa-fare-calculator.js"></script>
 </body>
 </html>

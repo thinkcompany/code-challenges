@@ -2,7 +2,7 @@
 
 ## Dev notes
 
-`cd` in `septa-fare-calculator` dir
+`cd` into `septa-fare-calculator` dir
 
 `npm install` to install dependancies
 

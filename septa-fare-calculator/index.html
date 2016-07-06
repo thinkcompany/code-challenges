@@ -3,8 +3,56 @@
 <head>
 	<meta charset="UTF-8">
 	<title>SEPTA Regional Rail Fare Calculator</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<link rel="stylesheet" href="/css/main.min.css">
+	<script src="/vendor/jquery-2.2.4.min.js"></script>
+	<script src="/js/min/app.min.js"></script>
 </head>
-<body>
-	
+<body class="septa-widget">
+	<div class="outer-wrapper">
+		<header>
+			<img src="/img/septa-logo.png" alt="SEPTA" />
+			<h1>Regional Rail Fares</h1>
+		</header>
+		<form>
+			<fieldset>
+				<label for="destination">Where are you going?</label>
+				<div class="input-wrap">
+					<select id="destination" name="destination" data-field="dest"></select>
+				</div>
+			</fieldset>
+			<fieldset>
+				<label for="time">When are you going?</label>
+				<div class="input-wrap">
+					<select id="time" name="time" data-field="time">
+						<option value="weekday">Weekdays</option>
+						<option value="evening_weekend">Evening/Weekend</option>
+					</select>
+				</div>
+				<p class="helper" data-helper></p>
+			</fieldset>
+			<fieldset class="radios">
+				<legend>Where will you purchase the fare?</legend>
+				<div class="input-wrap">
+					<input id="station" type="radio" name="purchaseloc" value="advance_purchase" checked data-field="loc">
+					<label for="station">Station Kiosk</label>
+				</div>
+				<div class="input-wrap">
+					<input id="onboard" type="radio" name="purchaseloc" value="onboard_purchase" data-field="loc">
+					<label for="onboard">Onboard</label>
+				</div>
+			</fieldset>
+			<fieldset>
+				<label for="number">How many rides will you need?</label>
+				<div class="input-wrap">
+					<input id="number" type="number" name="name" min="1" max="10" step="1" value="1" data-field="num">
+				</div>
+			</fieldset>
+		</form>
+		<footer>
+			Your fare will cost
+			<span data-price>$0</span>
+		</footer>
+	</div>
 </body>
 </html>

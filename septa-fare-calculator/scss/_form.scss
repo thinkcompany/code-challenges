@@ -1,0 +1,56 @@
+.septa-widget {
+
+  form {
+    label, legend {
+      font-weight: 600;
+      display: inline-block;
+      margin-bottom: em(12);
+    }
+    fieldset {
+      padding: em(15) em(20);
+      margin: 0;
+      border: 0;
+      border-bottom: 1px solid $ltgrey;
+      .input-wrap {
+        display: block;
+        text-align: left;
+        margin: 0 auto;
+        max-width: em(400);
+      }
+      select, input {
+        height: em(40);
+        border-radius: em(3);
+        border: 1px solid $ltgrey;
+      }
+      select {
+        width: 100%;
+      }
+      input {
+        display: block;
+        width: em(70);
+        text-align: center;
+        margin: 0 auto;
+      }
+      &.radios {
+        .input-wrap {
+          max-width: em(120);
+        }
+        label {
+          font-weight: 400;
+        }
+        input {
+          display: inline-block;
+          width: auto;
+          height: auto;
+          margin-right: em(5);
+          margin-bottom: em(8);
+        }
+      }
+    }
+    p.helper {
+      font-size: em(10);
+      margin: em(10, 10) 0 0;
+    }
+  }
+
+}

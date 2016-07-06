@@ -1,0 +1,45 @@
+html{
+  font-family: $main;
+  color: $dkgrey;
+}
+
+.septa-widget {
+  text-align: center;
+
+  .outer-wrapper {
+    max-width: em(420);
+    border: 2px solid $ltgrey;
+  }
+
+  header, footer {
+    background: $dkgrey;
+    color: white;
+  }
+
+  header {
+    padding: em(10) em(20);
+    img {
+      display: inline-block;
+      vertical-align: top;
+      margin-right: em(10);
+    }
+    h1 {
+      font-size: em(22);
+      display: inline-block;
+      margin: 0;
+      vertical-align: middle;
+      line-height: 1.6;
+    }
+  }
+
+  footer {
+    padding: em(10) em(20);
+    font-size: em(14);
+    span {
+      display: block;
+      font-size: em(40, 14);
+      font-weight: 700;
+    }
+  }
+
+}

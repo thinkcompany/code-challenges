@@ -1,6 +1,6 @@
 $(document).ready(function(){
 
-
+//see how many rides they need
   $('#fares').on('input change', function(){
 
     var rides = parseInt($(this).val())
@@ -21,7 +21,7 @@ $(document).ready(function(){
 
     var form = {
 
-      zone: $('#septa-going').val(),
+      zone: $('#fareCalcZones').val(),
       type: type,
       where: get_checked_value(),
       rides: rides,
@@ -38,12 +38,12 @@ $(document).ready(function(){
 
           400 : function(){
 
-            error('That did not work.')
+            error('400 error')
           },
 
           501 : function(){
 
-            error('That did not work.')
+            error('501 error')
 
           },
 
@@ -71,14 +71,14 @@ $(document).ready(function(){
     else
     {
 
-      $('#septa-total').html("0.00")
+      $('#fareCalcTotal').html("0.00")
 
     }
 
 
   })
 
-
+//Are they purchasing at the kiosk or onboard?
   $('.fareCalcRadioButton').on('change', function(){
 
     var selected = $(this).val()
@@ -91,12 +91,12 @@ $(document).ready(function(){
 
         400 : function(){
 
-          error('That did not work.')
+          error('400 error')
         },
 
         501 : function(){
 
-          error('That did not work.')
+          error('501 error')
 
         },
 
@@ -151,7 +151,7 @@ function calculate_fare( data, form )
   var fares = current_zone['fares']
   var price = get_current_price(fares, form['where'], form['type'], form['rides'])
 
-  $('#septa-total').html( format_price( price ) )
+  $('#fareCalcTotal').html( format_price( price ) )
 
 
 }

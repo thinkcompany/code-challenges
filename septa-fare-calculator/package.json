@@ -1,0 +1,15 @@
+{
+  "author": "Matthew Mance",
+  "dependencies": {
+    "browser-sync": "^2.13.0",
+    "gulp": "^3.9.1",
+    "gulp-autoprefixer": "^3.1.0",
+    "gulp-sass": "^2.3.2"
+  },
+  "description": "Septa fare calculator coding challenge for Think Brownstone",
+  "keywords": [],
+  "license": "ISC",
+  "name": "septa-fare-calculator",
+  "version": "1.0.0",
+  "devDependencies": {}
+}

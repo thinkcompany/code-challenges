@@ -16,6 +16,7 @@ gulp.task('sass', function() {
 	};
 	return gulp.src('app/src/styles/**/*.scss')
 	.pipe(autoprefixer(autoprefixerOptions))
+	.pipe(sass())
 	.pipe(gulp.dest('app/dist/styles/'))
 	.pipe(reload(reloadOptions));
 });

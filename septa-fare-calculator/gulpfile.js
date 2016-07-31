@@ -47,7 +47,8 @@ gulp.task('watch', function(){
 gulp.task('serve', ['sass', 'html', 'js', 'watch'], function() {
 	browserSync({
 		server: {
-			baseDir: 'app/dist'
+			baseDir: 'app/dist',
+			port: 3000
 		}
 	});
 });

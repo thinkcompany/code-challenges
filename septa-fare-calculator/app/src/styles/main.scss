@@ -1,1 +1,78 @@
-#septa-calculator { }
+#septa-calculator {
+    font-family: sans-serif;
+    text-align: center;
+    color: #4d4d4d;
+    .calc-container {
+        margin: 0 auto;
+        border: 2px solid #CCCCCC;
+        max-width: 350px;
+        min-height: 320px;
+        .calc-header {
+            background: #595959;
+            padding: 15px;
+            span {
+                color: #FFFFFF;
+                font-size: 18px;
+                font-weight: 600;
+            }
+            img {
+                width: 20px;
+            }
+        }
+        .calc-body {
+            fieldset {
+                border: 0;
+                padding: 0;
+                margin: 0;
+                min-width: 0;
+            }
+
+            h4 {
+                font-weight: 500;
+                margin: 0;
+                padding: 15px;
+                color: #4d4d4d;
+            }
+            .section {
+                padding: 15px;
+                border-bottom: 1px solid #CCCCCC;
+                &#errorMsg {
+                    border-bottom: 0 none;
+                    min-height: 0;
+                    color: red;
+                }
+                &#where {}
+                &#when {
+                    #when-info{
+                        color: #4d4d4d;
+                        text-align: left;
+                        margin-top: 15px;
+                        font-size: 10px;
+                        display: inline-block;
+                    }
+                }
+                &#purchase {
+                    > div {
+                        margin: 0px auto;
+                        text-align: left;
+                        width: 150px;
+                        label {
+                            display: inline-block;
+                            margin-bottom: 10px;
+                        }
+                    }
+                }
+                &#totals {
+                    background: #595959;
+                    color: #FFF;
+                    #discount-text {
+                        color: #FFFFFF;
+                        display: inline-block;
+                        font-size: 10px;
+                    }
+                }
+                min-height:100px;
+            }
+        }
+    }
+}

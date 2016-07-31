@@ -1,3 +1,15 @@
+#######################################
+
+Setup
+---
+npm install
+
+Run the Gulp server
+---
+gulp
+
+#######################################
+
 # SEPTA Rail Fare Calculator Challenge
 
 Hello, hopeful Think Brownstone development team member! 

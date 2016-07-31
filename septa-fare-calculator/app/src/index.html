@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>SEPTA Regional Rail Fare Calculator</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s=" crossorigin="anonymous"></script>
+    <script src="scripts/app.js"></script>
+</head>
+
+<body>
+    <div id="septa-calculator">
+        <div class=calc-container>
+            <div class="calc-header">
+                <img src="img/septa.png">
+                <span>Regional Rail Fares</span>
+            </div>
+            <form id="calc-form" class="calc-body">
+                <fieldset>
+                    <div id="errorMsg" class="section">
+                        <span></span>
+                    </div>
+                    <div id="where" class="section">
+                        <h4>Where are you going?</h4>
+                        <select id="where-select" class="calc-select" name="where">
+                            <option value="" selected>--</option>
+                        </select>
+                    </div>
+                    <div id="when" class="section">
+                        <h4>When are you riding?</h4>
+                        <select id="when-select" class="calc-select" name="when">
+                            <option value="" selected>--</option>
+                        </select>
+                        <br>
+                        <span id="when-info"></span>
+                    </div>
+                    <div id="purchase" class="section">
+                        <h4>Where will you purchase the fare?</h4>
+                        <div>
+                            <label for="advance_purchase">
+                                <input type="radio" class="calc-select" name="purchase_where" id="advance_purchase" value="advance_purchase" checked="checked" /> Station Kiosk
+                            </label>
+                            <br>
+                            <label for="onboard_purchase">
+                                <input type="radio" class="calc-select" name="purchase_where" id="onboard_purchase" value="onboard_purchase" /> Onboard
+                            </label>
+                        </div>
+                    </div>
+                    <div id="qty" class="section">
+                        <h4>How many rides will you need?</h4>
+                        <select id="qty-select" class="calc-select" name="when">
+                            <option value="" selected>--</option>
+                        </select>
+                    </div>
+                    <div id="totals" class="section">
+                        <p>Your fare will cost:</p>
+                        <h1 id="total-cost"></h1>
+                        <span id="discount-text"></span>
+                    </div>
+                </fieldset>
+            </form>
+        </div>
+    </div>
+</body>
+
+</html>

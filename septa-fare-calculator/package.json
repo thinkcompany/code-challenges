@@ -1,0 +1,23 @@
+{
+  "name": "septa-fare-calculator",
+  "version": "1.0.0",
+  "description": "SEPTA fare calculator for Think Brownstone code challenge",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Nick Laffey",
+  "license": "ISC",
+  "dependencies": {
+    "jquery": "^2.2.4",
+    "knockout": "^3.4.0"
+  },
+  "devDependencies": {
+    "css-loader": "^0.23.1",
+    "node-sass": "^3.7.0",
+    "sass-loader": "^3.2.0",
+    "style-loader": "^0.13.1",
+    "webpack": "^1.13.1",
+    "webpack-dev-server": "^1.15.0"
+  }
+}

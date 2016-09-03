@@ -29,10 +29,8 @@
         $scope.septaData = response.data;
       }, function errorCallback(response) {});
 
-      $scope.username = 'World';
-
       $scope.updateFare = function () {
-        // console.log($scope.septaData);
+        
         var zone = $scope.zone;
         var type = $scope.type;
         var purchase = $scope.purchase;
@@ -68,12 +66,9 @@
           });
         }
 
-        console.log(resultFare);
-
         // Wasn't sure how to filter at once into a nested object, so I'm
         // pulling the parent object first.
         var resultPrice = resultFare[0].price * units;
-        console.log(resultPrice);
 
         $scope.total = resultPrice;
       };

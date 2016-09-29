@@ -62,36 +62,66 @@ class Options extends React.Component {
 
     return (
       <form onChange={this.handleChange}>
-        <select ref="zone">
-          {zoneOptions}
-        </select>
-        <select ref="type">
-          {typeOptions}
-        </select>
-        <div className="type-label">
-          {this.helperText()}
-        </div>
-        <label>
-          <input
-            type="radio"
-            value="advance_purchase"
-            onChange={this.handleOptionChange}
-            checked={this.state.checked === "advance_purchase"} />
+        <section>
           <div>
-            Station Kiosk
+            Where are you going?
           </div>
-        </label>
-        <label>
-          <input
-            type="radio"
-            value="onboard_purchase"
-            onChange={this.handleOptionChange}
-            checked={this.state.checked === "onboard_purchase"} />
           <div>
-            Onboard
+            <div className="select">
+              <select ref="zone">
+                {zoneOptions}
+              </select>
+            </div>
           </div>
-        </label>
-        <input type="text" ref="numRides" defaultValue={1} />
+        </section>
+        <section>
+          <div>
+            When are you riding?
+          </div>
+          <div>
+            <div className="select">
+              <select ref="type">
+                {typeOptions}
+              </select>
+            </div>
+            <div className="type-label">
+              {this.helperText()}
+            </div>
+          </div>
+        </section>
+        <section>
+          <div>
+            Where will you purchase the fare?
+          </div>
+          <div className="radiogroup">
+            <label>
+              <input
+                type="radio"
+                value="advance_purchase"
+                onChange={this.handleOptionChange}
+                checked={this.state.checked === "advance_purchase"} />
+              <div>
+                Station Kiosk
+              </div>
+            </label>
+            <label>
+              <input
+                type="radio"
+                value="onboard_purchase"
+                onChange={this.handleOptionChange}
+                checked={this.state.checked === "onboard_purchase"} />
+              <div>
+                Onboard
+              </div>
+            </label>
+          </div>
+        </section>
+        <section>
+          <div>
+            How many rides will you need?
+          </div>
+          <input type="text" ref="numRides" defaultValue={1} />
+        </section>
       </form>
     );
   }

@@ -157,49 +157,105 @@
 	        'form',
 	        { onChange: this.handleChange },
 	        _react2.default.createElement(
-	          'select',
-	          { ref: 'zone' },
-	          zoneOptions
-	        ),
-	        _react2.default.createElement(
-	          'select',
-	          { ref: 'type' },
-	          typeOptions
-	        ),
-	        _react2.default.createElement(
-	          'div',
-	          { className: 'type-label' },
-	          this.helperText()
-	        ),
-	        _react2.default.createElement(
-	          'label',
+	          'section',
 	          null,
-	          _react2.default.createElement('input', {
-	            type: 'radio',
-	            value: 'advance_purchase',
-	            onChange: this.handleOptionChange,
-	            checked: this.state.checked === "advance_purchase" }),
 	          _react2.default.createElement(
 	            'div',
 	            null,
-	            'Station Kiosk'
-	          )
-	        ),
-	        _react2.default.createElement(
-	          'label',
-	          null,
-	          _react2.default.createElement('input', {
-	            type: 'radio',
-	            value: 'onboard_purchase',
-	            onChange: this.handleOptionChange,
-	            checked: this.state.checked === "onboard_purchase" }),
+	            'Where are you going?'
+	          ),
 	          _react2.default.createElement(
 	            'div',
 	            null,
-	            'Onboard'
+	            _react2.default.createElement(
+	              'div',
+	              { className: 'select' },
+	              _react2.default.createElement(
+	                'select',
+	                { ref: 'zone' },
+	                zoneOptions
+	              )
+	            )
 	          )
 	        ),
-	        _react2.default.createElement('input', { type: 'text', ref: 'numRides', defaultValue: 1 })
+	        _react2.default.createElement(
+	          'section',
+	          null,
+	          _react2.default.createElement(
+	            'div',
+	            null,
+	            'When are you riding?'
+	          ),
+	          _react2.default.createElement(
+	            'div',
+	            null,
+	            _react2.default.createElement(
+	              'div',
+	              { className: 'select' },
+	              _react2.default.createElement(
+	                'select',
+	                { ref: 'type' },
+	                typeOptions
+	              )
+	            ),
+	            _react2.default.createElement(
+	              'div',
+	              { className: 'type-label' },
+	              this.helperText()
+	            )
+	          )
+	        ),
+	        _react2.default.createElement(
+	          'section',
+	          null,
+	          _react2.default.createElement(
+	            'div',
+	            null,
+	            'Where will you purchase the fare?'
+	          ),
+	          _react2.default.createElement(
+	            'div',
+	            { className: 'radiogroup' },
+	            _react2.default.createElement(
+	              'label',
+	              null,
+	              _react2.default.createElement('input', {
+	                type: 'radio',
+	                value: 'advance_purchase',
+	                onChange: this.handleOptionChange,
+	                checked: this.state.checked === "advance_purchase" }),
+	              _react2.default.createElement(
+	                'div',
+	                null,
+	                'Station Kiosk'
+	              )
+	            ),
+	            _react2.default.createElement(
+	              'label',
+	              null,
+	              _react2.default.createElement('input', {
+	                type: 'radio',
+	                value: 'onboard_purchase',
+	                onChange: this.handleOptionChange,
+	                checked: this.state.checked === "onboard_purchase" }),
+	              _react2.default.createElement(
+	                'div',
+	                null,
+	                'Onboard'
+	              )
+	            )
+	          )
+	        ),
+	        _react2.default.createElement(
+	          'section',
+	          null,
+	          _react2.default.createElement(
+	            'div',
+	            null,
+	            'How many rides will you need?'
+	          ),
+	          _react2.default.createElement('input', { type: 'text', ref: 'numRides', defaultValue: 1 })
+	        )
 	      );
 	    }
 	  }]);

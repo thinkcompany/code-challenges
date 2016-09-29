@@ -74,3 +74,62 @@ body {
 		}
 		#top { top: 0; }
 		#bottom { bottom: 0; }
+
+footer {
+  position: fixed;
+  width: 100%;
+  bottom: 0px;
+}
+
+header, footer {
+  background: #595959;
+  color: #fff;
+}
+
+header div, img {
+  display: inline-block;
+  margin: 15px 9px;
+  font-size: 29px;
+  font-weight: bold;
+  vertical-align: bottom;
+}
+
+.select {
+  position: relative;
+  display: inline-block;
+  overflow: hidden;
+  width: 300px;
+  height: 40px;
+}
+
+select {
+  width: 300px;
+  height: 40px;
+  border: 1px solid #BFBFBF;
+  padding: 5px;
+  background: transparent;
+  color: #4D4D4D;
+  font-size: 16px;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+.select:after {
+  z-index: 1;
+  position: absolute;
+  width: 10%;
+  height: 100%;
+  padding: 12px 8px;
+  color: #737373;
+  content: "\0025BE";
+  text-align: center;
+  right: 10px;
+  bottom: 2px;
+  pointer-events: none;
+  box-sizing: border-box;
+}
+
+select:focus {
+  outline: none;
+}

@@ -22,3 +22,6 @@
   * From a website that looks at an image and can grab the font, it looks like the font on the sample app image is Proxima Nova. A Google font called "Montserrat" is pretty close / free, and we can load that from a CDN.
   * Grab the Septa logo from Google
   * Put a reset at the beginning of our stylesheet
+  * Set a border on the page with 4 divs
+  * Set footer to be at the very bottom of the page
+  * The custom select menus will be tricky... Set the drop down triangle with a unicode character.

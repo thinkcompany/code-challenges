@@ -82,10 +82,36 @@
 	  function Calculator(props) {
 	    _classCallCheck(this, Calculator);
 	
-	    return _possibleConstructorReturn(this, (Calculator.__proto__ || Object.getPrototypeOf(Calculator)).call(this, props));
+	    var _this2 = _possibleConstructorReturn(this, (Calculator.__proto__ || Object.getPrototypeOf(Calculator)).call(this, props));
+	
+	    _this2.state = {
+	      data: null,
+	      options: {
+	        zone: 1,
+	        type: "weekday",
+	        purchase: "onboard_purchase",
+	        numRides: 1
+	      }
+	    };
+	    _this2.handleUserInput = _this2.handleUserInput.bind(_this2);
+	    return _this2;
 	  }
 	
 	  _createClass(Calculator, [{
+	    key: 'componentDidMount',
+	    value: function componentDidMount() {
+	      var _this3 = this;
+	
+	      this.serverRequest = $.get(this.props.source, function (result) {
+	        _this3.setState({ data: result });
+	      });
+	    }
+	  }, {
+	    key: 'handleUserInput',
+	    value: function handleUserInput(options) {
+	      this.setState({ options: options });
+	    }
+	  }, {
 	    key: 'render',
 	    value: function render() {
 	      return _react2.default.createElement(

@@ -107,6 +107,46 @@
 	      });
 	    }
 	  }, {
+	    key: 'determineCost',
+	    value: function determineCost() {
+	      if (this.state.data === null) {
+	        return 0;
+	      }
+	      var fares = this.state.data.zones[this.state.options.zone - 1].fares;
+	      var price = void 0;
+	      var cost = void 0;
+	      var numRides = Math.floor(this.state.options.numRides);
+	      var bool1 = this.state.options.purchase === "advance_purchase";
+	      var bool2 = this.state.options.type === "weekday";
+	      var bool3 = this.state.options.zone === 5;
+	      var type = this.state.options.type;
+	      var purchase = this.state.options.purchase;
+	      if (isNaN(numRides) || numRides < 1) {
+	        cost = 0;
+	      } else if (bool1 && (bool2 || bool3)) {
+	        var numTenTix = Math.floor(numRides / 10);
+	        var remainder = numRides % 10;
+	        var tenTixPrice = void 0;
+	        for (var i = 0; i < fares.length; i++) {
+	          if (fares[i].type === type && fares[i].purchase === purchase) {
+	            price = fares[i].price;
+	          }
+	          if (fares[i].trips === 10) {
+	            tenTixPrice = fares[i].price;
+	          }
+	        }
+	        cost = (numTenTix * tenTixPrice + remainder * price).toFixed(2);
+	      } else {
+	        for (var _i = 0; _i < fares.length; _i++) {
+	          if (fares[_i].type === type && fares[_i].purchase === purchase) {
+	            price = fares[_i].price;
+	          }
+	        }
+	        cost = (price * numRides).toFixed(2);
+	      }
+	      return cost;
+	    }
+	  }, {
 	    key: 'handleUserInput',
 	    value: function handleUserInput(options) {
 	      this.setState({ options: options });
@@ -114,6 +154,7 @@
 	  }, {
 	    key: 'render',
 	    value: function render() {
+	      console.log(this.determineCost());
 	      return _react2.default.createElement(
 	        'div',
 	        null,

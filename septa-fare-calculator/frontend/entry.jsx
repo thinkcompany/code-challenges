@@ -116,7 +116,7 @@ class Options extends React.Component {
             </label>
           </div>
         </section>
-        <section>
+        <section id="last-section">
           <div>
             How many rides will you need?
           </div>

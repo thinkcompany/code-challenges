@@ -248,7 +248,7 @@
 	        ),
 	        _react2.default.createElement(
 	          'section',
-	          null,
+	          { id: 'last-section' },
 	          _react2.default.createElement(
 	            'div',
 	            null,

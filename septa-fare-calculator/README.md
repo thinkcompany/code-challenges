@@ -26,3 +26,4 @@
   * Set footer to be at the very bottom of the page
   * The custom select menus will be tricky... Set the drop down triangle with a unicode character.
   * Change text input to have rounded corners, bigger font
+  * Change radio options to be displayed like table rows, have text similar to drop-down menu. Vertical-align them to text-top.

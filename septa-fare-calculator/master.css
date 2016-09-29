@@ -194,3 +194,18 @@ label > div {
 input[type=radio] {
   vertical-align: text-top;
 }
+
+.type-label {
+  margin: 10px;
+  color: #bfbfbf;
+  font-size: 12px;
+}
+
+section {
+  border-bottom: 1px solid #E6E6E6;
+}
+
+#last-section {
+  margin-bottom: 161px;
+  border-bottom: 0;
+}

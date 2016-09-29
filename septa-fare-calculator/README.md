@@ -27,3 +27,11 @@
   * The custom select menus will be tricky... Set the drop down triangle with a unicode character.
   * Change text input to have rounded corners, bigger font
   * Change radio options to be displayed like table rows, have text similar to drop-down menu. Vertical-align them to text-top.
+  * Every section should have a 1px border on the bottom, except for the last one. Since that will be close to the footer, it needs a margin-bottom to make sure that the footer won't cover it up on mobile. Give it an id of "last-section", and add a margin enough to cover the footer + 25px.
+
+
+## Didn't get to
+* Accessibility
+* Making complete optimizations for mobile with `@media only screen`
+* Factoring out React into smaller components and files
+* More semantic html (too many divs)

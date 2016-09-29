@@ -168,6 +168,7 @@ class Calculator extends React.Component {
     return (
       <div>
         <header>
+          <img src="../img/septa.png" alt="septa logo" height="30px" />
           <div>
             Regional Rail Fares
           </div>

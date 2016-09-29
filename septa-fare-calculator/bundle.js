@@ -294,6 +294,7 @@
 	        _react2.default.createElement(
 	          'header',
 	          null,
+	          _react2.default.createElement('img', { src: '../img/septa.png', alt: 'septa logo', height: '30px' }),
 	          _react2.default.createElement(
 	            'div',
 	            null,

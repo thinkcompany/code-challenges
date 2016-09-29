@@ -5,6 +5,18 @@ class Options extends React.Component {
   constructor(props){
     super(props);
   }
+
+  handleChange(){
+    let typeValue = this.refs.type.value;
+    let type = typeValue === "anytime" ? "weekday" : typeValue;
+    this.props.onUserInput(
+      {zone: parseInt(this.refs.zone.value),
+       type: type,
+       purchase: this.checked,
+       numRides: parseInt(this.refs.numRides.value)}
+    );
+  }
+
   render(){
     const zoneOptions = [
       <option key={1} value={1}>Center City / Zone 1</option>,
@@ -21,8 +33,8 @@ class Options extends React.Component {
     ];
 
     return (
-      <form>
-        <select>
+      <form onChange={this.handleChange}>
+        <select ref="zone">
           {zoneOptions}
         </select>
         <select ref="type">

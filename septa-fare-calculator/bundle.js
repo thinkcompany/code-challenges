@@ -74,6 +74,16 @@
 	  }
 	
 	  _createClass(Options, [{
+	    key: 'handleChange',
+	    value: function handleChange() {
+	      var typeValue = this.refs.type.value;
+	      var type = typeValue === "anytime" ? "weekday" : typeValue;
+	      this.props.onUserInput({ zone: parseInt(this.refs.zone.value),
+	        type: type,
+	        purchase: this.checked,
+	        numRides: parseInt(this.refs.numRides.value) });
+	    }
+	  }, {
 	    key: 'render',
 	    value: function render() {
 	      var zoneOptions = [_react2.default.createElement(
@@ -114,10 +124,10 @@
 	
 	      return _react2.default.createElement(
 	        'form',
-	        null,
+	        { onChange: this.handleChange },
 	        _react2.default.createElement(
 	          'select',
-	          null,
+	          { ref: 'zone' },
 	          zoneOptions
 	        ),
 	        _react2.default.createElement(

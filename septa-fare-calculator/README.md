@@ -14,3 +14,4 @@
   * `Calculator` renders a header, a footer, and `Options` with the props of `this.state.options`), `info` from the JSON, and the `handleUserInput` function.
 4. `Options` should render a form with two select menus, radio buttons, and a text input.
   * Since the options are minimal, and since I'm not passing all of the data as props to `Options`, I'll declare drop down options in the `render()` function.
+  * `handleChange()` will call the props that sets the `options` state of `Calculator`, and will be called on a change from the form, grabbing the options through refs. Since `numRides` and `zone` are integers, first pass them to `parseInt`. If `type` is "anytime", it should change it to `weekday` first.

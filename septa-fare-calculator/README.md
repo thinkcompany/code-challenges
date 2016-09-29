@@ -25,3 +25,4 @@
   * Set a border on the page with 4 divs
   * Set footer to be at the very bottom of the page
   * The custom select menus will be tricky... Set the drop down triangle with a unicode character.
+  * Change text input to have rounded corners, bigger font

@@ -133,3 +133,19 @@ select {
 select:focus {
   outline: none;
 }
+
+input[type=text] {
+  width: 115px;
+  height: 40px;
+  border: 1px solid #BFBFBF;
+  border-radius:5px;
+  -moz-border-radius:5px;
+  -webkit-border-radius:5px;
+  padding: 5px;
+  background: transparent;
+  font-size: 22px;
+  text-align: center;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}

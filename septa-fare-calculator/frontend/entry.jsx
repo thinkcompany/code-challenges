@@ -4,6 +4,18 @@ import ReactDOM from 'react-dom';
 class Options extends React.Component {
   constructor(props){
     super(props);
+
+    this.state = {checked: "onboard_purchase"}
+
+    this.handleChange = this.handleChange.bind(this);
+    this.handleOptionChange = this.handleOptionChange.bind(this);
+
+    this.checked = "onboard_purchase";
+  }
+
+  handleOptionChange(e){
+    this.checked = e.target.value;
+    this.setState({checked: e.target.value});
   }
 
   handleChange(){
@@ -43,7 +55,9 @@ class Options extends React.Component {
         <label>
           <input
             type="radio"
-            value="advance_purchase" />
+            value="advance_purchase"
+            onChange={this.handleOptionChange}
+            checked={this.state.checked === "advance_purchase"} />
           <div>
             Station Kiosk
           </div>
@@ -51,7 +65,9 @@ class Options extends React.Component {
         <label>
           <input
             type="radio"
-            value="onboard_purchase" />
+            value="onboard_purchase"
+            onChange={this.handleOptionChange}
+            checked={this.state.checked === "onboard_purchase"} />
           <div>
             Onboard
           </div>
@@ -75,6 +91,7 @@ class Calculator extends React.Component {
       }
     }
     this.handleUserInput = this.handleUserInput.bind(this);
+    this.determineCost = this.determineCost.bind(this);
   }
 
   componentDidMount(){

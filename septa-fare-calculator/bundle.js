@@ -70,10 +70,24 @@
 	  function Options(props) {
 	    _classCallCheck(this, Options);
 	
-	    return _possibleConstructorReturn(this, (Options.__proto__ || Object.getPrototypeOf(Options)).call(this, props));
+	    var _this = _possibleConstructorReturn(this, (Options.__proto__ || Object.getPrototypeOf(Options)).call(this, props));
+	
+	    _this.state = { checked: "onboard_purchase" };
+	
+	    _this.handleChange = _this.handleChange.bind(_this);
+	    _this.handleOptionChange = _this.handleOptionChange.bind(_this);
+	
+	    _this.checked = "onboard_purchase";
+	    return _this;
 	  }
 	
 	  _createClass(Options, [{
+	    key: 'handleOptionChange',
+	    value: function handleOptionChange(e) {
+	      this.checked = e.target.value;
+	      this.setState({ checked: e.target.value });
+	    }
+	  }, {
 	    key: 'handleChange',
 	    value: function handleChange() {
 	      var typeValue = this.refs.type.value;
@@ -140,7 +154,9 @@
 	          null,
 	          _react2.default.createElement('input', {
 	            type: 'radio',
-	            value: 'advance_purchase' }),
+	            value: 'advance_purchase',
+	            onChange: this.handleOptionChange,
+	            checked: this.state.checked === "advance_purchase" }),
 	          _react2.default.createElement(
 	            'div',
 	            null,
@@ -152,7 +168,9 @@
 	          null,
 	          _react2.default.createElement('input', {
 	            type: 'radio',
-	            value: 'onboard_purchase' }),
+	            value: 'onboard_purchase',
+	            onChange: this.handleOptionChange,
+	            checked: this.state.checked === "onboard_purchase" }),
 	          _react2.default.createElement(
 	            'div',
 	            null,
@@ -185,6 +203,7 @@
 	      }
 	    };
 	    _this2.handleUserInput = _this2.handleUserInput.bind(_this2);
+	    _this2.determineCost = _this2.determineCost.bind(_this2);
 	    return _this2;
 	  }
 	

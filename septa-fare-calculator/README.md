@@ -15,3 +15,5 @@
 4. `Options` should render a form with two select menus, radio buttons, and a text input.
   * Since the options are minimal, and since I'm not passing all of the data as props to `Options`, I'll declare drop down options in the `render()` function.
   * `handleChange()` will call the props that sets the `options` state of `Calculator`, and will be called on a change from the form, grabbing the options through refs. Since `numRides` and `zone` are integers, first pass them to `parseInt`. If `type` is "anytime", it should change it to `weekday` first.
+  * Since the radio options are mutually exclusive, whether or not they're checked will have to be set in state. But in order to set the state of `Calculator` as soon as a change on the radio buttons occurs, their value will also have to be stored separately from state, as a property of `Options`, since `this.setState()` is asynchronous.
+  * On a change from the radio buttons, both that property and state will have to change in a `handleOptionChange()` function.

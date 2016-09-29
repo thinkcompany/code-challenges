@@ -2,6 +2,16 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 
 class Options extends React.Component {
+  constructor(props){
+    super(props);
+  }
+  render(){
+    return(
+      <div>
+        Options
+      </div>
+    );
+  }
 }
 
 class Calculator extends React.Component {
@@ -69,10 +79,27 @@ class Calculator extends React.Component {
   }
 
   render(){
-    console.log(this.determineCost());
+    const info = this.state.data === null ? null : this.state.data.info;
+
     return (
       <div>
-        "Hello world!"
+        <header>
+          <div>
+            Regional Rail Fares
+          </div>
+        </header>
+        <Options options={this.state.options}
+          info={info} onUserInput={this.handleUserInput} />
+        <footer>
+          <div>
+            <div className="cost-label">
+              Your fare will cost
+            </div>
+            <div className="cost">
+              ${this.determineCost()}
+            </div>
+          </div>
+        </footer>
       </div>
     );
   }

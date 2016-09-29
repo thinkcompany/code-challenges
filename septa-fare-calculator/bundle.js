@@ -67,11 +67,22 @@
 	var Options = function (_React$Component) {
 	  _inherits(Options, _React$Component);
 	
-	  function Options() {
+	  function Options(props) {
 	    _classCallCheck(this, Options);
 	
-	    return _possibleConstructorReturn(this, (Options.__proto__ || Object.getPrototypeOf(Options)).apply(this, arguments));
+	    return _possibleConstructorReturn(this, (Options.__proto__ || Object.getPrototypeOf(Options)).call(this, props));
 	  }
+	
+	  _createClass(Options, [{
+	    key: 'render',
+	    value: function render() {
+	      return _react2.default.createElement(
+	        'div',
+	        null,
+	        'Options'
+	      );
+	    }
+	  }]);
 	
 	  return Options;
 	}(_react2.default.Component);
@@ -154,11 +165,41 @@
 	  }, {
 	    key: 'render',
 	    value: function render() {
-	      console.log(this.determineCost());
+	      var info = this.state.data === null ? null : this.state.data.info;
+	
 	      return _react2.default.createElement(
 	        'div',
 	        null,
-	        '"Hello world!"'
+	        _react2.default.createElement(
+	          'header',
+	          null,
+	          _react2.default.createElement(
+	            'div',
+	            null,
+	            'Regional Rail Fares'
+	          )
+	        ),
+	        _react2.default.createElement(Options, { options: this.state.options,
+	          info: info, onUserInput: this.handleUserInput }),
+	        _react2.default.createElement(
+	          'footer',
+	          null,
+	          _react2.default.createElement(
+	            'div',
+	            null,
+	            _react2.default.createElement(
+	              'div',
+	              { className: 'cost-label' },
+	              'Your fare will cost'
+	            ),
+	            _react2.default.createElement(
+	              'div',
+	              { className: 'cost' },
+	              '$',
+	              this.determineCost()
+	            )
+	          )
+	        )
 	      );
 	    }
 	  }]);

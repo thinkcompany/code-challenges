@@ -55,3 +55,22 @@ body {
   position: relative;
   min-height: 100%;
 }
+
+#top, #bottom, #left, #right {
+  z-index: 2;
+  position: fixed;
+	background: #ccc;
+	}
+	#left, #right {
+    width: 3px;
+		top: 0; bottom: 0;
+		}
+		#left { left: 0px; }
+		#right { right: 0; }
+
+	#top, #bottom {
+    height: 3px;
+		left: 0; right: 0;
+		}
+		#top { top: 0; }
+		#bottom { bottom: 0; }

@@ -291,6 +291,9 @@
 	      return _react2.default.createElement(
 	        'div',
 	        null,
+	        _react2.default.createElement('div', { id: 'top' }),
+	        _react2.default.createElement('div', { id: 'left' }),
+	        _react2.default.createElement('div', { id: 'right' }),
 	        _react2.default.createElement(
 	          'header',
 	          null,
@@ -321,7 +324,8 @@
 	              this.determineCost()
 	            )
 	          )
-	        )
+	        ),
+	        _react2.default.createElement('div', { id: 'bottom' })
 	      );
 	    }
 	  }]);

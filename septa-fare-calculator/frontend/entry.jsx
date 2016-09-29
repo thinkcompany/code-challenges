@@ -167,6 +167,9 @@ class Calculator extends React.Component {
 
     return (
       <div>
+        <div id="top"></div>
+        <div id="left"></div>
+        <div id="right"></div>
         <header>
           <img src="../img/septa.png" alt="septa logo" height="30px" />
           <div>
@@ -185,6 +188,7 @@ class Calculator extends React.Component {
             </div>
           </div>
         </footer>
+        <div id="bottom"></div>
       </div>
     );
   }

@@ -76,10 +76,80 @@
 	  _createClass(Options, [{
 	    key: 'render',
 	    value: function render() {
+	      var zoneOptions = [_react2.default.createElement(
+	        'option',
+	        { key: 1, value: 1 },
+	        'Center City / Zone 1'
+	      ), _react2.default.createElement(
+	        'option',
+	        { key: 2, value: 2 },
+	        'Zone 2'
+	      ), _react2.default.createElement(
+	        'option',
+	        { key: 3, value: 3 },
+	        'Zone 3'
+	      ), _react2.default.createElement(
+	        'option',
+	        { key: 4, value: 4 },
+	        'Zone 4'
+	      ), _react2.default.createElement(
+	        'option',
+	        { key: 5, value: 5 },
+	        'New Jersey'
+	      )];
+	
+	      var typeOptions = [_react2.default.createElement(
+	        'option',
+	        { key: 1, value: "weekday" },
+	        'Weekday'
+	      ), _react2.default.createElement(
+	        'option',
+	        { key: 2, value: "evening_weekend" },
+	        'Evening/Weekend'
+	      ), _react2.default.createElement(
+	        'option',
+	        { key: 3, value: "anytime" },
+	        'Anytime'
+	      )];
+	
 	      return _react2.default.createElement(
-	        'div',
+	        'form',
 	        null,
-	        'Options'
+	        _react2.default.createElement(
+	          'select',
+	          null,
+	          zoneOptions
+	        ),
+	        _react2.default.createElement(
+	          'select',
+	          { ref: 'type' },
+	          typeOptions
+	        ),
+	        _react2.default.createElement(
+	          'label',
+	          null,
+	          _react2.default.createElement('input', {
+	            type: 'radio',
+	            value: 'advance_purchase' }),
+	          _react2.default.createElement(
+	            'div',
+	            null,
+	            'Station Kiosk'
+	          )
+	        ),
+	        _react2.default.createElement(
+	          'label',
+	          null,
+	          _react2.default.createElement('input', {
+	            type: 'radio',
+	            value: 'onboard_purchase' }),
+	          _react2.default.createElement(
+	            'div',
+	            null,
+	            'Onboard'
+	          )
+	        ),
+	        _react2.default.createElement('input', { type: 'text', ref: 'numRides', defaultValue: 1 })
 	      );
 	    }
 	  }]);

@@ -6,10 +6,46 @@ class Options extends React.Component {
     super(props);
   }
   render(){
-    return(
-      <div>
-        Options
-      </div>
+    const zoneOptions = [
+      <option key={1} value={1}>Center City / Zone 1</option>,
+      <option key={2} value={2}>Zone 2</option>,
+      <option key={3} value={3}>Zone 3</option>,
+      <option key={4} value={4}>Zone 4</option>,
+      <option key={5} value={5}>New Jersey</option>
+    ];
+
+    const typeOptions = [
+      <option key={1} value={"weekday"}>Weekday</option>,
+      <option key={2} value={"evening_weekend"}>Evening/Weekend</option>,
+      <option key={3} value={"anytime"}>Anytime</option>
+    ];
+
+    return (
+      <form>
+        <select>
+          {zoneOptions}
+        </select>
+        <select ref="type">
+          {typeOptions}
+        </select>
+        <label>
+          <input
+            type="radio"
+            value="advance_purchase" />
+          <div>
+            Station Kiosk
+          </div>
+        </label>
+        <label>
+          <input
+            type="radio"
+            value="onboard_purchase" />
+          <div>
+            Onboard
+          </div>
+        </label>
+        <input type="text" ref="numRides" defaultValue={1} />
+      </form>
     );
   }
 }

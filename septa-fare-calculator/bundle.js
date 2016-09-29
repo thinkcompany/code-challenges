@@ -98,6 +98,23 @@
 	        numRides: parseInt(this.refs.numRides.value) });
 	    }
 	  }, {
+	    key: 'helperText',
+	    value: function helperText() {
+	      var info = this.props.info;
+	      if (this.refs.type) {
+	        var value = this.refs.type.value;
+	        if (value === "weekday") {
+	          return info.weekday;
+	        } else if (value === "evening_weekend") {
+	          return info.evening_weekend;
+	        } else if (value === "anytime") {
+	          return info.anytime;
+	        }
+	      } else {
+	        return "Helper text goes here";
+	      }
+	    }
+	  }, {
 	    key: 'render',
 	    value: function render() {
 	      var zoneOptions = [_react2.default.createElement(
@@ -148,6 +165,11 @@
 	          'select',
 	          { ref: 'type' },
 	          typeOptions
+	        ),
+	        _react2.default.createElement(
+	          'div',
+	          { className: 'type-label' },
+	          this.helperText()
 	        ),
 	        _react2.default.createElement(
 	          'label',

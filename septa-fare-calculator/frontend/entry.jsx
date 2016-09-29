@@ -29,6 +29,22 @@ class Options extends React.Component {
     );
   }
 
+  helperText(){
+    let info = this.props.info;
+    if (this.refs.type){
+      let value = this.refs.type.value;
+      if (value === "weekday"){
+        return info.weekday;
+      } else if (value === "evening_weekend"){
+        return info.evening_weekend;
+      } else if (value === "anytime"){
+        return info.anytime;
+      }
+    } else {
+        return "Helper text goes here";
+    }
+  }
+
   render(){
     const zoneOptions = [
       <option key={1} value={1}>Center City / Zone 1</option>,
@@ -52,6 +68,9 @@ class Options extends React.Component {
         <select ref="type">
           {typeOptions}
         </select>
+        <div className="type-label">
+          {this.helperText()}
+        </div>
         <label>
           <input
             type="radio"

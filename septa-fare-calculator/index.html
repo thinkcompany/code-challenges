@@ -3,8 +3,44 @@
 <head>
 	<meta charset="UTF-8">
 	<title>SEPTA Regional Rail Fare Calculator</title>
+		<meta http-equiv="X-UA-Compatible" content="IE=Edge" >
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" >
+		<link rel="stylesheet" href="css/septa-widget.css" type="text/css" media="screen" >
 </head>
 <body>
-	
+	<div class="septa-fares-widget">
+		<div class="septa-head">
+			<img src="img/septa-logo.svg" alt="SEPTA logo">
+			<span>Regional Rail Fares</span>
+		</div>
+		<div class="septa-block">
+			<p>Where are you going?</p>
+			<select class="septa-question-1">
+			</select>
+		</div>
+		<div class="septa-block">
+			<p>When are you riding?</p>
+			<select class="septa-question-2">
+			</select>
+			<p class="septa-question-2-help"></p>
+		</div>
+		<div class="septa-block septa-question-3">
+			<p>Where will you purchse the fare?</p>
+		</div>
+		<div class="septa-block septa-block-no-border">
+			<p class="septa-question-4-text"></p>
+			<input class="septa-question-4" type="number" min="0" max="100">
+			<p class="septa-question-4-help">There is a discount if you purchase a 10-Trip ticket at Station Kiosk. This ticket are valid at all times.</p>
+		</div>
+		<div class="septa-bottom">
+			<p>Your fare will cost</p>
+			<p class="septa-total-fare">$0.00</p>
+			<p class="septa-description-fare-1"></p>
+			<p class="septa-description-fare-2"></p>
+			<p class="septa-description-fare-3"></p>
+		</div>
+	</div>
+	<script src="js/jquery-1.12.4.js"></script>
+	<script src="js/septa-fares.js"></script>
 </body>
 </html>

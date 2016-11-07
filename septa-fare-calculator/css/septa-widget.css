@@ -1,0 +1,85 @@
+/* ---------- Septa Widget ---------- */
+.septa-fares-widget {
+    border: 3px solid #ccc;
+    text-align: center;
+    font-family: Helvetica, Arial, sans-serif;
+    min-width: 300px;
+    width: 25%;
+    margin: auto;
+}
+
+.septa-fares-widget select {
+    width: 60%;
+    background: transparent;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    margin: 4px;
+}
+
+.septa-fares-widget input[type="radio"] + label {
+    font-size: 0.9em;
+}
+
+.septa-fares-widget input[type="number"] {
+    background: transparent;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    margin: 4px;
+}
+
+.septa-fares-widget p{
+    margin: 4px;
+}
+
+.hidden {
+    display: none;
+}
+
+/* ---------- Septa Widget Head ---------- */
+.septa-head {
+    background-color: #595959;
+    color: #fff;
+    font-size: 1.2em;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+.septa-head img {
+    width: 30px;
+    height: 20px;
+}
+
+/* ---------- Septa Widget Block ---------- */
+.septa-block {
+    border-bottom: thin solid #ccc;
+    padding-top: 4px;
+    padding-bottom: 4px;
+}
+
+.septa-block-no-border {
+    border-bottom: 0;
+}
+
+.septa-question-2-help,
+.septa-question-4-help {
+    color: #808080;
+    font-size: 0.7em;
+}
+
+/* ---------- Septa Widget Bottom ---------- */
+.septa-bottom {
+    background-color: #595959;
+    color: #fff;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+.septa-total-fare {
+    font-size: 3em;
+}
+
+.septa-description-fare-1,
+.septa-description-fare-2,
+.septa-description-fare-3 {
+    font-size: 0.8em;
+}

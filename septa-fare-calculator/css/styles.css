@@ -1,0 +1,66 @@
+/**
+ * TODO:
+ * Finish styling.
+ */
+.fare-container {
+  display: flex;
+  flex-flow: column nowrap;
+  height: 100vh;
+  border: 3px solid #ccc;
+}
+
+.fare-header {
+  margin: 0;
+  padding: .25rem 1rem;
+  text-align: center;
+}
+
+.fare-header,
+.fare-total {
+  background-color: #666;
+  color: #fff;
+}
+
+.fare-calc {
+  display: flex;
+  flex: 3;
+  flex-flow: column nowrap;
+  align-content: space-around;
+}
+
+.fare-option {
+  display: flex;
+  flex: 1;
+  flex-flow: column wrap;
+  align-items: center;
+  justify-content: center;
+}
+
+.fare-type-info {
+  color: #666;
+}
+
+.fare-total {
+  display: flex;
+  flex: 1;
+  flex-flow: column;
+  justify-content: center;
+  text-align: center;
+}
+
+.fare-amount {
+  display: block;
+  font-size: 3em;
+}
+
+.fare-option:not(:first-child) {
+  border-top: 1px solid #ccc;
+}
+
+.fare-header > img {
+  vertical-align: middle;
+}
+
+.fare-option > label {
+  display: block;
+}

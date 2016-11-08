@@ -1,10 +1,65 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="UTF-8">
-	<title>SEPTA Regional Rail Fare Calculator</title>
+  <meta charset="UTF-8">
+  <title>SEPTA Regional Rail Fare Calculator</title>
+  <link rel="stylesheet" href="/css/normalize.css" media="screen" />
+  <link rel="stylesheet" href="/css/styles.css" media="screen" />
 </head>
 <body>
-	
+  <div class="fare-container">
+    <h2 class="fare-header">
+      <img src="img/64px-SEPTA.svg.png" alt="SEPTA logo" width="64" height="47" />
+      Regional Rail Fares
+    </h2>
+    <!-- In case JS-disabled, this could go to some backend processing and return the fare. -->
+    <form class="fare-calc js-fare-calc" action="/somewhere/on/the/interwebs" method="get">
+      <!-- TODO: Build all this dynamically -->
+      <div class="fare-option">
+        <label>
+          Where are you going?
+          <select name="zone" tabindex="1">
+            <option value="1">CCP/1</option>
+            <option value="2">Zone 2</option>
+            <option value="3">Zone 3</option>
+            <option value="4">Zone 4</option>
+            <option value="5">NJ</option>
+          </select>
+        </label>
+      </div>
+      <div class="fare-option">
+        <label>
+          When are you riding?
+          <select name="type" tabindex="2">
+            <option value="weekday">Weekdays</option>
+            <option value="evening_weekend">Evening/Weekend</option>
+            <!-- TODO: Only valid when purchasing 10 trips -->
+            <option value="anytime">Anytime</option>
+          </select>
+        </label>
+        <!-- Dynamic based on fares.info -->
+        <span class="fare-type-info">Helper text that explains the options above</span>
+      </div>
+      <div class="fare-option">
+        <label>
+          Where will you purchase the fare?
+          <input type="radio" name="purchase" value="advance_purchase" tabindex="3" checked />Station Kiosk
+          <!-- TODO: Disable onboard if "anytime" -->
+          <input type="radio" name="purchase" value="onboard_purchase" />Onboard
+        </label>
+      </div>
+      <div class="fare-option">
+        <label>
+          How many rides will you need?
+          <!-- TODO: Change to 10 if "anytime" selected? -->
+          <input type="number" name="trips" min="0" value="1" tabindex="4" />
+        </label>
+      </div>
+    </form>
+    <div class="fare-total">
+      Your fare will cost <span class="fare-amount js-fare-amount"></span>
+    </div>
+  </div>
+  <script src="js/fare-calculator.js" async defer></script>
 </body>
 </html>

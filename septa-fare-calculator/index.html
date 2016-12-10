@@ -12,57 +12,62 @@
     <![endif]-->
 </head>
 <body>
-    <section id="calculator">
-        <h1>Septa Fare Calculator</h1>
-        <hr>
-        <form id="fareForm" action="#" method="GET">
-            <!-- Label for screen reader,
-                 TODO: I'm a bit fuzzy on this
-                 Do They need to use ID, or can name work?
-               -->
-            <label for="zone">Where are you travelling?</label>
-            <br>
-            <select name="zone" >
-                <option value="0" disabled selected>--Select Zone--</option>
-                <option value="1" >CCP/1</option>
-                <option value="2" >Zone 2</option>
-                <option value="3" >Zone 3</option>
-                <option value="4" >Zone 4</option>
-                <option value="5" >NJ</option>
-            </select>
-            <br>
-            <!-- time is "type" in fare JSON -->
-            <label for="time">When are you travelling?</label>
-            <br>
-            <select name="time" >
-                <option value="weekday" selected>Weekday</option>
-                <option value="evening_weekend" >Weekend Evening</option>
-                <option value="anytime" >Anytime</option>
-            </select>
-            <br>
-            <!-- location is "purchase" in fare JSON -->
-            <fieldset>
-                <legend>Where will you buy your ticket?</legend>
-                <input type="radio" name="location" id="loco_1" value="onboard_purchase" checked="checked"/>
-                <label for="loco_1">Onboard Purchase</label>
+    <div class="container">
+        <section id="calculator">
+            <h1>Septa Fare Calculator</h1>
+            <hr>
+            <form id="fareForm" action="#" method="GET">
+                <!-- Label for screen reader,
+                     TODO: I'm a bit fuzzy on this
+                     Do They need to use ID, or can name work?
+                   -->
+                <label for="zone">Where are you travelling?</label>
                 <br>
-                <input type="radio" name="location"  id="loco_2" value="advance_purchase" />
-                <label for="loco_2">Advanced Purchase</label>
-            </fieldset>
-            <!-- Multiplier for multiple tickets -->
-            <label for="amount">How many tickets?</label>
-            <br>
-            <input type="number"  name="amount" value="1" min="1" max="100">
+                <select name="zone" >
+                    <option value="0" disabled selected>--Select Zone--</option>
+                    <option value="1" >CCP/1</option>
+                    <option value="2" >Zone 2</option>
+                    <option value="3" >Zone 3</option>
+                    <option value="4" >Zone 4</option>
+                    <option value="5" >NJ</option>
+                </select>
+                <br>
+                <!-- time is "type" in fare JSON -->
+                <label for="time">When are you travelling?</label>
+                <br>
+                <select name="time" >
+                    <option value="weekday" selected>Weekday</option>
+                    <option value="evening_weekend" >Weekend Evening</option>
+                    <option value="anytime" >Anytime (10 tickets)</option>
+                </select>
+                <br>
+                <!-- location is "purchase" in fare JSON -->
+                <fieldset>
+                    <legend>Where will you buy your ticket?</legend>
+                    <input type="radio" name="location" id="loco_1" value="onboard_purchase" checked="checked"/>
+                    <label for="loco_1">Onboard Purchase</label>
+                    <br>
+                    <input type="radio" name="location"  id="loco_2" value="advance_purchase" />
+                    <label for="loco_2">Advanced Purchase</label>
+                </fieldset>
+                <!-- Multiplier for multiple tickets -->
+                <label for="amount">How many tickets?</label>
+                <br>
+                <input type="number" name="amount" id="quantity" value="1" min="1" max="100" />
 
-            <!-- Have update in realtime, instead of using submit -->
-            <!-- <button type="submit">Calculate</button> -->
-        </form>
+                <!-- Have update in realtime, instead of using submit -->
+                <!-- <button type="submit">Calculate</button> -->
+            </form>
 
-        <h2>Your fare will cost:</h2>
-        <div id="price">
-
-        </div>
-    </section>
+            <h2>Your fare will cost:</h2>
+            <div id="price">
+                <!-- Filled with javascript -->
+            </div>
+        </section>
+        <section id="map">
+            <img src="img/zone-map.jpg" alt="Septa Map" />
+        </section>
+    </div>
     <script>
      function calculateFare(form, data) {
          var fares = {};
@@ -89,16 +94,16 @@
                  return;
          }
          for (let fare of fares) {
+             console.log(fare);
              if (fare.purchase === form.location.value) {
                  if (fare.type === form.time.value) {
-                     // Except for anytime fare (which is atleast 10)
-                     price = fare.price * form.amount.value;
-                     // TODO: Change for anytime fare
-                 }
+                     price = fare.price;
+                  }
              }
          }
+         // TODO: handle when anytime is calculated.
+         price *= form.amount.value;
          document.getElementById("price").innerHTML = price + "$"
-         console.log(price);
      }
 
 
@@ -138,7 +143,10 @@
      inputs.forEach(setEventListener);
      selects.forEach(setEventListener);
 
+
      // TODO: stop form from refreshing page
+     // NOTE: override keypress for enter when in
+     // certain fielsd
      // form = document.getElementById("fareForm")
      // if (form.addEventListener) {
      //     form.addEventListener("submit", loadData, false);

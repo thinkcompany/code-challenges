@@ -19,6 +19,15 @@ body {
 
 }
 
+#map img:hover {
+    /* TODO: This is only really useful on desktop screens */
+    -moz-transform: scale(1.5);
+    -webkit-transform: scale(1.5);
+    transform: scale(1.5);
+    margin-left: 15%;
+}
+
+
 #calculator {
     width: 30%;
     height: 100%;

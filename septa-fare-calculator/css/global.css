@@ -55,3 +55,7 @@ body {
     font-size: 3em;
     text-align:center;
 }
+
+#warning {
+    text-weight: lighter;
+}

@@ -63,6 +63,9 @@
             <div id="price">
                 <!-- Filled with javascript -->
             </div>
+            <div id="warning">
+                <!-- Handle here some anytime subtlies  -->
+            </div>
         </section>
         <section id="map">
             <img src="img/zone-map.jpg" alt="Septa Map" />
@@ -117,10 +120,22 @@
                   }
              }
          }
-         // TODO: handle when anytime is calculated.
-         price *= form.amount.value;
-         price = addZeroToPrice(price);
-         document.getElementById("price").innerHTML = price + "$"
+         console.log(form.time.value, form.location.value)
+         if (form.time.value === "anytime" && form.location.value === "onboard_purchase"){
+             // TODO: make not so big a font
+             document.getElementById("price").innerHTML = "";
+             document.getElementById("warning").innerHTML = "<small>You cannot buy <strong>Anytime</strong> tickets on board.</small>";
+         } else if (form.time.value === "anytime" && form.amount.value > 1) {
+             document.getElementById("price").innerHTML = price;
+             document.getElementById("warning").innerHTML = "<small><strong>Anytime</strong> tickets are sold in bundles of ten.</small>";
+         } else {
+             // TODO: handle when anytime is calculated.
+             price *= form.amount.value;
+             price = addZeroToPrice(price);
+             price += "$";
+             document.getElementById("warning").innerHTML = "";
+             document.getElementById("price").innerHTML = price
+         }
      }
 
 

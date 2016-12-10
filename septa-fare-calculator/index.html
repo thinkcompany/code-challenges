@@ -20,7 +20,7 @@
                  TODO: I'm a bit fuzzy on this
                  Do They need to use ID, or can name work?
                -->
-            <label for="zone">Fare Zone</label>
+            <label for="zone">Where are you travelling?</label>
             <br>
             <select name="zone" >
                 <option value="0" disabled selected>--Select Zone--</option>
@@ -32,7 +32,7 @@
             </select>
             <br>
             <!-- time is "type" in fare JSON -->
-            <label for="time">Travel Time</label>
+            <label for="time">When are you travelling?</label>
             <br>
             <select name="time" >
                 <option value="weekday" selected>Weekday</option>
@@ -42,7 +42,7 @@
             <br>
             <!-- location is "purchase" in fare JSON -->
             <fieldset>
-                <legend>Purchase Location</legend>
+                <legend>Where will you buy your ticket?</legend>
                 <input type="radio" name="location" id="loco_1" value="onboard_purchase" checked="checked"/>
                 <label for="loco_1">Onboard Purchase</label>
                 <br>
@@ -50,7 +50,7 @@
                 <label for="loco_2">Advanced Purchase</label>
             </fieldset>
             <!-- Multiplier for multiple tickets -->
-            <label for="amount">Quantity of Tickets</label>
+            <label for="amount">How many tickets?</label>
             <br>
             <input type="number"  name="amount" value="1" min="1" max="100">
 
@@ -58,7 +58,7 @@
             <!-- <button type="submit">Calculate</button> -->
         </form>
 
-        <h2>You pay:</h2>
+        <h2>Your fare will cost:</h2>
         <div id="price">
 
         </div>

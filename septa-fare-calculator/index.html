@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="/css/global.css" type="text/css"  />
     <!--[if lte IE 8]>
         <link href="/css/ie8.css" media="all" />
-    <![endif]-->
+    <![endif]--> <!-- TODO: add ie8 css...  -->
 </head>
 <body>
     <div class="container">
@@ -73,7 +73,11 @@
         </section>
     </div>
     <script>
+     // TODO:
+     // Override enter when inside form input element
+     // Don't even use ajax anyway?
 
+     // make 5 => 5.00 and 5.5 => 5.50
      function addZeroToPrice(price) {
          price = String(price);
          console.log(price);
@@ -87,8 +91,7 @@
          return price
      }
 
-
-
+     // Take the json data and select the fare with form data.
      function calculateFare(form, data) {
          var fares = {};
          var price = 0;
@@ -123,14 +126,12 @@
          }
          console.log(form.time.value, form.location.value)
          if (form.time.value === "anytime" && form.location.value === "onboard_purchase"){
-             // TODO: make not so big a font
              document.getElementById("price").innerHTML = "";
              document.getElementById("warning").innerHTML = "<small>You cannot buy <strong>Anytime</strong> tickets on board.</small>";
          } else if (form.time.value === "anytime" && form.amount.value > 1) {
              document.getElementById("price").innerHTML = price;
              document.getElementById("warning").innerHTML = "<small><strong>Anytime</strong> tickets are sold in bundles of ten.</small>";
          } else {
-             // TODO: handle when anytime is calculated.
              price *= form.amount.value;
              price = addZeroToPrice(price);
              price += "$";
@@ -139,9 +140,11 @@
          }
      }
 
-
-
      function loadData() {
+         // I probably shouldn't be using Ajax
+         // Because the data isn't going to change.
+         // But in any case the data will be cached by the browser
+         // I could just src this inside the HTML right away...
          var xhr = new XMLHttpRequest();
          xhr.open("GET", "fares.json", true);
          xhr.onload = function () {
@@ -167,7 +170,6 @@
          }
      }
 
-
      // The fare should be calculated without the need to submit
      // NOTE: It's not so bad that the xhr request is done so many times
      // because it is going to be cached after the first response
@@ -176,16 +178,7 @@
      inputs.forEach(setEventListener);
      selects.forEach(setEventListener);
 
-
-     // TODO: stop form from refreshing page
-     // NOTE: override keypress for enter when in
-     // certain fielsd
-     // form = document.getElementById("fareForm")
-     // if (form.addEventListener) {
-     //     form.addEventListener("submit", loadData, false);
-     // } else if (form.attachEvent) { // for IE
-     //    form.attachEvent("submit", loadData)
-     // }
+     // TODO: Override form when hit enter
     </script>
 </body>
 </html>

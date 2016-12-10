@@ -14,11 +14,34 @@
 <body>
     <h1>Septa Fare Calculator</h1>
     <form id="fareForm" action="#" method="GET">
-
+        <select name="zone" >
+            <option value="1" selected>CCP/1</option>
+            <option value="2" >Zone 2</option>
+            <option value="3" >Zone 3</option>
+            <option value="4" >Zone 4</option>
+            <option value="5" >NJ</option>
+        </select>
+        <!-- time is "type" in fare JSON -->
+        <select name="time" >
+            <option value="weekday" >Weekday</option>
+            <option value="evening_weekend" >Weekend Evening</option>
+            <option value="anytime" selected>Anytime</option>
+        </select>
+        <!-- location is "purchase" in fare JSON -->
+        <fieldset>
+            <legend>Purchase Location</legend>
+            <input type="radio" name="location" id="loco_1" value="onboard_purchase" />
+            <!-- Label for screen reader, I'm a bit fuzzy on this  -->
+            <label for="loco_1">Onboard Purchase</label>
+            <br>
+            <input type="radio" name="location"  id="loco_2" value="advance_purchase" />
+            <label for="loco_2">Advanced Purchase</label>
+        </fieldset>
+        <!-- Multiplier for multiple tickets -->
         <input type="number"  name="amount" value="1" min="1" max="100">
 
         <!-- Have update in realtime, instead of using submit -->
-        <button type="submit">Calculate</button>
+        <!-- <button type="submit">Calculate</button> -->
     </form>
 
     <script>
@@ -31,7 +54,7 @@
                      var data = JSON.parse(xhr.response);
                      console.log(data.info);
                      form = document.getElementById("fareForm");
-                     //console.log(form);
+                     console.log(form.amount);
                  }
              }
          };
@@ -39,12 +62,12 @@
          xhr.send(null);
      }
 
-     form = document.getElementById("fareForm")
-     if (form.addEventListener) {
-         form.addEventListener("submit", loadData, false);
-     } else if (form.attachEvent) { // for IE
-         form.attachEvent("submit", loadData)
-     }
+     /* form = document.getElementById("fareForm")
+      * if (form.addEventListener) {
+      *     form.addEventListener("submit", loadData, false);
+      * } else if (form.attachEvent) { // for IE
+      *     form.attachEvent("submit", loadData)
+      * }*/
     </script>
 </body>
 </html>

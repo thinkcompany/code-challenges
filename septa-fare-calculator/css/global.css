@@ -1,0 +1,29 @@
+#calculator select,
+#calculator input,
+#calculator button {
+    margin-bottom: 1em;
+    padding: .3em;
+}
+
+#calculator select,
+#calculator input[type=number],
+#calculator button {
+    width:100%;
+}
+
+#calculator {
+    width:30%;
+    min-width: 20em;
+    border-style: solid;
+    padding: 2em;
+    margin: 2em;
+}
+
+#price {
+    text-align:center;
+}
+
+body {
+    font-family:sans;
+    font-size:1em;
+}

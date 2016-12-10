@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="/css/global.css" type="text/css"  />
     <!--[if lte IE 8]>
         <link href="/css/ie8.css" media="all" />
-    <![endif]-->
+    <![endif]--> <!-- TODO: add ie8 css...  -->
 </head>
 <body>
     <div class="container">
@@ -73,46 +73,52 @@
         </section>
     </div>
     <script>
+     /* FIXME:
+      * Override enter when inside form input element
+      * Don't even use ajax anyway?*/
 
+     // make 5 => 5.00 and 5.5 => 5.50
      function addZeroToPrice(price) {
          price = String(price);
          console.log(price);
          if(price.indexOf('.') === -1) {
              console.log(price);
-             return price += ".00";
+             return price += '.00';
          }
-         if (String(price).split(".")[1].length < 2) {
-             price += "0";
+         if (String(price).split('.')[1].length < 2) {
+             price += '0';
          }
          return price
      }
 
-
-
+     // Take the json data and select the fare with form data.
      function calculateFare(form, data) {
          var fares = {};
          var price = 0;
+
          // Find the zone from form data
          switch(form.zone.value) {
-             case "1":
+             case '1':
                  fares = data.zones[0].fares;
                  break;
-             case "2":
+             case '2':
                  fares = data.zones[1].fares;
                  break;
-             case "3":
+             case '3':
                  fares = data.zones[2].fares;
                   break;
-             case "4":
+             case '4':
                  fares = data.zones[3].fares;
                  break;
-             case "5":
+             case '5':
                  fares = data.zones[4].fares;
                  break;
-             case "0":
-                 console.log("No Zone Selected");
+             case '0':
+                 console.log('No Zone Selected');
                  return;
          }
+
+         // Set the price according to the form data
          for (let fare of fares) {
              console.log(fare);
              if (fare.purchase === form.location.value) {
@@ -121,34 +127,35 @@
                   }
              }
          }
-         console.log(form.time.value, form.location.value)
-         if (form.time.value === "anytime" && form.location.value === "onboard_purchase"){
-             // TODO: make not so big a font
-             document.getElementById("price").innerHTML = "";
-             document.getElementById("warning").innerHTML = "<small>You cannot buy <strong>Anytime</strong> tickets on board.</small>";
-         } else if (form.time.value === "anytime" && form.amount.value > 1) {
-             document.getElementById("price").innerHTML = price;
-             document.getElementById("warning").innerHTML = "<small><strong>Anytime</strong> tickets are sold in bundles of ten.</small>";
+
+         // Handle anytime bizarreness
+         if (form.time.value === 'anytime' && form.location.value === 'onboard_purchase'){
+             document.getElementById('price').innerHTML = '';
+             document.getElementById('warning').innerHTML = '<small>You cannot buy <strong>Anytime</strong> tickets on board.</small>';
+         } else if (form.time.value === 'anytime' && form.amount.value > 1) {
+             document.getElementById('price').innerHTML = price;
+             document.getElementById('warning').innerHTML = '<small><strong>Anytime</strong> tickets are sold in bundles of ten.</small>';
          } else {
-             // TODO: handle when anytime is calculated.
              price *= form.amount.value;
              price = addZeroToPrice(price);
-             price += "$";
-             document.getElementById("warning").innerHTML = "";
-             document.getElementById("price").innerHTML = price
+             price += '$';
+             document.getElementById('warning').innerHTML = '';
+             document.getElementById('price').innerHTML = price
          }
      }
 
-
-
+     /* I probably shouldn't be using Ajax
+      * Because the data isn't going to change.
+      * But in any case the data will be cached by the browser
+      * I could just src this inside the HTML right away...*/
      function loadData() {
          var xhr = new XMLHttpRequest();
-         xhr.open("GET", "fares.json", true);
+         xhr.open('GET', 'fares.json', true);
          xhr.onload = function () {
              if (xhr.readyState === xhr.DONE) {
                  if (xhr.status === 200) {
                      var data = JSON.parse(xhr.response);
-                     form = document.getElementById("fareForm");
+                     form = document.getElementById('fareForm');
                      calculateFare(form, data);
                  }
              }
@@ -160,32 +167,21 @@
      // Set an event listener for a form element on change
      function setEventListener(element) {
          if (element.addEventListener) {
-             element.addEventListener("change", loadData, false);
+             element.addEventListener('change', loadData, false);
          } else if (element.attachEvent) {
              // for IE 8
-             element.addEventListener("change", loadData);
+             element.addEventListener('change', loadData);
          }
      }
 
-
-     // The fare should be calculated without the need to submit
-     // NOTE: It's not so bad that the xhr request is done so many times
-     // because it is going to be cached after the first response
-     var inputs = document.querySelectorAll("input");
-     var selects = document.querySelectorAll("select");
+     /* The fare should be calculated without the need to submit
+      * NOTE: It's not so bad that the xhr request is done so many times
+      * because it is going to be cached after the first response*/
+     var inputs = document.querySelectorAll('input');
+     var selects = document.querySelectorAll('select');
      inputs.forEach(setEventListener);
      selects.forEach(setEventListener);
 
-
-     // TODO: stop form from refreshing page
-     // NOTE: override keypress for enter when in
-     // certain fielsd
-     // form = document.getElementById("fareForm")
-     // if (form.addEventListener) {
-     //     form.addEventListener("submit", loadData, false);
-     // } else if (form.attachEvent) { // for IE
-     //    form.attachEvent("submit", loadData)
-     // }
     </script>
 </body>
 </html>

@@ -46,7 +46,7 @@ body {
 }
 
 #calculator select,
-#calculator input[type=number],
+#calculator input[type="number"],
 #calculator button {
     width:100%;
 }

@@ -44,17 +44,22 @@
         <!-- <button type="submit">Calculate</button> -->
     </form>
 
+    <div id="price">
+
+    </div>
+
     <script>
-     function loadData () {
+     function loadData() {
          var xhr = new XMLHttpRequest();
          xhr.open("GET", "fares.json", true);
          xhr.onload = function () {
-             if (xhr.readState === xhr.DONE) {
+             if (xhr.readyState === xhr.DONE) {
                  if (xhr.status === 200) {
+                     console.log(xhr.response);
                      var data = JSON.parse(xhr.response);
                      console.log(data.info);
                      form = document.getElementById("fareForm");
-                     console.log(form.amount);
+                     console.log(form.amount.value);
                  }
              }
          };
@@ -62,12 +67,32 @@
          xhr.send(null);
      }
 
-     /* form = document.getElementById("fareForm")
-      * if (form.addEventListener) {
-      *     form.addEventListener("submit", loadData, false);
-      * } else if (form.attachEvent) { // for IE
-      *     form.attachEvent("submit", loadData)
-      * }*/
+     // Set an event listener for a form element on change
+     function setEventListener(element) {
+         if (element.addEventListener) {
+             element.addEventListener("change", loadData, false);
+         } else if (element.attachEvent) {
+             // for IE 8
+             element.addEventListener("change", loadData);
+         }
+     }
+
+
+     // The fare should be calculated without the need to submit
+     // NOTE: It's not so bad that the xhr request is done so many times
+     // because it is going to be cached after the first response
+     var inputs = document.querySelectorAll("input");
+     var selects = document.querySelectorAll("select");
+     inputs.forEach(setEventListener);
+     selects.forEach(setEventListener);
+
+     // TODO: stop form from refreshing page
+     // form = document.getElementById("fareForm")
+     // if (form.addEventListener) {
+     //     form.addEventListener("submit", loadData, false);
+     // } else if (form.attachEvent) { // for IE
+     //    form.attachEvent("submit", loadData)
+     // }
     </script>
 </body>
 </html>

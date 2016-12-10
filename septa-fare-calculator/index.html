@@ -69,6 +69,22 @@
         </section>
     </div>
     <script>
+
+     function addZeroToPrice(price) {
+         price = String(price);
+         console.log(price);
+         if(price.indexOf('.') === -1) {
+             console.log(price);
+             return price += ".00";
+         }
+         if (String(price).split(".")[1].length < 2) {
+             price += "0";
+         }
+         return price
+     }
+
+
+
      function calculateFare(form, data) {
          var fares = {};
          var price = 0;
@@ -103,6 +119,7 @@
          }
          // TODO: handle when anytime is calculated.
          price *= form.amount.value;
+         price = addZeroToPrice(price);
          document.getElementById("price").innerHTML = price + "$"
      }
 

@@ -13,6 +13,38 @@
 </head>
 <body>
     <h1>Septa Fare Calculator</h1>
+    <form id="fareForm" action="#" method="GET">
 
+        <input type="number"  name="amount" value="1" min="1" max="100">
+
+        <!-- Have update in realtime, instead of using submit -->
+        <button type="submit">Calculate</button>
+    </form>
+
+    <script>
+     function loadData () {
+         var xhr = new XMLHttpRequest();
+         xhr.open("GET", "fares.json", true);
+         xhr.onload = function () {
+             if (xhr.readState === xhr.DONE) {
+                 if (xhr.status === 200) {
+                     var data = JSON.parse(xhr.response);
+                     console.log(data.info);
+                     form = document.getElementById("fareForm");
+                     //console.log(form);
+                 }
+             }
+         };
+
+         xhr.send(null);
+     }
+
+     form = document.getElementById("fareForm")
+     if (form.addEventListener) {
+         form.addEventListener("submit", loadData, false);
+     } else if (form.attachEvent) { // for IE
+         form.attachEvent("submit", loadData)
+     }
+    </script>
 </body>
 </html>

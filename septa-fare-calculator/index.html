@@ -14,7 +14,7 @@
 <body>
     <div class="container">
         <section id="calculator">
-            <h1>Septa Fare Calculator</h1>
+            <h1>SEPTA Fare Calculator</h1>
             <hr>
             <form id="fareForm" action="#" method="GET">
                 <!-- Label for screen reader,
@@ -23,7 +23,7 @@
                    -->
                 <label for="zone">Where are you travelling?</label>
                 <br>
-                <select name="zone" >
+                <select name="zone" id="zone" >
                     <option value="0" disabled selected>--Select Zone--</option>
                     <option value="1" >CCP/1</option>
                     <option value="2" >Zone 2</option>
@@ -35,7 +35,7 @@
                 <!-- time is "type" in fare JSON -->
                 <label for="time">When are you travelling?</label>
                 <br>
-                <select name="time" >
+                <select name="time" id="time">
                     <option value="weekday" selected>Weekday</option>
                     <option value="evening_weekend" >Weekend Evening</option>
                     <option value="anytime" >Anytime (10 tickets)</option>
@@ -53,7 +53,7 @@
                 <!-- Multiplier for multiple tickets -->
                 <label for="amount">How many tickets?</label>
                 <br>
-                <input type="number" name="amount" id="quantity" value="1" min="1" max="100" />
+                <input type="number" name="amount" id="amount" value="1" min="1" max="100" />
 
                 <!-- Have update in realtime, instead of using submit -->
                 <!-- <button type="submit">Calculate</button> -->
@@ -68,6 +68,7 @@
             </div>
         </section>
         <section id="map">
+            <!-- <h2>Zone Map</h2> The image contains a header like text -->
             <img src="img/zone-map.jpg" alt="Septa Map" />
         </section>
     </div>

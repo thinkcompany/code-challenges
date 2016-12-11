@@ -131,6 +131,8 @@
              document.getElementById('price').innerHTML = '';
              document.getElementById('warning').innerHTML = '<small>You cannot buy <strong>Anytime</strong> tickets on board.</small>';
          } else if (form.time.value === 'anytime' && form.amount.value > 1) {
+             price = addZeroToPrice(price);
+             price += '$';
              document.getElementById('price').innerHTML = price;
              document.getElementById('warning').innerHTML = '<small><strong>Anytime</strong> tickets are sold in bundles of ten.</small>';
          } else {

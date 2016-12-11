@@ -9,7 +9,8 @@
     <link rel="stylesheet" href="/css/global.css" type="text/css"  />
     <!--[if lte IE 8]>
         <link href="/css/ie8.css" media="all" />
-    <![endif]--> <!-- TODO: add ie8 css...  -->
+    <![endif]--> <!-- FIXME: add ie8 css...  -->
+    <!-- TODO: add favicon  -->
 </head>
 <body>
     <div class="container">
@@ -17,10 +18,6 @@
             <h1>SEPTA Fare Calculator</h1>
             <hr>
             <form id="fareForm" action="#" method="GET">
-                <!-- Label for screen reader,
-                     TODO: I'm a bit fuzzy on this
-                     Do They need to use ID, or can name work?
-                   -->
                 <label for="zone">Where are you travelling?</label>
                 <br>
                 <select name="zone" id="zone" >
@@ -64,24 +61,19 @@
                 <!-- Filled with javascript -->
             </div>
             <div id="warning">
-                <!-- Handle here some anytime subtlies  -->
+                <!-- Flash here some anytime subtlies  -->
             </div>
         </section>
         <section id="map">
-            <!-- <h2>Zone Map</h2> The image contains a header like text -->
+            <!-- <h2>Zone Map</h2> NOTE: The image contains a header like text -->
             <img src="img/zone-map.jpg" alt="Septa Map" />
         </section>
     </div>
     <script>
-<<<<<<< HEAD
+
      /* FIXME:
       * Override enter when inside form input element
       * Don't even use ajax anyway?*/
-=======
-     // TODO:
-     // Override enter when inside form input element
-     // Don't even use ajax anyway?
->>>>>>> 5e70290339b1173def507403098b93a6e7392308
 
      // make 5 => 5.00 and 5.5 => 5.50
      function addZeroToPrice(price) {
@@ -133,7 +125,6 @@
                   }
              }
          }
-<<<<<<< HEAD
 
          // Handle anytime bizarreness
          if (form.time.value === 'anytime' && form.location.value === 'onboard_purchase'){
@@ -142,15 +133,6 @@
          } else if (form.time.value === 'anytime' && form.amount.value > 1) {
              document.getElementById('price').innerHTML = price;
              document.getElementById('warning').innerHTML = '<small><strong>Anytime</strong> tickets are sold in bundles of ten.</small>';
-=======
-         console.log(form.time.value, form.location.value)
-         if (form.time.value === "anytime" && form.location.value === "onboard_purchase"){
-             document.getElementById("price").innerHTML = "";
-             document.getElementById("warning").innerHTML = "<small>You cannot buy <strong>Anytime</strong> tickets on board.</small>";
-         } else if (form.time.value === "anytime" && form.amount.value > 1) {
-             document.getElementById("price").innerHTML = price;
-             document.getElementById("warning").innerHTML = "<small><strong>Anytime</strong> tickets are sold in bundles of ten.</small>";
->>>>>>> 5e70290339b1173def507403098b93a6e7392308
          } else {
              price *= form.amount.value;
              price = addZeroToPrice(price);
@@ -160,18 +142,11 @@
          }
      }
 
-<<<<<<< HEAD
      /* I probably shouldn't be using Ajax
       * Because the data isn't going to change.
       * But in any case the data will be cached by the browser
       * I could just src this inside the HTML right away...*/
-=======
->>>>>>> 5e70290339b1173def507403098b93a6e7392308
      function loadData() {
-         // I probably shouldn't be using Ajax
-         // Because the data isn't going to change.
-         // But in any case the data will be cached by the browser
-         // I could just src this inside the HTML right away...
          var xhr = new XMLHttpRequest();
          xhr.open('GET', 'fares.json', true);
          xhr.onload = function () {
@@ -197,26 +172,14 @@
          }
      }
 
-<<<<<<< HEAD
-     /* The fare should be calculated without the need to submit
-      * NOTE: It's not so bad that the xhr request is done so many times
-      * because it is going to be cached after the first response*/
+     /* Update DOM everytime an input or select gets changed.
+      * The fare is calculated without the need to press submit,
+      * but the user can still hit ENTER within an input.
+      * TODO: addEventListener for ENTER keypress.*/
      var inputs = document.querySelectorAll('input');
      var selects = document.querySelectorAll('select');
      inputs.forEach(setEventListener);
      selects.forEach(setEventListener);
-
-=======
-     // The fare should be calculated without the need to submit
-     // NOTE: It's not so bad that the xhr request is done so many times
-     // because it is going to be cached after the first response
-     var inputs = document.querySelectorAll("input");
-     var selects = document.querySelectorAll("select");
-     inputs.forEach(setEventListener);
-     selects.forEach(setEventListener);
-
-     // TODO: Override form when hit enter
->>>>>>> 5e70290339b1173def507403098b93a6e7392308
     </script>
 </body>
 </html>

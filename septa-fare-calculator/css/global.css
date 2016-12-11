@@ -4,7 +4,7 @@ body {
 }
 
 .container {
-    display: -webkit-flex;
+    display: -webkit-flex; /* Is flexbox a no go at Thinkbrown? */
     display: flex;
 }
 
@@ -16,11 +16,10 @@ body {
 #map img {
     width:70%;
     padding: 2em;
-
 }
 
 #map img:hover {
-    /* TODO: This is only really useful on desktop screens */
+    /* FIXME: This is only really useful on desktop screens */
     -moz-transform: scale(1.5);
     -webkit-transform: scale(1.5);
     transform: scale(1.5);

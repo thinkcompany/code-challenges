@@ -1,10 +1,187 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="UTF-8">
-	<title>SEPTA Regional Rail Fare Calculator</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SEPTA Regional Rail Fare Calculator</title>
+
+    <link rel="stylesheet" href="/css/global.css" type="text/css"  />
+    <!--[if lte IE 8]>
+        <link href="/css/ie8.css" media="all" />
+    <![endif]--> <!-- FIXME: add ie8 css...  -->
+    <!-- TODO: add favicon  -->
 </head>
 <body>
-	
+    <div class="container">
+        <section id="calculator">
+            <h1>SEPTA Fare Calculator</h1>
+            <hr>
+            <form id="fareForm" action="#" method="GET">
+                <label for="zone">Where are you travelling?</label>
+                <br>
+                <select name="zone" id="zone" >
+                    <option value="0" disabled selected>--Select Zone--</option>
+                    <option value="1" >CCP/1</option>
+                    <option value="2" >Zone 2</option>
+                    <option value="3" >Zone 3</option>
+                    <option value="4" >Zone 4</option>
+                    <option value="5" >NJ</option>
+                </select>
+                <br>
+                <!-- time is "type" in fare JSON -->
+                <label for="time">When are you travelling?</label>
+                <br>
+                <select name="time" id="time">
+                    <option value="weekday" selected>Weekday</option>
+                    <option value="evening_weekend" >Weekend Evening</option>
+                    <option value="anytime" >Anytime (10 tickets)</option>
+                </select>
+                <br>
+                <!-- location is "purchase" in fare JSON -->
+                <fieldset>
+                    <legend>Where will you buy your ticket?</legend>
+                    <input type="radio" name="location" id="loco_1" value="onboard_purchase" checked="checked"/>
+                    <label for="loco_1">Onboard Purchase</label>
+                    <br>
+                    <input type="radio" name="location"  id="loco_2" value="advance_purchase" />
+                    <label for="loco_2">Advanced Purchase</label>
+                </fieldset>
+                <!-- Multiplier for multiple tickets -->
+                <label for="amount">How many tickets?</label>
+                <br>
+                <input type="number" name="amount" id="amount" value="1" min="1" max="100" />
+
+                <!-- Have update in realtime, instead of using submit -->
+                <!-- <button type="submit">Calculate</button> -->
+            </form>
+
+            <h2>Your fare will cost:</h2>
+            <div id="price">
+                <!-- Filled with javascript -->
+            </div>
+            <div id="warning">
+                <!-- Flash here some anytime subtlies  -->
+            </div>
+        </section>
+        <section id="map">
+            <!-- <h2>Zone Map</h2> NOTE: The image contains a header like text -->
+            <img src="img/zone-map.jpg" alt="Septa Map" />
+        </section>
+    </div>
+    <script>
+
+     /* FIXME:
+      * Override enter when inside form input element
+      * Don't even use ajax anyway?*/
+
+     // make 5 => 5.00 and 5.5 => 5.50
+     function addZeroToPrice(price) {
+         price = String(price);
+         console.log(price);
+         if(price.indexOf('.') === -1) {
+             console.log(price);
+             return price += '.00';
+         }
+         if (String(price).split('.')[1].length < 2) {
+             price += '0';
+         }
+         return price
+     }
+
+     // Take the json data and select the fare with form data.
+     function calculateFare(form, data) {
+         var fares = {};
+         var price = 0;
+
+         // Find the zone from form data
+         switch(form.zone.value) {
+             case '1':
+                 fares = data.zones[0].fares;
+                 break;
+             case '2':
+                 fares = data.zones[1].fares;
+                 break;
+             case '3':
+                 fares = data.zones[2].fares;
+                  break;
+             case '4':
+                 fares = data.zones[3].fares;
+                 break;
+             case '5':
+                 fares = data.zones[4].fares;
+                 break;
+             case '0':
+                 console.log('No Zone Selected');
+                 return;
+         }
+
+         // Set the price according to the form data
+         for (let fare of fares) {
+             console.log(fare);
+             if (fare.purchase === form.location.value) {
+                 if (fare.type === form.time.value) {
+                     price = fare.price;
+                  }
+             }
+         }
+
+         // Handle anytime bizarreness
+         if (form.time.value === 'anytime' && form.location.value === 'onboard_purchase'){
+             document.getElementById('price').innerHTML = '';
+             document.getElementById('warning').innerHTML = '<small>You cannot buy <strong>Anytime</strong> tickets on board.</small>';
+         } else if (form.time.value === 'anytime' && form.amount.value > 1) {
+             price = addZeroToPrice(price);
+             price += '$';
+             document.getElementById('price').innerHTML = price;
+             document.getElementById('warning').innerHTML = '<small><strong>Anytime</strong> tickets are sold in bundles of ten.</small>';
+         } else {
+             price *= form.amount.value;
+             price = addZeroToPrice(price);
+             price += '$';
+             document.getElementById('warning').innerHTML = '';
+             document.getElementById('price').innerHTML = price
+         }
+     }
+
+     /* I probably shouldn't be using Ajax
+      * Because the data isn't going to change.
+      * But in any case the data will be cached by the browser
+      * I could just src this inside the HTML right away...*/
+     function loadData() {
+         var xhr = new XMLHttpRequest();
+         xhr.open('GET', 'fares.json', true);
+         xhr.onload = function () {
+             if (xhr.readyState === xhr.DONE) {
+                 if (xhr.status === 200) {
+                     var data = JSON.parse(xhr.response);
+                     form = document.getElementById('fareForm');
+                     calculateFare(form, data);
+                 }
+             }
+         };
+
+         xhr.send(null);
+     }
+
+     // Set an event listener for a form element on change
+     function setEventListener(element) {
+         if (element.addEventListener) {
+             element.addEventListener('change', loadData, false);
+         } else if (element.attachEvent) {
+             // for IE 8
+             element.addEventListener('change', loadData);
+         }
+     }
+
+     /* Update DOM everytime an input or select gets changed.
+      * The fare is calculated without the need to press submit,
+      * but the user can still hit ENTER within an input.
+      * TODO: addEventListener for ENTER keypress.*/
+     var inputs = document.querySelectorAll('input');
+     var selects = document.querySelectorAll('select');
+     inputs.forEach(setEventListener);
+     selects.forEach(setEventListener);
+    </script>
 </body>
 </html>

@@ -1,0 +1,75 @@
+html {
+  box-sizing: border-box; }
+
+*, *:before, *:after {
+  box-sizing: inherit; }
+
+body {
+  font-family: sans-serif;
+  color: #333;
+  line-height: 1.4rem;
+  background-color: #efefef; }
+
+.septaform {
+  max-width: 600px;
+  margin: 20px auto; }
+
+.septaform {
+  border: 2px solid #bbb;
+  background-color: white; }
+  .septaform div[role='group'] {
+    border: 0;
+    border-bottom: 1px solid #ccc;
+    padding: 20px;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-flex-direction: column;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-justify-content: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-align-items: center;
+        -ms-flex-align: center;
+            align-items: center; }
+  .septaform .helptext {
+    font-size: .85rem;
+    color: #999999; }
+  .septaform label {
+    display: block; }
+  .septaform input {
+    display: block;
+    padding: .5rem .75rem;
+    font-size: 1rem;
+    line-height: 1.25;
+    border: 1px solid rgba(0, 0, 0, 0.15);
+    border-radius: .25rem; }
+  .septaform input[type="number"] {
+    text-align: center;
+    width: 8rem; }
+  .septaform input[type="radio"] {
+    display: inline; }
+  .septaform select {
+    display: block;
+    height: 2rem; }
+  .septaform .septaform-question {
+    font-weight: bold;
+    font-size: 1.15em;
+    margin-bottom: 10px; }
+
+.septaform-header, .septaform footer {
+  background-color: #333;
+  color: white;
+  padding: 10px;
+  width: 100%;
+  text-align: center; }
+
+.septaform footer {
+  font-size: 1.5rem; }
+  .septaform footer .totalfare {
+    font-weight: bold;
+    font-size: 3rem;
+    margin-bottom: 20px; }
+  .septaform footer .totalfare:before {
+    content: "$"; }

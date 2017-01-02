@@ -1,10 +1,91 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<title>SEPTA Regional Rail Fare Calculator</title>
-</head>
-<body>
-	
-</body>
+<html lang="en" ng-app="railFareApp">
+	<head>
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+		<link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+		<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+		<link rel="stylesheet" type="text/css" href="css/style.css">
+
+		<title>SEPTA Regional Rail Fare Calculator</title>
+	</head>
+
+	<header>
+	</header>
+
+	<body ng-controller="FareController as fare">
+		<h1>SEPTA Regional Rail Fares Calculator</h1>
+			<div class="fare-calculator">
+				<h2><img src="img/septa.png" />Regional Rail Fares</h2>
+
+				<div class="section zone">
+					<h3>Where are you going?</h3>
+					<select ng-model="selectedZone">
+						<option ng-repeat="zone in zones" value="{{ $index }}">
+							{{ zone.name }}
+						</option>
+					</select>
+				</div>
+
+				<div class="section time">
+					<h3>When are you riding?</h3>
+					<select ng-model="selectedTime">
+						<option ng-repeat="time in times" value="{{ time.id }}">
+							{{ time.text }}
+						</option>
+					</select>
+					<div class="helper-text">
+						{{ info[selectedTime] }}
+					</div>
+				</div>
+
+				<div class="section purchase">
+					<h3>Where will you purchase the fare?</h3>
+					<label>
+						<input type="radio" ng-model="selectedLocation" value="advance_purchase" />
+						Station Kiosk
+					</label>
+					<label>
+						<!-- Diable Onboard Purchase Option if "Anytime" is Selected -->
+						<input type="radio" ng-model="selectedLocation" value="onboard_purchase" ng-disabled="selectedTime == 'anytime'"/>
+						Onboard
+					</label>
+				</div>
+
+				<div class="section count">
+					<h3>How many rides will you need?</h3>
+					<!-- Allow # of Rides From 1 to 10 if "Anytime" is NOT Selected -->
+					<input ng-if="!selectedTime || selectedTime!='anytime'" type="number" ng-model="rideCount" min="1" max="10" />
+					<!-- Otherwise # of Rides is 10 -->
+					<input ng-if="selectedTime=='anytime'" type="number" ng-model="rideAnytime" min="10" max="10" />
+				</div>
+
+				<div class="fare-cost">
+					<h3>Your ticket will cost</h3>
+					<!-- Calculate Total Cost = Price * # of Rides (If "Anytime" is Not Selcted) -->
+					<h1 ng-if="rideCount && selectedTime!='anytime'">
+						{{ zones[selectedZone].fares[selectedTime][selectedLocation].price * rideCount | currency }}
+					</h1>
+					<!-- Otherwise Show Price Per 10 Anytime Tickets -->
+					<h1 ng-if="rideCount && selectedTime=='anytime'">
+						{{ zones[selectedZone].fares[selectedTime][selectedLocation].price | currency }}
+					</h1>
+				</div>
+		</div><!-- .fare-calculator -->
+
+		<script src="lib/angular.min.js"></script>
+		
+		<!-- Modules -->
+		<script src="src/railfare.module.js"></script>
+		<!-- Controllers -->
+		<script src="src/fare.controller.js"></script>
+		<!-- Services -->
+		<script src="src/fare.service.js"></script>
+
+	</body>
+
+	<footer>
+	</footer>
 </html>

@@ -140,6 +140,10 @@ main:after {
  text-align:  center;
 }
 
+
+.limits{
+  color: red;
+}
 /*styles for details tag*/
 #purchasePlaceSelectBlock details{
 	margin: 2% auto;

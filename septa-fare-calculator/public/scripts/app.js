@@ -45,10 +45,12 @@ var rideChange = document.getElementById("rideSelection");
 because "anytime" option is only applicable for 10 ride counts and station purchase
 it changes the selection of user to appropriate selection if needed*/
 var changeSelection = function(){
+   var rideCount = 10;
+   var anytimeSelectionInformation = "**Anytime Travel Passes are only available for 10 rides and can only be purchased at Stations"
    document.getElementById("station").checked = "true";
-    var rideCount = 10;
    document.getElementById("rideSelection").value = rideCount;
    document.getElementById("rideSelection").innerHTML = rideCount;
+   document.getElementById("anytimeInformation").innerHTML= anytimeSelectionInformation;
 
 }
 
@@ -87,7 +89,9 @@ var getCurrentSelection  = function(){
 
         var numberOfRides = document.querySelector('input[name = "rideSelection"]'); 
         numberOfRidesSelected = numberOfRides.value;
-    }
+        
+        document.getElementById("anytimeInformation").innerHTML= "";
+        }
     
     var selectionObject  = {
         "selectedZone" : selectedZone,
@@ -166,7 +170,7 @@ var getTheData = function(){
         calculatedPrice = calculatedPrice * getSelectedRides;
     }
     if(getSelectedRides > 5 && getSelectedSpan !== "anytime" ){
-        document.getElementById("suggestion").innerHTML = "Consider Taking Our Anytime 10 Ride Pass in Just $ " + suggestedPrice; 
+        document.getElementById("suggestion").innerHTML = "**Consider Taking Our Anytime 10 Ride Pass in Just $" + suggestedPrice; 
     }
     else{
         document.getElementById("suggestion").innerHTML = "";

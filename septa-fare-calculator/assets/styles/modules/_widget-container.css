@@ -1,0 +1,23 @@
+.widget-container {
+    background-color: #eee;
+    width: 100%;
+    max-width: 530px;
+    padding-left: 0px;
+    padding-right: 0px;
+    border: solid 2px #dddddd;
+    border-radius: 10px;
+    text-align:center;
+    
+    &--heading {
+    	font-weight: 200;
+    }
+    
+    &--helper {
+    	font-weight: 100;
+    	font-style: italic;
+    }
+}
+
+.logo__image {
+	display:block;
+}

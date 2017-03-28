@@ -5,6 +5,7 @@
   max-width: 1236px;
   margin-left: auto;
   margin-right: auto;
+  margin-top: 20px;
 
   &--medium {
     max-width: 976px;

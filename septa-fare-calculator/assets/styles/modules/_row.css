@@ -1,5 +1,14 @@
 .row {
-
+  &--main {
+  	padding: 10px;
+  	border-bottom: solid 1px #ddd;
+  }
+  
+  &--bottom {
+  	padding: 10px;
+  	background-color: #666;
+  }
+  
   &--top-padding {
   	padding-top: 80px;
   }

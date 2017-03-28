@@ -4,3 +4,4 @@
 @import "base/_global";
 @import "modules/_wrapper";
 @import "modules/_row";
+@import "modules/_widget-container";

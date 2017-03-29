@@ -3,6 +3,7 @@
 <head>
 	<meta charset="UTF-8">
 	<title>SEPTA Regional Rail Fare Calculator</title>
+	<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 	<link rel="stylesheet" href="assets/temp/styles/style.css">
 </head>
 <body>
@@ -15,9 +16,15 @@
 	</div>
 	<div class="row row--main">
 		<h2 class="widget-container--heading">Where are you going?</h2>
+		<div>
+			<select id="zone"></select>
+		</div>
 	</div>
 	<div class="row row--main">
 		<h2 class="widget-container--heading">When are you riding?</h2>
+		<div>
+			<select id="time"></select>
+		</div>
 		<p class="widget-container--helper">Helper text that explains the options above.</p>
 	</div>
 	<div class="row row--main">
@@ -30,6 +37,8 @@
 		<div class="fare-total"></div>
 	</div>
 </div>
+
+<script src="assets/scripts/app.js"></script>
 	
 </body>
 </html>

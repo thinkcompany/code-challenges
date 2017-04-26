@@ -13,6 +13,9 @@
 		document.getElementById('ride-count-input')
 	];
 
+	//	fetch data
+	ajax('fares.json', initialize);
+
 	// simple ajax function
 	function ajax(url, callback) {
 		var xmlhttp;
@@ -34,14 +37,44 @@
 		update();
 	}
 
-	// get currently selected zone
-	function getZone() {
-		return inputs[0].value;
+	// add listeners, with fallbacks for IE8
+	function addListeners() {
+		for (var i = 0; i < inputs.length; i++) {
+			if (inputs[i].addEventListener) {
+				inputs[i].addEventListener('change', update);
+			} else { 
+				// IE8 nonsense
+				inputs[i].attachEvent('onchange', update);
+				inputs[i].attachEvent('onclick', update);
+			}
+		}
 	}
 
-	// get currently selected fare type (travel time)
-	function getType() {
-		return inputs[1].value;
+	// set up zone select menu
+	function addZoneOptions() {
+		var zoneSelect = inputs[0];
+		zoneSelect.innerHTML = '';
+		for (var i = 0; i < fareData.zones.length; i++) {
+			var option = document.createElement('option');
+			option.value = i;
+			option.innerHTML = fareData.zones[i].name;
+			zoneSelect.appendChild(option);
+		}
+	}
+
+	function getCost() {
+		// 1. convert json string to float
+		// 2. convert float to fixed (to prevent float errors)
+		// 3. multiply cost by ticket quantity
+		// 4. convert to fixed with two decimal places for currency
+		var costFixed = parseFloat(inputs[4].value).toFixed(2);
+		var totalCost = costFixed * getSelectedFare().price / getFareTrips();
+		return totalCost.toFixed(2);
+	}
+
+	// get the minimum number of trips for selected fare
+	function getFareTrips() {
+		return getSelectedFare().trips;
 	}
 
 	// get purchase location from radio inputs
@@ -61,21 +94,37 @@
 		return false;
 	}
 
-	// get the minimum number of trips for selected fare
-	function getFareTrips() {
-		return getSelectedFare().trips;
+	// get currently selected fare type (travel time)
+	function getType() {
+		return inputs[1].value;
 	}
 
-	// disable onboard purchase option for 'anytime' ticket packs
-	function validateType() {
-		if (getType() === 'anytime') {
-			inputs[2].checked = true;
-			inputs[3].checked = false;
-			inputs[3].disabled = true;
-		} else {
-			inputs[3].disabled = false;
-		}
+	// get currently selected zone
+	function getZone() {
+		return inputs[0].value;
+	}
 
+	function update() {
+		// adjust inputs to conform to quantity/location restrictions 
+		validateType();
+		validateFareCount();
+
+		// update text in UI
+		updateCost();
+		updateHelperText();
+	}
+
+	// update cost in UI
+	function updateCost() {
+		document.getElementById('cost').innerHTML = '$' + getCost();
+	}
+
+	// update cost in UI
+	function updateHelperText() {
+		var whenHelper = fareData.info[getType()];
+		var whereHelper = fareData.info[getPurchaseLocation()];
+		document.getElementById('where-helper').innerHTML = whereHelper;
+		document.getElementById('when-helper').innerHTML = whenHelper;
 	}
 
 	function validateFareCount() {
@@ -97,63 +146,16 @@
 		inputs[4].step = getFareTrips();
 	}
 
-	function update() {
-		// adjust inputs to conform to quantity/location restrictions 
-		validateType();
-		validateFareCount();
-		updateCost();
-		updateHelpers();
-	}
-
-	// update cost in UI
-	function updateCost() {
-		document.getElementById('cost').innerHTML = '$' + getCost();
-	}
-
-	// update cost in UI
-	function updateHelpers() {
-		var whenHelper = fareData.info[getType()];
-		var whereHelper = fareData.info[getPurchaseLocation()];
-		document.getElementById('where-helper').innerHTML = whereHelper;
-		document.getElementById('when-helper').innerHTML = whenHelper;
-	}
-
-	function getCost() {
-		// 1. convert json string to float
-		// 2. convert float to fixed (to prevent float errors)
-		// 3. multiply cost by ticket quantity
-		// 4. convert to fixed with two decimal places for currency
-		var costFixed = parseFloat(inputs[4].value).toFixed(2);
-		var totalCost = costFixed * getSelectedFare().price / getFareTrips();
-		return totalCost.toFixed(2);
-	}
-
-
-	// set up zone select menu
-	function addZoneOptions() {
-		var zoneSelect = inputs[0];
-		zoneSelect.innerHTML = '';
-		for (var i = 0; i < fareData.zones.length; i++) {
-			var option = document.createElement('option');
-			option.value = i;
-			option.innerHTML = fareData.zones[i].name;
-			zoneSelect.appendChild(option);
+	// disable onboard purchase option for 'anytime' ticket packs
+	function validateType() {
+		if (getType() === 'anytime') {
+			inputs[2].checked = true;
+			inputs[3].checked = false;
+			inputs[3].disabled = true;
+		} else {
+			inputs[3].disabled = false;
 		}
-	}
 
-	// add listeners, with fallbacks for IE8
-	function addListeners() {
-		for (var i = 0; i < inputs.length; i++) {
-			if (inputs[i].addEventListener) {
-				inputs[i].addEventListener('change', update);
-			} else { 
-				// IE8 nonsense
-				inputs[i].attachEvent('onchange', update);
-				inputs[i].attachEvent('onclick', update);
-			}
-		}
 	}
-
-	ajax('fares.json', initialize);
 
 })();

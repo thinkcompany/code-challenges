@@ -1,0 +1,51 @@
+.fare-form {
+    font-family: Arial, sans-serif;
+    font-size: 12px;
+    width: 300px;
+    margin: 0 auto;
+    border: solid 1px #ccc;
+}
+
+.header {
+    font-size: 20px;
+    font-weight: bold;
+    padding: 6px;
+    text-align: center;
+    color: #fff;
+    background-color: #595959;
+}
+
+.total-fare {
+    display: block;
+    text-align: center;
+    color: #fff;
+    background-color: #595959;
+}
+
+.total-fare-label {
+    padding: 10px 0 0 0;
+}
+
+.total-fare-amount {
+    font-size: 34px;
+    display: block;
+    padding: 4px 0 10px;
+}
+
+.zone, .type, .purchase, .rides {
+    padding: 15px 30px;
+    border-bottom: solid 1px #e6e6e6;
+}
+
+.type-info, .purchase-info {
+    font-size: 10px;
+    padding: 6px 0;
+    color: #808080;
+}
+
+.alert-info {
+    display: none;
+    padding: 6px 0;
+    color: #911;
+    background-color: #ffd9d9;
+}

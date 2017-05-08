@@ -1,0 +1,64 @@
+/* app css stylesheet */
+
+body {
+  font-family: "Open Sans", sans-serif;
+  text-align: center;  
+}
+
+.fare-calculator {	
+	border: 4px solid silver;
+	margin-top: 0px;
+	margin-right: auto;
+	margin-left: auto;
+}
+
+/* Reusing the same class definitions to minimize development time. */
+
+.fare-calculator-title-bar,
+.fare-calculator-total-cost-row
+ {
+	background: gray;
+	color: white;
+	border: 1px solid silver;
+	font-size: xx-large;
+	font-weight: bold;
+	padding: 10px;
+}
+
+.fare-calculator-zone-row,
+.fare-calculator-time-row,
+.fare-calculator-purchase-location-row,
+.fare-calculator-number-of-fares-row {
+	border: 1px solid silver;
+	color: gray;	
+}
+
+.fare-calculator-septa-logo {
+	height: 36px;
+	width: 50px;
+	padding-right: 10px;
+}
+
+.fare-notes {
+	font-size: small;
+}
+
+h1 {
+	margin: 0px;
+	padding: 0.5em;
+}
+
+select {
+	width: 80%;
+	margin-bottom: 10px;
+	font-size: x-large;
+}
+
+input {
+	margin-bottom: 10px;
+}
+
+fieldset {
+	margin-top: 20px;
+	border: none;
+}

@@ -1,10 +1,135 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-ng-app="FareCalculator">
 <head>
+
 	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 	<title>SEPTA Regional Rail Fare Calculator</title>
+
+	<link rel="stylesheet" href="css/septa-fare-calculator.css">
+
+	<!-- Loading Angular from CDN to minimize project size -->
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+	<script src="js/app.js"></script>
+	<script src="js/controllers.js"></script>
+
 </head>
+
 <body>
+
+	<div class="fare-calculator" data-ng-controller="FareCalculatorCtrl">
+
+		<form name="fareCalculator">
+
+			<header>
+				<div class="fare-calculator-title-bar">
+					<img src="img/SEPTA.png" alt="SEPTA" class="fare-calculator-septa-logo">&nbsp;Regional Rail Fares
+				</div>
+			</header>
+
+			<div class="fare-calculator-zone-row">
+				<h2><label for="zone">Where are you going?</label></h2>
+				<select id="zone" name="zone" data-ng-model="transaction.travel_zone" data-ng-required="true">
+					<option value="">-- Choose Zone --</option>					
+					<option data-ng-repeat="zone in fare_data.zones" value="{{zone.zone}}" data-ng-required="true">{{zone.name}}</option>
+				</select>
+
+				<h5 data-ng-if="false">
+					Making this Fare Calculator truly accessible for the visually impared would require providing some mechanism of
+					matching station names to zones that is not a map.
+
+					That's a project unto itself if a station API is available.
+				</h5>
+
+				<div class="fare-notes">
+					<p>To determine which fare zone applies to your trip,
+					consult the <a href="img/zone-map.jpg" target="_blank">Route Map</a>.</p>
+
+					Find the station where you are beginning or ending your trip. CCP means "Center City Philadelphia".
+				</div>
+			</div>
+
+			<div class="fare-calculator-time-row">
+				<h2><label for="time">When are you riding?</label></h2>
+				<select id="time" name="time" data-ng-model="transaction.travel_time" data-ng-required="true">
+					<option value="">-- Choose Travel Time --</option>					
+					<option value="weekday">Weekday</option>
+					<option value="evening_weekend">Evening/Weekends</option>
+				</select>
+
+				<h5 data-ng-if="false">
+					I could have wired up a means of displaying
+					the note corresponding to the selected time of travel.  My sense is people who would use this fare calculator wouldn't
+					know what SEPTA's definition of Weekday or Evening/Weekend
+					is.
+
+					Compound this with the usability issues that selective display might create for someone who is using a screen reader.  I don't know how that person would detect that the fare-calculator-note changed without visiting it repeatedly.
+				</h5>
+
+				<div class="fare-notes">					
+					Weekdays are Monday through Friday, 4am to 7pm.
+					Evening/Weekends are Monday through Friday, 7pm to Last Train, or all day Saturday, Sunday, or Major Holidays.
+				</div>
+
+			</div>
+
+			<div class="fare-calculator-purchase-location-row">
+				<h5 data-ng-if="false">
+					Purchase locations are hard-coded to minimize development time.
+				</h5>
+
+				<fieldset>
+					<legend><h2>Where will you purchase the fare?</h2></legend>
+
+					<input type="radio" id="loc-adv" name="purchase_location" data-ng-model="transaction.purchase_location" value="advance_purchase" data-ng-required="true" /><label for="loc-adv">Station Kiosk</label><br />
+					<input type="radio" id="loc-onb" name="purchase_location" data-ng-model="transaction.purchase_location" value="onboard_purchase" /><label for="loc-onb">Onboard</label>
+				</fieldset>
+			</div>
+
+			<div class="fare-calculator-number-of-fares-row">
+				<h2><label for="fares">How many rides will you need?</label></h2>
+				<input id="fares" type="text" name="fares" data-ng-model="transaction.number_of_fares" data-ng-required="true" />
+			</div>
 	
+			<div class="fare-calculator-total-cost-row">
+				<p>Your fare will cost</p>
+			
+				<h5 data-ng-if="false">
+
+					Comment on the following fare calculations:
+
+					Review of fares.json indicates:
+
+					* travel_time = weekday and purchase_location = advance_purchase is always fares[0].
+					* travel_time = weekday and purchase_location = onboard_purchase is always fares[1].
+					* travel_time = evening/weekend and purchase_location = advance_purchase is always fares[2].
+					* travel_time = evening/weekend and purchase_location = onboard_purchase is always fares[3].
+
+					This simplification allows me to use ng-if to test for
+					specific combinations of user choices and do relatively
+					simple calculations directly in the HTML, instead of creating a more complex directive that finds the correct fare in the JSON object assuming it is unordered.
+
+					If fare calculation logic were completely implemented in a directive, then having a multiple of 10 fares would display a multiple of the 10 trip, anytime, advance_purchase price, unless the intent was to purchase onboard.
+
+				</h5>
+
+				<h2 data-ng-if="(transaction.travel_time == 'weekday' && transaction.purchase_location == 'advance_purchase')">{{transaction.number_of_fares * fare_data.zones[(transaction.travel_zone - 1)].fares[0].price || 0.00 | currency}}</h2>
+
+				<h2 data-ng-if="(transaction.travel_time == 'weekday' && transaction.purchase_location == 'onboard_purchase')">{{transaction.number_of_fares * fare_data.zones[(transaction.travel_zone - 1)].fares[1].price | currency}}</h2>
+
+				<h2 data-ng-if="(transaction.travel_time == 'evening_weekend' && transaction.purchase_location == 'advance_purchase')">{{transaction.number_of_fares * fare_data.zones[(transaction.travel_zone - 1)].fares[2].price | currency}}</h2>
+
+				<h2 data-ng-if="(transaction.travel_time == 'evening_weekend' && transaction.purchase_location == 'onboard_purchase')">{{transaction.number_of_fares * fare_data.zones[(transaction.travel_zone - 1)].fares[3].price | currency}}</h2>
+
+				<h2 data-ng-if="!transaction.travel_time || !transaction.purchase_location">{{0.00 | currency}}</h2>
+
+			</div>
+
+		</form>
+
+	</div>
+
 </body>
+
 </html>

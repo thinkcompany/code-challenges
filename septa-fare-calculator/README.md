@@ -4,7 +4,7 @@ How to run:
     2. npm start  
     3.(Optional) Open browser and go to localhos:3000/  
 
-Stack: 
+Stack:   
     -React
 
 Mindset:  

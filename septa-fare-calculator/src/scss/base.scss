@@ -1,0 +1,19 @@
+@import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400);
+html {
+    height: 100%;
+    body {
+        height: 100%;
+        margin: 0;
+        font-family: 'Source Sans Pro', sans-serif;
+
+        a {
+            color: black;
+            text-decoration: none;
+
+            &:visited {
+                color: black;
+                text-decoration: none;
+            }
+        }
+    }
+}

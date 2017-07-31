@@ -27,6 +27,18 @@
         }
     }
 
+    .timing-hint {
+        display: flex;
+        justify-content: center;
+
+        font-size: 0.8em;
+
+        .fa {
+            font-size: 1.5em;
+            margin-right: 0.5em;
+        }
+    }
+
     select {
         margin: 1em 0;
         padding: 0 1em;

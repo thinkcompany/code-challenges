@@ -12,6 +12,5 @@ const App = () => {
         </div>
     );
 }
-// console.log(App);
 
 ReactDOM.render(<App />, document.querySelector('#content'));

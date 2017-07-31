@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 
 import Destination from './WidgetComponents/Destination';
 import Timings from './WidgetComponents/Timings';
+import PurchaseLocation from './WidgetComponents/PurchaseLocation';
 
 class SeptaFareCalculator extends Component {
     constructor(props) {
@@ -23,6 +24,11 @@ class SeptaFareCalculator extends Component {
         this.setState({ time: newTime });
     }
 
+    onPurchaseLocChange(newLoc) {
+        this.setState({ purchaseAt: newLoc });
+    }
+
+
     render() {
         return (
             <div id="septa-fare-calculator">
@@ -33,8 +39,7 @@ class SeptaFareCalculator extends Component {
                     timingChange={ this.onTimingChange.bind(this) }
                     keyInfo={ this.props.faresData.info} />
 
-
-                <div>{this.state.time}</div>
+                <PurchaseLocation onLocChange={this.onPurchaseLocChange.bind(this)} />
             </div>
         );
     }

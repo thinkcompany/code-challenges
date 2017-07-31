@@ -1,0 +1,52 @@
+#septa-fare-calculator {
+    box-sizing: border-box;
+    margin: 10% auto;
+    width: 500px;
+    border: solid 2px #cbcbcb;
+
+    h1 {
+        margin: 0;
+        font-size: 1.5em;
+    }
+
+    > div {
+        padding: 1em 1em;
+        text-align: center;
+    }
+
+    > div:not(:last-of-type) {
+        border-bottom: solid 1px #e8e8e8;
+    }
+
+    .header {
+        background-color: #595959;
+        color: white;
+
+        h1 {
+            font-size: 2em;
+        }
+    }
+
+    select {
+        margin: 1em 0;
+        padding: 0 1em;
+        -webkit-appearance: none;
+
+        width: 80%;
+        height: 2em;
+        border: solid 1px #c5c5c5;
+        border-radius: 3px;
+
+        background-color: #fffefe;
+        font-size: 1.5em;
+        font-weight: 200;
+        color: #4d4d4d;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    #septa-fare-calculator {
+        width: 100%;
+        margin: 0;
+    }
+}

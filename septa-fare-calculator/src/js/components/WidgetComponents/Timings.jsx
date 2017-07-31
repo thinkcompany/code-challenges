@@ -26,7 +26,10 @@ class Timings extends Component {
                 <select value={this.state.selectedTime} name="timings" onChange={ event => this.onSelectChange(event.target.value) }>
                     {timingOptions}
                 </select>
-                <div className="timing-hint">{this.props.keyInfo[this.state.selectedTime]}</div>
+                <div className="timing-hint">
+                    <span className="fa fa-exclamation-circle"></span>
+                    {this.props.keyInfo[this.state.selectedTime]}
+                </div>
             </div>
         );
     }

@@ -1,10 +1,13 @@
 import React, { Component } from 'react';
 
+import Header from './Header';
 import Destination from './WidgetComponents/Destination';
 import Timings from './WidgetComponents/Timings';
 import PurchaseLocation from './WidgetComponents/PurchaseLocation';
 import RideCount from './WidgetComponents/RideCount';
 import SpecialHint from './WidgetComponents/SpecialHint';
+
+import '../../scss/SeptaFareCalculator.scss';
 
 class SeptaFareCalculator extends Component {
     constructor(props) {
@@ -71,6 +74,8 @@ class SeptaFareCalculator extends Component {
     render() {
         return (
             <div id="septa-fare-calculator">
+                <Header />
+
                 <Destination zones={ this.props.faresData.zones } zoneChange={ this.onZoneChange.bind(this) } />
 
                 <Timings
@@ -79,11 +84,14 @@ class SeptaFareCalculator extends Component {
                     keyInfo={ this.props.faresData.info} />
 
                 <PurchaseLocation onLocChange={ this.onPurchaseLocChange.bind(this) } />
+
                 <RideCount onCountChange={ this.onRideCountChange.bind(this) } />
 
-                <h1>Final</h1>
-                <p>{this.calculateFare()}</p>
-                <SpecialHint isSpecial={this.state.specialFareState} specialCount={this.state.specialFareCount} />
+                <div className="final-fare-container">
+                    <h1>Your fare will cost</h1>
+                    <h1 className="final-fare">{this.calculateFare()}</h1>
+                    <SpecialHint isSpecial={this.state.specialFareState} specialCount={this.state.specialFareCount} />
+                </div>
             </div>
         );
     }

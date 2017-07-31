@@ -47,9 +47,7 @@ class App extends Component {
 
     render() {
         return (
-            <div>
                 <SeptaFareCalculator faresData={this.state.faresData} timings={this.state.timings} />
-            </div>
         );
     }
 }

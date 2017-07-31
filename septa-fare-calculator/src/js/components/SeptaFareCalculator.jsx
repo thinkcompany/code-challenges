@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 
+import Destination from './WidgetComponents/Destination';
+
 class SeptaFareCalculator extends Component {
     constructor(props) {
         super(props);
@@ -14,7 +16,9 @@ class SeptaFareCalculator extends Component {
 
     render() {
         return (
-            <p className="hello-world">Hello World</p>
+            <div id="septa-fare-calculator">
+                <Destination zones={this.props.faresData.zones} />
+            </div>
         );
     }
 }

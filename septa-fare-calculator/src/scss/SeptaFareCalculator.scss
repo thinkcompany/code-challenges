@@ -1,6 +1,6 @@
 #septa-fare-calculator {
     box-sizing: border-box;
-    margin: 10% auto;
+    margin: 5% auto;
     width: 500px;
     border: solid 2px #cbcbcb;
 
@@ -56,9 +56,14 @@
     }
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 500px) {
     #septa-fare-calculator {
         width: 100%;
         margin: 0;
+
+        h1 {
+            font-size: 1.2em;
+        }
     }
+
 }

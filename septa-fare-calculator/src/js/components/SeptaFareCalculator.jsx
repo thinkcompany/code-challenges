@@ -1,9 +1,9 @@
 import React from 'react';
 
-const HelloWorld = () => {
+const SeptaFareCalculator = () => {
     return (
         <p className="hello-world">Hello World</p>
     );
 };
 
-export default HelloWorld;
+export default SeptaFareCalculator;

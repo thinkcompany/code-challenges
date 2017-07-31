@@ -88,7 +88,7 @@ class SeptaFareCalculator extends Component {
                 <RideCount onCountChange={ this.onRideCountChange.bind(this) } />
 
                 <div className="final-fare-container">
-                    <h1>Your fare will cost</h1>
+                    <p>Your fare will cost</p>
                     <h1 className="final-fare">{this.calculateFare()}</h1>
                     <SpecialHint isSpecial={this.state.specialFareState} specialCount={this.state.specialFareCount} />
                 </div>

@@ -39,6 +39,45 @@
         }
     }
 
+    .purchase-location-container {
+        .locations {
+            text-align: left;
+            width: 30%;
+            display: inline-block;
+
+            label {
+                display: block;
+                input {
+                    margin-left: 1em;
+                }
+            }
+        }
+    }
+
+    .ride-count-container {
+        input {
+            margin: 0.5em 0;
+            padding: 0.2em 0.5em;
+            width: 30%;
+            height: 1.5em;
+
+            border-radius: 2px;
+            border: solid 1px #c5c5c5;
+
+            font-size: 1.5em;
+            text-align: center;
+        }
+    }
+
+    .final-fare-container {
+        background-color: #595959;
+        color: white;
+
+        p {
+            margin: 0;
+        }
+    }
+
     select {
         margin: 1em 0;
         padding: 0 1em;

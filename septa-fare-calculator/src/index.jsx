@@ -11,6 +11,13 @@ class App extends Component {
 
         this.state = {
             faresData: {
+                info: {
+                    anytime: '',
+                    weekday: '',
+                    evening_weekend: '',
+                    advance_purchase: '',
+                    onboard_purchase: ''
+                },
                 zones: []
             },
             timings: []

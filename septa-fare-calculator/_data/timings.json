@@ -1,12 +1,12 @@
 [
     {
-        "name": "Anytime",
-        "keyword": "anytime"
+        "name": "Weekday",
+        "keyword": "weekday"
     },
 
     {
-        "name": "Weekday",
-        "keyword": "weekday"
+        "name": "Anytime",
+        "keyword": "anytime"
     },
 
     {

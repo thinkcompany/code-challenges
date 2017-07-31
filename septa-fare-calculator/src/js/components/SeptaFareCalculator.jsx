@@ -32,6 +32,8 @@ class SeptaFareCalculator extends Component {
                     timings={ this.props.timings }
                     timingChange={ this.onTimingChange.bind(this) }
                     keyInfo={ this.props.faresData.info} />
+
+
                 <div>{this.state.time}</div>
             </div>
         );

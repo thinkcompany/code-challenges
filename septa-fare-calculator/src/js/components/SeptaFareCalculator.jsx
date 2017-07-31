@@ -1,6 +1,7 @@
 import React from 'react';
 
-const SeptaFareCalculator = () => {
+const SeptaFareCalculator = (props) => {
+    console.log(props);
     return (
         <p className="hello-world">Hello World</p>
     );

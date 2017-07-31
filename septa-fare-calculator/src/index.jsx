@@ -10,10 +10,14 @@ class App extends Component {
         super(props);
 
         this.state = {
-            faresData: {}
+            faresData: {
+                zones: []
+            },
+            timings: []
         };
 
         this.fetchFares();
+        this.fetchTimings();
     }
 
     fetchFares() {
@@ -21,15 +25,23 @@ class App extends Component {
           .then((response) => {
             return response.json()
           }).then((json) => {
-            console.log(json);
             this.setState({ faresData: json });
+          });
+    }
+
+    fetchTimings() {
+        fetch('/_data/timings.json')
+          .then((response) => {
+            return response.json()
+          }).then((json) => {
+            this.setState({ timings: json });
           });
     }
 
     render() {
         return (
             <div>
-                <SeptaFareCalculator />
+                <SeptaFareCalculator faresData={this.state.faresData} timings={this.state.timings} />
             </div>
         );
     }

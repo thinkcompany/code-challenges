@@ -2,7 +2,7 @@ import React from 'react';
 
 import Zones from './zones';
 
-class Calculator extends React.Component {
+class FareCalculator extends React.Component {
   constructor(props) {
     super(props);
 
@@ -14,14 +14,21 @@ class Calculator extends React.Component {
     };
   }
 
+
+  updateZone(e) {
+  this.setState({ zone: e.currentTarget.value });
+}
+
   render() {
     const { faresData } = this.props;
-    if (!faresData) return null;
+    if (!faresData.zones) return null;
 
     return(
       <div className="calculator-container">
-        <Zones />
+        <Zones availableZones={faresData.zones} updateZone={this.updateZone.bind(this)} />
       </div>
     );
   }
 }
+
+export default FareCalculator;

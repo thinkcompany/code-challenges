@@ -1,6 +1,7 @@
 import React from 'react';
 
 import FareCalculator from './fare-calculator';
+import Zones from './zones';
 
 export default class App extends React.Component {
   constructor(props) {
@@ -15,9 +16,8 @@ export default class App extends React.Component {
       url: 'https://raw.githubusercontent.com/thinkcompany/code-challenges/master/septa-fare-calculator/fares.json',
       dataType: 'json',
     }).then(result => {
-      debugger;
-      this.setState(result);
-      });
+      this.setState(result); 
+    });
   }
 
   render() {

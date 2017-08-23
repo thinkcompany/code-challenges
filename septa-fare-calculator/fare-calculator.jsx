@@ -1,6 +1,7 @@
 import React from 'react';
 
 import Zones from './zones';
+import Timings from './timings';
 
 class FareCalculator extends React.Component {
   constructor(props) {
@@ -12,12 +13,18 @@ class FareCalculator extends React.Component {
       purchase: "advance-purchase",
       rides: 1,
     };
+
+    this.updateZone = this.updateZone.bind(this);
+    this.updateTime = this.updateTime.bind(this);
   }
 
+  updateTime(e) {
+    this.setState({ time: e.currentTarget.value });
+  }
 
   updateZone(e) {
-  this.setState({ zone: e.currentTarget.value });
-}
+    this.setState({ zone: e.currentTarget.value });
+  }
 
   render() {
     const { faresData } = this.props;
@@ -25,7 +32,8 @@ class FareCalculator extends React.Component {
 
     return(
       <div className="calculator-container">
-        <Zones availableZones={faresData.zones} updateZone={this.updateZone.bind(this)} />
+        <Zones availableZones={faresData.zones} updateZone={this.updateZone} />
+        <Timings timeInfo={faresData.info[this.state.time]} updateTime={this.updateTime} />
       </div>
     );
   }

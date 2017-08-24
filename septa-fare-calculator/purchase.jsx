@@ -5,7 +5,7 @@ const Purchase = ({ purchaseInfo, selected, updatePurchase }) => {
   return(
     <fieldset className="purchase-selection-container">
       <h2>Where will you purchase the fare?</h2>
-      <div>
+      <div className="purchase-radio">
         <input
           type="radio"
           name="radio-purchase"
@@ -14,7 +14,7 @@ const Purchase = ({ purchaseInfo, selected, updatePurchase }) => {
           onChange={updatePurchase}/>
         <label htmlFor="radio-advance-purchase">Station Kiosk</label>
       </div>
-      <div>
+      <div className="purchase-radio">
         <input
           type="radio"
           name="radio-purchase"

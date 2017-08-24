@@ -8,7 +8,7 @@ const Zones = ({ availableZones, updateZone }) => {
   return (
     <div className="zone-selection-container">
       <h2>Where are you going?</h2>
-        <select name="zones" onChange={e => updateZone(e)}>
+        <select className="selection-form" name="zones" onChange={updateZone}>
           {zoneOptions}
         </select>
     </div>

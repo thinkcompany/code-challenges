@@ -72,7 +72,6 @@ class FareCalculator extends React.Component {
       }
     }
 
-
     return finalPrice;
   }
 
@@ -83,6 +82,11 @@ class FareCalculator extends React.Component {
     return(
       <div className="calculator-container">
         <div className="calculator-header">
+          <div className="septa-logo-small">
+            <img
+              src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/SEPTA.svg/500px-SEPTA.svg.png"
+              alt="Septa logo" />
+          </div>
           <h1>Regional Rail Fares</h1>
         </div>
         <Zones availableZones={faresData.zones} updateZone={this.updateZone} />
@@ -94,7 +98,7 @@ class FareCalculator extends React.Component {
         <Rides ridesAmount={this.state.rides} updateRides={this.updateRides} />
         <div className="fare-price-container">
           <h2>Your fare will cost</h2>
-          <h1>${this.calculateTotalFare()}</h1>
+          <h1>$&nbsp;{this.calculateTotalFare()}</h1>
         </div>
       </div>
     );

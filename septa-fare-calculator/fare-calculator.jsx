@@ -27,15 +27,53 @@ class FareCalculator extends React.Component {
   }
 
   updateRides(e) {
-    this.setState({ rides: e.currentTarget.value });
+    if (this.state.time === 'anytime') {
+      const newRidesValue = Math.ceil(e.currentTarget.value/10) * 10;
+      this.setState({ rides: newRidesValue })
+    } else {
+      this.setState({ rides: e.currentTarget.value });
+    }
   }
 
   updateTime(e) {
-    this.setState({ time: e.currentTarget.value });
+    const timing = e.currentTarget.value;
+    if (timing === 'anytime') {
+      const newRidesValue = Math.round(this.state.rides/10) * 10;
+      this.setState({ time: timing, rides: newRidesValue })
+    } else {
+      this.setState({ time: timing });
+    }
   }
 
   updateZone(e) {
     this.setState({ zone: e.currentTarget.value });
+  }
+
+  calculateTotalFare() {
+    const state = this.state;
+    const { faresData } = this.props;
+
+    const chosenZone = faresData.zones[parseInt(this.state.zone) - 1];
+    const chosenRate = chosenZone.fares.filter(fare => {
+      return (fare.type === state.time && fare.purchase === state.purchase)
+    })[0];
+
+    let finalPrice = chosenRate.price * state.rides;
+
+    if (state.rides >= 10) {
+      if (state.time !=='anytime') {
+        const remainedRides = (state.rides % 10);
+        const specialRides = (state.rides - remainedRides);
+        const specialPrice = (chosenZone.fares[4].price * (specialRides / 10));
+        const regularPrice = (remainedRides * chosenRate.price);
+        finalPrice = specialPrice + regularPrice;
+      } else {
+        finalPrice = (state.rides / 10) * chosenRate.price;
+      }
+    }
+
+
+    return finalPrice;
   }
 
   render() {
@@ -54,6 +92,10 @@ class FareCalculator extends React.Component {
           selected={this.state.purchase}
           updatePurchase={this.updatePurchase} />
         <Rides ridesAmount={this.state.rides} updateRides={this.updateRides} />
+        <div className="fare-price-container">
+          <h2>Your fare will cost</h2>
+          <h1>${this.calculateTotalFare()}</h1>
+        </div>
       </div>
     );
   }

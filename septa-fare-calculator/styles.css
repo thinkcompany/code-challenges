@@ -1,0 +1,64 @@
+body {
+  font-family: sans-serif;
+}
+
+h1 {
+  padding: 0;
+  margin: 0;
+  font-size: 30px;
+}
+
+h2 {
+  font-size: 15px;
+}
+
+img {
+  height: 70px;
+  position: absolute;
+}
+
+.calculator{
+  width: 575px;
+  margin: auto;
+  border: 2px solid grey;
+  text-align: center;
+}
+
+
+header {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 90px;
+  color: white;
+  background-color: #595959;
+}
+
+label {
+  align-items: center;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+}
+
+.radio {
+  display: flex;
+}
+
+form {
+  height: 375px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.footer {
+  background-color: #595959;
+  height: 200px;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}

@@ -1,0 +1,131 @@
+form {
+   text-align: center;
+}
+
+p {
+   margin: 0 auto;
+}
+
+label {
+   display: block;
+   color: #595959;
+   padding: 0 0 10px 0;
+}
+
+legend {
+   font-size: 24px;
+   padding: 25px 0 0;
+}
+
+fieldset {
+   border: 0;
+   padding: 25px 0 0;
+   color: #595959;
+}
+/**
+ * I had a little trouble styling the select bars.
+ * I know the trick to create the triangle with making an empty div,
+ * then manipulating the borders on all but one side to be zero,
+ * and let the remaining border be especially wide.
+
+ * But I couldn't think of a good way to get that element to display
+ * inside the select tag. I can't nest a div inside a p,
+ * and the Think Brownstone style guide suggested embedding
+ * inputs in parapgraph tags.
+
+ * With more time, this would be a really neat issue to work on.
+ * I only got as far as removing the style from select tags below.
+*/
+/*select {
+   width: 90%;
+   height: 50px;
+   padding: 10px;
+   -webkit-appearance:none;
+   -moz-appearance:none;
+   appearance:none;
+   font-weight: 100;
+}*/
+
+form p {
+   font-size: 24px;
+}
+
+fieldset > p {
+   width: 250px;
+}
+
+input[type="radio"] {
+  float: left;
+}
+
+input[type="number"] {
+   background-color: #FFFEFE;
+   border: 2px solid #CCCCCC;
+   width: 100px;
+   height: 50px;
+   border-radius: 5px;
+   text-align: center;
+}
+
+.main {
+   width: 480px;
+   margin: 0 auto;
+   border: 3px solid #CCCCCC;
+}
+
+.header {
+   padding: 10px 40px;
+   background-color: #595959;
+   color: white;
+}
+
+.header-img {
+   display: inline;
+   padding: 0 20px 0 0;
+}
+
+.header-text {
+   display: inline;
+   vertical-align: super;
+}
+
+
+.input-container {
+   margin: 0;
+   border: 0;
+   border-bottom: 2px solid #EEEEEE;
+   padding: 25px;
+}
+
+.fieldset-label {
+   line-height: .5;
+   text-align: left;
+   margin: 0 0 0 50px;
+   font-weight: 100;
+}
+
+.helper-text {
+   margin: 0 auto;
+   width: 400px;
+   padding: 10px 0 0 0;
+   display: block;
+   line-height: 1.25;
+   font-size: 12px;
+   color: #CCCCCC;
+}
+
+.total-fare {
+   padding: 25px;
+   text-align: center;
+   background: #595959;
+   color: white;
+   font-size: 24px;
+}
+
+.price {
+   font-size: 64px;
+}
+
+.bargain {
+   color: red;
+}

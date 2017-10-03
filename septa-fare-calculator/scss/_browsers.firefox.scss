@@ -1,0 +1,27 @@
+/* ===========================================================
+   FIREFOX FIXES
+=========================================================== */
+
+@-moz-document url-prefix() {
+   .tb-module.septa-calculator {
+
+      .tb-form-section {
+
+         .select-wrapper {
+
+            &:after {
+               @include pseudo;
+               display: none;
+            }
+         }
+
+         select {
+            padding: 18px 20px 20px;
+
+            @include bp($XS) {
+               padding: 13px 15px 15px;
+            }
+         }
+      }
+   }
+}

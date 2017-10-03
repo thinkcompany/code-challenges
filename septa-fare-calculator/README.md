@@ -31,3 +31,7 @@ When you take regional rail in and out of the city, the fare price is affected b
 * [Think Company Development Standards](http://standards.dev.thinkcompany.com)
 * [SEPTA Fares](http://www.septa.org/fares/ticket/index.html)
 * [SEPTA Logo (SVG)](https://commons.wikimedia.org/wiki/File:SEPTA.svg)
+
+## Developer Notes - Brittany Choplin
+* In order to run the JSON locally due to Chrome's security restrictions, I served the files over http://0.0.0.0:8000 using the command "python -m http.server 8000" on Terminal. These steps may need to be repeated if the project is viewed locally.
+* If you would like to view it easily on the web, it is available on my portfolio here: http://brittanychoplin.com/tb/

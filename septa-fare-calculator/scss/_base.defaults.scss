@@ -1,0 +1,53 @@
+/* ===========================================================
+   DEFAULTS
+=========================================================== */
+
+/* Sets default styles. */
+
+body {
+   padding: 0 30px;
+   font-family: $f-default;
+   font-size: $f-size;
+   line-height: $f-line-height;
+   color: $text;
+   -webkit-font-smoothing: antialiased;
+
+   @include bp($S) {
+      font-size: 26px;
+      line-height: 32px;
+   }
+
+   @include bp($XS) {
+      padding: 10px;
+      font-size: 20px;
+      line-height: 26px;
+   }
+
+   @include bp($XXS) {
+      font-size: 16px;
+      line-height: 22px;
+   }
+}
+
+a {
+   color: $c-blue;
+   text-decoration: underline;
+
+   &:hover,
+   &:active {
+      text-decoration: none;
+   }
+}
+
+.alignleft {
+   float: left;
+}
+
+.aligncenter {
+   display: block;
+   margin: 0 auto;
+}
+
+.alignright {
+   float: right;
+}

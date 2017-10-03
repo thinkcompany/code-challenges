@@ -1,0 +1,13 @@
+/* ===========================================================
+	GLOBAL CSS & IMPORTS
+=========================================================== */
+
+/* Imports all necessary SCSS files. */
+
+@import "settings.fonts";
+@import "settings.mixins";
+@import "settings.variables";
+@import "base.normalize";
+@import "base.defaults";
+@import "modules.calculator";
+@import "browsers.firefox";

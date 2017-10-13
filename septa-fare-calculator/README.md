@@ -7,4 +7,5 @@
 `npm run start`
 
 ### Prod mode
-`npm run buil:prod`
+ 1. `npm run buil:prod` (builds)
+ 2. `npm run serve:static` (serves from dist)

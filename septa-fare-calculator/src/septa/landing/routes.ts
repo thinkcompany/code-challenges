@@ -26,7 +26,7 @@ const LANDING_ROUTES: Routes = [
         component: LandingBase,
         path: '',
         resolve: {
-            projects: ZoneResolve
+            zones: ZoneResolve
         }
     }
 ];

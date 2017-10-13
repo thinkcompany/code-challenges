@@ -1,0 +1,39 @@
+{
+    "compilerOptions": {
+        "target": "es5",
+        "module": "commonjs",
+        "moduleResolution": "node",
+        "sourceMap": true,
+        "emitDecoratorMetadata": true,
+        "experimentalDecorators": true,
+        "lib": [
+            "es2015",
+            "es2016",
+            "dom"
+        ],
+        "noImplicitAny": false,
+        "noImplicitThis": false,
+        "noFallthroughCasesInSwitch": false,
+        "noImplicitReturns": false,
+        "removeComments": true,
+        "alwaysStrict": true,
+        "forceConsistentCasingInFileNames": false,
+        "suppressImplicitAnyIndexErrors": false,
+        "outDir": "./dist/out-tsc",
+        "baseUrl": ".",
+        "paths": {
+            "core/*": [ "./src/septa/core/*" ],
+            "models/*": [ "./src/septa/models/*" ]
+        },
+        "typeRoots": [
+            "./typings",
+            "./node_modules/@types"
+        ]
+    },
+    "awesomeTypescriptLoaderOptions": {
+        "useCache": true
+    },
+    "include": [
+        "src"
+    ]
+}

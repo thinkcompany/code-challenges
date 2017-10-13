@@ -1,0 +1,9 @@
+{
+    "extends": "../tsconfig.json",
+    "angularCompilerOptions": {
+        "entryModule": "./septa/module#SeptaModule"
+    },
+    "exclude": [
+        "src/main.server.aot.ts"
+    ]
+}

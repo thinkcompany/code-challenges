@@ -1,0 +1,51 @@
+<section>
+    <form *ngIf="zones.length > 0" novalidate>
+        <div class="form-group">
+            <label for="">
+                <strong>Where are you going?</strong>
+                <select name="zonePicker" [(ngModel)]="selection.zone" (ngModelChange)="onZoneChange($event)" class="form-control">
+                    <option *ngFor="let zone of zones" [ngValue]="zone"> {{ zone.zoneName }} </option>
+                </select>
+            </label>
+        </div>
+        <div class="form-group">
+            <label for="">
+                <strong>When are you riding?</strong>
+                <select name="typePicker" [(ngModel)]="selection.type" (ngModelChange)="onTypeChange($event)" class="form-control">
+                    <option *ngFor="let type of selection.fareTypes" [ngValue]="type" [disabled]="isOptionDisabled(type)"> {{ type }} </option>
+                </select>
+            </label>
+        </div>
+        <fieldset class="form-group">
+            <legend>
+                <strong>Where will you purchase your fare?</strong>
+            </legend>
+            <label *ngFor="let purchase of selection.farePurchases" class="form-check">
+                <input [(ngModel)]="selection.purchase"
+                    (ngModelChange)="onPurchaseChange($event)"
+                    [value]="purchase"
+                    name="{{ purchase }}"
+                    type="radio"
+                    class="form-control"
+                    />
+                {{ purchase }}
+            </label>
+        </fieldset>
+        <div class="form-group">
+            <label for="">
+                <strong>How many rides will you need?</strong>
+                <input
+                [(ngModel)]="selection.quantity"
+                (ngModelChange)="onQuantityChange($event)"
+                type="number"
+                name="quantity" min="1" class="form-control"
+                />
+            </label>
+        </div>
+    </form>
+    <div class="order-total">
+        <strong>Your fare will cost</strong>
+        <br />
+        <h2 class="display2">{{ selection.total | currency:'USD':true:'1.0-2' }}</h2>
+    </div>
+</section>

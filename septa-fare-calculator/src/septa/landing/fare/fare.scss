@@ -1,0 +1,38 @@
+:host {
+    form {
+        text-align: center;
+    }
+
+    legend {
+        font-size: 1rem;
+    }
+
+    .form-group {
+        border-bottom: 1px solid #ccc;
+        padding: 1rem 0;
+
+        &:last-child {
+            border-width: 0;
+        }
+    }
+
+    input, select {
+        margin-top: 1rem;
+    }
+
+    input[type="radio"] {
+        display: inline-block;
+        width: auto;
+    }
+
+    .order-total {
+        color: #fff;
+        background-color: dimgrey;
+        padding: 1.5rem;
+        text-align: center;
+    }
+
+    .display2 {
+        font-size: 5rem;
+    }
+}

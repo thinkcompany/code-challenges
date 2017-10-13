@@ -82,6 +82,12 @@ export class Selection {
         };
     }
 
+    public get message(): string {
+        const key: string = this.zone.map[this.type];
+
+        return this.zone.text[key] || '';
+    }
+
     public get total(): number {
         return this.price * this.quantity;
     }

@@ -19,6 +19,7 @@ export class Zone implements IZoneFields {
     public zone: number;
     public fares: Fare[] = [];
     public text: IInfoFields;
+    public map: Data;
 
     public static unique(key: string, items: Data[]): string[] {
         const categories: string[] = items.map((fare: Fare) => {
@@ -38,6 +39,12 @@ export class Zone implements IZoneFields {
         for (const fareData of data.fares) {
             this.fares.push(new Fare(fareData));
         }
+
+        this.map = {
+            Weekday: 'weekday',
+            'Evening Weekend': 'evening_weekend',
+            Anytime: 'anytime'
+        };
     }
 
     public get zoneName(): string {

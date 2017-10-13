@@ -15,6 +15,10 @@
                     <option *ngFor="let type of selection.fareTypes" [ngValue]="type" [disabled]="isOptionDisabled(type)"> {{ type }} </option>
                 </select>
             </label>
+            <br />
+            <p>
+                {{ selection.message }}
+            </p>
         </div>
         <fieldset class="form-group">
             <legend>

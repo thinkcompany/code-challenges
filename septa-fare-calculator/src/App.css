@@ -1,0 +1,46 @@
+/**
+ Would normally use a preprocessor and set reused values as variables and wrap all
+ contents in parent widget id, but passed due to time limit
+*/
+#septa-fares-widget{
+  width: 30%;
+  min-width: 300px;
+  margin: 1em auto;
+  border: 3px solid #ccc;
+  text-align: center;
+  font-family: sans-serif;
+  /* Design's font color doesn't meet WCAG AA */
+  color: #666;
+}
+h1{
+  display: inline;
+  margin-top: 0;
+}
+h2, h3, h4, h5, h6{
+  font-weight: normal;
+  color: #595959;
+}
+#septa-fares-widget-header{
+  padding: 0.5em;
+}
+#septa-fares-widget-header img{
+  display: inline;
+  width: 10%;
+  vertical-align: top;
+  margin-right: 0.5em;
+}
+section{
+  padding: 1em;
+  border-bottom: 1px solid #e6e6e6;
+}
+header, #fare-cost{
+  color: #fff;
+  background-color: #595959;
+}
+/* Where Purchased */
+#where-purchased fieldset{
+  border: none;
+}
+#where-purchased label{
+  display: block;
+}

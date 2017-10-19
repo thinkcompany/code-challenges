@@ -1,10 +1,64 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="UTF-8">
+	<meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<title>SEPTA Regional Rail Fare Calculator</title>
+	<link rel="stylesheet" href="css/main.css">
 </head>
 <body>
-	
+
+	<!-- Fare Widget -->
+	<form action="" class="fares-widget">
+
+		<div class="widget-header">
+			<img src="img/logo-septa.svg" alt="SEPTA" />
+			<h1>Regional Rail Fares</h1>
+		</div>
+
+		<div class="widget-row">
+			<h2>Where are you going?</h2>
+			<select name="zonesList" id="zonesList"></select>
+		</div>
+
+		<div class="widget-row">
+			<h2>When are you riding?</h2>
+			<select name="type" id="type">
+				<option value="anytime">Anytime</option>
+				<option value="weekday">Weekday</option>
+				<option value="evening_weekend">Evening &amp; Weekend</option>
+			</select>
+		</div>
+
+		<div class="widget-row">
+			<h2>Where will you purchase the fare?</h2>
+			<ul class="radio-buttons">
+				<li>
+					<input type="radio" name="purchase" id="advance_purchase" value="advance_purchase" checked="checked">
+					<label for="advance_purchase">Station Kiosk</label>
+				</li>
+				<li>
+					<input type="radio" name="purchase" id="onboard_purchase" value="onboard_purchase">
+					<label for="onboard_purchase">Onboard</label>
+				</li>
+			</ul>
+		</div>
+
+		<div class="widget-row">
+			<h2>How many rides will you need?</h2>
+			<input type="number" name="trips" id="trips" value="1">
+		</div>
+
+		<div class="fare-total widget-row">
+			<h2>Your fare will cost</h2>
+			<p id="fareTotal">$4.75</p>
+		</div>
+
+	</form>
+	<!-- end widget -->
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script type="text/javascript" src="js/scripts.min.js"></script>
 </body>
 </html>

@@ -1,0 +1,91 @@
+$primary-color: #595959;
+$secondary-color: #CCCCCC;
+$text-color: #595959;
+$text-color-alt: #ffffff;
+$text-color-lite: #808080;
+$border-color: #CCCCCC;
+
+$max-width: 500px;
+
+.regional-rail-form{
+	text-align: center;
+	border: 3px solid $border-color;
+	max-width: 500px;
+	margin-left: auto;
+	margin-right: auto;
+
+	h2{
+		font-size: 40px;
+		color: $text-color-alt;
+		margin: 0px;
+		@media (max-width: 480px){
+			font-size: 30px;
+		}
+	}
+	h3{
+		font-size: 30px;
+		color: $text-color;
+		@media (max-width: 480px){
+			font-size: 25px;
+		}
+	}
+	p{
+		margin: 0px;
+		font-size: 20px;
+		color: $text-color;
+	}
+	select{
+		padding: 15px;
+		width: 100%;
+	}
+	input[type="number"]{
+		padding: 15px;
+		width: 100px;
+	}
+}
+
+.regional-rail-title{
+	padding: 25px;
+}
+
+.regional-rail-section{
+	padding: 25px;
+	border-bottom: 1px solid $border-color;
+	@media (max-width: 480px){
+		padding: 15px;
+	}
+}
+
+.regional-rail-title{
+	background: $primary-color;
+}
+
+p.regional-rail-help-text{
+	font-size: 14px;
+	color: $text-color-lite;
+	margin-top: 10px;
+
+	@media (max-width: 480px){
+		font-size: 12px;
+	}
+}
+
+.regional-rail-radio-container{
+	input,label,p{
+		display: inline-block;
+	}
+	.regional-rail-help-text{
+		display: block;
+	}
+}
+
+.regional-rail-section-fair{
+	background: $primary-color;
+	h3{
+		color: $text-color-alt;
+	}
+}
+#regional-rail-fare-price{
+	color: $text-color-alt;
+	font-size: 50px;
+}

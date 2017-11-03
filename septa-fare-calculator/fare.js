@@ -79,7 +79,7 @@ function check_regional_rail_price() {
 	//read in values of inputs
 	var regional_zone_number = regional_rail_zone_input.val();
 	var regional_type = regional_rail_time_input.val();
-	var regional_purchase = regional_rail_purchase_input.val();
+	var regional_purchase = jQuery('input[name=regional-rail-purchase]:checked').val();
 	var regional_rides = regional_rail_ride_input.val();
 	var regional_trip_cost = '----';
 

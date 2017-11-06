@@ -2,9 +2,49 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>SEPTA Regional Rail Fare Calculator</title>
+	<script src="js/jquery-3.2.1.min.js"></script>
+	<script src="js/septa.js"></script>
+	<link rel="stylesheet" type="text/css" href="css/septa.css" />
 </head>
 <body>
+<div id="septa-fare-calculator-wrap">
+<div id="septa-fare-calculator-header">
+<h2><img id="septa-logo-sm" src="img/septa-icon.png" alt="SEPTA">Regional Rail Fares</h2>
+</div>
+<form id="septa-fares-calc">
+<label for="septa-zones-traveling">Where are you going?</label>
+<select id="septa-zones-traveling">   
+        <option value="fare-loading">Loading...</option>     
+</select>
+<br>
+<label for="septa-ride-timing">When are you riding?</label>
+<select id="septa-ride-timing">   
+        <option value="weekday">Weekday</option>     
+        <option value="evening_weekend">Evenings/Weekends</option>     
+</select>
+<br>
+<!--HELPER TEXT-->
+<span id="septa-ride-timing-info">Weekday hours are Monday through Friday, between 4:00 a.m. and 7:00 p.m.</span>
+<br>
+<fieldset id="septa-purchase-place">
+    <legend>Where will you purchase the fare?</legend>
+    <label for="septa-fare-kiosk">Station Kiosk</label>
+    <input id="septa-fare-kiosk" name="septa-fare-place" value="advance_purchase" type="radio" aria-required="true" checked="checked">
+    <label for="septa-fare-onboard">Onboard</label>
+    <input id="septa-fare-onboard" name="septa-fare-place" value="onboard_purchase" type="radio" aria-required="true">
+</fieldset>
+<br>
+<label for="septa-fares-number">How many rides will you need?</label>
+<input type="number" id="septa-fares-number" value="1" min="1" aria-required="true"/>
+<br>
+<div id="septa-fare-calculation">
+<p>Your fare will cost:</p>
+<span id="septa-fare">$4.75</span>
+</form>
+</div>
+</div>
 	
 </body>
 </html>

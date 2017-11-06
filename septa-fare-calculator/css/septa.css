@@ -1,0 +1,15 @@
+#septa-fare-calculator-wrap {width:320px;margin:10px auto;border:2px solid #999;text-align:center;}
+
+#septa-fare-calculator-wrap h2 {margin-top:0;}
+
+#septa-fares-calc {margin-top:15px;}
+
+#septa-fare-calculator-wrap input, #septa-fare-calculator-wrap select, #septa-fare-calculator-wrap fieldset {margin:10px auto;}
+
+#septa-logo-sm {width:32px;margin-right:15px;}
+
+#septa-fare-calculator-wrap label {display:block;margin-bottom:5px;}
+
+#septa-fare-calculator-header, #septa-fare-calculation {background:#666;color:white;font-size:20px;}
+#septa-fare-calculation span {background:#666;color:white;font-size:20px;}
+

@@ -1,0 +1,80 @@
+html,body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Ubuntu Condensed', sans-serif;
+    font-size: 15px;
+}
+
+
+option{
+    text-transform: capitalize;
+}
+
+
+/* Flex situation */
+@supports (display: flex) {
+
+    main {
+        display: flex;
+        height: 100vh;
+        width: 100vw;
+        justify-content: center;
+    }
+    main > div {
+        display: flex;
+        height: 100vh;
+        width: 100vw;
+        justify-content: center;
+    }
+    form {
+        padding: 20px;
+        font-size: 12px;
+        align-self: center;
+        min-height: 55vh;
+        min-width: 45vw;
+        background-color: ghostwhite;
+        border-radius: 15px;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        position: relative;
+    }
+    form > div {
+        padding: 15px;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+    }
+    #total_fare{
+        position: absolute;
+        bottom: 0;
+        background-color: #22a1de;
+        color: white;
+        font: 1.5rem;
+        bottom: 0;
+        right: 0;
+    }
+
+    #notes{
+        position: absolute;
+        bottom: 0;
+        color: #22a1de;
+        font: 1.3rem;
+        bottom: 0;
+        left: 0;
+        max-width: 60%;
+    }
+
+    .quantity_section > input {
+        width: 40%;
+    }
+
+    p{
+        font-size: 14px;
+    }
+
+    #price_total{
+        font-size: 1.5rem;
+    }
+
+}

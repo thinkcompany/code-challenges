@@ -1,0 +1,170 @@
+{
+    "times": [{
+        "name": "Weekdays",
+        "value": "weekday",
+        "info": "Valid Monday through Friday, 4:00 a.m. - 7:00 p.m. On trains arriving or departing 30th Street Station, Suburban and Jefferson Station"
+    }, {
+        "name": "Evening/Weekends",
+        "value": "evening_weekend",
+        "info": "Valid weekdays after 7:00 p.m.; all day Saturday, Sunday and major holidays. On trains arriving or departing 30th Street Station, Suburban and Jefferson Station"
+    }, {
+        "name": "Anytime",
+        "value": "anytime",
+        "info": "Valid anytime"
+    }],
+    "purchaseTypes": [{
+        "name": "Station Kiosk",
+        "value": "advance_purchase",
+        "info": "Tickets available for purchase at all SEPTA offices."
+    }, {
+        "name": "Onboard",
+        "value": "onboard_purchase",
+        "info": "Tickets available for purchase from a train conductor aboard SEPTA regional rail trains."
+    }],
+    "zones": [{
+        "name": "CCP/1",
+        "zone": 1,
+        "fares": [{
+            "type": "weekday",
+            "purchase": "advance_purchase",
+            "trips": 1,
+            "price": 5.25
+        }, {
+            "type": "weekday",
+            "purchase": "onboard_purchase",
+            "trips": 1,
+            "price": 6.00
+        }, {
+            "type": "evening_weekend",
+            "purchase": "advance_purchase",
+            "trips": 1,
+            "price": 4.25
+        }, {
+            "type": "evening_weekend",
+            "purchase": "onboard_purchase",
+            "trips": 1,
+            "price": 5.00
+        }, {
+            "type": "anytime",
+            "purchase": "advance_purchase",
+            "trips": 10,
+            "price": 40.00
+        }]
+    }, {
+        "name": "Zone 2",
+        "zone": 2,
+        "fares": [{
+            "type": "weekday",
+            "purchase": "advance_purchase",
+            "trips": 1,
+            "price": 5.25
+        }, {
+            "type": "weekday",
+            "purchase": "onboard_purchase",
+            "trips": 1,
+            "price": 6.00
+        }, {
+            "type": "evening_weekend",
+            "purchase": "advance_purchase",
+            "trips": 1,
+            "price": 4.25
+        }, {
+            "type": "evening_weekend",
+            "purchase": "onboard_purchase",
+            "trips": 1,
+            "price": 5.00
+        }, {
+            "type": "anytime",
+            "purchase": "advance_purchase",
+            "trips": 10,
+            "price": 47.50
+        }]
+    }, {
+        "name": "Zone 3",
+        "zone": 3,
+        "fares": [{
+            "type": "weekday",
+            "purchase": "advance_purchase",
+            "trips": 1,
+            "price": 6.00
+        }, {
+            "type": "weekday",
+            "purchase": "onboard_purchase",
+            "trips": 1,
+            "price": 7.00
+        }, {
+            "type": "evening_weekend",
+            "purchase": "advance_purchase",
+            "trips": 1,
+            "price": 5.25
+        }, {
+            "type": "evening_weekend",
+            "purchase": "onboard_purchase",
+            "trips": 1,
+            "price": 7.00
+        }, {
+            "type": "anytime",
+            "purchase": "advance_purchase",
+            "trips": 10,
+            "price": 57.50
+        }]
+    }, {
+        "name": "Zone 4",
+        "zone": 4,
+        "fares": [{
+            "type": "weekday",
+            "purchase": "advance_purchase",
+            "trips": 1,
+            "price": 6.75
+        }, {
+            "type": "weekday",
+            "purchase": "onboard_purchase",
+            "trips": 1,
+            "price": 8.00
+        }, {
+            "type": "evening_weekend",
+            "purchase": "advance_purchase",
+            "trips": 1,
+            "price": 5.25
+        }, {
+            "type": "evening_weekend",
+            "purchase": "onboard_purchase",
+            "trips": 1,
+            "price": 7.00
+        }, {
+            "type": "anytime",
+            "purchase": "advance_purchase",
+            "trips": 10,
+            "price": 65.00
+        }]
+    }, {
+        "name": "NJ",
+        "zone": 5,
+        "fares": [{
+            "type": "weekday",
+            "purchase": "advance_purchase",
+            "trips": 1,
+            "price": 9.25
+        }, {
+            "type": "weekday",
+            "purchase": "onboard_purchase",
+            "trips": 1,
+            "price": 10.00
+        }, {
+            "type": "evening_weekend",
+            "purchase": "advance_purchase",
+            "trips": 1,
+            "price": 9.25
+        }, {
+            "type": "evening_weekend",
+            "purchase": "onboard_purchase",
+            "trips": 1,
+            "price": 10.00
+        }, {
+            "type": "anytime",
+            "purchase": "advance_purchase",
+            "trips": 10,
+            "price": 82.50
+        }]
+    }]
+}

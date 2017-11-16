@@ -3,8 +3,42 @@
 <head>
 	<meta charset="UTF-8">
 	<title>SEPTA Regional Rail Fare Calculator</title>
+	<link href="https://fonts.googleapis.com/css?family=Ubuntu+Condensed" rel="stylesheet">
+	<script src="scripts/main.js"></script>
+	<link rel="stylesheet" type="text/css" href="styles/main.css">
+	
 </head>
 <body>
-	
+	<main>
+		<div role="main">
+			<form>
+				<div class="where_section">
+					<h2>Where are you going?</h2>
+					<select id="where" name="where">
+						<option value="none">Make a selection</option>
+					</select>
+				</div>
+				<div class="when_section" style="display:none">
+					<h2>When are you riding?</h2>
+					<select id="when" name="when">
+					<option value="none">Make a selection</option>
+					</select>
+				</div>
+				<div id="purchase" class="purchase_section" style="display:none">
+						<h2>Purcahse Options</h2>
+				</div>
+				<div class="quantity_section" style="display:none">
+						<h2>How many rides will you need?</h2>
+				</div>
+				<div id="total_fare" style="display:none">
+					<h2>Total Fare:</h2>
+					<span id="price_total">$0.00</span>
+				</div>
+				<div id="notes" style="display:none">
+
+				</div>
+			</form>
+		</div>
+	</main>
 </body>
 </html>

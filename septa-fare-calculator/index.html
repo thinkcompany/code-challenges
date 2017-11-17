@@ -3,8 +3,54 @@
 <head>
 	<meta charset="UTF-8">
 	<title>SEPTA Regional Rail Fare Calculator</title>
+	<link rel="stylesheet" type="text/css" href="css/styles.css">
 </head>
 <body>
-	
+	<section id="fare-calculator">
+		<div class="fare-calculator-top-bottom clearfix">
+			<img src="img/64px-SEPTA.svg.png" alt="Septa Logo(SVG)">
+			<!-- Using h2 instead of h1 to incorporate easy integration into any other web page -->
+			<h2>Regional Rail Fares</h2>
+		</div>
+		<!-- Giving class to each input section for easy and similar styling -->
+		<div class="fare-calculator-segment">
+			<h3>Where are you going?</h3>
+			<select id="fare-calculator-dest">
+				<option value="CCP/1" selected>CCP/1</option>
+				<option value="Zone 2">Zone 2</option>
+				<option value="Zone 3">Zone 3</option>
+				<option value="Zone 4">Zone 4</option>
+				<option value="NJ">NJ</option>
+			</select>
+		</div>
+		<div class="fare-calculator-segment">
+			<h3>When are you riding?</h3>
+			<select id="fare-calculator-type">
+				<option value="weekday">Weekdays</option>
+				<option value="evening_weekend">Weekends/Evenings</option>
+			</select>
+		</div>
+		<div class="fare-calculator-segment">
+			<h3>Where will you purchase the fare?</h3>
+			<p>
+				<input type="radio" name="fare-calculator-purchase" id="fare-calculator-purchase-advance" value="advance_purchase" checked>
+				<label for="fare-calculator-purchase-advance">Station Kiosk</label>
+			</p>
+			<p>
+				<input type="radio" name="fare-calculator-purchase" id="fare-calculator-purchase-onboard" value="onboard_purchase">
+				<label for="fare-calculator-purchase-onboard">Onboard</label>
+			</p>
+		</div>
+		<div class="fare-calculator-segment">
+			<h3>How many rides will you need?</h3>
+			<!-- Limiting to 10 trip purchases at a time -->
+			<input type="number" id="fare-calculator-trips" min="1" max="10" value="1">
+		</div>
+		<div class="fare-calculator-top-bottom">
+			<h3>Your fare will cost</h3>
+			<p><span id="fare-calculator-result"></span></p>
+		</div>
+	</section>
+	<script src="js/main.js"></script>
 </body>
 </html>

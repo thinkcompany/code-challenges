@@ -1,0 +1,25 @@
+.clearfix::after{
+	display: block;
+	visibility: none;
+	content: " ";
+	clear: both;
+}
+
+#fare-calculator{
+	font-size: 20px;
+	min-width: 400px;
+	width: 30%;
+	margin: auto;
+	border: 4px solid #ccc;
+}
+
+.fare-calculator-top-bottom{
+	padding: 20px;
+	background-color: #595959;
+	color: #FFF;
+}
+
+#fare-calculator-result{
+	font-weight: 700;
+	font-size: 3em;
+}

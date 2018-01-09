@@ -75,7 +75,6 @@ fieldset {
   height: 40px;
   background: #fff;
 }
-
 .calculator input[type="number"] {
   display: block;
   margin: 0 auto;
@@ -84,4 +83,8 @@ fieldset {
   border: 1px solid #aaa;
   border-radius: 4px;
   text-align: center;
+}
+.calculator fieldset p.radio-holder {
+  width: 120px;
+  text-align: left;
 }

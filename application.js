@@ -10,6 +10,7 @@ $(document).ready(function() {
       var purchase = result.zones[0].fares[0].purchase;
       var trips = 1;
       var price = result.zones[0].fares[0].price;
+      // setting default helper info.
       var info = result.info[result.zones[0].fares[0].type];
       var purchaseInfo = result.info[result.zones[0].fares[0].purchase];
 

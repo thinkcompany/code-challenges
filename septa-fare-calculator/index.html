@@ -9,15 +9,15 @@
 	<link rel="stylesheet" href="styles.css" type="text/css">
 </head>
 <body>
-	<article class="fare_calculator_module">
+	<article class="fare_calculator_module" role="main">
 		<header>
-			<img src="img/septa_logo.png" height="26px" width="auto" alt="Septa Logo">
+			<img src="img/septa_logo.png" height="26px" width="auto" alt="septa logo">
 			<h1>Regional Rail Fares</h1>
 		</header>
 
 		<form role="form">
 			<fieldset>
-				<legend>Where are you going?</legend>
+				<legend for="where-are-you-going">Where are you going?</legend>
 				<select id="zone_options" name="zone_options">
 					<option value="">Select Zone</option>
 					<!-- Use JS to dynamically populate zone options -->
@@ -25,7 +25,7 @@
 			</fieldset>
 
 			<fieldset>
-				<legend>When are you riding?</legend>
+				<legend for="when-are-you-riding">When are you riding?</legend>
 				<select id="fare_types" name="fare_types">
 					<option value="">Select One</option>
 					<!-- Use JS to dynamically populate fare type options -->
@@ -37,21 +37,21 @@
 				</details>
 			</fieldset>
 
-			<fieldset>
-				<legend>Where will you purchase the fare?</legend>
+			<fieldset role="radiogroup" aria-required="true">
+				<legend for="where-will-you-purchase-fare">Where will you purchase the fare?</legend>
 				<div class="radio_button">
-					<input type="radio" name="purchase_location_types" id="purchase_location_type_1" value="advance_purchase" checked>
+					<input type="radio" name="purchase_location_types" id="purchase_location_type_1" value="advance_purchase" aria-checked="true" checked required="required">
 					<label for="purchase_location_type_1">Station Kiosk</label>
 				</div>
 				<div class="radio_button">
-					<input type="radio" name="purchase_location_types" id="purchase_location_type_2" value="onboard_purchase">
+					<input type="radio" name="purchase_location_types" id="purchase_location_type_2" value="onboard_purchase" required="required">
 					<label for="purchase_location_type_1">Onboard</label>
 				</div>
 			</fieldset>
 
 			<fieldset>
-				<legend>How many rides will you need?</legend>
-				<input class="trip_count_input" type="number" pattern="[1-10]*" value="1" min="1" id="trips" name="trips">
+				<legend for="how-many-rides-will-you-need">How many rides will you need?</legend>
+				<input class="trip_count_input" type="number" pattern="[1-10]*" value="1" min="1" id="trips" name="trips" aria-required="true">
 			</fieldset>
 		</form>
 

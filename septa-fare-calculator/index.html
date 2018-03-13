@@ -17,7 +17,7 @@
 
 		<form role="form">
 			<fieldset>
-				<legend for="where-are-you-going">Where are you going?</legend>
+				<legend align="center" for="where-are-you-going">Where are you going?</legend>
 				<select id="zone_options" name="zone_options">
 					<option value="">Select Zone</option>
 					<!-- Use JS to dynamically populate zone options -->
@@ -25,7 +25,7 @@
 			</fieldset>
 
 			<fieldset>
-				<legend for="when-are-you-riding">When are you riding?</legend>
+				<legend align="center" for="when-are-you-riding">When are you riding?</legend>
 				<select id="fare_types" name="fare_types">
 					<option value="">Select One</option>
 					<!-- Use JS to dynamically populate fare type options -->
@@ -38,7 +38,7 @@
 			</fieldset>
 
 			<fieldset role="radiogroup" aria-required="true">
-				<legend for="where-will-you-purchase-fare">Where will you purchase the fare?</legend>
+				<legend align="center" for="where-will-you-purchase-fare">Where will you purchase the fare?</legend>
 				<div class="radio_button">
 					<input type="radio" name="purchase_location_types" id="purchase_location_type_1" value="advance_purchase" aria-checked="true" checked required="required">
 					<label for="purchase_location_type_1">Station Kiosk</label>
@@ -50,7 +50,7 @@
 			</fieldset>
 
 			<fieldset>
-				<legend for="how-many-rides-will-you-need">How many rides will you need?</legend>
+				<legend align="center" for="how-many-rides-will-you-need">How many rides will you need?</legend>
 				<input class="trip_count_input" type="number" pattern="[1-10]*" value="1" min="1" id="trips" name="trips" aria-required="true">
 			</fieldset>
 		</form>

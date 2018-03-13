@@ -30,6 +30,21 @@ fetchData("fares.json", data => {
 });
 
 
+const calculateFare = (options) => {
+  console.log('options', options);
+  const { selectedZone, selectedFareType, selectedPurchaseType, selectedTripCount } = options;
+  const { zones } = septaData;
+  const filteredZone = zones.filter(zone => zone["zone"] === selectedZone);
+  const [ fares ] = filteredZone;
+  const filteredFare = fares && fares.fares.filter(fare =>
+  fare["type"] === selectedFareType &&
+  fare["purchase"] === selectedPurchaseType
+  );
+
+  console.log('filteredZone', filteredZone);
+  console.log('filteredFare', filteredFare);
+}
+
 const addZoneOptions = (zones) => {
   let parent = document.getElementById("zone_options");
 
@@ -71,7 +86,8 @@ const addHelperInfo = (fareTypes) => {
 // TODO: Update UI when events are fired
 
 const onChange = () => {
-  getUserInput();
+  let userInput = getUserInput();
+  calculateFare(userInput);
 }
 
 const getSelectedZone = () => parseInt(zone.options[zone.selectedIndex].value);
@@ -96,8 +112,6 @@ const getUserInput = () => {
   let selectedTripCount = getSelectedTripCount();
 
   const userInput = { selectedZone, selectedFareType, selectedPurchaseType, selectedTripCount };
-
-  console.log('userInput', userInput);
 
   return userInput;
 }

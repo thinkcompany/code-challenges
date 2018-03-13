@@ -93,8 +93,7 @@ const addEventListeners = () => {
   }
 }
 
-// TODO: Dynamically populate UI
-
+// DYNAMICALLY POPULATE THE UI
 const populateForm = (septaData) => {
   const { info, zones } = septaData;
   const { anytime, weekday, evening_weekend } = info

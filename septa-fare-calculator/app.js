@@ -26,7 +26,7 @@ const fetchData = (filepath, callback) => {
 
 fetchData("fares.json", data => {
   septaData = data;
-  console.log('json data', septaData);
+  populateForm(data);
 });
 
 // TODO: Update UI when events are fired
@@ -50,6 +50,14 @@ const addEventListeners = () => {
   }
 }
 
-addEventListeners();
-
 // TODO: Dynamically populate UI
+
+const populateForm = (septaData) => {
+  const { info, zones } = septaData;
+  const { anytime, weekday, evening_weekend } = info
+  const fareTypes = { anytime, weekday, evening_weekend }
+
+  console.log('septaData', septaData);
+
+  addEventListeners();
+}

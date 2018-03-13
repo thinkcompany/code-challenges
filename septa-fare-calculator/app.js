@@ -29,9 +29,12 @@ fetchData("fares.json", data => {
   populateForm(data);
 });
 
+const updateDisplayedFare = (price, type) => {
+  console.log(price, type);
+  displayedFare.innerHTML = `$${price}`;
+}
 
 const calculateFare = (options) => {
-  console.log('options', options);
   const { selectedZone, selectedFareType, selectedPurchaseType, selectedTripCount } = options;
   const { zones } = septaData;
   const filteredZone = zones.filter(zone => zone["zone"] === selectedZone);
@@ -41,8 +44,15 @@ const calculateFare = (options) => {
   fare["purchase"] === selectedPurchaseType
   );
 
-  console.log('filteredZone', filteredZone);
-  console.log('filteredFare', filteredFare);
+  let updatedPrice;
+  let price = filteredFare.length ? filteredFare[0].price : 0.00;
+  let type = filteredFare.length ? filteredFare[0].type : '';
+
+  updatedPrice = (price * selectedTripCount).toFixed(2);
+
+  // TODO: Handle implications of 'anytime' selection
+
+  updateDisplayedFare(updatedPrice, type);
 }
 
 const addZoneOptions = (zones) => {

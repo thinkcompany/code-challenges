@@ -42,6 +42,21 @@ const addZoneOptions = (zones) => {
   }
 }
 
+const addHelperInfo = (fareTypes) => {
+  console.log('fareTypes', fareTypes);
+  let parent = document.getElementById("fare_types_helper_text");
+
+  const { anytime, weekday, evening_weekend } = fareTypes;
+
+  let helperText = document.createElement("div");
+  helperText.innerHTML = `
+    <p><strong>Anytime:</strong> ${anytime}</p>
+    <p><strong>Weekday:</strong> ${weekday}</p>
+    <p><strong>Evening OR Weekend:</strong> ${evening_weekend}</p>
+  `
+  parent.appendChild(helperText);
+}
+
 // TODO: Update UI when events are fired
 
 const onChange = () => {
@@ -71,8 +86,7 @@ const populateForm = (septaData) => {
   const fareTypes = { anytime, weekday, evening_weekend }
 
   addZoneOptions(zones);
-
-  // TODO: add helper info
+  addHelperInfo(fareTypes);
 
   // TODO: add fare type options
 

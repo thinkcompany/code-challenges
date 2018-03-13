@@ -29,6 +29,19 @@ fetchData("fares.json", data => {
   populateForm(data);
 });
 
+
+const addZoneOptions = (zones) => {
+  console.log('zones', zones);
+  let parent = document.getElementById("zone_options");
+
+  for (let i = 0; i < zones.length; i++) {
+    let zoneOption = document.createElement("option");
+    zoneOption.value = i + 1;
+    zoneOption.innerHTML = zones[i].name;
+    parent.appendChild(zoneOption);
+  }
+}
+
 // TODO: Update UI when events are fired
 
 const onChange = () => {
@@ -57,7 +70,11 @@ const populateForm = (septaData) => {
   const { anytime, weekday, evening_weekend } = info
   const fareTypes = { anytime, weekday, evening_weekend }
 
-  console.log('septaData', septaData);
+  addZoneOptions(zones);
+
+  // TODO: add helper info
+
+  // TODO: add fare type options
 
   addEventListeners();
 }

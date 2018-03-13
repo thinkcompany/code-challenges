@@ -30,11 +30,29 @@ fetchData("fares.json", data => {
 });
 
 const updateDisplayedFare = (price, type) => {
-  console.log(price, type);
-  displayedFare.innerHTML = `$${price}`;
+  const message = 'Anytime tickets can only be purchased in advance at a Station ' +
+                  'Kiosk and are valid for ten trips.'
+
+  if (type === 'anytime') {
+    tripCount.value = 10;
+    tripCount.disabled = true;
+    purchaseTypes[1].disabled = true;
+    purchaseTypes[0].checked;
+    displayedFare.innerHTML = `$${price}`;
+    displayedMessage.style.display = 'block';
+    displayedMessage.innerHTML = message;
+  } else {
+    displayedFare.innerHTML = `$${price}`;
+  }
 }
 
+// TODO: Refactor below function so that DOM elements are updated separately
+
 const calculateFare = (options) => {
+  tripCount.disabled = false;
+  purchaseTypes[1].disabled = false;
+  displayedMessage.style.display = 'none';
+
   const { selectedZone, selectedFareType, selectedPurchaseType, selectedTripCount } = options;
   const { zones } = septaData;
   const filteredZone = zones.filter(zone => zone["zone"] === selectedZone);
@@ -48,9 +66,13 @@ const calculateFare = (options) => {
   let price = filteredFare.length ? filteredFare[0].price : 0.00;
   let type = filteredFare.length ? filteredFare[0].type : '';
 
-  updatedPrice = (price * selectedTripCount).toFixed(2);
+  // TODO: Address any bugs / edge cases regarding selection of 'anytime' option
 
-  // TODO: Handle implications of 'anytime' selection
+  if (type === 'anytime') {
+    updatedPrice = price.toFixed(2);
+  } else {
+    updatedPrice = (price * selectedTripCount).toFixed(2);
+  }
 
   updateDisplayedFare(updatedPrice, type);
 }
@@ -93,8 +115,6 @@ const addHelperInfo = (fareTypes) => {
   parent.appendChild(helperText);
 }
 
-// TODO: Update UI when events are fired
-
 const onChange = () => {
   let userInput = getUserInput();
   calculateFare(userInput);
@@ -113,6 +133,7 @@ const getSelectedPurchaseType = () => {
 }
 
 // TODO: Add input validation
+
 const getSelectedTripCount = () => parseInt(tripCount.value) || 1
 
 const getUserInput = () => {

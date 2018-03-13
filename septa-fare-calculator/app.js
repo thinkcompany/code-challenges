@@ -31,7 +31,6 @@ fetchData("fares.json", data => {
 
 
 const addZoneOptions = (zones) => {
-  console.log('zones', zones);
   let parent = document.getElementById("zone_options");
 
   for (let i = 0; i < zones.length; i++) {
@@ -43,7 +42,6 @@ const addZoneOptions = (zones) => {
 }
 
 const addFareTypeOptions = (fareTypes) => {
-  console.log('fareTypes', fareTypes);
   let parent = document.getElementById("fare_types");
   const { anytime, weekday, evening_weekend } = fareTypes;
   const label = "Evening OR Weekend";
@@ -58,9 +56,7 @@ const addFareTypeOptions = (fareTypes) => {
 }
 
 const addHelperInfo = (fareTypes) => {
-  console.log('fareTypes', fareTypes);
   let parent = document.getElementById("fare_types_helper_text");
-
   const { anytime, weekday, evening_weekend } = fareTypes;
 
   let helperText = document.createElement("div");
@@ -75,7 +71,35 @@ const addHelperInfo = (fareTypes) => {
 // TODO: Update UI when events are fired
 
 const onChange = () => {
-  console.log('onChange invoked');
+  getUserInput();
+}
+
+const getSelectedZone = () => parseInt(zone.options[zone.selectedIndex].value);
+
+const getSelectedFareType = () => fareType.options[fareType.selectedIndex].value;
+
+const getSelectedPurchaseType = () => {
+  for (let i = 0; i < purchaseTypes.length; i++) {
+    if (purchaseTypes[i].checked) {
+      return purchaseTypes[i].value;
+    }
+  }
+}
+
+// TODO: Add input validation
+const getSelectedTripCount = () => parseInt(tripCount.value) || 1
+
+const getUserInput = () => {
+  let selectedZone = getSelectedZone();
+  let selectedFareType = getSelectedFareType();
+  let selectedPurchaseType = getSelectedPurchaseType();
+  let selectedTripCount = getSelectedTripCount();
+
+  const userInput = { selectedZone, selectedFareType, selectedPurchaseType, selectedTripCount };
+
+  console.log('userInput', userInput);
+
+  return userInput;
 }
 
 // ATTACH EVENT LISTENERS

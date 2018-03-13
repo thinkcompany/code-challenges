@@ -42,6 +42,21 @@ const addZoneOptions = (zones) => {
   }
 }
 
+const addFareTypeOptions = (fareTypes) => {
+  console.log('fareTypes', fareTypes);
+  let parent = document.getElementById("fare_types");
+  const { anytime, weekday, evening_weekend } = fareTypes;
+  const label = "Evening OR Weekend";
+
+  for (let type in fareTypes) {
+    let fareTypeOption = document.createElement("option");
+    fareTypeOption.value = type
+    type === "evening_weekend" ? fareTypeOption.innerHTML = "Evening OR Weekend"
+    : fareTypeOption.innerHTML = type.charAt(0).toUpperCase() + type.substr(1);
+    parent.appendChild(fareTypeOption);
+  }
+}
+
 const addHelperInfo = (fareTypes) => {
   console.log('fareTypes', fareTypes);
   let parent = document.getElementById("fare_types_helper_text");
@@ -87,8 +102,6 @@ const populateForm = (septaData) => {
 
   addZoneOptions(zones);
   addHelperInfo(fareTypes);
-
-  // TODO: add fare type options
-
+  addFareTypeOptions(fareTypes);
   addEventListeners();
 }

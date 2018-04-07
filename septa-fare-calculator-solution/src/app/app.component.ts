@@ -6,8 +6,15 @@ import 'rxjs/add/operator/take';
 @Component({
   selector: 'septa-root',
   template: `
-    <div class="container">
-      <septa-fare-calculator [fares]="faresData"></septa-fare-calculator>
+    <div class="grid-container">
+      <div class="row">
+        <div class="col-4">
+            <septa-fare-calculator [fares]="faresData"></septa-fare-calculator>
+        </div>
+        <div class="col-8 zone-map">
+          <img src="assets/imgs/zone-map.jpg" />
+        </div>
+      </div>
     </div>
   `,
   styleUrls: ['./app.component.scss']
@@ -25,10 +32,5 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit() {
-    // this.fares.getFares()
-    //   .take(1)
-    //   .subscribe(data => {
-    //     this.faresData = data;
-    //   });
   }
 }

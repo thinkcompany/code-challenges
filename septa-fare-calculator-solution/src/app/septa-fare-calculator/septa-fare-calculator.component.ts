@@ -7,21 +7,21 @@ import {BehaviorSubject} from 'rxjs/BehaviorSubject';
   template: `
     <div>
       <h2>{{ title }}</h2>
-      <section>
+      <div class="zone-selection">
         Where are you going?
-      </section>
-      <section>
+      </div>
+      <div class="time-selection">
         When are you riding?
-      </section>
-      <section>
+      </div>
+      <div class="location-selection">
         Where will you purchase the fare?
-      </section>
-      <section>
+      </div>
+      <div class="count-selection">
         How many rides will you need?
-      </section>
-      <section>
+      </div>
+      <div class="results-container">
         Your fare will cost
-      </section>
+      </div>
     </div>
   `,
   styleUrls: ['./septa-fare-calculator.component.scss'],

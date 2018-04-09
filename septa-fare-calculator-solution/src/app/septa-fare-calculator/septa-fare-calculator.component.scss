@@ -1,0 +1,115 @@
+@import "../../styles.scss";
+
+/*----------------------------------------------*\
+    #CALCULATOR
+\*----------------------------------------------*/
+
+.calculator {
+  font-family: sans-serif;
+  border-style: solid;
+  border-width: 3px;
+  border-color: $septa-light-gray;
+
+  select {
+    border-radius: 5px;
+    margin: auto;
+    width: 100%;
+    padding: 10px;
+    background-color: white;
+  }
+
+  input {
+    border-radius: 5px;
+    border-radius: 5px;
+    border-style: solid;
+    border: 1px solid $septa-light-gray;
+    width: 10%;
+    padding: 10px;
+    background-color: white;
+    margin: auto;
+    display: block;
+  }
+
+  fieldset {
+    border: 0;
+    padding: 30px;
+  }
+
+  legend {
+    text-align: center;
+    font-weight: bold;
+    font-size: 20px;
+    padding-top: 20px;
+    color: $septa-dark-gray;
+  }
+
+  .calculator__title {
+    background-color: $septa-dark-gray;
+    height: 50px;
+    padding: 10px;
+
+    h2 {
+      margin: 12px;
+      color: white;
+    }
+  }
+
+  .section {
+    border-top-style: solid;
+    border-top-width: 1px;
+    border-top-color: $septa-light-gray;
+  }
+
+  .septa-logo {
+    float: left;
+    max-width: 100%;
+    max-height: 100%;
+    padding-right: 15px;
+  }
+
+  .time-info {
+    color: $septa-light-gray;
+    text-align: center;
+  }
+
+  .location__container {
+    input {
+      margin: 5px;
+      display: inline-block;
+    }
+
+    .location__selection {
+      margin-left: 25%;
+    }
+  }
+
+  .count__container {
+    input {
+      width: 25%;
+    }
+  }
+
+  .results__container {
+    background-color: $septa-dark-gray;
+
+    legend {
+      color: white;
+    }
+
+    .total-cost {
+      color: white;
+      font-size: 51px;
+      font-weight: bold;
+      margin: 0;
+      text-align: center;
+    }
+  }
+
+  .error {
+    color: red;
+    margin: 0 auto;
+    display: block;
+    text-align: center;
+  }
+
+}

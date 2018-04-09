@@ -19,7 +19,7 @@ import { EventEmitter } from '../event_emitter';
  * import {NgIf} from '@angular/common';
  *
  * @Component({
- *   selector: 'ng-zone-demo'.
+ *   selector: 'ng-zone-demo',
  *   template: `
  *     <h2>Demo: NgZone</h2>
  *
@@ -51,9 +51,10 @@ import { EventEmitter } from '../event_emitter';
  *     this.progress = 0;
  *     this._ngZone.runOutsideAngular(() => {
  *       this._increaseProgress(() => {
- *       // reenter the Angular zone and display done
- *       this._ngZone.run(() => {console.log('Outside Done!') });
- *     }}));
+ *         // reenter the Angular zone and display done
+ *         this._ngZone.run(() => { console.log('Outside Done!'); });
+ *       });
+ *     });
  *   }
  *
  *   _increaseProgress(doneCallback: () => void) {
@@ -61,7 +62,7 @@ import { EventEmitter } from '../event_emitter';
  *     console.log(`Current progress: ${this.progress}%`);
  *
  *     if (this.progress < 100) {
- *       window.setTimeout(() => this._increaseProgress(doneCallback)), 10)
+ *       window.setTimeout(() => this._increaseProgress(doneCallback), 10);
  *     } else {
  *       doneCallback();
  *     }
@@ -83,7 +84,7 @@ export declare class NgZone {
      */
     readonly onUnstable: EventEmitter<any>;
     /**
-     * Notifies when there is no more microtasks enqueue in the current VM Turn.
+     * Notifies when there is no more microtasks enqueued in the current VM Turn.
      * This is a hint for Angular to do change detection, which may enqueue more microtasks.
      * For this reason this event can fire multiple times per VM Turn.
      */
@@ -116,12 +117,25 @@ export declare class NgZone {
      *
      * If a synchronous error happens it will be rethrown and not reported via `onError`.
      */
-    run(fn: () => any): any;
+    run<T>(fn: (...args: any[]) => T, applyThis?: any, applyArgs?: any[]): T;
+    /**
+     * Executes the `fn` function synchronously within the Angular zone as a task and returns value
+     * returned by the function.
+     *
+     * Running functions via `run` allows you to reenter Angular zone from a task that was executed
+     * outside of the Angular zone (typically started via {@link #runOutsideAngular}).
+     *
+     * Any future tasks or microtasks scheduled from within this function will continue executing from
+     * within the Angular zone.
+     *
+     * If a synchronous error happens it will be rethrown and not reported via `onError`.
+     */
+    runTask<T>(fn: (...args: any[]) => T, applyThis?: any, applyArgs?: any[], name?: string): T;
     /**
      * Same as `run`, except that synchronous errors are caught and forwarded via `onError` and not
      * rethrown.
      */
-    runGuarded(fn: () => any): any;
+    runGuarded<T>(fn: (...args: any[]) => T, applyThis?: any, applyArgs?: any[]): T;
     /**
      * Executes the `fn` function synchronously in Angular's parent zone and returns value returned by
      * the function.
@@ -135,5 +149,22 @@ export declare class NgZone {
      *
      * Use {@link #run} to reenter the Angular zone and do work that updates the application model.
      */
+    runOutsideAngular<T>(fn: (...args: any[]) => T): T;
+}
+/**
+ * Provides a noop implementation of `NgZone` which does nothing. This zone requires explicit calls
+ * to framework to perform rendering.
+ */
+export declare class NoopNgZone implements NgZone {
+    readonly hasPendingMicrotasks: boolean;
+    readonly hasPendingMacrotasks: boolean;
+    readonly isStable: boolean;
+    readonly onUnstable: EventEmitter<any>;
+    readonly onMicrotaskEmpty: EventEmitter<any>;
+    readonly onStable: EventEmitter<any>;
+    readonly onError: EventEmitter<any>;
+    run(fn: () => any): any;
+    runGuarded(fn: () => any): any;
     runOutsideAngular(fn: () => any): any;
+    runTask<T>(fn: () => any): any;
 }

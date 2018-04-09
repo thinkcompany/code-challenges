@@ -9,10 +9,10 @@ import 'rxjs/add/operator/take';
     <div class="grid-container">
       <div class="row">
         <div class="col-4">
-            <septa-fare-calculator [fares]="faresData"></septa-fare-calculator>
+            <septa-fare-calculator [data]="faresData"></septa-fare-calculator>
         </div>
         <div class="col-8 zone-map">
-          <img src="assets/imgs/zone-map.jpg" />
+          <img class="zone-map" alt="zone-map" src="assets/imgs/zone-map.jpg" />
         </div>
       </div>
     </div>
@@ -25,10 +25,7 @@ export class AppComponent implements OnInit {
   constructor(private fares: SeptaFaresService) {
     this.fares.getFares()
       .take(1)
-      .subscribe(data => {
-        console.log('data', data);
-        this.faresData = data;
-      });
+      .subscribe(data => this.faresData = data);
   }
 
   ngOnInit() {

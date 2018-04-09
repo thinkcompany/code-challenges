@@ -1,6 +1,5 @@
 'use strict';
 
-var Promise          = require('../ext/promise');
 var EOL              = require('os').EOL;
 var chalk            = require('chalk');
 var writeError       = require('./write-error');
@@ -167,17 +166,6 @@ UI.prototype.startProgress = function(message/*, stepString*/) {
 
 UI.prototype.stopProgress = function() {
 
-};
-
-UI.prototype.prompt = function(questions, callback) {
-  var inquirer = require('inquirer');
-
-  // If no callback was provided, automatically return a promise
-  if (callback) {
-    return inquirer.prompt(questions, callback);
-  }
-
-  return inquirer.prompt(questions);
 };
 
 /**

@@ -72,7 +72,6 @@ import { TemplateRef, ViewContainerRef } from '@angular/core';
  *
  * Simple form:
  * - `<div *ngIf="condition">...</div>`
- * - `<div template="ngIf condition">...</div>`
  * - `<ng-template [ngIf]="condition"><div>...</div></ng-template>`
  *
  * Form with an else block:
@@ -105,8 +104,8 @@ export declare class NgIf {
     private _elseViewRef;
     constructor(_viewContainer: ViewContainerRef, templateRef: TemplateRef<NgIfContext>);
     ngIf: any;
-    ngIfThen: TemplateRef<NgIfContext>;
-    ngIfElse: TemplateRef<NgIfContext>;
+    ngIfThen: TemplateRef<NgIfContext> | null;
+    ngIfElse: TemplateRef<NgIfContext> | null;
     private _updateView();
 }
 /**

@@ -34,11 +34,7 @@ module.exports = function (/*Buffer*/input) {
         return true;
     }
 
-    function decompress(/*Boolean*/async, /*Function*/callback, /*String*/pass) {
-        if(typeof callback === 'undefined' && typeof async === 'string') {
-            pass=async;
-            async=void 0;
-        }
+    function decompress(/*Boolean*/async, /*Function*/callback) {
         if (_isDirectory) {
             if (async && callback) {
                 callback(new Buffer(0), Utils.Errors.DIRECTORY_CONTENT_ERROR); //si added error.
@@ -47,7 +43,6 @@ module.exports = function (/*Buffer*/input) {
         }
 
         var compressedData = getCompressedDataFromZip();
-       
         if (compressedData.length == 0) {
             if (async && callback) callback(compressedData, Utils.Errors.NO_DATA);//si added error.
             return compressedData;
@@ -78,7 +73,7 @@ module.exports = function (/*Buffer*/input) {
                 } else {
                     inflater.inflateAsync(function(result) {
                         result.copy(data, 0);
-                        if (!crc32OK(data)) {
+                        if (crc32OK(data)) {
                             if (callback) callback(data, Utils.Errors.BAD_CRC); //si added error
                         } else { //si added otherwise did not seem to return data.
                             if (callback) callback(data);
@@ -141,57 +136,6 @@ module.exports = function (/*Buffer*/input) {
         }
     }
 
-    function readUInt64LE(buffer, offset) {
-        return (buffer.readUInt32LE(offset + 4) << 4) + buffer.readUInt32LE(offset);
-    }
-
-    function parseExtra(data) {
-        var offset = 0;
-        var signature, size, part;
-        while(offset<data.length) {
-            signature = data.readUInt16LE(offset);
-            offset += 2;
-            size = data.readUInt16LE(offset);
-            offset += 2;
-            part = data.slice(offset, offset+size);
-            offset += size;
-            if(Constants.ID_ZIP64 === signature) {
-                parseZip64ExtendedInformation(part);
-            }
-        }
-    }
-
-    //Override header field values with values from the ZIP64 extra field
-    function parseZip64ExtendedInformation(data) {
-        var size, compressedSize, offset, diskNumStart;
-
-        if(data.length >= Constants.EF_ZIP64_SCOMP) {
-            size = readUInt64LE(data, Constants.EF_ZIP64_SUNCOMP);
-            if(_entryHeader.size === Constants.EF_ZIP64_OR_32) {
-                _entryHeader.size = size;
-            }
-        }
-        if(data.length >= Constants.EF_ZIP64_RHO) {
-            compressedSize = readUInt64LE(data, Constants.EF_ZIP64_SCOMP);
-            if(_entryHeader.compressedSize === Constants.EF_ZIP64_OR_32) {
-                _entryHeader.compressedSize = compressedSize;
-            }
-        }
-        if(data.length >= Constants.EF_ZIP64_DSN) {
-            offset = readUInt64LE(data, Constants.EF_ZIP64_RHO);
-            if(_entryHeader.offset === Constants.EF_ZIP64_OR_32) {
-                _entryHeader.offset = offset;
-            }
-        }
-        if(data.length >= Constants.EF_ZIP64_DSN+4) {
-            diskNumStart = data.readUInt32LE(Constants.EF_ZIP64_DSN);
-            if(_entryHeader.diskNumStart === Constants.EF_ZIP64_OR_16) {
-                _entryHeader.diskNumStart = diskNumStart;
-            }
-        }
-    }
-
-
     return {
         get entryName () { return _entryName.toString(); },
         get rawEntryName() { return _entryName; },
@@ -206,7 +150,6 @@ module.exports = function (/*Buffer*/input) {
         set extra (val) {
             _extra = val;
             _entryHeader.extraLength = val.length;
-            parseExtra(val);
         },
 
         get comment () { return _comment.toString(); },
@@ -237,16 +180,13 @@ module.exports = function (/*Buffer*/input) {
             }
         },
 
-        getData : function(pass) {
-            return decompress(false, null, pass);
+        getData : function() {
+            return decompress(false, null);
         },
 
-        getDataAsync : function(/*Function*/callback, pass) {
-            decompress(true, callback, pass)
+        getDataAsync : function(/*Function*/callback) {
+            decompress(true, callback)
         },
-
-        set attr(attr) { _entryHeader.attr = attr; },
-        get attr() { return _entryHeader.attr; },
 
         set header(/*Buffer*/data) {
             _entryHeader.loadFromBinary(data);

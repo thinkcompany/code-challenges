@@ -186,7 +186,7 @@ module.exports = function(/*String*/input) {
          *
          * @param localPath
          */
-        addLocalFile : function(/*String*/localPath, /*String*/zipPath, /*String*/zipName) {
+        addLocalFile : function(/*String*/localPath, /*String*/zipPath) {
              if (fs.existsSync(localPath)) {
                 if(zipPath){
                     zipPath=zipPath.split("\\").join("/");
@@ -197,12 +197,8 @@ module.exports = function(/*String*/input) {
                     zipPath="";
                 }
                  var p = localPath.split("\\").join("/").split("/").pop();
-                
-                 if(zipName){
-                    this.addFile(zipPath+zipName, fs.readFileSync(localPath), "", 0)
-                 }else{
-                    this.addFile(zipPath+p, fs.readFileSync(localPath), "", 0)
-                 }
+
+                 this.addFile(zipPath+p, fs.readFileSync(localPath), "", 0)
              } else {
                  throw Utils.Errors.FILE_NOT_FOUND.replace("%s", localPath);
              }
@@ -212,21 +208,8 @@ module.exports = function(/*String*/input) {
          * Adds a local directory and all its nested files and directories to the archive
          *
          * @param localPath
-         * @param zipPath optional path inside zip
-         * @param filter optional RegExp or Function if files match will
-         *               be included.
          */
-        addLocalFolder : function(/*String*/localPath, /*String*/zipPath, /*RegExp|Function*/filter) {
-            if (filter === undefined) {
-              filter = function() { return true; };
-            } else if (filter instanceof RegExp) {
-              filter = function(filter) {
-                return function(filename) {
-                  return filter.test(filename);
-                }
-              }(filter);
-            }
-
+        addLocalFolder : function(/*String*/localPath, /*String*/zipPath) {
             if(zipPath){
                 zipPath=zipPath.split("\\").join("/");
                 if(zipPath.charAt(zipPath.length - 1) != "/"){
@@ -236,7 +219,6 @@ module.exports = function(/*String*/input) {
                 zipPath="";
             }
 			localPath = localPath.split("\\").join("/"); //windows fix
-            localPath = pth.normalize(localPath);
             if (localPath.charAt(localPath.length - 1) != "/")
                 localPath += "/";
 
@@ -247,13 +229,11 @@ module.exports = function(/*String*/input) {
 
                 if (items.length) {
                     items.forEach(function(path) {
-						var p = path.split("\\").join("/").replace( new RegExp(localPath, 'i'), ""); //windows fix
-                        if (filter(p)) {
-                            if (p.charAt(p.length - 1) !== "/") {
-                                self.addFile(zipPath+p, fs.readFileSync(path), "", 0)
-                            } else {
-                                self.addFile(zipPath+p, new Buffer(0), "", 0)
-                            }
+						var p = path.split("\\").join("/").replace(localPath, ""); //windows fix
+                        if (p.charAt(p.length - 1) !== "/") {
+                            self.addFile(zipPath+p, fs.readFileSync(path), "", 0)
+                        } else {
+                            self.addFile(zipPath+p, new Buffer(0), "", 0)
                         }
                     });
                 }
@@ -348,7 +328,7 @@ module.exports = function(/*String*/input) {
             var content = item.getData();
             if (!content) throw Utils.Errors.CANT_EXTRACT_FILE;
 
-            if (fs.existsSync(target) && !overwrite) {
+            if (fs.existsSync(targetPath) && !overwrite) {
                 throw Utils.Errors.CANT_OVERRIDE;
             }
             Utils.writeFileTo(target, content, overwrite);
@@ -383,56 +363,6 @@ module.exports = function(/*String*/input) {
         },
 
         /**
-         * Asynchronous extractAllTo
-         *
-         * @param targetPath Target location
-         * @param overwrite If the file already exists at the target path, the file will be overwriten if this is true.
-         *                  Default is FALSE
-         * @param callback
-         */
-        extractAllToAsync : function(/*String*/targetPath, /*Boolean*/overwrite, /*Function*/callback) {
-            overwrite = overwrite || false;
-            if (!_zip) {
-                callback(new Error(Utils.Errors.NO_ZIP));
-                return;
-            }
-
-            var entries = _zip.entries;
-            var i = entries.length; 
-            entries.forEach(function(entry) {
-                if(i <= 0) return; // Had an error already
-
-                if (entry.isDirectory) {
-                    Utils.makeDir(pth.resolve(targetPath, entry.entryName.toString()));
-                    if(--i == 0)
-                        callback(undefined);
-                    return;
-                }
-                entry.getDataAsync(function(content) {
-                    if(i <= 0) return;
-                    if (!content) {
-                        i = 0;
-                        callback(new Error(Utils.Errors.CANT_EXTRACT_FILE + "2"));
-                        return;
-                    }
-                    Utils.writeFileToAsync(pth.resolve(targetPath, entry.entryName.toString()), content, overwrite, function(succ) {
-                        if(i <= 0) return;
-
-                        if(!succ) {
-                            i = 0;
-                            callback(new Error('Unable to write'));
-                            return;
-                        }
-
-                        if(--i == 0)
-                            callback(undefined);
-                    });
-                    
-                });
-            })
-        },
-
-        /**
          * Writes the newly created zip file to disk at the specified location or if a zip was opened and no ``targetFileName`` is provided, it will overwrite the opened zip
          *
          * @param targetFileName
@@ -453,8 +383,7 @@ module.exports = function(/*String*/input) {
 
             var zipData = _zip.compressToBuffer();
             if (zipData) {
-                var ok = Utils.writeFileTo(targetFileName, zipData, true);
-                if (typeof callback == 'function') callback(!ok? new Error("failed"): null, "");
+                Utils.writeFileTo(targetFileName, zipData, true);
             }
         },
 

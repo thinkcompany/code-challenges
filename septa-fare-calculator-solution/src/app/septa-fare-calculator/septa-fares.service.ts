@@ -2,9 +2,22 @@ import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs/Observable';
 
+export interface Fare {
+  type: string,
+  purchase: string,
+  trips: number,
+  price: number
+}
+
+declare interface ZoneData {
+  name: string,
+  zone: number,
+  fares: Array<Fare>
+}
+
 export interface FaresMetaData {
   info: object;
-  fares: Array<object>
+  zones: Array<ZoneData>
 }
 
 @Injectable()
@@ -14,7 +27,7 @@ export class SeptaFaresService {
   }
 
   getFares(): Observable<FaresMetaData> {
-    return this.http.get('src/fares.json');
+    return <Observable<FaresMetaData>>this.http.get('assets/fares.json');
   }
 
 }

@@ -8,11 +8,11 @@
 # dependencies
 /node_modules
 ./node_modules
-septa-fare-calculator-solution/node_modules
+./septa-fare-calculator-solution/node_modules/
 
 # IDEs and editors
 /.idea
-septa-fare-calculator-solution/.idea
+./septa-fare-calculator-solution/.idea/
 .project
 .classpath
 .c9/

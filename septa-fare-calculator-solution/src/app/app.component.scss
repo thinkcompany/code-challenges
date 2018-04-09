@@ -1,8 +1,98 @@
-.container {
-  display: flex;
+/*----------------------------------------------*\
+    #GRID
+\*----------------------------------------------*/
+
+.grid-container {
+  width: 100%;
+  max-width: 1200px;
 }
 
-.container-fluid {
-  display: flex;
-  max-width: 100%;
+.row:before,
+.row:after {
+  content: "";
+  clear: both;
+  display: table;
 }
+
+[class*='col-'] {
+  float: left;
+  min-height: 1px;
+}
+
+[class*='col-'] {
+  float: left;
+  min-height: 1px;
+  width: 8.33%;
+}
+
+.col-1 {
+  width: 8.33%;
+}
+
+.col-2 {
+  width: 16.66%;
+}
+
+.col-3 {
+  width: 24.99%;
+}
+
+.col-4 {
+  width: 33.32%;
+}
+
+.col-5 {
+  width: 41.65%;
+}
+
+.col-6 {
+  width: 50%;
+}
+
+.col-7 {
+  width: 58.33%;
+}
+
+.col-8 {
+  width: 66.66%;
+}
+
+.col-9 {
+  width: 74.99%;
+}
+
+.col-10 {
+  width: 83.32%;
+}
+
+.col-11 {
+  width: 91.65%;
+}
+
+.col-12 {
+  width: 100%;
+}
+
+.grid-container * {
+  box-sizing: border-box;
+}
+
+[class*='col-'] {
+  float: left;
+  min-height: 1px;
+  /*-- our gutter --*/
+  padding: 12px;
+}
+
+/*----------------------------------------------*\
+    #ZONE-MAP
+\*----------------------------------------------*/
+
+.zone-map {
+  img {
+    max-width: 100%;
+    max-height: 100%;
+  }
+}
+
+

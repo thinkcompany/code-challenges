@@ -53,7 +53,7 @@ import {FormControl, FormGroup, Validators} from '@angular/forms';
           <fieldset>
             <legend>Your fare will cost</legend>
             <p class="total-cost" *ngIf="fare && totalCost">\${{ totalCost.toFixed(2) }}</p>
-            <p class="error" *ngIf="!fare">There are no tickets available.</p>
+            <p class="error--white" *ngIf="!fare">There are no tickets available.</p>
           </fieldset>
         </div>
       </form>

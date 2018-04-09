@@ -4,23 +4,6 @@
     #CALCULATOR
 \*----------------------------------------------*/
 
-//z-index
-//position (and top, bottom, left, right)
-//float / clear
-//        display
-//        overflow
-//        width / height
-//                margin
-//                border
-//                padding
-//                background
-//                color
-//                font
-//                list
-//                line
-//                text
-//                letter
-
 .calculator {
   border: 3px solid $septa-light-gray;
   font-family: sans-serif;
@@ -80,7 +63,7 @@
 
   .time-info {
     color: $septa-light-gray;
-    text-align: center;
+    text-align: left;
   }
 
   .location__container {
@@ -119,8 +102,9 @@
   .error {
     display: block;
     margin: 0 auto;
+    padding-top: 25px;
     color: red;
-    text-align: center;
+    text-align: left;
   }
 
 }

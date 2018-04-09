@@ -15,6 +15,7 @@ import {FormControl, FormGroup, Validators} from '@angular/forms';
         <div class="zone__container section row">
           <fieldset>
             <legend>Where are you going?</legend>
+            <label hidden for="zones"></label>
             <select formControlName="zonesForm" name="zonesForm">
               <option *ngFor="let zone of data?.zones" value="{{ zone['name'] }}">{{ zone['name'] }}</option>
             </select>
@@ -33,9 +34,9 @@ import {FormControl, FormGroup, Validators} from '@angular/forms';
           <fieldset>
             <legend>Where will you purchase the fare?</legend>
             <div class="location__selection" *ngFor="let location of locations">
-              <input formControlName="locationsForm" type="radio" name="locationsForm" value="{{ location.value }}"
+              <input aria-required=”true” formControlName="locationsForm" type="radio" name="locationsForm" value="{{ location.value }}"
                      id="radio-{{ location.value }}"/>
-              <label for="locationsForm">{{ location.text }}</label>
+              <label for="{{ location.text }}">{{ location.text }}</label>
             </div>
           </fieldset>
         </div>
@@ -51,7 +52,7 @@ import {FormControl, FormGroup, Validators} from '@angular/forms';
         <div class="results__container row">
           <fieldset>
             <legend>Your fare will cost</legend>
-            <p class="total-cost" *ngIf="fare && totalCost">\${{ totalCost }}</p>
+            <p class="total-cost" *ngIf="fare && totalCost">\${{ totalCost.toFixed(2) }}</p>
             <p class="error" *ngIf="!fare">There are no tickets available.</p>
           </fieldset>
         </div>

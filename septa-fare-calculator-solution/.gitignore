@@ -6,11 +6,12 @@
 /out-tsc
 
 # dependencies
-node_modules/
-./septa-fare-calculator-solution/node_modules/*
+/node_modules
+../node_modules
 
 # IDEs and editors
-.idea
+/.idea
+../.idea
 .project
 .classpath
 .c9/

@@ -10,8 +10,8 @@
 .row:before,
 .row:after {
   content: "";
-  display: table;
   clear: both;
+  display: table;
 }
 
 [class*='col-'] {

@@ -4,30 +4,43 @@
     #CALCULATOR
 \*----------------------------------------------*/
 
+//z-index
+//position (and top, bottom, left, right)
+//float / clear
+//        display
+//        overflow
+//        width / height
+//                margin
+//                border
+//                padding
+//                background
+//                color
+//                font
+//                list
+//                line
+//                text
+//                letter
+
 .calculator {
+  border: 3px solid $septa-light-gray;
   font-family: sans-serif;
-  border-style: solid;
-  border-width: 3px;
-  border-color: $septa-light-gray;
 
   select {
-    border-radius: 5px;
-    margin: auto;
     width: 100%;
+    margin: auto;
+    border-radius: 5px;
     padding: 10px;
     background-color: white;
   }
 
   input {
-    border-radius: 5px;
-    border-radius: 5px;
-    border-style: solid;
-    border: 1px solid $septa-light-gray;
+    display: block;
     width: 10%;
+    margin: auto;
+    border-radius: 5px;
+    border: 1px solid $septa-light-gray;
     padding: 10px;
     background-color: white;
-    margin: auto;
-    display: block;
   }
 
   fieldset {
@@ -36,17 +49,17 @@
   }
 
   legend {
-    text-align: center;
-    font-weight: bold;
-    font-size: 20px;
     padding-top: 20px;
     color: $septa-dark-gray;
+    font-weight: bold;
+    font-size: 20px;
+    text-align: center;
   }
 
   .calculator__title {
-    background-color: $septa-dark-gray;
     height: 50px;
     padding: 10px;
+    background-color: $septa-dark-gray;
 
     h2 {
       margin: 12px;
@@ -55,9 +68,7 @@
   }
 
   .section {
-    border-top-style: solid;
-    border-top-width: 1px;
-    border-top-color: $septa-light-gray;
+    border-top: 1px solid $septa-light-gray;
   }
 
   .septa-logo {
@@ -74,8 +85,8 @@
 
   .location__container {
     input {
-      margin: 5px;
       display: inline-block;
+      margin: 5px;
     }
 
     .location__selection {
@@ -97,18 +108,18 @@
     }
 
     .total-cost {
+      margin: 0;
       color: white;
       font-size: 51px;
       font-weight: bold;
-      margin: 0;
       text-align: center;
     }
   }
 
   .error {
-    color: red;
-    margin: 0 auto;
     display: block;
+    margin: 0 auto;
+    color: red;
     text-align: center;
   }
 

@@ -1,4 +1,6 @@
 
+// AUTHOR - JACKIE HARNISH
+
 $(document).ready( function () {
 
 	// create array to hold helper information
@@ -21,7 +23,7 @@ $(document).ready( function () {
     				'type' : fare['type'],
     				'purchase' : fare['purchase'],
     				'trips' : fare['trips'],
-    				'price' : fare['price']
+    				'price' : fare['price'] / fare['trips']
     			};
     			zone_fare_arr.push(fare_obj);
     		});

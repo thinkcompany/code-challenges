@@ -3,8 +3,51 @@
 <head>
 	<meta charset="UTF-8">
 	<title>SEPTA Regional Rail Fare Calculator</title>
+	<link rel="stylesheet" href="style.css">
+	<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
+	<script src="custom.js"></script>
 </head>
 <body>
+
+	<div id="septa-fare-calc">
+		<div class="widget">
+			<div class="heading">
+				<img src="img/logo.png"><span>Regional Rail Fares</span>
+			</div>
+			<div class="content">
+				<div class="section">
+					<p>Where are you going?</p>
+					<select id="septa-fare-calc-zones"></select>
+				</div>
+				<div class="section">
+					<p>When are you riding?</p>
+					<select id="septa-fare-calc-time">
+						<option value="weekday">Weekday</option>
+						<option value="evening_weekend">Evening/Weekend</option>
+						<option value="anytime">Anytime</option>
+					</select>
+					<div id="septa-fare-calc-time-helper-placeholder" class="helper"></div>
+				</div>
+				<div class="section">
+					<p>Where will you purchase the fare?</p>
+					<input type="radio" name="septa-fare-purchase" id="septa-fare-purchase-advance" value="advance_purchase" checked>
+					<label for="septa-fare-purchase-advance">Station Kiosk</label>
+					<input type="radio" name="septa-fare-purchase" id="septa-fare-purchase-onboard" value="onboard_purchase">
+					<label for="septa-fare-purchase-onboard">Onboard</label>
+					<div id="septa-fare-purchase-helper-placeholder" class="helper"></div>
+				</div>
+				<div class="section">
+					<p>How many rides will you need?</p>
+					<input type="number" id="septa-fare-tickets" placeholder="1" min="1">
+				</div>
+			</div>
+			<div class="footer">
+				<p>Your fare will cost</p>
+				<div id="septa-fare-total"></div>
+			</div>
+		</div>
+	</div>
 	
 </body>
 </html>

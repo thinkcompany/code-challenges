@@ -1,0 +1,41 @@
+
+#septa-fare-calc {
+	width: 300px;
+	padding: 15px;
+	font-family: 'Roboto', sans-serif;
+	.widget {
+		border: 3px solid #ccc;
+		text-align: center;
+		.heading {
+			background: #666;
+			color: #fff;
+			padding: 10px;
+			font-size: 1.5em;
+			img {
+				width: 30px;
+				height: auto;
+				margin-right: 10px;
+			}
+		}
+		.content {
+			.section {
+				padding: 15px 0;
+				border-bottom: 1px solid #ccc;
+				&:last-child {
+					border-bottom: none;
+				}
+				.helper {
+					padding: 10px;
+				}
+			}
+		}
+		.footer {
+			background: #666;
+			color: #fff;
+			padding: 10px;
+			#septa-fare-total {
+				font-size: 2em;
+			}
+		}
+	}
+}

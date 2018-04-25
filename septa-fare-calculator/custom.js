@@ -41,6 +41,7 @@ $(document).ready( function () {
     	if($(this).val() == 'anytime'){
     		console.log($('#septa-fare-tickets'));
     		$('input[name=septa-fare-purchase][value=onboard_purchase]').attr('disabled', true);
+    		$('input[name=septa-fare-purchase][value=advance_purchase]').click();
     		$('#septa-fare-tickets').attr('min', 10);
     		$('#septa-fare-tickets').val(10);
     	} else {

@@ -1,0 +1,77 @@
+.fare-calculator {
+  margin: 0 auto;
+  max-width: 720px;
+  padding: 0 15px;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  color: #333333;
+}
+.fare-calculator h1,
+.fare-calculator h3, .fare-calculator__helper-text {
+  text-align: center;
+}
+.fare-calculator h1 {
+  font-size: 54px;
+  padding: 0;
+  margin: 0;
+}
+.fare-calculator h3 {
+  padding: 0;
+  margin-bottom: 15px;
+  text-align: center;
+}
+.fare-calculator span {
+  color: #4d4d4d;
+}
+.fare-calculator__helper-text {
+  display: block;
+  margin-top: 15px;
+  font-size: 85%;
+  line-height: 1.5;
+  text-align: center;
+}
+.fare-calculator__header {
+  padding: 15px;
+  background-color: #595959;
+  text-align: center;
+}
+.fare-calculator__header img, .fare-calculator__header h2 {
+  display: inline-block;
+}
+.fare-calculator__header h2 {
+  margin: 0;
+  color: #ffffff;
+}
+.fare-calculator__header img {
+  margin-right: 5px;
+  vertical-align: text-bottom;
+  width: 36px;
+}
+.fare-calculator__section {
+  padding: 15px;
+  border-bottom: 1px solid #ccc;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+}
+.fare-calculator__select {
+  display: block;
+  width: 100%;
+  padding: 15px;
+  font-size: 15px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  box-shadow: none;
+}
+.fare-calculator__input {
+  display: block;
+  margin: 0 auto;
+  padding: 15px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  box-shadow: none;
+}
+.fare-calculator__total {
+  background-color: #595959;
+}
+.fare-calculator__total h1, .fare-calculator__total h3, .fare-calculator__total span {
+  color: #ffffff;
+}

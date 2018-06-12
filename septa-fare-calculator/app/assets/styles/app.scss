@@ -1,0 +1,114 @@
+$black: #333333;
+$white: #ffffff;
+
+.fare-calculator {
+  margin: 0 auto;
+  max-width: 720px;
+  padding: 0 15px;
+
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  color: $black;
+
+  //
+  // TYPOGRAPHY
+  //
+
+  h1,
+  h3,
+  &__helper-text {
+    text-align: center;
+  }
+
+  h1 {
+    font-size: 54px;
+
+    padding: 0;
+    margin: 0;
+  }
+
+  h3 {
+    padding: 0;
+    margin-bottom: 15px;
+
+    text-align: center;
+  }
+
+  span {
+    color: lighten($black, 10);
+  }
+
+  &__helper-text {
+    display: block;
+    margin-top: 15px;
+
+    font-size: 85%;
+    line-height: 1.5;
+    text-align: center;
+  }
+
+  &__header {
+    padding: 15px;
+
+    background-color: lighten($black, 15);
+
+    text-align: center;
+
+    img, h2 {
+      display: inline-block;
+    }
+
+    h2 {
+      margin: 0;
+      color: $white;
+    }
+
+    img {
+      margin-right: 5px;
+      vertical-align: text-bottom;
+      width: 36px;
+    }
+  }
+
+  &__section {
+    padding: 15px;
+
+    border-bottom: 1px solid #ccc;
+    border-left: 1px solid #ccc;
+    border-right: 1px solid #ccc;
+  }
+
+  //
+  // FORM ELEMENTS
+  //
+
+  &__select {
+    display: block;
+    width: 100%;
+    padding: 15px;
+
+    font-size: 15px;
+
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-shadow: none;
+  }
+
+  &__input {
+    display: block;
+    margin: 0 auto;
+    padding: 15px;
+
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-shadow: none;
+  }
+
+  &__total {
+    background-color: lighten($black, 15);
+
+    h1, h3, span {
+      color: $white;
+    }
+  }
+
+} // fare-calculator

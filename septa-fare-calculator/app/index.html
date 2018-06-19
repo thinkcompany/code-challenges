@@ -4,56 +4,59 @@
   <meta charset="UTF-8">
   <title>SEPTA Regional Rail Fare Calculator</title>
   <link rel="stylesheet" href="assets/styles/app.css">
-  <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+  <meta name="viewport" content="initial-scale=1.0" />
 </head>
 <body>
 
-  <div class="fare-calculator">
+  <section class="fare-calculator" role="main">
 
     <div class="fare-calculator__header">
       <img src="./assets/img/septa_logo.svg" alt="SEPTA: Souteastern Pennsylvania Transit System" />
-      <h2>Regional Rail Fares</h2>
+      <h1>Regional Rail Fares</h1>
     </div>
 
     <div class="fare-calculator__section">
-      <h3>Where are you going?</h3>
-      <select data-js="FareCalculator.Destination" class="fare-calculator__select" name="destination">
+      <h2>Where are you going?</h2>
+      <select data-js="FareCalculator.Destination" class="fare-calculator__select" name="destination" aria-label="Destination">
         <!-- Filled in By JS -->
       </select>
     </div>
 
     <div class="fare-calculator__section">
-      <h3>When are you riding?</h3>
-      <select data-js="FareCalculator.When" class="fare-calculator__select" name="when">
-        <option data-js="FareCalculator.Anytime" value="anytime">Anytime</option>
-        <option data-js="FareCalculator.EveningWeekends" value="evening_weekend">Evenings &amp; Weekends</option>
-        <option data-js="FareCalculator.Weekdays" value="weekday">Weekdays</option>
+      <h2>When are you riding?</h2>
+      <select data-js="FareCalculator.When" class="fare-calculator__select" name="when" aria-label="Ticket Times">
+        <option data-js="FareCalculator.Anytime" value="Anytime" data-value="anytime" aria-label="Anytime Tickets">Anytime</option>
+        <option data-js="FareCalculator.EveningWeekends" value="Evening and Weekend" data-value="evening_weekend" aria-label="Evening and Weekend Tickets">Evenings &amp; Weekends</option>
+        <option data-js="FareCalculator.Weekdays" value="Weekday" data-value="weekday" aria-label="Weekday Tickets">Weekdays</option>
       </select>
       <span data-js="FareCalculator.HelperText.When" class="fare-calculator__helper-text"><!-- TBD By JS --></span>
     </div>
 
     <div class="fare-calculator__section">
-      <h3>Where will you purchase the fare?</h3>
+
       <div class="fare-calculator__radio-input-container">
-        <input data-js="FareCalculator.PurchaseLocation" class="fare-calculator__radio-input" type="radio" name="pos" value="advance_purchase" checked> Station Kiosk<br>
-        <input data-js="FareCalculator.PurchaseLocation" class="fare-calculator__radio-input" type="radio" name="pos" value="onboard_purchase"> Onboard<br>
+        <fieldset>
+          <legend><h2>Where will you purchase the fare?</h2></legend>
+          <input data-js="FareCalculator.PurchaseLocation" data-value="advance_purchase" class="fare-calculator__radio-input" type="radio" name="pos" aria-label="Advanced Purchase" value="Advanced Purchase" checked> Station Kiosk<br>
+          <input data-js="FareCalculator.PurchaseLocation" data-value="onboard_purchase" class="fare-calculator__radio-input" type="radio" name="pos" aria-label="Onboard Purchase" value="Onboard Purchase"> Onboard<br>
+        </fieldset>
       </div>
       <span data-js="FareCalculator.HelperText.Purchase" class="fare-calculator__helper-text"><!-- TBD By JS --></span>
     </div>
 
     <div class="fare-calculator__section">
-      <h3>How many rides will you need?</h3>
-      <input data-js="FareCalculator.Tickets" class="fare-calculator__input" type="text" name="tickets"><br>
+      <h2>How many rides will you need?</h2>
+      <input data-js="FareCalculator.Tickets" class="fare-calculator__input" type="text" name="tickets" aria-label="Number of Tickets"><br>
       <span data-js="FareCalculator.HelperText.Tickets" class="fare-calculator__helper-text"><!-- TBD By JS --></span><br>
     </div>
 
     <div class="fare-calculator__section fare-calculator__total">
-      <h3>Your fare will cost</h3>
-      <h1 data-js="FareCalculator.TotalFare"></h1><br>
+      <h2>Your fare will cost</h2>
+      <div class="h1" data-js="FareCalculator.TotalFare"></div><br>
       <span data-js="FareCalculator.HelperText.Savings" class="fare-calculator__helper-text"></span>
     </div>
 
-  </div>
+  </section>
   <script src="https://cdn.polyfill.io/v2/polyfill.min.js"></script>
   <script src="./assets/scripts/app.js"></script>
 </body>

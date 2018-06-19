@@ -14,19 +14,19 @@ $white: #ffffff;
   //
 
   h1,
-  h3,
+  h2,
   &__helper-text {
     text-align: center;
   }
 
-  h1 {
+  .h1 {
     font-size: 54px;
 
     padding: 0;
     margin: 0;
   }
 
-  h3 {
+  h2, .h1 {
     padding: 0;
     margin-bottom: 15px;
 
@@ -53,11 +53,11 @@ $white: #ffffff;
 
     text-align: center;
 
-    img, h2 {
+    img, h1 {
       display: inline-block;
     }
 
-    h2 {
+    h1 {
       margin: 0;
       color: $white;
     }
@@ -80,6 +80,10 @@ $white: #ffffff;
   //
   // FORM ELEMENTS
   //
+
+  fieldset {
+    border: none;
+  }
 
   &__select {
     display: block;
@@ -106,7 +110,7 @@ $white: #ffffff;
   &__total {
     background-color: lighten($black, 15);
 
-    h1, h3, span {
+    h1, h2, span, .h1 {
       color: $white;
     }
   }

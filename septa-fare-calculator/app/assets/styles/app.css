@@ -6,15 +6,15 @@
   color: #333333;
 }
 .fare-calculator h1,
-.fare-calculator h3, .fare-calculator__helper-text {
+.fare-calculator h2, .fare-calculator__helper-text {
   text-align: center;
 }
-.fare-calculator h1 {
+.fare-calculator .h1 {
   font-size: 54px;
   padding: 0;
   margin: 0;
 }
-.fare-calculator h3 {
+.fare-calculator h2, .fare-calculator .h1 {
   padding: 0;
   margin-bottom: 15px;
   text-align: center;
@@ -34,10 +34,10 @@
   background-color: #595959;
   text-align: center;
 }
-.fare-calculator__header img, .fare-calculator__header h2 {
+.fare-calculator__header img, .fare-calculator__header h1 {
   display: inline-block;
 }
-.fare-calculator__header h2 {
+.fare-calculator__header h1 {
   margin: 0;
   color: #ffffff;
 }
@@ -51,6 +51,9 @@
   border-bottom: 1px solid #ccc;
   border-left: 1px solid #ccc;
   border-right: 1px solid #ccc;
+}
+.fare-calculator fieldset {
+  border: none;
 }
 .fare-calculator__select {
   display: block;
@@ -72,6 +75,6 @@
 .fare-calculator__total {
   background-color: #595959;
 }
-.fare-calculator__total h1, .fare-calculator__total h3, .fare-calculator__total span {
+.fare-calculator__total h1, .fare-calculator__total h2, .fare-calculator__total span, .fare-calculator__total .h1 {
   color: #ffffff;
 }

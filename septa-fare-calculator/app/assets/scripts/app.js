@@ -56,7 +56,7 @@
 
         // Obviously, this URL would change for the live version of this...
 
-        this.dataURL = '//192.168.1.162:3000/fares.json';
+        this.dataURL = '/fares.json';
 
         // Fetch my data first
 
@@ -139,7 +139,7 @@
 
       logSelectedWhen () {
         this.selectedWhen = this.logSelectedValue(this.when);
-        this.selectedWhen.value = this.selectedWhen.getAttribute('value');
+        this.selectedWhen.value = this.selectedWhen.getAttribute('data-value');
       },
 
       logSelectedPurchaseLocation (purchaseLocation) {
@@ -148,13 +148,14 @@
           this.purchaseLocations.forEach((location) => {
             if (location.checked) {
               this.selectedPurchaseLocation = location;
-              this.selectedPurchaseLocation.value = location.value;
+              this.selectedPurchaseLocation.value = location.getAttribute('data-value');
             }
           });
         } else {
               this.selectedPurchaseLocation = purchaseLocation;
-              this.selectedPurchaseLocation.value = purchaseLocation.value;
+              this.selectedPurchaseLocation.value = purchaseLocation.getAttribute('data-value');
         }
+        console.log(this.selectedPurchaseLocation.value);
       },
 
       logNumberOfTickets () {

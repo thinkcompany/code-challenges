@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-// import Fare from './Fare';
 
 export default class FareForm extends Component {
 	state = {
@@ -53,7 +52,6 @@ export default class FareForm extends Component {
 		const travelPeriodHelp = this.props.faresData.info[travelPeriodSelection];
 		const purchaseLocHelp = this.props.faresData.info[purchaseLocSelection];
 
-		// console.log(travelPeriodHelp);
 		this.setState({
 			travePeriodInfo: travelPeriodHelp,
 			purchaseLocInfo: purchaseLocHelp,
@@ -93,7 +91,7 @@ export default class FareForm extends Component {
 
 	render() {
 		return (
-
+			// Assumptions made in the population of many of the selects and inputs.
 			<div className="fares-form">
 				<div className="fares-form__section fares-form__zone">
 					<label htmlFor="zoneSelect">Where are you going?</label>
@@ -103,7 +101,7 @@ export default class FareForm extends Component {
 				</div>
 
 				<div className="fares-form__section fares-form__travel-period">
-					<label htmlFor="travelPeriodSelect">When are you riding?</label>
+					<label htmlFor="travelPeriodSelect">When are you riding?</label> 
 					<select id="travelPeriodSelect" onChange={this.handleSelection} value={this.props.selectedTravelPeriod}>
 						<option key="weekday" value="weekday">Weekday</option>
 						<option key="evening_weekend" value="evening_weekend">Evening Weekend</option>

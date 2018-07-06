@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-// import './App.css';
 import axios from 'axios';
 import Header from './components/Header';
 import FareForm from './components/FareForm';
@@ -65,7 +64,6 @@ export default class App extends Component {
             selectedTravelPeriod={this.state.selectedTravelPeriod}
             selectedPurchaseLoc={this.state.selectedPurchaseLoc}
             selectedRidesTotal={this.state.selectedRidesTotal}
-
           />
           <Fare 
             totalFare={this.state.totalFare}

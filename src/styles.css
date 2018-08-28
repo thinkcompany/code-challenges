@@ -1,0 +1,32 @@
+/* You can add global styles to this file, and also import other style files */
+.form-element--block {
+  display: block;
+  text-align: center;
+  padding: 20px;
+  border-bottom: 1px solid grey;
+}
+
+.form-element--block label {
+  display: block;
+  margin-bottom: 10px;
+}
+
+.form-element--block label.inline {
+  display: inline-block;
+}
+
+fieldset {
+  border: none;
+}
+
+fieldset legend {
+  padding-top: 20px;
+}
+
+.primary-content {
+  font-size: 30px;
+}
+
+.secondary-content {
+  padding-top: 10px;
+}

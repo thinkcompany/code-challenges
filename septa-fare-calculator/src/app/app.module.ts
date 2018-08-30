@@ -1,16 +1,17 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
-import { AppComponent } from './app.component';
+import { FareCalculatorComponent } from './components/fare-calculator/fare-calculator.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
-    AppComponent
+    FareCalculatorComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule, HttpClientModule, FormsModule, ReactiveFormsModule
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [FareCalculatorComponent]
 })
 export class AppModule { }

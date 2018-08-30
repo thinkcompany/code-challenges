@@ -22,7 +22,7 @@
               "src/favicon.ico",
               "src/assets"
             ],
-            "styles": [],
+            "styles": [ "styles.css" ],
             "scripts": []
           },
           "configurations": {

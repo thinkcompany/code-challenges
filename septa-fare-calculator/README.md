@@ -31,3 +31,38 @@ When you take regional rail in and out of the city, the fare price is affected b
 * [Think Company Development Standards](http://standards.dev.thinkcompany.com)
 * [SEPTA Fares](http://www.septa.org/fares/ticket/index.html)
 * [SEPTA Logo (SVG)](https://commons.wikimedia.org/wiki/File:SEPTA.svg)
+
+---
+
+# Ezra's Comments:
+
+Hi there, thanks for taking the time to look at my submission!
+To view my implementation of this challenge, open up a command prompt in 
+`./think-code-challenges/septa-fare-calculator/`
+and run `ng serve`. When it says `Compiled sucessfully`, you can go to `localhost:4200` in your browser.
+
+I decided to go with Angular for this project because, out of the box, it handles data binding superbly, it's quick
+to get set up using the CLI, and utilizes Typescript + RxJS, so I could show that I know about ES6 features and Observables. 
+Also, it comes with solid polyfills for browser support, which were important for this challenge. 
+
+I must admit that this
+took me significantly longer than an hour. There were lots of requirements packed into the challenge, and it represents
+easily a full week of work (for me. Not sure what kind of super coders are applying to this position, haha) to fully
+explore all of the edge cases (IE support, ARIA support, user research for usability of controls) and then test. Instead
+of working for exactly one hour, I decided to put in a bit more time—maybe 4 hours? I didn't time myself and did it in 
+several short sessions—and get a more viable product in front of you. None of my code was copied directly from the internet,
+though of course, I referred to web documentation and Stack Overflow, as one does. I included a list below of some things
+I would have done, given more time. Enjoy!
+
+
+### TODO: 
+* error handling
+* well-thought fonts and colors
+* get the dang favicon to show up
+* improve the god-awful helper text presentation, potentially using some sort of info button + popover?
+* spend more time thinking over / discussing if and when fields should be conditionally disabled
+* more responsiveness (precluded by knowledge of the use cases of this widget)
+* cool documentation that makes me seem both experienced and relatable
+* address accessibility concerns (color contrast, ARIA)
+* address IE8 compatibility
+* code cleanup and consolidation

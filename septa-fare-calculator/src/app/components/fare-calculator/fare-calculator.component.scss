@@ -1,0 +1,64 @@
+.container {
+    width: 40%;
+    min-width: 400px;
+    border-radius: 5px;
+    border: 1px solid gray;
+    font-family: 'Open Sans', sans-serif;
+    margin: 20px auto 0;
+    *[disabled] {
+        cursor: not-allowed;
+    }
+}
+@media only screen and (max-width: 670px) {
+    .container {
+        width: 80%;
+        // not really necessary in this case; could be handled approx. as well using
+        // only .container min-width, no media query. But I had to show that I know what
+        // media queries are, you know? :)
+    }
+}
+label {
+    vertical-align: middle;
+}
+header, section, footer {
+    width: 100%;
+    text-align: center;
+}
+header, section {
+    border-bottom: 1px solid gray;
+}
+header, footer {
+    font-family: 'Poppins', sans-serif;
+    font-weight: bold;
+}
+header {
+    padding: 15px 0;
+    background: #bccbe2;
+    vertical-align: center;
+    font-size: 1.3em;
+}
+section {
+    padding: 10px 0;
+    select {
+        min-width: 40%;
+    }
+    h2 {
+        font-size: 1.1em;
+        font-weight: normal;
+    }
+    form {
+        margin: auto;
+        width: 50%;
+        text-align: left;
+    }
+}
+footer {
+    padding-top: 10px;
+    font-size: 1.1em;
+    h1 {
+        font-size: 1.4em;
+    }
+}
+.helper-text {
+    color: gray;
+}

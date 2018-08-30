@@ -1,0 +1,57 @@
+<div class="container" xmlns="http://www.w3.org/1999/html">
+    <header> SEPTA Fare Calculator </header>
+    <section>
+        <h2>Where are you going?</h2>
+        <select [(ngModel)]="selectedDestination" title="Destination dropdown"
+                [disabled]="faresLoading" (change)="enableDisableFields(); calcPrice()" >
+            <option selected value="-1">
+                {{ faresLoading ? 'Loading...' : 'Select Destination'}}
+            </option>
+            <option *ngFor="let zone of fares?.zones;let i=index" [value]="zone.zone"
+                    [selected]="i === 0">
+                {{ zone.name }}
+            </option>
+        </select>
+    </section>
+    <section>
+        <h2>When are you riding?</h2>
+        <select [disabled]="disableSecondaryFields" [(ngModel)]="selectedTimeframe"
+                (change)="timeframeChanged()" title="Timeframe dropdown">
+            <option *ngIf="disableSecondaryFields;else timeframeOptions" value="-1" >
+            </option>
+            <ng-template #timeframeOptions>
+                <option [value]="timeframes.weekday.key" selected>
+                    {{ timeframes.weekday.plaintext }}
+                </option>
+                <option [value]="timeframes.eveningOrWeekend.key">
+                    {{ timeframes.eveningOrWeekend.plaintext }}
+                </option>
+                <option [value]="timeframes.anytime.key">
+                    {{ timeframes.anytime.plaintext }}
+                </option>
+            </ng-template>
+        </select>
+        <p class="helper-text">{{ helperText }}</p>
+    </section>
+    <section>
+        <h2>Where will you purchase the fare?</h2>
+        <form (change)="calcPrice()">
+            <input id="fare-purchase-onboard" name="location" type="radio" [(ngModel)]="selectedLocation"
+                   value="onboard_purchase" [disabled]="disableSecondaryFields || selectedTimeframe === 'anytime'">
+            <label for="fare-purchase-onboard"> Onboard </label>
+            <br>
+            <input id="fare-purchase-kiosk" name="location" type="radio"  [(ngModel)]="selectedLocation"
+                   value="advance_purchase" [disabled]="disableSecondaryFields">
+            <label for="fare-purchase-kiosk"> Station Kiosk </label>
+        </form>
+    </section>
+    <section>
+        <h2>How many rides will you need?</h2>
+        <input title="Number of rides" type="number" [formControl]="ridesControl"/>
+    </section>
+    <footer>
+        Fare will cost
+        <h1> {{ disableSecondaryFields ? ' - ' : '$' + price }}</h1>
+    </footer>
+    <!-- put error message somewhere around here -->
+</div>

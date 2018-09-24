@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html role = "Heading" lang = "en">
 <head>
 	<meta charset="UTF-8" name="viewport" content="user-scalable=yes">
 	<link rel="stylesheet" type="text/css" href="css/styles.css">
@@ -25,7 +25,7 @@
 			<div class = "greyBorderBottom">
 				<p class = "septaSubheaderFont">Where are you going?</p>
 				<div class = "fareVariousInputs">
-					<select id="zones" alt = "Dropdown selects what zone">
+					<select aria-label = "Zones" id="zones" alt = "Dropdown selects what zone">
 						<option></option>
 					</select>	
 					<p class = "septaHelperText">Not sure? Click here for a map</p>
@@ -34,7 +34,7 @@
 			<div class = "greyBorderBottom">
 				<p class = "septaSubheaderFont">When are you riding?</p>
 				<div class = "fareVariousInputs">
-					<select id="fareType" alt = "Dropdown selects what type of fare">
+					<select aria-label = "Fare Type" id="fareType" alt = "Dropdown selects what type of fare">
 						<option></option>
 					</select>
 					<p class = "septaTextAlignCenter septaHelperText"><span class = "boldSpanSepta">Weekday:</span> Valid Monday through Friday, 4:00 a.m. - 7:00 p.m. On trains arriving or departing 30th Street Station, Suburban and Jefferson Station</p>
@@ -45,15 +45,15 @@
 			<div sclass = "greyBorderBottom">
 				<p class = "septaSubheaderFont">Where will you purchase the fare?</p>
 				<div class = "fareVariousInputs">
-					<input id = "station" type="radio" name="purchasePoint" value="stationKiosk" checked alt = "Radio button selects where ticket is bought- station kiosk">Station Kiosk
-					<input id = "onboard" type="radio" name="purchasePoint" value="onboard" alt = "Radio button selects where ticket is bought- onboard">Onboard<br>
+					<input aria-label = "Purchase Location Type" id = "station" type="radio" name="purchasePoint" value="stationKiosk" checked alt = "Radio button selects where ticket is bought- station kiosk">Station Kiosk
+					<input aria-label = "Purchase Location Type" id = "onboard" type="radio" name="purchasePoint" value="onboard" alt = "Radio button selects where ticket is bought- onboard">Onboard<br>
 				</div>
 			</div>	
 			<div class = "greyBorderBottom">
 				<p class = "septaSubheaderFont">How many rides will you need?</p>
 				<div class = "fareVariousInputs">
 
-					<input id = "ticketAmount" type="text" name="numberOfRides" class = "septaInputWidth" onKeyup = 'calculatesFare()' alt = "Enter how many tickets you'd like"/>
+					<input aria-label = "Number of Tickets" id = "ticketAmount" type="text" name="numberOfRides" class = "septaInputWidth" onKeyup = 'calculatesFare()' alt = "Enter how many tickets you'd like"/>
 				</div>
 			</div>
 			<div class = "greyBar">

@@ -13,7 +13,7 @@
             "type": "weekday",
             "purchase": "advance_purchase",
             "trips": 1,
-            "price": 4.75
+            "price": 5.25
         }, {
             "type": "weekday",
             "purchase": "onboard_purchase",
@@ -23,7 +23,7 @@
             "type": "evening_weekend",
             "purchase": "advance_purchase",
             "trips": 1,
-            "price": 3.75
+            "price": 4.25
         }, {
             "type": "evening_weekend",
             "purchase": "onboard_purchase",
@@ -33,7 +33,7 @@
             "type": "anytime",
             "purchase": "advance_purchase",
             "trips": 10,
-            "price": 38.00
+            "price": 40.00
         }]
     }, {
         "name": "Zone 2",
@@ -42,7 +42,7 @@
             "type": "weekday",
             "purchase": "advance_purchase",
             "trips": 1,
-            "price": 4.75
+            "price": 5.25
         }, {
             "type": "weekday",
             "purchase": "onboard_purchase",
@@ -52,7 +52,7 @@
             "type": "evening_weekend",
             "purchase": "advance_purchase",
             "trips": 1,
-            "price": 3.75
+            "price": 4.25
         }, {
             "type": "evening_weekend",
             "purchase": "onboard_purchase",
@@ -62,7 +62,7 @@
             "type": "anytime",
             "purchase": "advance_purchase",
             "trips": 10,
-            "price": 45.00
+            "price": 47.50
         }]
     }, {
         "name": "Zone 3",
@@ -71,7 +71,7 @@
             "type": "weekday",
             "purchase": "advance_purchase",
             "trips": 1,
-            "price": 5.75
+            "price": 6.00
         }, {
             "type": "weekday",
             "purchase": "onboard_purchase",
@@ -81,7 +81,7 @@
             "type": "evening_weekend",
             "purchase": "advance_purchase",
             "trips": 1,
-            "price": 5.00
+            "price": 5.25
         }, {
             "type": "evening_weekend",
             "purchase": "onboard_purchase",
@@ -91,7 +91,7 @@
             "type": "anytime",
             "purchase": "advance_purchase",
             "trips": 10,
-            "price": 54.50
+            "price": 57.50
         }]
     }, {
         "name": "Zone 4",
@@ -100,7 +100,7 @@
             "type": "weekday",
             "purchase": "advance_purchase",
             "trips": 1,
-            "price": 6.50
+            "price": 6.75
         }, {
             "type": "weekday",
             "purchase": "onboard_purchase",
@@ -110,7 +110,7 @@
             "type": "evening_weekend",
             "purchase": "advance_purchase",
             "trips": 1,
-            "price": 5.00
+            "price": 5.25
         }, {
             "type": "evening_weekend",
             "purchase": "onboard_purchase",
@@ -120,7 +120,7 @@
             "type": "anytime",
             "purchase": "advance_purchase",
             "trips": 10,
-            "price": 62.50
+            "price": 65.00
         }]
     }, {
         "name": "NJ",
@@ -129,7 +129,7 @@
             "type": "weekday",
             "purchase": "advance_purchase",
             "trips": 1,
-            "price": 9.00
+            "price": 9.25
         }, {
             "type": "weekday",
             "purchase": "onboard_purchase",
@@ -139,7 +139,7 @@
             "type": "evening_weekend",
             "purchase": "advance_purchase",
             "trips": 1,
-            "price": 9.00
+            "price": 9.25
         }, {
             "type": "evening_weekend",
             "purchase": "onboard_purchase",
@@ -149,7 +149,7 @@
             "type": "anytime",
             "purchase": "advance_purchase",
             "trips": 10,
-            "price": 80.00
+            "price": 82.50
         }]
     }]
 }

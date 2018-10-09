@@ -1,0 +1,106 @@
+body {
+    font-family: 'Lato', sans-serif;
+}
+
+/* fare container form styles */
+.fares-container {
+    width: 375px;
+    margin: 20px auto;
+    border: 1px black solid;
+}
+
+.fares-container legend {
+    font-size: 1.5em;
+    font-weight: 500;
+}
+
+.fares-container select {
+    width: 90%;
+    height: 40px;
+    font-size: 1.1em;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+    border: 1px solid #E4E4E4;   
+}
+
+/* form header styles */
+.form-header {
+    width: 100%;
+    background: #595959;
+    text-align: center;
+}
+
+.form-header img {
+    width: 40px;
+    display: inline-block;
+    vertical-align: middle;
+    margin: 5px 5px 15px 5px;
+}
+
+.form-header h1 {
+    color: #FFFFFF;
+    display: inline-block;
+    width: auto;
+    font-size: 1.5rem;
+}
+
+/* form field set */
+.form-field {
+    margin-top: 15px;
+    padding: 20px 0;
+    text-align: center;
+    border: none;
+    border-bottom: 1px solid gray;
+}
+
+/* help info styles */
+.help-info {
+    color: #7a7a7a;
+    margin-top: 10px;
+}
+
+.help-info summary {
+    list-style: none;
+}
+
+.help-info p {
+    font-size: 0.8em;
+    text-align: justify;
+    width: 90%;
+    margin: 10px auto;
+}
+
+/* amount styles */
+.amount {
+    background: #595959;
+    text-align: center;
+    color: white;
+    padding: 15px 0;
+}
+
+.amount p {
+    font-size: 1.4em;
+    margin: 0;
+}
+
+.amount #fare-total {
+    font-size: 3em;
+}
+
+.num-rides {
+    width: 20%;
+    height: 40px;
+    text-align: center;
+    font-size: 1.1em;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+    border: 1px solid #E4E4E4;
+}
+
+.radio-button {
+    text-align: justify;
+    width: 30%;
+    margin: 10px auto;
+}

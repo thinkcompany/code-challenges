@@ -149,7 +149,7 @@
             "type": "anytime",
             "purchase": "advance_purchase",
             "trips": 10,
-            "price": 82.50
+            "price": 82.0
         }]
     }]
 }

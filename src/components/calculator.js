@@ -10,34 +10,35 @@ export default class Calculator extends Component {
       isLoaded: false,
       fares: [],
       nameStation: [],
-      trips: [],
+      purchase: [],
       data: []
     }
-    this.handleChange = this.handleChange.bind(this)
   }
 
-  handleChange(event) {
-     this.setState({value: event.target.value});
-
-     console.log(this.state.fares, 'llloooook here')
-   }
+  handleChange (key) {
+  return function (e) {
+    var state = {}
+    state[key] = e.target.value
+    this.setState(state)
+  }.bind(this)
+}
 
   componentDidMount() {
     fetch('https://api.myjson.com/bins/ki5sg')
       .then(res => res.json())
       .then(
         (result => {
+          // eslint-disable-next-line
+          const { info, zones: [name, zone, fares : [type, purchase, trips, price ]], error, isLoaded} = result
           this.setState({
             isLoaded: true,
-            fares: '',
-            nameStation: '',
-            trips: '',
+            fares: {price},
+            nameStation: {name},
+            purchase: {purchase},
+            time: {info},
             data: result
           })
-          // console.log(this.state.data, 'initial result!')
-          // console.log(this.state.fares, 'fares')
-          // console.log(this.state.info, 'info!')
-          // console.log(this.state.trips, 'tripps')
+          console.log({price})
         }),
         (error) => {
           this.setState({
@@ -49,9 +50,9 @@ export default class Calculator extends Component {
     }
 
   render() {
-    const {error, isLoaded} = this.state
-    const { zones: [name, zone, fares : [type, purchase, trips, price ]]} = this.state.data
-    console.log(name)
+    const {error, isLoaded, fares, nameStation, purchase, time, data} = this.state
+    // let indexData = [0, 1, 2, 3, 4]
+
     if (error) {
       return <div>Error: {error.message}</div>;
     } else if (!isLoaded) {
@@ -66,8 +67,9 @@ export default class Calculator extends Component {
             </header>
             <section>
               <h2>Where are you going?</h2>
+
               <select value={this.state.nameStation} onChange={this.handleChange}>
-                <option>{name[0]}</option>
+                <option>{nameStation}</option>}
                 {/* <option>{data.zones[1].name}</option>
                 <option>{data.zones[2].name}</option>
                 <option>{data.zones[3].name}</option>
@@ -86,7 +88,7 @@ export default class Calculator extends Component {
             </section>
             <section>
               <h3>Where will you purchase the fare?</h3>
-              <form value={this.state.fares} onChange={this.handleChange}>
+              <form value={this.state.purchase} onChange={this.handleChange}>
                 <input
                   // value={info.advance_purchase}
 

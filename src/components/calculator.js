@@ -9,7 +9,7 @@ export default class Calculator extends Component {
       error: null,
       isLoaded: false,
       fares: [],
-      info: [],
+      nameStation: [],
       trips: [],
       data: []
     }
@@ -18,10 +18,7 @@ export default class Calculator extends Component {
 
   handleChange(event) {
      this.setState({value: event.target.value});
-       // fares: [...this.state.fares, ...event.target.value],
-       // info: [],
-       // trips: [],
-       // data: []}
+
      console.log(this.state.fares, 'llloooook here')
    }
 
@@ -33,7 +30,7 @@ export default class Calculator extends Component {
           this.setState({
             isLoaded: true,
             fares: '',
-            info: '',
+            nameStation: '',
             trips: '',
             data: result
           })
@@ -51,13 +48,10 @@ export default class Calculator extends Component {
       )
     }
 
-
-
   render() {
-    const { error, isLoaded, data} = this.state
-    // console.log(data, 'data down here!')
-    // console.log(data.zones[0].name)
-
+    const {error, isLoaded} = this.state
+    const { zones: [name, zone, fares : [type, purchase, trips, price ]]} = this.state.data
+    console.log(name)
     if (error) {
       return <div>Error: {error.message}</div>;
     } else if (!isLoaded) {
@@ -72,29 +66,35 @@ export default class Calculator extends Component {
             </header>
             <section>
               <h2>Where are you going?</h2>
-              <select value={this.state.info} onChange={this.handleChange}>
-                <option>{data.zones[0].name}</option>
-                <option>{data.zones[1].name}</option>
+              <select value={this.state.nameStation} onChange={this.handleChange}>
+                <option>{name[0]}</option>
+                {/* <option>{data.zones[1].name}</option>
                 <option>{data.zones[2].name}</option>
                 <option>{data.zones[3].name}</option>
-                <option>{data.zones[4].name}</option>
+                <option>{data.zones[4].name}</option> */}
               </select>
             </section>
             <section>
               <h2>When are you riding?</h2>
               <select value={this.state.trips} onChange={this.handleChange}>
-                <option>{data.zones[0].fares[0].type}</option>
-                <option>{data.zones[1].fares[1].type}</option>
+                <option>{fares[0].type}</option>
+                {/* <option>{data.zones[1].fares[1].type}</option>
                 <option>{data.zones[2].fares[2].type}</option>
                 <option>{data.zones[3].fares[3].type}</option>
-                <option>{data.zones[4].fares[4].type}</option>
+                <option>{data.zones[4].fares[4].type}</option> */}
               </select>
             </section>
             <section>
               <h3>Where will you purchase the fare?</h3>
               <form value={this.state.fares} onChange={this.handleChange}>
-                <input value={data.info.advance_purchase} onChange={this.handleChange} type='radio' name='station kiosk' />Station Kiosk<br />
-                <input value={data.info.onboard_purchase} onChange={this.handleChange} type='radio' name='on board' />On board
+                <input
+                  // value={info.advance_purchase}
+
+                   onChange={this.handleChange} type='radio' name='station kiosk' />Station Kiosk<br />
+                <input
+                   // value={info.onboard_purchase}
+
+                    onChange={this.handleChange} type='radio' name='on board' />On board
               </form>
             </section>
             <section>

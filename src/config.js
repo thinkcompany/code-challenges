@@ -1,0 +1,1 @@
+export const constants = { jsonURL: 'https://raw.githubusercontent.com/thinkcompany/code-challenges/master/septa-fare-calculator/fares.json'};

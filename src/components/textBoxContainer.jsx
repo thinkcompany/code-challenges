@@ -29,6 +29,7 @@ const StyledInput = styled.input`
 
 class TextBoxContainer extends Component {
     
+    //I left the help text in here just in case I wanted to revisit it
     render(){
         return (
         <TextBoxWrapper>

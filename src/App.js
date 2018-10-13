@@ -123,7 +123,6 @@ class App extends Component {
             title='How many rides will you need?'
             handleChange = {this.numberOfRidesHandleChange}
             defaultValue = {this.state.selectedNumberOfRides}
-            name = 'purchaseType'
             />
             <FooterBar value = {this.getPrice()}/>
         </StyledApp>

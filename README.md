@@ -6,7 +6,9 @@ To get it started just kick off yarn install and then yarn start and should be g
 
 Possible next steps:
 
-Implement polyfill/babel for I.E. and older browsers 
+Implement polyfill/babel for I.E. and older browsers (as the instructions asked for it)
+
+Implement buying anytime tickets in groups of 10 maybe?
 
 Reformat options in to readable text
 

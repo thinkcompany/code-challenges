@@ -1,0 +1,68 @@
+*
+{
+	font-family: 'Roboto', sans-serif;
+	font-size: 14pt;
+}
+#fare-calculator
+{
+	margin: 0 auto;
+	width: 320px;
+	border: 2px solid lightgray;
+}
+.fare-calculator-section
+{
+	text-align: center;
+	padding: 10px;
+}
+#fare-calculator-header, #fare-calculator-result
+{
+	background: #666666;
+	color: white;
+}
+#fare-calculator-header-logo
+{
+	width: 10%;
+	vertical-align: middle;
+}
+#fare-calculator-header-text
+{
+	font-size: 16pt;
+	font-weight: 700;
+	vertical-align: middle;
+}
+.fare-calculator-body-question
+{
+	font-weight: 500;
+}
+.fare-calculator-body-answer
+{
+	margin-top: 10px;
+	margin-bottom: 20px;
+}
+.fare-calculator-body-answer:last-child
+{
+	margin-bottom: 10px;
+}
+.fare-calculator-select-input
+{
+	width: 75%;
+}
+.fare-calculator-number-input
+{
+	width: 30%;
+	text-align: center;
+}
+.fare-calculator-helper-text
+{
+	color: #888888;
+	font-size: 10pt;
+}
+#fare-calculator-result-text
+{
+	font-weight: 700;
+}
+#fare-calculator-result-amount
+{
+	font-size: 20pt;
+	font-weight: 700;
+}

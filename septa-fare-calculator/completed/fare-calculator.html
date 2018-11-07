@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+	<title>Septa Fare Calculator</title>
+	<link href='https://fonts.googleapis.com/css?family=Roboto:400,500,700' rel='stylesheet'>
+	<link rel='stylesheet' type='text/css' href='fare-calculator.css'>
+	<script src='fare-calculator.js'></script>
+</head>
+<body>
+
+	<!-- FARE CALCULATOR WIDGET -->
+	<div id='fare-calculator'>
+		<div id='fare-calculator-header' class='fare-calculator-section'>
+			<img id='fare-calculator-header-logo' src='septa.svg'/>
+			<span id='fare-calculator-header-text'>
+				Regional Rail Fares
+			</span>
+		</div>
+		<div id='fare-calculator-body' class='fare-calculator-section'>
+			<div class='fare-calculator-body-question'>
+				Where are you going?
+			</div>
+			<div class='fare-calculator-body-answer'>
+				<select class='fare-calculator-select-input' id='fare-calculator-zone-input' data-question='zone'>
+				</select>
+			</div>
+			<div class='fare-calculator-body-question'>
+				When are you riding?
+			</div>
+			<div class='fare-calculator-body-answer'>
+				<select class='fare-calculator-select-input' id='fare-calculator-time-input' data-question='time' data-helper='fare-calculator-time-info'>
+					<option value='weekday'>Weekday</option>
+					<option value='evening_weekend'>Evening Weekend</option>
+					<option value='anytime'>Any Time</option>
+				</select>
+				<div id='fare-calculator-time-info'>
+					<span class='fare-calculator-helper-text' data-option='weekday'></span>
+					<span class='fare-calculator-helper-text' data-option='evening_weekend'></span>
+					<span class='fare-calculator-helper-text' data-option='anytime'></span>
+				</div>
+			</div>
+			<div class='fare-calculator-body-question'>
+				Where will you purchase the fare?
+			</div>
+			<div class='fare-calculator-body-answer'>
+				<select class='fare-calculator-select-input' id='fare-calculator-purchase-input' data-question='purchase' data-helper='fare-calculator-purchase-info'>
+					<option value='advance_purchase'>Station Kiosk</option>
+					<option value='onboard_purchase'>On-board</option>
+				</select>
+				<div id='fare-calculator-purchase-info'>
+					<span class='fare-calculator-helper-text' data-option='advance_purchase''></span>
+					<span class='fare-calculator-helper-text' data-option='onboard_purchase'></span>
+				</div>
+			</div>
+			<div class='fare-calculator-body-question'>
+				How many rides will you need?
+			</div>
+			<div class='fare-calculator-body-answer'>
+				<input type='number' class='fare-calculator-number-input' id='fare-calculator-rides-input' data-question='rides' value=1 step=1></input>
+			</div>
+		</div>
+		<div id='fare-calculator-result' class='fare-calculator-section'>
+			<div id='fare-calculator-result-text'>
+				Your fare will cost
+			</div>
+			<div id='fare-calculator-result-amount'>
+				$0.00
+			</div>
+		</div>
+	</div>
+	<!-- FARE CALCULATOR WIDGET -->
+
+</body>
+</html>

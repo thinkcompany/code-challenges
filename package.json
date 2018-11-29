@@ -4,6 +4,7 @@
   "main": "index.js",
   "license": "MIT",
   "dependencies": {
+    "axios": "^0.18.0",
     "react": "^16.6.3",
     "react-dom": "^16.6.3"
   },
@@ -17,10 +18,14 @@
     "@babel/preset-react": "^7.0.0",
     "autoprefixer": "^9.3.1",
     "babel-loader": "^8.0.4",
+    "babel-polyfill": "^6.26.0",
+    "copy-webpack-plugin": "^4.6.0",
     "css-loader": "^1.0.1",
+    "extract-text-webpack-plugin": "^4.0.0-beta.0",
     "file-loader": "^2.0.0",
     "html-webpack-plugin": "^3.2.0",
     "node-sass": "^4.10.0",
+    "postcss-flexbugs-fixes": "^4.1.0",
     "postcss-loader": "^3.0.0",
     "sass-loader": "^7.1.0",
     "style-loader": "^0.23.1",

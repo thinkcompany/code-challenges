@@ -1,10 +1,14 @@
 
 const HtmlWebPackPlugin = require('html-webpack-plugin')
+const CopyWebpackPlugin = require('copy-webpack-plugin')
+const ExtractTextPlugin = require('extract-text-webpack-plugin')
 
 const htmlPlugin = new HtmlWebPackPlugin({
   template: './src/index.html',
   filename: './index.html'
 })
+const copyPlugin = new CopyWebpackPlugin([{from: 'src/data', to: 'data'}])
+const extractPlugin = new ExtractTextPlugin({filename: 'styles.css', allChunks: true})
 
 module.exports = {
   module: {
@@ -20,19 +24,38 @@ module.exports = {
         }
       },
       {
+        test: /\.css$/,
+        use: ExtractTextPlugin.extract({
+          fallback: 'style-loader',
+          use: [
+            {
+              loader: 'css-loader',
+              options: {
+                modules: true,
+                localIdentName: '[name]_[local]__[hash:8]'
+              }
+            },
+            'postcss-loader'
+          ]
+        })
+      },
+      {
         test: /\.sass$/,
-        use: [
-          'style-loader', // creates style nodes from JS strings
-          {
-            // translates CSS into CommonJS
-            loader: 'css-loader',
-            options: {
-              importLoaders: 2 // 0 => no loaders (default); 1 => postcss-loader; 2 => postcss-loader, sass-loader
-            }
-          },
-          'postcss-loader', // adds vendor prefixes
-          'sass-loader' // compiles Sass to CSS, using Node Sass by default
-        ]
+        use: ExtractTextPlugin.extract({
+          fallback: 'style-loader',
+          use: [
+            {
+              loader: 'css-loader',
+              options: {
+                modules: true,
+                sourceMap: true,
+                importLoaders: 2,
+                localIdentName: '[name]_[local]__[hash:8]'
+              }
+            },
+            'sass-loader'
+          ]
+        })
       },
       {
         test: [/\.bmp$/, /\.gif$/, /\.jpe?g$/, /\.png$/],
@@ -58,7 +81,7 @@ module.exports = {
         ]
       },
       {
-        test: /\.(json)$/i,
+        test: /\.json$/,
         use: [
           {
             loader: 'file-loader',
@@ -70,5 +93,5 @@ module.exports = {
       }
     ]
   },
-  plugins: [htmlPlugin]
+  plugins: [htmlPlugin, copyPlugin, extractPlugin]
 }

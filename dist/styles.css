@@ -1,0 +1,57 @@
+.Header_header__4d89aed8 img {
+  width: 100%; }
+.App_container__786891c2 {
+  font-size: 62.5%;
+  border: solid 2px #cccccc;
+  width: 30%; }
+.Form_formContainer__3cf62e2c {
+  font-size: 1.3rem;
+  text-align: center;
+  font-family: Arial, Helvetica, sans-serif; }
+  .Form_formContainer__3cf62e2c fieldset {
+    margin: 0;
+    border: none;
+    border-bottom: solid 1px #ccc; }
+    .Form_formContainer__3cf62e2c fieldset p, .Form_formContainer__3cf62e2c fieldset label {
+      font-size: 1.3rem; }
+    .Form_formContainer__3cf62e2c fieldset label {
+      display: block;
+      padding-bottom: 5px; }
+    .Form_formContainer__3cf62e2c fieldset input, .Form_formContainer__3cf62e2c fieldset select {
+      display: block;
+      border: solid 1px #ccc;
+      background-color: transparent;
+      width: 90%;
+      min-height: 35px;
+      margin: 0 auto;
+      font-size: 1.0rem;
+      border-radius: 5px; }
+    .Form_formContainer__3cf62e2c fieldset select {
+      height: 35px;
+      line-height: 35px; }
+    .Form_formContainer__3cf62e2c fieldset input[type="number"] {
+      width: 40%;
+      text-align: center; }
+    .Form_formContainer__3cf62e2c fieldset input[type="radio"] {
+      width: 20%; }
+  .Form_formContainer__3cf62e2c .Form_helperText__d66d035a {
+    font-size: 1.0rem;
+    color: #888888; }
+.CalculationFooter_calculationFooter__31565b34 {
+  background-color: #595959;
+  color: #ffffff;
+  padding: 15px;
+  font-size: 1.6rem; }
+  .CalculationFooter_calculationFooter__31565b34 p {
+    margin-top: 0;
+    font-size: 1.3rem; }
+.Radio_radioGroup__43ac1a0d fieldset {
+  text-align: left; }
+  .Radio_radioGroup__43ac1a0d fieldset p:not(:first-child):not(:last-child) {
+    width: 60%;
+    margin: 0 auto; }
+    .Radio_radioGroup__43ac1a0d fieldset p:not(:first-child):not(:last-child) label, .Radio_radioGroup__43ac1a0d fieldset p:not(:first-child):not(:last-child) input[type="radio"] {
+      display: inline-block;
+      width: auto; }
+    .Radio_radioGroup__43ac1a0d fieldset p:not(:first-child):not(:last-child) input[type="radio"] {
+      margin-right: 10px; }

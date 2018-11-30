@@ -36,7 +36,8 @@
       width: 20%; }
   .Form_formContainer__3cf62e2c .Form_helperText__d66d035a {
     font-size: 1.0rem;
-    color: #888888; }
+    color: #888888;
+    width: 100%; }
 .CalculationFooter_calculationFooter__31565b34 {
   background-color: #595959;
   color: #ffffff;
@@ -47,11 +48,11 @@
     font-size: 1.3rem; }
 .Radio_radioGroup__43ac1a0d fieldset {
   text-align: left; }
-  .Radio_radioGroup__43ac1a0d fieldset p:not(:first-child):not(:last-child) {
+  .Radio_radioGroup__43ac1a0d fieldset p:not(:first-child) {
     width: 60%;
     margin: 0 auto; }
-    .Radio_radioGroup__43ac1a0d fieldset p:not(:first-child):not(:last-child) label, .Radio_radioGroup__43ac1a0d fieldset p:not(:first-child):not(:last-child) input[type="radio"] {
+    .Radio_radioGroup__43ac1a0d fieldset p:not(:first-child) label, .Radio_radioGroup__43ac1a0d fieldset p:not(:first-child) input[type="radio"] {
       display: inline-block;
       width: auto; }
-    .Radio_radioGroup__43ac1a0d fieldset p:not(:first-child):not(:last-child) input[type="radio"] {
+    .Radio_radioGroup__43ac1a0d fieldset p:not(:first-child) input[type="radio"] {
       margin-right: 10px; }

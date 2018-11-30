@@ -9,7 +9,9 @@ import React from 'react'
  */
 function handleOnChange (dispatch) {
   return (e) => {
-    const {name, value} = e.target
+    let {name, value} = e.target
+    // sets to 0 if value is negative
+    value = value < 0 ? 0 : value
     dispatch({[name]: value})
   }
 }

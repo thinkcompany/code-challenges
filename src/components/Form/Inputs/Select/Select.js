@@ -1,4 +1,7 @@
 import React, {PureComponent} from 'react'
+import { TIME_OF_RIDE_VALUES, FORM_NAMES, PURCHASE_LOCATION_VALUES } from '../../FormConstants/FormConstants'
+import styles from './Select.sass'
+import formStyles from '../../Form.sass'
 
 class Select extends PureComponent {
   constructor (props) {
@@ -9,15 +12,23 @@ class Select extends PureComponent {
   renderZoneOptions () {
     const {data} = this.props
     if (!data) return
-    return data.zones.map(zone => <option key={zone.zone} value={zone.zone}>{zone.name}</option>)
+    return data.zones.map(zone => {
+      return <option key={zone.zone} value={zone.zone}>{zone.name}</option>
+    })
   }
 
   renderRideTimeOptions () {
-    const {data} = this.props
+    const {data, context} = this.props
     if (!data) return
     const {advance_purchase, onboard_purchase, ...filtered} = data.info
     const keysToArr = Object.keys(filtered)
-    return keysToArr.map(option => <option key={option} value={option}>{option}</option>)
+    return keysToArr.map(option => {
+      // if the purchase location is onboard then we'll need to disable the anytime location
+      // as anytime ride times are only available for advance purchase
+      let isDisabled = context[FORM_NAMES.purchaseLocation] === PURCHASE_LOCATION_VALUES.onboard
+      isDisabled = option === TIME_OF_RIDE_VALUES.anytime && isDisabled
+      return <option key={option} value={option} disabled={isDisabled}>{option}</option>
+    })
   }
 
   handleChange (e) {
@@ -35,9 +46,9 @@ class Select extends PureComponent {
   render () {
     const {name, children, id, data, value, isRideTime} = this.props
     return (
-      <div>
+      <div className={styles.select}>
         <fieldset>
-          <label htmlFor={name}>{children}</label>
+          <label htmlFor={id}>{children}</label>
           <select
             name={name}
             id={id}
@@ -52,7 +63,7 @@ class Select extends PureComponent {
             }
           </select>
           { isRideTime &&
-            <p>
+            <p className={formStyles.helperText}>
               {this.helperText()}
             </p>
           }

@@ -3,7 +3,6 @@ import logo from './imgs/logo.png'
 import styles from './Header.sass'
 
 const Header = () => {
-  console.log(styles)
   return (
     <header className={styles.header}>
       <img className={styles.img} src={logo} alt='Septa Regional Rail Fares' />

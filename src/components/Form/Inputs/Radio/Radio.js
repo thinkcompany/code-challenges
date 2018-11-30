@@ -1,22 +1,12 @@
 import React from 'react'
-import {FORM_NAMES} from '../../Form'
+import styles from './Radio.sass'
 
-function handleOnChange (dispatch) {
-  return (e) => {
-    const {name, value} = e.target
-    dispatch({[name]: value})
-  }
-}
-
-export const RadioInput = ({id, name, value, children, context}) => (
+export const RadioInput = ({id, children, ...props}) => (
   <p>
     <input
       type='radio'
       id={id}
-      name={name}
-      value={value}
-      checked={context[FORM_NAMES.purchaseLocation] === value}
-      onChange={handleOnChange(context.dispatch)}
+      {...props}
     />
     <label htmlFor={id}>{children}</label>
   </p>
@@ -24,7 +14,7 @@ export const RadioInput = ({id, name, value, children, context}) => (
 
 const RadioGroup = ({children}) => {
   return (
-    <div>
+    <div className={styles.radioGroup}>
       <fieldset>
         {children}
       </fieldset>

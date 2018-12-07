@@ -1,0 +1,99 @@
+.septa-fare-calculator__container {
+  font-family: proxima-nova, sans-serif;
+  font-size: 18px;
+  color: #4d4d4d;
+  line-height: 1.5;
+  max-width: 640px;
+  border: 3px solid #cccccc;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.septa-fare-calculator__header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.septa-fare-calculator__header,
+.septa-fare-calculator__footer {
+  background-color: #595959;
+  color: #fff;
+  padding: 20px;
+}
+
+.septa-fare-calculator__footer {
+  text-align: center;
+}
+
+.septa-fare-calculator__logo {
+  width: 40px;
+  height: 30px;
+}
+
+.septa-fare-calculator__headline {
+  padding-left: 10px;
+
+  margin: 0;
+  font-weight: 600;
+  font-size: 1.414em;
+}
+
+.septa-fare-calculator__field {
+  display: flex;
+  flex-flow: column nowrap;
+  padding: 20px;
+  border-bottom: 1px solid #e6e6e6;
+}
+
+.septa-fare-calculator__field fieldset {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+.septa-fare-calculator__question {
+  display: block;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  margin-bottom: 1em;
+  text-align: center;
+}
+
+.septa-fare-calculator__dropdown,
+.septa-fare-calculator__input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #bfbfbf;
+  border-radius: 5px;
+  color: #4d4d4d;
+}
+
+.septa-fare-calculator__dropdown {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background: #fff;
+  font-family: proxima-nova, sans-serif;
+}
+
+.septa-fare-calculator__input {
+  width: inherit;
+  align-self: center;
+}
+
+.septa-fare-calculator__radio-label {
+  padding-left: 10px;
+}
+
+.septa-fare-calculator__time--helper {
+  font-size: 0.707em;
+  color: #808080;
+  margin-top: 1em;
+  text-align: center;
+}
+
+.septa-fare-calculator__result {
+  font-size: 2.827em;
+  font-weight: 600;
+}

@@ -1,10 +1,63 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-US">
 <head>
-	<meta charset="UTF-8">
-	<title>SEPTA Regional Rail Fare Calculator</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <meta id="meta" name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Regional Rail Fares</title>
+  <link href="normalize.min.css" rel="stylesheet">
+  <link href="https://use.typekit.net/rgf0bva.css" rel="stylesheet">
+  <link href="style.css" rel="stylesheet">
+  <!-- jQuery in the header to prevent delay when loading page -->
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
 </head>
+
 <body>
-	
+  <div class="septa-fare-calculator__container">
+    <div class="septa-fare-calculator__header">
+      <img src="septa.svg" class="septa-fare-calculator__logo" alt="SEPTA logo">
+      <h1 class="septa-fare-calculator__headline">Regional Rail Fares</h1>
+    </div>
+    <div class="septa-fare-calculator__body">
+      <form class="septa-fare-calculator__form">
+        <div class="septa-fare-calculator__field">
+          <label for="septa-fare-calculator__zone" class="septa-fare-calculator__question">Where are you going?</label>
+          <select id="septa-fare-calculator__zone" class="septa-fare-calculator__dropdown">
+          </select>
+        </div>
+        <div class="septa-fare-calculator__field">
+          <label for="septa-fare-calculator__time" class="septa-fare-calculator__question">When are you riding?</label>
+          <select id="septa-fare-calculator__time" class="septa-fare-calculator__dropdown">
+            <option value="weekday">Weekdays</option>
+            <option value="evening_weekend">Evenings / Weekends</option>
+          </select>
+          <div class="septa-fare-calculator__time--helper"></div>
+        </div>
+        <div class="septa-fare-calculator__field">
+          <fieldset>
+          <legend class="septa-fare-calculator__question">Where will you purchase the fare?</legend>
+            <div class="septa-fare-calculator__radio-button">
+              <input type="radio" name="purchase-location" id="septa-fare-calculator__purchase-location--station" value="advance_purchase">
+              <label for="septa-fare-calculator__purchase-location--station" class="septa-fare-calculator__radio-label">Station Kiosk</label>
+            </div>
+            <div class="septa-fare-calculator__radio-button">
+              <input type="radio" name="purchase-location" id="septa-fare-calculator__purchase-location--onboard" value="onboard_purchase" checked>
+              <label for="septa-fare-calculator__purchase-location--onboard" class="septa-fare-calculator__radio-label">Onboard</label>
+            </div>
+          </fieldset>
+        </div>
+        <div class="septa-fare-calculator__field">
+          <label for="septa-fare-calculator__ride-count" class="septa-fare-calculator__question">How many rides will you need?</label>
+          <input type="number" id="septa-fare-calculator__ride-count" class="septa-fare-calculator__input" aria-required="true">
+        </div>
+      </form>
+      <div class="septa-fare-calculator__footer">
+        <div>Your fare will cost</div>
+        <div class="septa-fare-calculator__result"></div>
+        <div class="septa-fare-calculator__anytime"></div>
+      </div>
+    </div>
+  </div>
+  <script src="septa-fare-calculator.js"></script>
 </body>
 </html>

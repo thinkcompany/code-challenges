@@ -1,9 +1,12 @@
-// Wait for document to load before beginning
 $(document).ready(function () {
 
-  // Retrieve data from json file
-  let response = $.getJSON("fares.json", function(response) {
-    return response;
+  let response = $.ajax({
+    url: "fares.json",
+    dataType: "json",
+    async: false,
+    success: function(data) {
+      return data;
+    }
   });
 
   let info = response.info;
@@ -27,7 +30,7 @@ $(document).ready(function () {
   //Populate helper info for times
   function getHelperInfo() {
     let helperText = $septaTimes.val();
-    let helperInfo = fares.info[helperText];
+    let helperInfo = info[helperText];
     $septaTimesHelper.text(helperInfo);
   }
 
@@ -121,17 +124,17 @@ $(document).ready(function () {
         }
         else $septaFareAnytime.text("");
       }
-
       $septaFareResult.text(selectedCost);
     }
-
-    populateZoneDropdown(zones);
-    getHelperInfo();
   }
 
+  populateZoneDropdown(zones);
+  getHelperInfo();
+
+
+  // Event listeners
   $($septaTimes).on("change", getHelperInfo);
 
-  //FIX THIS ONE
   $("input[name=purchase-location]").on("change", function() {
     $septaPurchaseLocation = $("input[name='purchase-location']:checked");
     calculateSeptaFare();

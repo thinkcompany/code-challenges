@@ -6,7 +6,7 @@ It is responsive - assuming it would end up on a page with other widgets, I kept
 
 With more time I would have:
 
-*Finished styling (especially drop-down).
+*Finished styling (especially drop-down), add favicon.
 
 *Calculated the cost for anytime tickets in groups of ten, and then add the cost for the remaining tickets, to make the calculator more accurate.
 

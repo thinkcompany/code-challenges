@@ -2,7 +2,7 @@
 $(document).ready(function () {
 
   // Retrieve data from json file
-  $.getJSON("fares.json", function(response) {
+  let response = $.getJSON("fares.json", function(response) {
     return response;
   });
 

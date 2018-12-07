@@ -1,16 +1,17 @@
 $(document).ready(function () {
 
-  let response = $.ajax({
-    url: "fares.json",
-    dataType: "json",
-    async: false,
-    success: function(data) {
-      return data;
-    }
+  let fares,
+  info,
+  zones;
+  // Retrieve data from json file
+  $.getJSON("fares.json", function(response) {
+      fares = response;
+      info = fares.info;
+      zones = fares.zones;
+      populateZoneDropdown(fares.zones);
+      getHelperInfo();
   });
 
-  let info = response.info;
-  let zones = response.zones;
   let $septaZones = $("#septa-fare-calculator__zone");
   let $septaTimes = $("#septa-fare-calculator__time");
   let $septaTimesHelper = $(".septa-fare-calculator__time--helper");
@@ -127,10 +128,6 @@ $(document).ready(function () {
       $septaFareResult.text(selectedCost);
     }
   }
-
-  populateZoneDropdown(zones);
-  getHelperInfo();
-
 
   // Event listeners
   $($septaTimes).on("change", getHelperInfo);

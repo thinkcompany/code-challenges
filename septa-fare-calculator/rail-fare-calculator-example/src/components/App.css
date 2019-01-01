@@ -1,0 +1,113 @@
+.app {
+  max-width: 450px;
+  text-align: center;
+  margin: auto;
+  border: 4px solid #cccccc;
+  color: #595959;
+}
+
+.app-header {
+  height: 50px;
+  background: #595959;
+  color: #ffffff;
+  font-size: 26px;
+  font-weight: bold;
+  line-height: 50px;
+}
+
+.form-container {
+  color: #595959;
+}
+
+.form-section {
+  border-bottom: 1px solid #595959;
+  padding: 20px;
+}
+
+.form-section h2 {
+  font-weight: normal;
+  font-size: 22px;
+  margin-top: 0px;
+}
+
+.result {
+  background-color: #595959;
+  color: white;
+  padding: 5px;
+}
+
+.dropdown-menu {
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  overflow: hidden;
+  text-align: left;
+  position: relative;
+}
+
+.dropdown-menu select {
+  width: 100%;
+  height: 100%;
+  padding: 5px 20px;
+  font-size: 20px;
+  color: #595959;
+  border: none;
+  box-shadow: none;
+  background: transparent;
+  background-image: none;
+  -webkit-appearance: none;
+}
+
+.dropdown-menu:after {
+  position: absolute;
+  content: "";
+  top: 14px;
+  right: 10px;
+  width: 0;
+  height: 0;
+  border: 6px solid transparent;
+  border-color: #595959 transparent transparent transparent;
+}
+
+.dropdown-menu select:focus {
+  outline: none;
+}
+
+.shop-select {
+  display: inline-block;
+  text-align: left;
+}
+
+.shop-select > div {
+  margin-bottom: 7px;
+}
+
+label {
+  padding-left: 10px;
+}
+
+.info-text {
+  margin-bottom: 0;
+}
+
+input.rides-count {
+  width: 60px;
+  padding: 6px 0;
+  border-radius: 3px;
+  background-color: #fffefe;
+  text-align: center;
+  font-size: 22px;
+  padding-left: 15px;
+  border: 1px solid #bfbfbf;
+}
+
+.total-price-text {
+  font-weight: normal;
+  margin: 10px 0;
+}
+
+.total-price {
+  font-size: 42px;
+  font-weight: bold;
+  min-height: 48px;
+  margin: 15px 0;
+}

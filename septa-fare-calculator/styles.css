@@ -19,6 +19,13 @@ p{
     background-color: #555;
     color: white;
 }
+
+.form-header img{
+    height: 35px;
+    transform: translateY(5px);
+    
+}
+
 .form-control{
     padding: 10px 5px;
     border-bottom: 2px solid #ddd;

@@ -73,7 +73,7 @@ $(document).ready(function(){
       
       //add rides
       //unexplained delay sometimes on this change event:
-      $("#quantity").on('change', function(){
+      $("#quantity").on('input', function(){
             console.log($(this));
             $('#output').text(parseFloat($(this).val()*total).toFixed(2));
       })

@@ -12,7 +12,7 @@
 <body>
     <form class="calculator">
         <div class="form-header">
-           <h2>Regional Rail Fairs</h2>
+           <h2>Regional Rail Fares</h2>
         </div>
         <div class="form-control">
            <p> Where are you going?</p>
@@ -46,7 +46,7 @@
             <p>Where will you purchase the fare?</p>
                 <div class="radio-container">
                     <input checked type="radio" name="where" id="kiosk" value="kiosk">
-                    <label for="where">Standard Kiosk</label>
+                    <label for="where">Station Kiosk</label>
                 </div>  
                 <div class="radio-container">
                     <input type="radio" name="where" id="onboard" value="onboard">
@@ -56,12 +56,12 @@
         </div>
         <div class="form-control last">
             <p>How many rides do you need?</p>
-            <input class="number-input" type="number" min="0" />
+			<input id="quantity" class="number-input" type="number" min="1" value="1" />
         </div>
         <div class="form-footer">
             <p>Your fare will coast</p>
-            <div id="output" class="output">
-                $23.00
+            <div class="output">
+                $<span id="output">-</span>
             </div>
         </div>
     </form>

@@ -2,7 +2,12 @@
 body{
     font-family:  Verdana, Geneva, Tahoma, sans-serif;
     text-align: center;
-    font-size: 1.5rem;
+    font-size: 1.3rem;
+    margin: 0
+}
+
+p{
+    margin: 2px;
 }
 
 .calculator{
@@ -10,7 +15,7 @@ body{
 }
 
 .form-header, .form-footer{
-    padding: 20px 2%;
+    padding: 20px 1%;
     background-color: #555;
     color: white;
 }
@@ -21,7 +26,7 @@ body{
 
 .form-control select{
     width: 90%;
-    height: 45px;
+    height: 35px;
     margin: 10px auto;
     border-radius: 5px;
     font-size: 1.2rem;
@@ -32,9 +37,12 @@ body{
     margin: 5px auto;
     text-align: left;
 }
+.form-control .radio-container label{
+    font-size: 1rem;
+}
 
 .form-control option{
-    padding: 5px;
+    padding: 3px;
 }
 
 .form-control.last{
@@ -43,7 +51,7 @@ body{
 
 .form-control .number-input{
     width: 20%;
-    height: 45px;
+    height: 35px;
     margin: 0 auto;
     border-radius: 5px;
     font-size: 1.5rem;

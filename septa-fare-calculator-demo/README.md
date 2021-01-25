@@ -4,11 +4,11 @@ Here is a demo project with the Septa Fare Calculator component included. I work
 
 ## Notes:
 
-I realized that since October 2nd 2020, 'anytime' 10 ride fares are no longer available for purchase, so I updated the data in fares.json to relect this.
+I realized that since October 2nd 2020, 'anytime' 10 ride fares are no longer available for purchase, so I updated the data in fares.json to reflect this.
 
-The thing I would like to spend more time on is definitely the CSS. Working on this exercise made me realize how reliant I am upon CSS libarariess, so it is an area I definitely could spend some more time on focusing on.
+The thing I would like to spend more time on is definitely the CSS. Working on this exercise made me realize how reliant I am upon CSS libraries, so it is an area I definitely could spend some more time on focusing on.
 
-I was really unsure about how best to package an individual component for handoff, I did some more reasearch and found [nwb](https://github.com/insin/nwb) which offers a streamlined dev app and an easy way to export componenents for npm publication. If I had known this earlier, I would have started the exercise using that.
+I was really unsure about how best to package an individual component for handoff, I did some more research and found [nwb](https://github.com/insin/nwb) which offers a streamlined dev app and an easy way to export components for npm publication. If I had known this earlier, I would have started the exercise using that.
 
 ## To Run the Demo App
 

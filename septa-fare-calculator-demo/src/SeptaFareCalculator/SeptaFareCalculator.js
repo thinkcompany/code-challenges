@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import "./SeptaFareCalculator.css";
 import Select from "./Select";
 import Input from "./Input";
+import RadioSelect from "./RadioSelect";
 
 const SeptaFareCalculator = () => {
   const [fareInfo, setFareInfo] = useState(null);
@@ -11,6 +12,7 @@ const SeptaFareCalculator = () => {
   const [zoneInput, setZoneInput] = useState(null);
   const [timeInput, setTimeInput] = useState(null);
   const [numberOfRidesInput, setNumberOfRidesInput] = useState(1);
+  const [purchase, setPurchase] = useState(null);
 
   const labels = [
     "Where are you going?",
@@ -35,6 +37,17 @@ const SeptaFareCalculator = () => {
     },
   ];
 
+  const purchaseOptions = [
+    {
+      text: "Onboard",
+      value: "onboard_purchase",
+    },
+    {
+      text: "Station Kiosk",
+      value: "advance_purchase",
+    },
+  ];
+
   const createOptions = (data, value, text) => {
     return data.map((item) => {
       return {
@@ -42,6 +55,11 @@ const SeptaFareCalculator = () => {
         value: item[value],
       };
     });
+  };
+
+  const handleRadioChange = (e) => {
+    console.log(e);
+    console.log(e.target.value);
   };
 
   useEffect(() => {
@@ -78,7 +96,15 @@ const SeptaFareCalculator = () => {
             id="zone-select"
           />
         </div>
-        <div></div>
+        <div>
+          <RadioSelect
+            onChange={(e) => setPurchase(e.target.value)}
+            legend={labels[2]}
+            options={purchaseOptions}
+            id="purchase-select"
+            value={purchase}
+          />
+        </div>
         <div>
           <Input
             label={labels[3]}

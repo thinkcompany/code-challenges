@@ -3,4 +3,9 @@
   max-width: 600px;
   margin: auto;
   text-align: center;
+  font-family: sans-serif;
+}
+
+.input-block {
+  background-color: red;
 }

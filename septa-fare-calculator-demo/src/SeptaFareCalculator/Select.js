@@ -1,10 +1,13 @@
 import PropTypes from "prop-types";
 
 const Select = ({ label, options, onChange, id }) => {
-  console.log("options", options);
   const renderOptions = (options) => {
-    return options.map((option) => {
-      return <option value={option.value}>{option.text}</option>;
+    return options.map((option, index) => {
+      return (
+        <option key={index} value={option.value}>
+          {option.text}
+        </option>
+      );
     });
   };
 

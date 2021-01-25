@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import "./SeptaFareCalculator.css";
 import Select from "./Select";
+import Input from "./Input";
 
 const SeptaFareCalculator = () => {
   const [fareInfo, setFareInfo] = useState(null);
@@ -8,12 +9,30 @@ const SeptaFareCalculator = () => {
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(true);
   const [zoneInput, setZoneInput] = useState(null);
+  const [timeInput, setTimeInput] = useState(null);
+  const [numberOfRidesInput, setNumberOfRidesInput] = useState(1);
 
   const labels = [
     "Where are you going?",
     "When are you riding?",
     "Where will you purchase the fare?",
     "How many rides will you need?",
+  ];
+
+  // TODO: fiogure out how to pull this from incoming data
+  const availableTimes = [
+    {
+      text: "Weekday",
+      value: "weekday",
+    },
+    {
+      text: "Evening/Weekend",
+      value: "evening_weekend",
+    },
+    {
+      text: "Anytime",
+      value: "anytime",
+    },
   ];
 
   const createOptions = (data, value, text) => {
@@ -52,21 +71,21 @@ const SeptaFareCalculator = () => {
           />
         </div>
         <div>
-          <label>When are you riding?</label>
-          <select>
-            <option>Weekdays</option>
-          </select>
+          <Select
+            label={labels[1]}
+            options={availableTimes}
+            onChange={(e) => setTimeInput(e.target.value)}
+            id="zone-select"
+          />
         </div>
+        <div></div>
         <div>
-          <label>Where will you purchase the fare?</label>
-          <label>
-            <input type="radio" value="onboard" />
-            Onboard
-          </label>
-        </div>
-        <div>
-          <label>How many rides will you need?</label>
-          <input type="number" />
+          <Input
+            label={labels[3]}
+            type="number"
+            onChange={(e) => setNumberOfRidesInput(e.target.value)}
+            value={numberOfRidesInput}
+          />
         </div>
         <div>Result</div>
       </div>

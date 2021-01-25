@@ -4,7 +4,13 @@ const Input = ({ label, type, value, onChange, id }) => {
   return (
     <>
       <label htmlfor={id}>{label}</label>
-      <input id={id} onChange={(e) => onChange(e)} type={type} value={value}></input>
+      <input
+        className="septa-input"
+        id={id}
+        onChange={(e) => onChange(e)}
+        type={type}
+        value={value}
+      ></input>
     </>
   );
 };

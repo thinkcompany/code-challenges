@@ -6,6 +6,7 @@ const RadioSelect = ({ onChange, value, options, id, legend }) => {
       return (
         <>
           <input
+            className="radioButton"
             value={option.value}
             checked={value === option.value}
             type="radio"
@@ -13,7 +14,9 @@ const RadioSelect = ({ onChange, value, options, id, legend }) => {
             id={option.text}
             onChange={(e) => onChange(e)}
           />
-          <label for={option.text}>{option.text}</label>
+          <label className="radioLabel" for={option.text}>
+            {option.text}
+          </label>
         </>
       );
     });
@@ -21,7 +24,9 @@ const RadioSelect = ({ onChange, value, options, id, legend }) => {
   return (
     <>
       <legend>{legend}</legend>
-      <fieldset id={id}>{renderOptions(options)}</fieldset>
+      <div id={id} className="radioSelect">
+        {renderOptions(options)}
+      </div>
     </>
   );
 };

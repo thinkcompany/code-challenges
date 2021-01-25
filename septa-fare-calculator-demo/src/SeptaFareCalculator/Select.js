@@ -4,7 +4,7 @@ const Select = ({ label, options, onChange, id }) => {
   const renderOptions = (options) => {
     return options.map((option, index) => {
       return (
-        <option key={index} value={option.value}>
+        <option className="septaOption" key={index} value={option.value}>
           {option.text}
         </option>
       );
@@ -14,7 +14,7 @@ const Select = ({ label, options, onChange, id }) => {
   return (
     <>
       <label htmlFor={id}>{label}</label>
-      <select id={id} onChange={(e) => onChange(e)}>
+      <select className="septa-input" id={id} onChange={(e) => onChange(e)}>
         {renderOptions(options)}
       </select>
     </>

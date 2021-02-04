@@ -1,0 +1,111 @@
+:root {
+    --gray: #c5c5c5;
+    --lightGray: #f9f9f9;   
+    --medGray: #e6e6e6;
+    --darkGray: #737373;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body { 
+    font-size: 16px; 
+}
+
+body {  
+    font-family: 'Roboto', sans-serif;
+    text-align: center;
+    height: 100%;
+}
+
+.widget {
+    margin: 10px auto;
+    display: flex;
+    flex-direction: column;
+    max-width: 450px;
+    border: 3px solid var(--gray);
+    color: var(--darkGray);
+}
+
+.heading {
+    background: var(--darkGray);
+    color: white;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    padding: 15px;
+}
+
+#logo {
+    width: 50px;
+}
+
+.question {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 100%;
+    padding: 20px;
+    border-bottom: 1px solid var(--gray);
+}
+
+.question h2 {
+    margin-bottom: 20px;
+}
+
+.form-control {
+    width: 100%;
+    border: 2px solid var(--gray);
+    border-radius: 5px;
+    padding: 10px;
+    font-size: 1.5rem;
+    color: var(--darkGray);
+}
+
+select:focus {
+    outline: none;
+}
+
+#helper-text {
+    margin-top: 20px;
+    font-size: 0.95rem;
+}
+
+.radio-btns {
+    display: flex;
+    flex-direction: column;
+}
+
+.radio-btn {
+    display: flex;
+    align-items: center;
+    font-size: 1.5rem;
+}
+
+.radio-btn input[type="radio"] {
+    margin-right: 10px;
+}
+
+.question input[type="number"] {
+    width: 25%;
+}
+
+.fare-cost {
+    background: var(--darkGray);
+    color: white;
+}
+
+#cost {
+    font-size: 4rem;
+    font-weight: bold;
+}
+
+#cost-text {
+    margin-top: 15px;
+    font-size: 0.95rem;
+    color: blue;
+}

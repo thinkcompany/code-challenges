@@ -1,0 +1,112 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    text-align: center;
+    font-family: 'Roboto', sans-serif;
+}
+
+h1 {
+    font-size: 1.6em;
+    font-weight: 500;
+}
+
+h2 {
+    font-weight: 500;
+    font-size: 1.1em;
+}
+
+.wrapper {
+    margin: 0 auto;
+    max-width: 20em;
+    border: 3px solid #cccccc;
+}
+
+
+/* Header */
+.septa-header {
+    padding: 0.5em;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    color: #ffffff;
+    background-color: #595959;
+}
+
+.septa-header img {
+    width: 2em;
+}
+
+.text-body {
+    color: #4d4d4d;
+}
+
+
+/* Questions */
+.form-control {
+    border-bottom: 1.5px solid #e6e6e6;
+    padding: 1em;
+}
+
+.selection {
+    margin: 1em 0;
+}
+
+select {
+    padding: 10px;
+    border-radius: 5px;
+    border: 1.5px solid #bfbfbf;
+    width: 100%;
+    color: #4d4d4d;
+    font-size: 1em;
+}
+
+#type-text, #purchase-text {
+    visibility: hidden;
+}
+
+.helper {
+    color: #818181;
+    font-size: 0.7em;
+}
+
+.radio-btns {
+    display: flex;
+    flex-direction: column;
+    padding: 0 5em;
+    font-size: 1em;
+}
+
+.radio {
+    display: flex;
+    align-items: center;
+    padding-bottom: 5px;
+}
+
+.radio input {
+    margin-right: 1em;
+}
+
+input[type="number"] {
+    padding: 10px;
+    border-radius: 5px;
+    border: 1.5px solid #bfbfbf;
+    width: 25%;
+    color: #4d4d4d;
+    font-size: 1.3em;
+    text-align: center;
+}
+
+
+/* Total */
+.fare-total {
+    color: #ffffff;
+    background-color: #595959;
+    padding: 1em;
+}
+
+.fare-total h3 {
+    font-size: 3em;
+}

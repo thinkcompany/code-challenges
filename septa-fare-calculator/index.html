@@ -1,10 +1,79 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<title>SEPTA Regional Rail Fare Calculator</title>
-</head>
-<body>
-	
-</body>
+
+    <head>
+        <meta charset="UTF-8">
+        <title>SEPTA Regional Rail Fare Calculator</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+
+    <body>
+        <div class="wrapper">
+            <header class="septa-header">
+                <img src="img/logo.png" alt="Septa Logo">
+                <h1>Regional Rail Fares</h1>
+            </header>
+
+            <main class="text-body">
+
+                <div class="form-control">
+                    <h2>Where are you going?</h2>
+                    <div class="selection">
+                        <select id="zone">
+                            <option value="" disabled selected>Select Zone</option>
+                            <option value="1">Zone 1</option>
+                            <option value="2">Zone 2</option>
+                            <option value="3">Zone 3</option>
+                            <option value="4">Zone 4</option>
+                            <option value="5">Zone 5</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-control">
+                    <h2>When are you riding?</h2>
+                    <div class="selection">
+                        <select id="type">
+                            <option value="" disabled selected>Select Time</option>
+                            <option value="weekday">Weekdays</option>
+                            <option value="evening_weekend">Evenings/Weekend</option>
+                        </select>
+                    </div>
+                    <p class="helper" id="type-text"></p>
+                </div>
+
+                <div class="form-control">
+                    <h2>Where will you purchase the fare?</h2>
+                    <div class="selection radio-btns">
+                        <div class="radio">
+                            <input type="radio" class="purchase" name="purchase" id="advance_purchase">
+                            <label for="stationkiosk">Station Kiosk</label>
+                        </div>
+                        <div class="radio">
+                            <input type="radio" class="purchase" name="purchase" id="onboard_purchase">
+                            <label for="onboard">Onboard</label>
+                        </div>
+                    </div>
+                    <p class="helper" id="purchase-text"></p>
+                </div>
+
+                <div class="form-control">
+                    <h2>How many rides will you need?</h2>
+                    <div class="selection">
+                        <input type="number" id="trips">
+                    </div>
+                    <p class="helper">Special pricing available for 10-trip tickets.</p>
+                </div>
+            </main>
+
+            <footer class="fare-total">
+                <h2>Your fare will cost</h2>
+                <h3 id="fare-cost">$0.00</h3>
+            </footer>
+        </div>
+
+
+        <script src="script.js"></script>
+    </body>
+
 </html>

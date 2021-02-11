@@ -8,7 +8,7 @@
 <body>
 	<div class="widget">
 		<div class="heading">
-			<img id="logo" src="./img/septa-logo.png" alt="Septa logo"/>
+			<img class="logo" src="./img/septa-logo.png" alt="Septa logo"/>
 			<h1>Regional Rail Fares</h1>
 		</div>
 
@@ -16,7 +16,7 @@
 			
 			<!--  Zone Selection  -->
 			<div class="question">
-				<h2>Where are you going?</h2>
+				<label for="zone" class="label">Where are you going?</label>
 				<select id="zone" name="zone" class="form-control" onchange="calculateFare(this)">
 					<option value="">Select Zone</option>
 				</select>
@@ -24,7 +24,7 @@
 
 			<!--  Time Selection  -->
 			<div class="question">
-				<h2>When are you riding?</h2>
+				<label for="time" class="label">When are you riding?</label>
 				<select id="time" name="time" class="form-control" onchange="calculateFare(this)">
 					<option value="">Select Time</option>
 					<option value="weekday">Weekdays</option>
@@ -36,20 +36,23 @@
 
 			<!--  Ticket Purchase Place Selection  -->
 			<div class="question">
-				<h2>Where will you purchase the fare?</h2>
+				<h2 class="label">Where will you purchase the fare?</h2>
 				<div class="radio-btns">
-					<div class="radio-btn" id="advance-purchase">
-						<input type="radio" name="location" value="advance_purchase" onchange="calculateFare(this)">Station Kiosk
+					<div class="radio-btn">
+						<input type="radio" id="station-kiosk" name="location" value="advance_purchase" onchange="calculateFare(this)">
+						<label for="station-kiosk">Station Kiosk</label>
 					</div>
 					<div class="radio-btn">
-						<input type="radio" name="location" id="onboard-purchase" value="onboard_purchase" onchange="calculateFare(this)">Onboard
+						<input type="radio" name="location" id="onboard-purchase" value="onboard_purchase" onchange="calculateFare(this)">
+						<label for="onboard-purchase">Onboard</label>
 					</div>
 				</div>
+				<p id="purchase-text"></p>
 			</div>
 
 			<!--  Number of Rides Selection  -->
 			<div class="question">
-				<h2>How many rides will you need?</h2>
+				<label for="rides" class="label">How many rides will you need?</label>
 				<input class="form-control" type="number" id="rides" name="rides" min="1" max="10" onchange="calculateFare(this)" onkeyup="validateNumber(this)">
 			</div>
 

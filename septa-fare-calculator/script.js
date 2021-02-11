@@ -12,6 +12,9 @@ fetch(url)
         //fill up zones
         fillZones(fareData.zones);
     })
+    .catch(err => {
+        alert('Something went wrong: ' + err);
+    })
 
 const fillZones = zones => {
     const zone = document.getElementById('zone');
@@ -30,36 +33,38 @@ const calculateFare = (e) => {
     cost.innerHTML = "";
     costText.innerHTML = "";
 
-    if (validInput(e)) {
+    if (validInput(e) && receivedAllData()) {
         // if we have all the information, then filter the correct information from the json data
-        // and calculate and display cost
-        if (inputData.zone && inputData.time && inputData.location && inputData.rides) {
-            let zoneData = fareData.zones.filter(z => z.zone === parseInt(inputData.zone))[0];
-            let result = zoneData.fares.filter(({type, purchase}) => 
-                            type === inputData.time && purchase === inputData.location);
+        let [zoneData, result] = getFilteredData();
 
-            //get the cost element and display calculated price
-            if (parseInt(inputData.rides) === 10) {
-                if  (inputData.time === 'anytime')
-                    cost.innerHTML = "$" + result[0].price;
-                else {
-                    //display current price
-                    cost.innerHTML = "$" + result[0].price * parseInt(inputData.rides);   
+        //get the cost element and display calculated price
+        if (inputData.time !== 'anytime')
+            cost.innerHTML = "$" + result[0].price * parseInt(inputData.rides);
+        else   //if 10 rides are selected, show anytime price                
+            cost.innerHTML = "$" + result[0].price;
 
-                    //also display price if an upgrad to anytime ticket will be cheaper 
-                    let anytimeResult = zoneData.fares.filter(({type}) => type === "anytime")                        
-                    if (result[0].price * parseInt(inputData.rides) > anytimeResult[0].price) {
-                        console.log(result[0].price * parseInt(inputData.rides))
-                        console.log(anytimeResult[0].price)
-                        costText.innerHTML = "Upgrade to Anytime ticket for a special price of $" + 
-                                             anytimeResult[0].price + " for 10 tickets, purchased at the Kiosk";
-                    }
-                }
-            }
-            else
-                cost.innerHTML = "$" + result[0].price * parseInt(inputData.rides);
+        //also display price if an upgrade to anytime ticket will be cheaper 
+        if (inputData.time !== 'anytime' && parseInt(inputData.rides) === 10) {
+            let anytimeResult = zoneData.fares.filter(({type}) => type === "anytime")                        
+            if (result[0].price * parseInt(inputData.rides) > anytimeResult[0].price) 
+                costText.innerHTML = "Upgrade to Anytime ticket for a special price of $" + 
+                                     anytimeResult[0].price + " for 10 tickets, purchased at the Kiosk";
         }
     }
+}
+
+const receivedAllData = () => {
+    if (inputData.zone && inputData.time && inputData.location && inputData.rides)
+        return true;
+    else
+        return false;
+}
+
+const getFilteredData = () => {
+    let zoneData = fareData.zones.filter(z => z.zone === parseInt(inputData.zone))[0];
+    let result = zoneData.fares.filter(({type, purchase}) => 
+                    type === inputData.time && purchase === inputData.location);
+    return [zoneData, result];
 }
 
 const validInput = (e) => {
@@ -68,10 +73,12 @@ const validInput = (e) => {
         const helperText = document.getElementById('helper-text');
         helperText.innerHTML = e.value !== "" ? fareData.info[e.value] : "";
 
-        //disable onboard purchase for anytime, 
-        //and restrict trips to 10, these can also be done as multiples of 10 (but not implemented)
         const onboard = document.getElementById('onboard-purchase');
         const rides = document.getElementById('rides');
+        const purchaseText = document.getElementById('purchase-text');
+
+        //disable onboard purchase for anytime, 
+        //and restrict trips to 10, these can also be done as multiples of 10 (but not implemented)
         if (e.value === "anytime") {
             //disable onboard option
             onboard.disabled = true;
@@ -83,10 +90,12 @@ const validInput = (e) => {
             rides.disabled = true;
             rides.value = 10;
             inputData.rides = 10;
+            purchaseText.innerHTML = "Anytime tickets can only be purchased at the kiosk"
         }
         else {
             onboard.disabled = false;
             rides.disabled = false;
+            purchaseText.innerHTML = "";
         }
     }
 

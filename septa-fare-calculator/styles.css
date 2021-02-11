@@ -1,10 +1,3 @@
-:root {
-    --gray: #c5c5c5;
-    --lightGray: #f9f9f9;   
-    --medGray: #e6e6e6;
-    --darkGray: #737373;
-}
-
 * {
     margin: 0;
     padding: 0;
@@ -26,12 +19,12 @@ body {
     display: flex;
     flex-direction: column;
     max-width: 450px;
-    border: 3px solid var(--gray);
-    color: var(--darkGray);
+    border: 3px solid #c5c5c5;
+    color: #737373;
 }
 
 .heading {
-    background: var(--darkGray);
+    background: #737373;
     color: white;
     display: flex;
     justify-content: space-evenly;
@@ -39,7 +32,7 @@ body {
     padding: 15px;
 }
 
-#logo {
+.logo {
     width: 50px;
 }
 
@@ -50,24 +43,21 @@ body {
     align-items: center;
     width: 100%;
     padding: 20px;
-    border-bottom: 1px solid var(--gray);
+    border-bottom: 1px solid #c5c5c5;
 }
 
-.question h2 {
+.question .label {
     margin-bottom: 20px;
+    font-size: 1.5rem;
 }
 
 .form-control {
     width: 100%;
-    border: 2px solid var(--gray);
+    border: 2px solid #c5c5c5;
     border-radius: 5px;
     padding: 10px;
     font-size: 1.5rem;
-    color: var(--darkGray);
-}
-
-select:focus {
-    outline: none;
+    color: #737373;
 }
 
 #helper-text {
@@ -95,7 +85,7 @@ select:focus {
 }
 
 .fare-cost {
-    background: var(--darkGray);
+    background: #737373;
     color: white;
 }
 

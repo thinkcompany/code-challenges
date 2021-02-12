@@ -1,3 +1,10 @@
+@-ms-viewport {
+    width:device-width;
+}
+@viewport {
+    width:device-width;
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -49,6 +56,11 @@ body {
 .question .label {
     margin-bottom: 20px;
     font-size: 1.5rem;
+    font-weight: bold;
+}
+
+fieldset {
+    border: none;
 }
 
 .form-control {
@@ -94,7 +106,7 @@ body {
     font-weight: bold;
 }
 
-#cost-text {
+.text {
     margin-top: 15px;
     font-size: 0.95rem;
     color: blue;

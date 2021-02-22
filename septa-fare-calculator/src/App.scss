@@ -1,0 +1,91 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.faresContainer {
+  border: 3px solid lightgray;
+  margin: 35px auto;
+  text-align: center;
+  max-width: 410px;
+  h1 {
+    font-size: 1.9rem;
+  }
+  .header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 70px;
+    color: white;
+    background: grey;
+    img {
+      height: 35px;
+      margin-right: 20px;
+    }
+  }
+
+  .inputContainer {
+    height: 145px;
+    border: 1px solid lightgray;
+    opacity: 80%;
+    > label:first-child {
+      font-size: 1.5rem;
+      display: block;
+      font-weight: 500;
+      margin-top: 20px;
+      color: #0d1117;
+    }
+    select {
+      height: 51px;
+      margin-top: 17px;
+      width: 357px;
+      font-size: 1.3rem;
+      padding-left: 17px;
+    }
+  }
+  .inputContainer:nth-of-type(3) {
+    height: 180px;
+    p {
+      margin: 14px auto 0;
+      color: gray;
+      width: 300px;
+    }
+  }
+  .inputContainer:nth-of-type(4) {
+    > label {
+      margin-bottom: 18px;
+    }
+    div {
+      display: block;
+      font-size: 1.4rem;
+      input {
+        height: 16px;
+        width: 16px;
+        margin-right: 6px;
+      }
+    }
+  }
+  .inputContainer:nth-of-type(5) {
+    input {
+      height: 54px;
+      margin-top: 21px;
+      font-size: 1.7rem;
+      text-align: center;
+      width: 136px;
+    }
+  }
+
+  .resultContainer {
+    background: gray;
+    color: white;
+    height: 155px;
+    h2 {
+      padding-top: 25px;
+    }
+    p {
+      font-size: 4rem;
+      font-weight: 700;
+    }
+  }
+}

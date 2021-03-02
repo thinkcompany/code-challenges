@@ -2,6 +2,8 @@
 
 Thank you for taking the time to look over my code. I chose to complete the challenge via React component. See septa-fare-calculator/src/FareCalculator.js for my component.
 
+This took me about 2.5 hours.
+
 ### Instructions
 
 To spin up locally:

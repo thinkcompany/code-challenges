@@ -1,0 +1,80 @@
+body {
+  font-family: sans-serif;
+}
+
+.fare-widget-card {
+  width: 30%;
+  min-width: 320px;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  border: 1px solid #ccc;
+}
+
+.fare-widget-header {
+  background-color: #595959;
+  border: 1px solid #ccc;
+}
+
+.fare-widget-title {
+  font-size: 1.5rem;
+  color: #fff;
+}
+
+.fare-widget-section {
+  padding: 1rem;
+  color: #4d4d4d;
+}
+
+.fare-widget-question {
+  display: block;
+  font-weight: bold;
+  padding-bottom: 0.5rem;
+}
+
+.fare-widget-select {
+  width: 100%;
+  margin: 0.5rem 0 0.5rem 0;
+  padding: 0.5rem;
+  color: #4d4d4d;
+}
+
+.fare-widget-helper-text {
+  padding: 0.5rem;
+  font-size: 0.75rem;
+  color: #808080;
+}
+
+.fare-widget-divider {
+  margin: 0;
+  color: #e6e6e6;
+}
+
+.fare-widget-warning-text {
+  padding: 0.5rem;
+  font-size: 0.75rem;
+  color: #dea807;
+}
+
+.fare-widget-number-input {
+  width: 30%;
+  margin-top: 0.5rem;
+  padding: 0.5rem;
+  text-align: center;
+  color: #4d4d4d;
+}
+
+.fare-widget-footer {
+  padding: 1rem;
+  background-color: #595959;
+}
+
+.fare-widget-price-message {
+  font-weight: bold;
+  color: #fff;
+}
+
+.fare-widget-price {
+  color: #fff;
+  font-size: 3rem;
+}

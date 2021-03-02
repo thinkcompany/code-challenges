@@ -93,30 +93,32 @@ export const FareCalculator = () => {
           <div className="septa-fare-calc-flexbox">
             <div className="septa-fare-calc-text-align">
               <h4>Where will you purchase the fare?</h4>
-              <div>
-                <label>
-                  <input
-                    type="radio"
-                    name="purchase"
-                    value="advance_purchase"
-                    onChange={onChangePurchase}
-                    checked={purchase === "advance_purchase"}
-                  />
-                  Station Kiosk
-                </label>
-              </div>
-              <div>
-                <label>
-                  <input
-                    type="radio"
-                    name="purchase"
-                    value="onboard_purchase"
-                    onChange={onChangePurchase}
-                    checked={purchase === "onboard_purchase"}
-                    disabled={type === "anytime"}
-                  />
-                  Onboard
-                </label>
+              <div className="septa-fare-calculator-radio-buttons-container">
+                <div>
+                  <label>
+                    <input
+                      type="radio"
+                      name="purchase"
+                      value="advance_purchase"
+                      onChange={onChangePurchase}
+                      checked={purchase === "advance_purchase"}
+                    />
+                    Station Kiosk
+                  </label>
+                </div>
+                <div>
+                  <label>
+                    <input
+                      type="radio"
+                      name="purchase"
+                      value="onboard_purchase"
+                      onChange={onChangePurchase}
+                      checked={purchase === "onboard_purchase"}
+                      disabled={type === "anytime"}
+                    />
+                    Onboard
+                  </label>
+                </div>
               </div>
               <p className="septa-fare-calc-detail-text">
                 {farePrices.info[purchase]}

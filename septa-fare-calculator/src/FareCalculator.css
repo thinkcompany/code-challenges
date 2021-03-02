@@ -70,3 +70,8 @@
 .septa-fare-calc-danger-text {
   color: white;
 }
+
+.septa-fare-calculator-radio-buttons-container {
+  text-align: left;
+  padding: 0 60px;
+}

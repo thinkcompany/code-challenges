@@ -72,6 +72,9 @@
 }
 
 .septa-fare-calculator-radio-buttons-container {
-  text-align: left;
-  padding: 0 60px;
+  margin: 0 60px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
 }

@@ -30,11 +30,9 @@ export const FareCalculator = () => {
     setType(e.target.value);
   };
   const onChangePurchase = (e) => setPurchase(e.target.value);
-  const onChangeTrips = (e) => {
-    setTrips(Number.parseInt(e.target.value));
-  };
+  const onChangeTrips = (e) => setTrips(Number.parseInt(e.target.value));
 
-  // calculate fare, possible savings, check
+  // calculate fare, possible savings, check if multiples of 10 for anytime tix
   const fare = calculateFarePerTrip(farePrices, zone, type, purchase) * trips;
   const savingsPerTrip = checkForSavings(farePrices, zone, trips, fare);
   const validFare = checkIfValidFare(fare, type, trips);
@@ -175,7 +173,7 @@ const calculateFarePerTrip = (farePrices, zone, type, purchase) => {
 };
 
 const checkForSavings = (farePrices, zone, trips, currentFarePrice) => {
-  if (trips < 10) return false;
+  if (!farePrices || trips < 10) return false;
   else {
     const anytimeRate =
       farePrices.zones[zone - 1].fares.filter(

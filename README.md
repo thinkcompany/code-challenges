@@ -1,6 +1,6 @@
 # SEPTA Rail Fare Calculator Challenge -- My Submission
 
-Thank you for taking the time to look over my code. I chose to complete the challenge via React component. See src/FareCalculator.js for my component and src/FareCalculator.css for my styling rules.
+Thank you for taking the time to look over my code. I chose to complete the challenge via React component. See septa-fare-calculator/src/FareCalculator.js for my component and septa-fare-calculator/src/FareCalculator.css for my styling rules.
 
 I spent about 3 hours on this.
 
@@ -11,5 +11,6 @@ The trickiest bit was handling the "Anytime" tickets, especially handling ticket
 To spin up locally:
 
 ```
+cd septa-fare-calculator
 yarn start
 ```

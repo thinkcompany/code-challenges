@@ -47,6 +47,19 @@
 .septa-fare-calc-select {
   margin-bottom: 16px;
   border-radius: 5px;
+  width: 200px;
+  text-align: center;
+  border: 1px solid grey;
+  padding: 5px;
+}
+
+.septa-fare-calc-number-input {
+  margin-bottom: 16px;
+  border-radius: 5px;
+  width: 50px;
+  text-align: center;
+  border: 1px solid grey;
+  padding: 5px;
 }
 
 .septa-fare-calc-detail-text {

@@ -1,5 +1,3 @@
-import "./App.css";
-
 import { FareCalculator } from "./FareCalculator";
 
 function App() {

@@ -46,15 +46,15 @@ export const FareCalculator = () => {
           <div className="septa-fare-calc-flexbox septa-fare-calc-accent-box">
             <img
               width="32"
-              alt="SEPTA"
+              alt="logo for SEPTA"
               src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/SEPTA.svg/32px-SEPTA.svg.png"
               className="septa-logo"
             ></img>
-            <p className="septa-fare-calc-accent-text">Regional Rail Fares</p>
+            <h1 className="septa-fare-calc-accent-text">Regional Rail Fares</h1>
           </div>
           <div className="septa-fare-calc-flexbox septa-fare-calc-zone">
             <div className="septa-fare-calc-text-align">
-              <p>Where are you going?</p>
+              <h4>Where are you going?</h4>
               <select
                 onChange={onChangeZone}
                 value={zone}
@@ -70,7 +70,7 @@ export const FareCalculator = () => {
           </div>
           <div className="septa-fare-calc-flexbox">
             <div className="septa-fare-calc-text-align">
-              <p>When are you riding?</p>
+              <h4>When are you riding?</h4>
               <select
                 onChange={onChangeType}
                 value={type}
@@ -92,7 +92,7 @@ export const FareCalculator = () => {
           </div>
           <div className="septa-fare-calc-flexbox">
             <div className="septa-fare-calc-text-align">
-              <p>Where will you purchase the fare?</p>
+              <h4>Where will you purchase the fare?</h4>
               <div>
                 <label>
                   <input
@@ -125,7 +125,7 @@ export const FareCalculator = () => {
           </div>
           <div className="septa-fare-calc-flexbox">
             <div className="septa-fare-calc-text-align">
-              <p>How many rides will you need?</p>
+              <h4>How many rides will you need?</h4>
               <input
                 type="number"
                 min={type === "anytime" ? "10" : "1"} // if anytime, can only buy 10 tix at a time
@@ -133,17 +133,17 @@ export const FareCalculator = () => {
                 onChange={onChangeTrips}
                 step={type === "anytime" ? "10" : "1"}
                 value={trips}
-                className="septa-fare-calc-select"
+                className="septa-fare-calc-number-input"
               />
             </div>
           </div>
           <div className="septa-fare-calc-flexbox septa-fare-calc-accent-box">
             <div className="septa-fare-calc-text-align">
-              <p>Your fare will cost:</p>
+              <h4>Your fare will cost:</h4>
               {typeof validFare === "number" ? (
-                <p className="septa-fare-calc-accent-text">
+                <h1 className="septa-fare-calc-accent-text">
                   ${validFare.toFixed(2)}
-                </p>
+                </h1>
               ) : (
                 <p className="septa-fare-calc-detail-text ">
                   Please enter a valid no. of "Anytime" trips

@@ -1,10 +1,84 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 	<meta charset="UTF-8">
 	<title>SEPTA Regional Rail Fare Calculator</title>
+	<link rel="stylesheet" href="css/styles.css">
 </head>
+
 <body>
-	
+	<div class="mainContainer">
+		<form action="#" method="POST" class="container">
+			<div class="title">
+				<img src="img/logo.png" class="mainLogo" alt="Regional Rail Fares Logo">
+				<h1>Regional Rail Fares</h1>
+			</div>
+
+			<div class="component">
+				<label for="zones" class="inquiryTitle">
+					<h4>Where are you going?</h4>
+				</label>
+				<br>
+				<select id="zoneUI">
+					<!-- <option id="zone" value="">-- Select --</option>  *Only one option was needed for AJAX* -->
+					<option value="">-- Select --</option>
+					<option value="1">Zone 1</option>
+					<option value="2">Zone 2</option>
+					<option value="3">Zone 3</option>
+					<option value="4">Zone 4</option>
+					<option value="5">Zone 5</option>
+				</select>
+			</div>
+
+			<!-- Creating specific ID's for functionality -->
+			<div class="component">
+				<label class="inquiryTitle">
+					<h4>When are you riding?</h4>
+				</label>
+				<br>
+				<select id="type">
+					<option value="">-- Select --</option>
+					<option value="weekday">Weekdays</option>
+					<option value="evening_weekend">Evenings/Weekend</option>
+					<option value="anytime">Anytime</option>
+				</select>
+				<p id="timeHelperText" class="helperText"></p>
+			</div>
+
+			<div class="component">
+				<label class="inquiryTitle">
+					<h4>Where will you purchase the fare?</h4>
+				</label>
+				<br>
+				<div class="radioButtonControl">
+					<input type="radio" class="purchase" name="location" id="advance_purchase">
+					<label for="stationkiosk">Station Kiosk</label>
+					<br>
+					<input type="radio" class="purchase" name="location" id="onboard_purchase">
+					<label for="onboard">Onboard</label>
+				</div>
+				<p id="locationHelperText" class="helperText"></p>
+
+			</div>
+
+			<div class="component">
+				<label class="inquiryTitle">
+					<h4>How many rides will you need?</h4>
+				</label>
+				<br>
+				<input type="number" class="trips" id="tripsUI" placeholder="0">
+			</div>
+
+			<div class="component results">
+				<h3 class="fareResultsTitle"> Your fare will cost</h3>
+				<h2 id="fareResult" class="farePrice">$0</h2>
+				<p class="promo helperText">*Special price offers for 10-trip tickets*</p>
+			</div>
+
+		</form>
+	</div>
 </body>
+<script src="js/script.js"></script>
+
 </html>

@@ -13,7 +13,7 @@ const SeptaWidget = () => {
   const [zone, setZone] = useState('');
   const [travelTime, setTravelTime] = useState('');
   const [location, setLocation] = useState('');
-  const [quantity, setQuantity] = useState(0);
+  const [quantity, setQuantity] = useState('');
 
   useEffect(() => {
     (async () => {
@@ -28,7 +28,7 @@ const SeptaWidget = () => {
       }
     })();
   }, [])
-  
+  console.log(quantity)
   return (
     <div className="septa-widget">
       <div className="septa-widget-header">
@@ -40,9 +40,13 @@ const SeptaWidget = () => {
         setZone={setZone}
         options={data ? data.zones : []}
       />
-      <TravelTime />
-      <Location />
-      <Quantity />
+      <TravelTime
+        travelTime={travelTime}
+        setTravelTime={setTravelTime}
+        options={data ? Object.keys(data.info).slice(0, 3) : []}
+      />
+      <Location location={location} setLocation={setLocation} />
+      <Quantity quantity={quantity} setQuantity={setQuantity} />
       <div className='septa-widget-result'>
         
       </div>

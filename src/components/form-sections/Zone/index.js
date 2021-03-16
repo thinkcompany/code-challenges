@@ -1,4 +1,5 @@
 import './Zone.css';
+
 const Zone = () => {
   return (
     <div className='zone-section'>
@@ -7,7 +8,7 @@ const Zone = () => {
       </div>
       <div className='zone-select-div'>
         <select>
-          <option value=''>Select zone</option>
+          <option value=''>Select Zone</option>
         </select>
       </div>
     </div>

@@ -1,17 +1,17 @@
-.zone-section {
-  height: 15%;
-  padding: 20px 20px 10px 20px;
-  font-size: 18px;
-  font-weight: 500;
-  color: #4D4D4D;
+.travel-time-section {
+  height: 21%;
+  padding: 20px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-around;
+  font-size: 18px;
+  font-weight: 500;
+  color: #4D4D4D;
   border-bottom: 1px solid #e6e6e6;
 }
 
-.zone-select-div {
+.travel-time-select-div {
   height: 100%;
   width: 100%;
   display: flex;
@@ -19,10 +19,16 @@
   justify-content: center;
 }
 
-.zone-section select {
+.travel-time-select-div select {
   width: 350px;
   height: 55px;
   padding-left: 10px;
   font-size: 16px;
   color: #4D4D4D;
+}
+
+.travel-time-info-div {
+  font-size: 14px;
+  padding: 5px 15px;
+  color: #949494;
 }

@@ -1,6 +1,7 @@
 import './SeptaWidget.css'
 import logo from '../../img/logo.svg';
 import Zone from '../form-sections/Zone';
+import TravelTime from '../form-sections/TravelTime';
 
 const SeptaWidget = () => {
   return (
@@ -10,6 +11,7 @@ const SeptaWidget = () => {
         <h2>Regional Rail Fares</h2>
       </div>
       <Zone />
+      <TravelTime />
     </div>
   );
 }

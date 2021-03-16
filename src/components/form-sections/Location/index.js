@@ -7,11 +7,11 @@ const Location = () => {
       <div className="location-radio-buttons">
         <div>
           <input type="radio" name="Station Kiosk" value="Station Kiosk" />
-          <label for="Station Kiosk">Station Kiosk</label>
+          <label htmlFor="Station Kiosk">Station Kiosk</label>
         </div>
         <div>
           <input type="radio" name="Onboard" value="Onboard" />
-          <label for="Onboard">Onboard</label>
+          <label htmlFor="Onboard">Onboard</label>
         </div>
       </div>
     </div>

@@ -16,6 +16,9 @@ const SeptaWidget = () => {
       <TravelTime />
       <Location />
       <Quantity />
+      <div className='septa-widget-footer'>
+        
+      </div>
     </div>
   );
 }

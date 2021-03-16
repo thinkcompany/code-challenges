@@ -1,7 +1,7 @@
 .zone-section {
   height: 15%;
   padding: 20px 20px 10px 20px;
-  font-size: 18px;
+  font-size: 20px;
   font-weight: 500;
   color: #4D4D4D;
   display: flex;
@@ -23,6 +23,8 @@
   width: 350px;
   height: 55px;
   padding-left: 10px;
-  font-size: 16px;
+  font-size: 18px;
   color: #4D4D4D;
+  border: 1.5px solid #cccccc;
+  border-radius: 5px;
 }

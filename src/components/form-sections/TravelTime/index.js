@@ -3,7 +3,7 @@ import "./TravelTime.css";
 const TravelTime = () => {
   return (
     <div className="travel-time-section">
-      <div>Where are you going?</div>
+      <div>When are you riding?</div>
       <div className="travel-time-select-div">
         <select>
           <option value="">Choose Travel Time</option>

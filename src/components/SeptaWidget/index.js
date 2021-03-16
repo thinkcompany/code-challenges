@@ -2,6 +2,7 @@ import './SeptaWidget.css'
 import logo from '../../img/logo.svg';
 import Zone from '../form-sections/Zone';
 import TravelTime from '../form-sections/TravelTime';
+import Location from '../form-sections/Location';
 
 const SeptaWidget = () => {
   return (
@@ -12,6 +13,7 @@ const SeptaWidget = () => {
       </div>
       <Zone />
       <TravelTime />
+      <Location />
     </div>
   );
 }

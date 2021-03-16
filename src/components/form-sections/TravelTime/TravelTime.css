@@ -5,7 +5,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: space-around;
-  font-size: 18px;
+  font-size: 20px;
   font-weight: 500;
   color: #4D4D4D;
   border-bottom: 1px solid #e6e6e6;
@@ -23,8 +23,10 @@
   width: 350px;
   height: 55px;
   padding-left: 10px;
-  font-size: 16px;
+  font-size: 18px;
   color: #4D4D4D;
+  border: 1.5px solid #cccccc;
+  border-radius: 5px;
 }
 
 .travel-time-info-div {

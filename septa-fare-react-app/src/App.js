@@ -1,9 +1,9 @@
 import './App.css';
-
+import FareWidget from './components/FareWidget';
 function App() {
   return (
     <div className="App">
-   <h1>i am app</h1>
+   <FareWidget />
     </div>
   );
 }

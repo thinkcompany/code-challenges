@@ -3,6 +3,7 @@ import logo from '../../img/logo.svg';
 import Zone from '../form-sections/Zone';
 import TravelTime from '../form-sections/TravelTime';
 import Location from '../form-sections/Location';
+import Quantity from "../form-sections/Quantity";
 
 const SeptaWidget = () => {
   return (
@@ -14,6 +15,7 @@ const SeptaWidget = () => {
       <Zone />
       <TravelTime />
       <Location />
+      <Quantity />
     </div>
   );
 }

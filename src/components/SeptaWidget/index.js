@@ -28,28 +28,34 @@ const SeptaWidget = () => {
       }
     })();
   }, [])
-  console.log(quantity)
+  
   return (
     <div className="septa-widget">
       <div className="septa-widget-header">
         <img src={logo} alt="septa logo" className="septa-widget-header-logo" />
         <h2>Regional Rail Fares</h2>
       </div>
-      <Zone
-        zone={zone}
-        setZone={setZone}
-        options={data ? data.zones : []}
-      />
+      <Zone zone={zone} setZone={setZone} options={data ? data.zones : []} />
       <TravelTime
         travelTime={travelTime}
         setTravelTime={setTravelTime}
-        options={data ? Object.keys(data.info).slice(0, 3) : []}
+        quantity={quantity}
+        options={
+          data
+            ? quantity > 0 && quantity % 10 === 0
+              ? Object.keys(data.info).slice(0, 3)
+              : Object.keys(data.info).slice(1, 3)
+            : []
+        }
+        info={
+          data && data.info[travelTime]
+            ? data.info[travelTime]
+            : 'Special "anytime" tickets available only in multiples of 10! Select quantity needed below in multiples of 10 to unlock the option!'
+        }
       />
       <Location location={location} setLocation={setLocation} />
       <Quantity quantity={quantity} setQuantity={setQuantity} />
-      <div className='septa-widget-result'>
-        
-      </div>
+      <div className="septa-widget-result"></div>
     </div>
   );
 }

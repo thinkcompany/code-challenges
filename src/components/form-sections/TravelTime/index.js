@@ -1,6 +1,8 @@
 import "./TravelTime.css";
 
-const TravelTime = ({ travelTime, setTravelTime, quantity, options, info }) => {
+// Component with controlled input for travel timings
+const TravelTime = ({ travelTime, setTravelTime, options, info }) => {
+  // Function assumes that any multi-word options will be in the format first_second
   const formatOptions = option => {
     let arr = option.split('_');
     arr.forEach((item, i, array) => {
@@ -24,7 +26,7 @@ const TravelTime = ({ travelTime, setTravelTime, quantity, options, info }) => {
             <option
               key={option}
               value={option}
-            >{formatOptions(option)}</option>
+            >{formatOptions(option)}</option> // Formatting options for readability
           ))}
         </select>
       </div>

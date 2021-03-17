@@ -1,5 +1,6 @@
 import './Zone.css';
 
+// Component with controlled input for zone options
 const Zone = ({ zone, setZone, options }) => {
   return (
     <div className="zone-section">

@@ -1,5 +1,6 @@
 import './Location.css';
 
+// Component with controlled inputs for fare purchase location
 const Location = ({ location, setLocation }) => {
   return (
     <div className="location-section">

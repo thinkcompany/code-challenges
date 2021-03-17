@@ -1,5 +1,6 @@
 import './Quantity.css';
 
+// Component with controlled input for number of tickets needed
 const Quantity = ({ quantity, setQuantity }) => {
   return (
     <div className="quantity-section">

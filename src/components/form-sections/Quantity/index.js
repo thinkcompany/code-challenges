@@ -2,16 +2,17 @@ import './Quantity.css';
 
 const Quantity = ({ quantity, setQuantity }) => {
   return (
-    <div className='quantity-section'>
+    <div className="quantity-section">
       <div>How many rides will you need?</div>
       <input
-        name='Quantity of tickets'
-        type='number'
+        className="quantity-section-input"
+        name="Quantity of tickets"
+        type="number"
         value={quantity}
-        onChange={e => setQuantity(Number(e.target.value))}
+        onChange={(e) => setQuantity(Number(e.target.value))}
       />
     </div>
-  )
+  );
 }
 
 export default Quantity;

@@ -14,6 +14,7 @@ const SeptaWidget = () => {
   const [travelTime, setTravelTime] = useState('');
   const [location, setLocation] = useState('');
   const [quantity, setQuantity] = useState('');
+  const [cost, setCost] = useState('');
 
   useEffect(() => {
     (async () => {
@@ -28,6 +29,21 @@ const SeptaWidget = () => {
       }
     })();
   }, [])
+
+  useEffect(() => {
+    if(zone && travelTime && location && quantity && data) {
+      for(let zoneInData of data.zones) {
+        if(zone === zoneInData.name) {
+          for(let fare of zoneInData.fares) {
+            if(fare.type === travelTime && fare.purchase === location) {
+              setCost((fare.price / fare.trips * quantity).toFixed(2));
+            }
+          }
+        }
+      }
+    }
+    return () => setCost('');
+  }, [zone, travelTime, location, quantity, data])
   
   return (
     <div className="septa-widget">
@@ -50,12 +66,19 @@ const SeptaWidget = () => {
         info={
           data && data.info[travelTime]
             ? data.info[travelTime]
-            : 'Special "anytime" tickets available only in multiples of 10! Select quantity needed below in multiples of 10 to unlock the option!'
+            : 'Special "anytime" tickets available when you buy at Station Kiosk and in multiples of 10! Select options below accordingly to unlock the option :)'
         }
       />
       <Location location={location} setLocation={setLocation} />
       <Quantity quantity={quantity} setQuantity={setQuantity} />
-      <div className="septa-widget-result"></div>
+      <div className="septa-widget-result">
+        {cost && (
+          <>
+            <div style={{ fontSize: "18px" }}>Your fare will cost</div>
+            <div style={{ fontSize: "54px", fontWeight: '600' }}>${cost}</div>
+          </>
+        )}
+      </div>
     </div>
   );
 }

@@ -13,7 +13,11 @@ const TravelTime = ({ travelTime, setTravelTime, quantity, options, info }) => {
     <div className="travel-time-section">
       <div>When are you riding?</div>
       <div className="travel-time-select-div">
-        <select name={travelTime} value={travelTime} onChange={e => setTravelTime(e.target.value)}>
+        <select
+          className='travel-time-select-div-select'
+          name={travelTime}
+          value={travelTime}
+          onChange={e => setTravelTime(e.target.value)}>
           <option value="">Choose Travel Time</option>
           {options
           .map(option => (

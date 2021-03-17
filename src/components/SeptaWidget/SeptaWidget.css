@@ -23,4 +23,11 @@
 .septa-widget-result {
   height: 14%;
   background-color: #595959;
+  color: white;
+  box-sizing: border-box;
+  padding: 14px 0 10px 0;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-direction: column;
 }

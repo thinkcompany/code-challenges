@@ -1,6 +1,78 @@
-.fare-widget__container {
-    /* display: flex; */
-    width: 60%;
+.fare-widget__page {
+   margin-top: 40px;
+    display: flex;
+    align-items: center;
     justify-content: center;
-    margin: 0 auto;
+}
+
+.fare-widget__container {
+    border-radius: 5px;
+    background-color: #fff;
+    box-shadow: 0 2px 5px 0 rgba(207, 207, 207, 0.5);
+    height: 100%;
+    width: 400px;
+    max-width: 100%;
+    padding: 30px;
+    background-color: #FBFBF8;
+}
+
+.fare-widget__dropdown {
+   padding: 10px 0px 10px 0px
+}
+
+.fare-widget__advance-purchase-button-container {
+    position: relative;
+    display: inline-block;
+}
+
+.fare-widget__advance-purchase-button-container .fare-widget__advance-purchase-tooltip {
+    visibility: hidden;
+    width: 250px;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+    top: 10px;
+    left: 105%;
+
+    /* Position the tooltip */
+    position: absolute;
+    z-index: 1;
+}
+
+.fare-widget__advance-purchase-button-container:hover .fare-widget__advance-purchase-tooltip {
+    visibility: visible;
+}
+
+.fare-widget__onboard-purchase-button-container {
+    position: relative;
+    display: inline-block;
+}
+
+.fare-widget__onboard-purchase-button-container .fare-widget__onboard-purchase-tooltip {
+    visibility: hidden;
+    width: 250px;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+    top: 10px;
+    right: 105%;
+
+    /* Position the tooltip */
+    position: absolute;
+    z-index: 1;
+}
+
+.fare-widget__onboard-purchase-button-container:hover .fare-widget__onboard-purchase-tooltip {
+    visibility: visible;
+}
+
+.fare-widget__fare-quanity-picker {
+    margin-top: 15px;
+    padding: 10px;
+    font-size: 18px;
+    font-weight: 600;
 }

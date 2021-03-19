@@ -80,7 +80,7 @@ const FareWidget = (props) => {
     <div className="fare-widget__page">
       <div className="fare-widget__container">
         <h1>Please Select Options To Purchase Your Fare</h1>
-
+        <p className="fare-widget__dropdown-label">Where are you going?</p>
         <Select
           className="fare-widget__dropdown"
           name="zones"
@@ -89,7 +89,7 @@ const FareWidget = (props) => {
             setShowZoneOptions(value);
           }}
         />
-
+        <p className="fare-widget__dropdown-label">What type of pass would you like?</p>
         <Select
           className="fare-widget__dropdown"
           components={{ Option }}

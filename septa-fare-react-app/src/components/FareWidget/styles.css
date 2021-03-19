@@ -17,12 +17,16 @@
 }
 
 .fare-widget__dropdown {
-   padding: 10px 0px 10px 0px
+   padding: 0px 0px 10px 0px
 }
 
 .fare-widget__advance-purchase-button-container {
     position: relative;
     display: inline-block;
+}
+
+.fare-widget__dropdown-label {
+    text-align: left;
 }
 
 .fare-widget__advance-purchase-button-container .fare-widget__advance-purchase-tooltip {

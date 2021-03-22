@@ -3,7 +3,7 @@
 This is a simple mock fare calculator for the train system surrounding the Philadelphia-metro area. The main highlights of the application are that:
 1. It parses JSON data from a local JSON file containing the fare information
 2. It uses Hooks to filter through and sort the data
-3. A simple, straightforward, styled UI
+3. It has a simple, straightforward (but styled) UI
 
 ## Instructions for use
 

@@ -1,6 +1,9 @@
 # Hummer Landing Page
 
-This is a simple mock fare calculator for the train system surrounding the Philadelphia-metro area. It's built with the React library for a few reasons, but mainly because it is scalable, responsive and fast and, perhaps most importantly, it is surrounded by a huge (and growing) ecosystem, making the application's potential limitless. 
+This is a simple mock fare calculator for the train system surrounding the Philadelphia-metro area. The main highlights of the application are that:
+1. It parses JSON data from a local JSON file containing the fare information
+2. It uses Hooks to filter through and sort the data
+3. A simple, straightforward, styled UI
 
 ## Instructions for use
 

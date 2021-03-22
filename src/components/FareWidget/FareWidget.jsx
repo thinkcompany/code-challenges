@@ -89,7 +89,9 @@ const FareWidget = (props) => {
             setShowZoneOptions(value);
           }}
         />
-        <p className="fare-widget__dropdown-label">What type of pass would you like?</p>
+        <p className="fare-widget__dropdown-label">
+          What type of pass would you like?
+        </p>
         <Select
           className="fare-widget__dropdown"
           components={{ Option }}

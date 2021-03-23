@@ -66,6 +66,7 @@ section {
     text-align: center;
     width: 100vw;
     max-width: 100% !important;
+    margin: 0 auto;
   }
   &.formd {
   }
@@ -90,10 +91,10 @@ section {
     color: white;
     padding: 2rem 0;
   }
-  & .footer{
-    & .calc-footer-total{
+  & .footer {
+    & .calc-footer-total {
       font-size: 3.5rem;
-      padding:1.5rem 0;
+      padding: 1.5rem 0;
     }
   }
 

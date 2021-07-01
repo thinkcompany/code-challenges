@@ -21,7 +21,7 @@ function App() {
   const zones = json.zones
   const calculateFare = (zone, timeSlot, purchaseLocation, numRides) => {
     let singleFarePrice
-    if(numRides > 9){
+    if(numRides > 9 && purchaseLocation === 'advance_purchase'){
       let faresArray = zones[zone - 1].fares
       // 10+ price always last item in faresArray
       let bulkFare = faresArray[faresArray.length - 1]

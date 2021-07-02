@@ -1,10 +1,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Righteous&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
 
 /* ------------- */
 /* Global Styles */
 /* ------------- */
+
+body {
+  background-color: #03091f;
+}
 
 .App {
   display: flex;
@@ -18,6 +21,8 @@
   border: 2px solid #686868;
   border-radius: 5px;
   max-width: 375px;
+  margin-top: 32px;
+  filter: drop-shadow(0 0 0.75rem #63647c);
 }
 
 .main-wrapper, .card-content, .content-section, .fare-footer {
@@ -41,6 +46,8 @@ svg.septa-logo {
   height: 45px;
   padding: 8px;
 }
+
+/* SVG fill color overrides */
 svg.septa-logo path#path2578, svg.septa-logo path#path2582 {
   fill: #A23535;
 }

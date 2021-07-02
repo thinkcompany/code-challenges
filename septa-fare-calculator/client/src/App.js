@@ -70,12 +70,12 @@ function App() {
 
   let discountInfo = ''
   if(numRides > 6 && purchaseLocation === 'advance_purchase') {
-    discountInfo = 'Buying 10+ tickets in advance at a Kiosk? Enjoy a discount!'
+    discountInfo = 'Special pricing on 10+ tickets purchased at Kiosk in advance.'
   }
 
   return (
     <div className="App">
-      <div className="main-card">
+      <div className="main-wrapper">
         <div className="top-header">
           <SeptaLogo />
           <div className="header-text">Regional Rail Fares</div>
@@ -143,7 +143,7 @@ function App() {
         </div>
         <div className="fare-footer">
           <div className="footer-text">Your fare will cost</div>
-          <div className="final-price">{`$${calculatedFare}`}</div>
+          <div className="final-price">{`$${isNaN(calculatedFare) ? 0 : calculatedFare}`}</div>
         </div>
       </div>
     </div>

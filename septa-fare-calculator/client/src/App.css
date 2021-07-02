@@ -1,6 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Righteous&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+
+/* ------------- */
+/* Global Styles */
+/* ------------- */
+
 .App {
   display: flex;
   flex-direction: column;
@@ -8,39 +13,27 @@
   font-family: 'Montserrat', sans-serif;
 }
 
-.main-card {
+.main-wrapper {
   background-color: #F1F1F1;
   border: 2px solid #686868;
   border-radius: 5px;
+  max-width: 375px;
+}
+
+.main-wrapper, .card-content, .content-section, .fare-footer {
   display: flex;
   flex-direction: column;
   align-items: center;
-  max-width: 375px;
 }
+
+/* ----------- */
+/* Card Header */
+/* ----------- */
 
 .top-header {
   background-color: #686868;
   display: flex;
   width: 100%;
-}
-
-.card-content {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.content-section {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 12px 16px;
-}
-
-.content-heading {
-  margin-bottom: 8px;
-  font-weight: bold;
-  font-size: 18px;
 }
 
 svg.septa-logo {
@@ -65,13 +58,28 @@ svg.septa-logo path#path2580 {
   text-shadow: 4px 3px 16px #a9a9a9;
 }
 
+/* ----------- */
+/* Card Styles */
+/* ----------- */
+
+.content-section {
+  padding: 12px 16px;
+}
+
+.content-heading {
+  margin-bottom: 8px;
+  font-weight: bold;
+  font-size: 18px;
+}
+
+/* ------ */
+/* Footer */
+/* ------ */
+
 .fare-footer {
   background-color: #686868;
   color: white;
   text-shadow: 4px 3px 16px #a5a5a5;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
   width: 100%;
   margin-top: 8px;
 }
@@ -82,6 +90,16 @@ svg.septa-logo path#path2580 {
   font-weight: bold;
 }
 
+.final-price {
+  font-size: 40px;
+  font-weight: bold;
+  padding-bottom: 8px;
+}
+
+/* ---------- */
+/* Micro Copy */
+/* ---------- */
+
 .timeslot-info, .discount-info {
   font-size: 14px;
   width: 241px;
@@ -90,17 +108,10 @@ svg.septa-logo path#path2580 {
   text-align: center;
 }
 
-.final-price {
-  font-size: 40px;
-  font-weight: bold;
-  padding-bottom: 8px;
-}
-
-select, .num-rides-input {
-  font-family: 'Montserrat', sans-serif;
-}
-
+/* ----------- */
 /* Form styles */
+/* ----------- */
+
 select {
   box-shadow: 3px 3px 3px #bdbdbd;
   padding: 5px;
@@ -110,7 +121,7 @@ select {
   border-left: 3px solid #203689;
   border-bottom: 3px solid #203689;
 }
-select:active, select:focus { outline: none; }
+
 select:hover {
   cursor: pointer;
   border-top: 3px solid #203689;
@@ -118,6 +129,8 @@ select:hover {
   border-left: 3px solid #A23535;
   border-bottom: 3px solid #A23535;
 }
+
+select:active, select:focus { outline: none; }
 
 input.num-rides-input {
   padding: 4px 4px 4px 14px;
@@ -137,14 +150,16 @@ input.num-rides-input:hover {
   border-left: 3px solid #A23535;
   border-bottom: 3px solid #A23535;
 }
+
 input.num-rides-input:active, input.num-rides-input:focus { outline: none; }
 
-label.radio-button:hover {
-  cursor: pointer;
+select, .num-rides-input {
+  font-family: 'Montserrat', sans-serif;
 }
-label.radio-button:hover > input[type="radio"] + *::before {
-  border-color: #203689;
-}
+
+/* -------------------- */
+/* Custom Radio Buttons */
+/* -------------------- */
 
 label > input[type="radio"] {
   display: none;
@@ -164,5 +179,12 @@ label > input[type="radio"] + *::before {
 
 label > input[type="radio"]:checked + *::before {
   background: radial-gradient(#203689 0%, #203689 40%, transparent 50%, transparent);
+  border-color: #203689;
+}
+
+label.radio-button:hover {
+  cursor: pointer;
+}
+label.radio-button:hover > input[type="radio"] + *::before {
   border-color: #203689;
 }

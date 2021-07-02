@@ -3,8 +3,6 @@ import { useEffect, useState } from 'react';
 import { ReactComponent as SeptaLogo } from './septa_logo.svg'
 const fareJson = require('./fares.json')
 
-// https://github.com/thinkcompany/code-challenges/blob/master/septa-fare-calculator
-
 function App() {
 
   const [zone, setZone] = useState(1)
@@ -19,6 +17,7 @@ function App() {
   //   .then(data => console.log(data))
 
   // Tried AJAX/Fetch request above, it choked on JSON formatting
+  // Simply imported it on line 4 above instead
   
   const zones = fareJson.zones
   const calculateFare = (zone, timeSlot, purchaseLocation, numRides) => {

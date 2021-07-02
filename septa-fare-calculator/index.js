@@ -20,7 +20,7 @@ const populateZones = (data) => {
   for (let i = 0; i < data.zones.length; i++) {
     const option = document.createElement('option');
 
-    option.class = 'zone-option';
+    option.className = 'zone-option';
     option.value = data.zones[i].name;
     option.innerHTML = data.zones[i].name;
 
@@ -37,7 +37,7 @@ const populateSchedules = (data) => {
     if (!duplicateTracker.has(sched.type)) {
       const option = document.createElement('option');
 
-      option.class = 'schedule-option';
+      option.className = 'schedule-option';
       option.value = sched.type;
       //   format type
       const formattedType = sched.type.split('_');
@@ -52,6 +52,27 @@ const populateSchedules = (data) => {
 
       selectTarget.appendChild(option);
     }
+  }
+};
+
+const populateInfo = (data) => {
+  const ul = document.querySelector('.helper-info');
+
+  for (let info in data.info) {
+    const li = document.createElement('li');
+
+    //   format type
+    const formattedKey = info.split('_');
+
+    for (let i = 0; i < formattedKey.length; i++) {
+      let copyKey = formattedKey[i];
+      formattedKey[i] = copyKey.charAt(0).toUpperCase() + copyKey.slice(1);
+    }
+
+    li.className = 'info-item';
+    li.innerHTML = `${formattedKey.join(' ')} - ${data.info[info]}`;
+
+    ul.appendChild(li);
   }
 };
 
@@ -94,6 +115,7 @@ window.addEventListener('load', async () => {
 
   populateZones(data);
   populateSchedules(data);
+  populateInfo(data);
   populateResult(data);
 });
 

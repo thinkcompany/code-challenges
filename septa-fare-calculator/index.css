@@ -24,6 +24,7 @@ body {
 /* main */
 .main {
   border: 2px solid #ccc;
+  width: 50%;
 }
 
 /* header */
@@ -83,7 +84,7 @@ body {
   width: 50%;
   display: flex;
   align-items: center;
-  justify-content: flex-start;
+  justify-content: center;
 }
 
 .radio-input > :not(:last-child) {
@@ -98,11 +99,23 @@ body {
 
 .radio-label {
   font-size: 2rem;
+  min-width: 30%;
 }
 
 #num-of-rides {
   width: 20%;
   text-align: center;
+}
+
+/* helper-info */
+.helper-info {
+  width: 60%;
+  margin-top: 2rem;
+}
+
+.info-item {
+  font-size: 1.6rem;
+  margin-bottom: 1rem;
 }
 
 /* result */

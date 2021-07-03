@@ -12,6 +12,7 @@ const RideQuantityInput = ({ quantity, setQuantity } : RideQuantityProps) => (
       className="ride-quantity-input"
       name="Quantity of tickets"
       type="number"
+      pattern="[0-9]*"
       value={quantity}
       onChange={(e) => setQuantity(Number(e.target.value))}
     />

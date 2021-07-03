@@ -52,3 +52,11 @@ label {
 .septa-calc-widget-header-logo {
   height: 40px;
 }
+
+.info-helper-text {
+  font-size: 0.8rem;
+  line-height: 1.1rem;
+  color: #666666;
+  padding: 10px 20px;
+  text-align: center;
+} 

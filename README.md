@@ -1,12 +1,13 @@
 # Septa Regional Rail Fares Calculator
 
-Live site: https://rng-septa-fare-calc.netlify.app
+**Live site:** https://rng-septa-fare-calc.netlify.app
 
-Tech stack used: Javascript, ReactJS, and Typescript
+**Tech stack used:** Javascript, ReactJS, and Typescript
+**Total Time Spent:** 3hr-30min
 
-The way I approached this project was to build out the scaffolding and most of styling first to get the look and feel of the components down.  I took a look at which components could be reused in places and created generic components for them. Using typescript allowed me to nail down and define the types for my component props and also the actual data I expect to receive.
+The way I approached this project was to build out the scaffolding and most of styling first to get the look and feel of the components down.  I took a look at which components could be reused in places and created generic components for them. Using typescript allowed me to nail down and define the types for my component props and also the actual data I expect to receive. Throughout the coding process, I tried to write clean and optimized code; readable and easy to digest; leaving no guess work (at least I hope)
 
-If I had more time, I would work on some unit tests and look into mobile to desktop responsiveness.
+If I had more time, I would work on maybe some unit tests and look into mobile to desktop responsiveness.
 
 In the project directory, you can run:
 

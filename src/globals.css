@@ -1,0 +1,19 @@
+*, *:before, *:after {
+  box-sizing: border-box;
+}
+
+.row {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.flex {
+  flex: 1;
+}
+
+.septa-calc-widget {
+  width: 400px;
+  margin: auto;
+  border: 3px solid #cccccc;
+}

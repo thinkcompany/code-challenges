@@ -1,24 +1,16 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import './globals.css';
+import Navbar from './components/Navbar';
+import useFaresService from './useFaresService';
 
-function App() {
+const App = () => {
+  const service = useFaresService();
+  console.log({service});
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="row septa-calc-widget">
+      <Navbar />
+      {service.status === 'error' && <div>Page Error</div>}
+      {service.status === 'loading' && <div>Page Loading</div>}
     </div>
   );
 }

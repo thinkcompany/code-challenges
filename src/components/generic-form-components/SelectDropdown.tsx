@@ -1,4 +1,5 @@
 import React, { ChangeEventHandler } from 'react';
+import { replaceUnderscores } from '../../utils';
 import './SelectDropdown.css';
 
 type SelectDropdownProps = {
@@ -21,7 +22,7 @@ const SelectDropdown = ({ value, label, placeholderText, options, onChange } : S
       >
         <option value="">{placeholderText}</option>
         {options.map((option) => (
-          <option key={option} value={option}>{option}</option>
+          <option key={option} value={option}>{replaceUnderscores(option)}</option>
         ))}
       </select>
     </div>

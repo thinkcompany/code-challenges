@@ -15,7 +15,7 @@
 .septa-calc-widget {
   width: 400px;
   margin: auto;
-  border: 3px solid #cccccc;
+  border: 3px solid #cdcdcd;
 }
 
 /* header */
@@ -25,7 +25,7 @@
   justify-content: space-evenly;
   padding: 0 8%;
   color: white;
-  background-color: #595959;
+  background-color: #666666;
 }
 
 .septa-calc-widget-header-logo {

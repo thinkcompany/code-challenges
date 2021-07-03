@@ -6,7 +6,7 @@ type RideQuantityProps = {
 }
 
 const RideQuantityInput = ({ quantity, setQuantity } : RideQuantityProps) => (
-  <div className="section-group">
+  <div className="section">
     <label>How many rides will you need?</label>
     <input
       className="ride-quantity-input"

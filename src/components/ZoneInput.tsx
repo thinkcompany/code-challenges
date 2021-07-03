@@ -9,7 +9,7 @@ type ZoneInputProps = {
 
 const ZoneInput = ({ zone, setZoneValue, options } : ZoneInputProps) => {
   return (
-    <div className="section-group with-bottom-border">
+    <div className="section with-bottom-border">
       <SelectDropdown
         value={zone}
         label="Where are you going?"

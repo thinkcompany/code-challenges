@@ -1,4 +1,4 @@
-import SeptaFareCalculator from './components';
+import SeptaFareCalculator from './components/SeptaFareCalculator';
 import './App.css';
 
 

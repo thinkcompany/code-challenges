@@ -19,12 +19,14 @@ const SeptaFareCalculator = () => {
             .then(data => setFares(data)) 
     },[]);
 
+    
+
     return (
         <div className="calculator-container">
-            <div>
+            <div className="calculator-header-container">
                 <p>Regional Rail Fares</p>
             </div>
-            <div>
+            <div className="calculator-destination-container">
                 <p>Where are you going?</p>
                 <select>
                     {fares.zones && Object.keys(fares.zones).map((zone, idx) => (
@@ -32,7 +34,7 @@ const SeptaFareCalculator = () => {
                     ))}
                 </select>
             </div>
-            <div>
+            <div className="calculator-time-container">
                 <p>When are you riding?</p>
                 <select>
                     {fares.info && Object.keys(fares.info).map((time, idx) => (
@@ -40,7 +42,7 @@ const SeptaFareCalculator = () => {
                     ))}
                 </select>
             </div>
-            <div>
+            <div className="calculator-purchase-location-container">
                 <p>Where will you purchase the fare?</p>
                 <label>
                     <input value={"advance_purchase"} checked={purchaseLocation === "advance_purchase"} onChange={updatePurchaseLocation} type="radio"/>  
@@ -51,7 +53,7 @@ const SeptaFareCalculator = () => {
                     Onboard
                 </label>
             </div>
-            <div>
+            <div className="calculator-ride-amount-container">
                 <p>How many rides will you need?</p>
                 <input value={rideAmount} onChange={updateRideAmount} type="number"/>
             </div>

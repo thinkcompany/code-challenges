@@ -2,6 +2,30 @@ var _slicedToArray = function () { function sliceIterator(arr, i) { var _arr = [
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
+/*
+Hello Thinkers! Maybe Thinksters? Thinkadelphians? Whatever you call yourselves.
+Thanks for the opportunity to apply for working at your company.
+I wanted to explain a few of my decisions:
+- The solution is built using React. As I got into it I realized that the nature of the calcualtor is well suited for React's approach to state management.
+- To keep things simple, React is loaded via CDN, You shouldn't need any dependencies to run the solution.
+- I focused on making the calculator more functional than the styling (it's pretty obvious!).
+- That being said, here's some things I would tackle next if I were to take more time.
+    1. The calculator doesn't account for the anytime rides
+    2. I think the code in the calculator could be refactored to be more performant with less state variables, etc.
+    3. The outside border should be different than the inner ones.
+    4. The top/bottom margin of the total cost is much too big
+    5. The ticket input box needs it width constrained
+    6. The radio buttons could use some custom styling
+    7. My solution is missing helper text
+    8. Add javascript to selects to customize their styling
+    9. Get more accurate on the typeface
+    10. Accurately size the form questions
+    11. Change the text color
+    12. Just do it all better!
+
+Thanks for the opportunity!
+*/
+
 var _React = React,
     createElement = _React.createElement,
     Fragment = _React.Fragment,

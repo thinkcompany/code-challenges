@@ -31,6 +31,8 @@ const onAdd = ( fare )  => {
             {/* Fare calculator container */}
             <FareCalc onAdd={onAdd} fareInfo={fareInfo} zones={zones} />
 
+
+            {/* Fare ticket counter */}
             <Card.Title>
               How many rides will you need?
           </Card.Title>

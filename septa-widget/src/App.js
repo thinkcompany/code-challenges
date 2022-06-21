@@ -5,7 +5,7 @@ import "./App.css";
 function App() {
   const [fareData] = useState(data);
 
-  console.log(fareData.info.anytime);
+  console.log(fareData.info);
 
   return (
     <div className="App">
@@ -26,14 +26,20 @@ function App() {
         <div className="option-div">
           <h2 className="option-title">When are you riding?</h2>
           <select name="ride-time" id="ride-time">
-              <option value={fareData.info.anytime}>Anytime</option>
-              <option value={fareData.info.weekday}>Weekday</option>
-              <option value={fareData.info.evening_weekend}>Evening/Weekend</option>
+              <option value="anytime">Anytime</option>
+              <option value="weekday">Weekday</option>
+              <option value="evening_weekend">Evening/Weekend</option>
           </select>
+          <p>TODO: add helper text based on selection</p>
         </div>
         <div className="option-div">
           <h2 className="option-title">Where will you purchase the fare?</h2>
-          TODO:add select with purchase location options
+          <div id="fare-location-radio-buttons">
+              <input type="radio" id="station-kiosk" name="fare-location" value="station-kiosk"/>
+              <label for="html">Station Kiosk</label><br/>
+              <input type="radio" id="onboard" name="fare-location" value="onboard" />
+              <label for="css">Onboard</label><br />
+          </div>
         </div>
         <div className="option-div">
           <h2 className="option-title">How many rides will you need?</h2>

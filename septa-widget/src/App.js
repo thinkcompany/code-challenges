@@ -1,13 +1,11 @@
 import React, { useState } from "react";
-import data from "./util/fares.json"
+import data from "./util/fares.json";
 import "./App.css";
 
 function App() {
+  const [fareData] = useState(data);
 
-  const [fareData, setFareData] = useState(data);
-
-  console.log(fareData)
-
+  console.log(fareData.info.anytime);
 
   return (
     <div className="App">
@@ -17,12 +15,21 @@ function App() {
         </div>
         <div className="option-div">
           <h2 className="option-title">Where are you going?</h2>
-          TODO:add dropdown with zone choices
-
+          <select name="zones" id="zones">
+            {fareData.zones.map((zone) => (
+              <option key={zone.name} value={zone.name}>
+                {zone.name}
+              </option>
+            ))}
+          </select>
         </div>
         <div className="option-div">
           <h2 className="option-title">When are you riding?</h2>
-          TODO:add dropdown with time of ride options
+          <select name="ride-time" id="ride-time">
+              <option value={fareData.info.anytime}>Anytime</option>
+              <option value={fareData.info.weekday}>Weekday</option>
+              <option value={fareData.info.evening_weekend}>Evening/Weekend</option>
+          </select>
         </div>
         <div className="option-div">
           <h2 className="option-title">Where will you purchase the fare?</h2>

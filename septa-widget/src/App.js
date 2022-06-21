@@ -1,13 +1,12 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
+import data from "./util/fares.json"
 import "./App.css";
 
 function App() {
 
-  const [fareData, setFareData] = useState([]);
+  const [fareData, setFareData] = useState(data);
 
-  useEffect(() => {
-    
-  }, [])
+  console.log(fareData)
 
 
   return (

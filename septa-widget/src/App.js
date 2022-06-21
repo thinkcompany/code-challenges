@@ -1,6 +1,15 @@
+import React, { useEffect, useState } from "react";
 import "./App.css";
 
 function App() {
+
+  const [fareData, setFareData] = useState([]);
+
+  useEffect(() => {
+    
+  }, [])
+
+
   return (
     <div className="App">
       <div className="container">
@@ -10,6 +19,7 @@ function App() {
         <div className="option-div">
           <h2 className="option-title">Where are you going?</h2>
           TODO:add dropdown with zone choices
+
         </div>
         <div className="option-div">
           <h2 className="option-title">When are you riding?</h2>

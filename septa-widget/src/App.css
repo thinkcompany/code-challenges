@@ -1,0 +1,13 @@
+.container {
+    width: 35%;
+    height: 1000px;
+    border: 5px solid #CCCCCC;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.header {
+    background-color: #595959;
+    color: #FFFFFF;
+    text-align: center;
+}

@@ -15,3 +15,15 @@
     height: 75px;
 
 }
+
+.option-div {
+    border-top: 1px solid #CCCCCC;
+    border-bottom: 1px solid #CCCCCC;
+    height: 20%;
+    color: #4D4D4D;
+    text-align: center;
+}
+
+.option-title {
+    padding: 8% 0 5% 0;
+}

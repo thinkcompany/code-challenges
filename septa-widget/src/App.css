@@ -4,6 +4,8 @@
     border: 5px solid #CCCCCC;
     margin-left: auto;
     margin-right: auto;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    letter-spacing: 2px;
 }
 
 .header {
@@ -11,4 +13,5 @@
     color: #FFFFFF;
     text-align: center;
     height: 75px;
+
 }

@@ -1,7 +1,8 @@
 // TODO: modularize code
 // TODO: refactor fare calculation code in a more efficient and DRY method
 // TODO: eliminate the ability for a user to select any fewer than 10 anytime tickets
-
+// TODO: resolve type comparison issues so that strict equality can be used
+// TODO: add toFixed to total so that it shows 2 decimal places
 
 // Hello Think Company!
 
@@ -242,7 +243,7 @@ function App() {
         {/* shows the total to the user */}
         <div className="option-div">
           <h2 className="option-title">Your fare will cost</h2>
-          <h1 id="total">${total}</h1>
+          <h1>${total}</h1>
         </div>
       </div>
     </div>

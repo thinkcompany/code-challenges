@@ -1,29 +1,34 @@
 .container {
-    width: 35%;
-    height: 1000px;
-    border: 5px solid #CCCCCC;
-    margin-left: auto;
-    margin-right: auto;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    letter-spacing: 2px;
+  width: 35%;
+  height: 1000px;
+  border: 5px solid #cccccc;
+  margin-left: auto;
+  margin-right: auto;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  letter-spacing: 2px;
 }
 
 .header {
-    background-color: #595959;
-    color: #FFFFFF;
-    text-align: center;
-    height: 75px;
-
+  background-color: #595959;
+  color: #ffffff;
+  text-align: center;
+  height: 75px;
 }
 
 .option-div {
-    border-top: 1px solid #CCCCCC;
-    border-bottom: 1px solid #CCCCCC;
-    height: 20%;
-    color: #4D4D4D;
-    text-align: center;
+  border-top: 1px solid #cccccc;
+  border-bottom: 1px solid #cccccc;
+  height: 180px;
+  color: #4d4d4d;
+  text-align: center;
 }
 
 .option-title {
-    padding: 8% 0 5% 0;
+  padding: 8% 0 5% 0;
+}
+
+@media only screen and (max-width: 800px) {
+  .container {
+    width: 100%;
+  }
 }

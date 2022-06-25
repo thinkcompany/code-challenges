@@ -21,8 +21,13 @@
             <select class="zones_dropdown" onchange="calculate()"></select>
           </section>
           <section class="when">
-            <h3>When are you riding?</h3>
-            <select id="when" onchange="calculate()">
+            <h3 id="riding_when">When are you riding?</h3>
+            <select
+              id="when"
+              aria-label="when your riding options"
+              aria-labelledby="riding_when"
+              onchange="calculate()"
+            >
               <option value="weekday">Weekday</option>
               <option value="evening_weekend">Evening Weekend</option>
               <option value="anytime">Anytime</option>
@@ -37,15 +42,17 @@
                 tabindex="0"
                 name="purchased"
                 value="advance_purchase"
+                aria-label="Where will you purchase the fare?"
                 onclick="calculate()"
                 checked
               />
-              <label for="kios">Station Kiosk</label>
+              <label for="kiosk">Station Kiosk</label>
             </div>
             <div class="purchased-at_option">
               <input
                 type="radio"
                 id="onboard"
+                aria-label="Where will you purchase the fare?"
                 name="purchased"
                 value="onboard_purchase"
                 onclick="calculate()"
@@ -55,7 +62,7 @@
           </div>
           <section class="qty" onchange="calculate()">
             <h3>How many rides will you need?</h3>
-            <input type="number" id="qty" />
+            <input type="number" id="qty" aria-label="# of rides you need" />
           </section>
         </div>
         <div class="display-cost">

@@ -7,12 +7,14 @@ export default function Quantity(props) {
       <form
         id="quantity-input-form"
         value={props.quantity}
-        onChange={props.quantityChangeHandler}
+        
       >
         <input
+          onChange={props.quantityChangeHandler}
           type="number"
           id="quantity-input"
           name="quantity"
+          value={props.quantity}
           min="0"
           max="10"
         ></input>

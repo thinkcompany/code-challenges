@@ -18,7 +18,7 @@ export default function RideTime(props) {
             </select>
           </div>
           <p id="ride-time-info">{props.rideTimeInfo}</p>
-          {props.rideTime === "anytime" ? <p>Must purchase a minimum of 10</p> : null}
+          {props.rideTime === "anytime" ? <p>Must purchase 10 at Station Kiosk</p> : null}
         </div>
 
   )

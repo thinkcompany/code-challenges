@@ -1,0 +1,194 @@
+/* TODO:  style radio buttons */
+
+/* variables */
+:root {
+  --text-color_primary: #4d4d4d;
+  --text-color_secondary: #ffffff;
+  --background-color_primary: #ffffff;
+  --background-color_secondary: #5a5a5a;
+  --border-color_primary: #cccccc;
+}
+
+/* styles for the container holding the widget */
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  width: 700px;
+  height: 1300px;
+  border: 5px solid var(--border-color_primary);
+  margin: 30px auto 50px auto;
+  font-family: "Inter", sans-serif;
+  font-size: 1.3rem;
+  /* font-weight: 500; */
+  letter-spacing: 0.04rem;
+  line-height: 1.6;
+}
+
+/* styles for the header div */
+.header {
+  background-color: var(--background-color_secondary);
+  color: var(--text-color_secondary);
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* general styles for the remaining divs that contain user options and the total*/
+.option-div {
+  border-top: 1px solid var(--border-color_primary);
+  border-bottom: 1px solid var(--border-color_primary);
+  height: 260px;
+  color: var(--text-color_primary);
+  text-align: center;
+}
+
+.option-title {
+  padding-top: 30px;
+}
+
+/* styling for the select dropdowns ------------ */
+
+.select-group {
+  padding-top: 20px;
+  padding-bottom: 10px;
+  position: relative;
+  margin: auto;
+  font-family: "Inter", sans-serif;
+}
+
+.select-group .select-style {
+  width: 90%;
+  height: 80px;
+  top: 0;
+  left: 0;
+  font-size: 22px;
+  color: var(--text-color_primary);
+  border: 3px solid var(--border-color_primary);
+  cursor: pointer;
+  padding: 0px 25px;
+  border-radius: 6px;
+  -webkit-border-radius: 6px;
+  -moz-border-radius: 6px;
+  -ms-border-radius: 6px;
+  -o-border-radius: 6px;
+}
+
+.select-group .select-style option {
+  font-size: 25px;
+  background: var(--background-color_primary);
+  color: var(--text-color_primary);
+}
+
+.select-group select:active,
+.select-group select:focus {
+  outline: none;
+  border: 3px solid #5a5a5a;
+  box-shadow: none;
+}
+
+.destination-div {
+  height: 220px;
+}
+
+/* style for the div containing the ride time select */
+
+#ride-time-div {
+  height: 310px;
+}
+
+#ride-time-info {
+  padding: 5px 10px;
+  font-size: smaller;
+}
+
+/* style for the div containing purchase location buttons */
+#purchase-location-div {
+  height: 210px;
+}
+
+.fare-location-radio-buttons {
+  width: 30%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  padding-top: 15px;
+  padding-bottom: 10px;
+}
+
+.radio-label {
+  align-self: flex-start;
+  font-size: 24px;
+  font-weight: 500;
+}
+
+.fare-location-radio-buttons input[type="radio"] {
+  transform: scale(2);
+  -webkit-transform: scale(2);
+  -moz-transform: scale(2);
+  -ms-transform: scale(2);
+  -o-transform: scale(2);
+}
+
+.radio-button {
+  margin-right: 20px;
+  margin-bottom: 20px;
+}
+
+input[type="radio"]:checked {
+  border: 1px solid red;
+}
+
+/* style for the div containing the ride quanitity input */
+
+.quantity-div {
+  height: 300px;
+}
+
+#quantity-input-form {
+  padding-top: 20px;
+  padding-bottom: 10px;
+}
+#quantity-input {
+  font-size: 45px;
+  color: var(--text-color_primary);
+  border: 3px solid var(--border-color_primary);
+  text-align: center;
+  width: 30%;
+  height: 80px;
+  border-radius: 6px;
+  -webkit-border-radius: 6px;
+  -moz-border-radius: 6px;
+  -ms-border-radius: 6px;
+  -o-border-radius: 6px;
+}
+
+#discount-info {
+  padding-bottom: 20px;
+}
+
+/* style for the div containing the total */
+.total-div {
+  background-color: var(--background-color_secondary);
+  color: var(--text-color_secondary);
+  height: 220px;
+  font-size: 2rem;
+}
+
+#total-display {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 6rem;
+  font-weight: 700;
+  height: 100px;
+}
+
+/* media queries */
+
+@media only screen and (max-width: 800px) {
+  .container {
+    width: 100%;
+  }
+}

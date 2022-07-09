@@ -41,8 +41,16 @@ function App() {
 
   // grabs the helper info for each fare timeframe and sets it to state
   const getRideTimeInfo = (rideTime) => {
-    let info = fareData.info[rideTime];
-    setRideTimeInfo(info);
+    // loops through the "info" key in the fareData object until a match is found.  Then the helper data is set to state once matched.
+    for (let key in fareData) {
+      if (key === "info") {
+        for (let key1 in fareData[key]) {
+          if (key1 === rideTime) {
+            setRideTimeInfo(fareData[key][key1]);
+          }
+        }
+      }
+    }
   };
 
   // change handler for destination select
@@ -85,6 +93,18 @@ function App() {
 
   // a function to calculate fares based on user input
   const getFare = (zone, when, where, howMany) => {
+
+    // console.log(fareData)
+   
+    for (let key in fareData) {
+      if (key === "info") {
+        for (let key1 in fareData[key]) {
+          if (key1 === when) {
+            return fareData[key][key1];
+          }
+        }
+      }
+    }
 
     // zone 1 fare calculation
     if (zone === "1") {

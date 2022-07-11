@@ -1,5 +1,4 @@
-// TODO: refactor fare calculation code in a more efficient and DRY method
-// TODO: eliminate the ability for a user to select any fewer than 10 anytime tickets
+
 
 // Hello Think Company!
 

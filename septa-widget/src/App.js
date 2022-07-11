@@ -11,7 +11,7 @@ import Destination from "./Components/Destination";
 import RideTime from "./Components/RideTime";
 import PurchaseLocation from "./Components/PurchaseLocation";
 import Quantity from "./Components/Quantity";
-import Total from "./Components/Total"
+import Total from "./Components/Total";
 
 function App() {
   // state variables
@@ -27,7 +27,7 @@ function App() {
 
   // grabs fare data from fares.json file in the public folder and sets it to state
   useEffect(() => {
-      API.getFareData()
+    API.getFareData()
       .then((res) => setFareData(res.data))
       .then(() => setLoading(false))
       .catch((err) => console.log(err));
@@ -37,7 +37,7 @@ function App() {
   // so as to keep a running total
   useEffect(() => {
     getFare(destination, rideTime, purchaseLocation, quantity);
-  }, [destination, rideTime, purchaseLocation, quantity]);
+  }, [destination, rideTime, purchaseLocation, quantity, anytime]);
 
   // grabs the helper info for each fare timeframe and sets it to state
   const getRideTimeInfo = (rideTime) => {
@@ -57,145 +57,62 @@ function App() {
   const destinationChangeHandler = (e) => {
     const selectedDestination = e.target.value;
     setDestination(selectedDestination);
-  }
+  };
 
   // change handler for ride time select
   const rideTimeChangeHandler = (e) => {
     const selectedRideTime = e.target.value;
     setRideTime(selectedRideTime);
     getRideTimeInfo(selectedRideTime);
-    if (selectedRideTime === "anytime") {
-      setAnytime(true)
-    } else {
-      setAnytime(false)
-    }
-  }
+  };
 
   // change handler for purchase location radio buttons
   const purchaseLocationChangeHandler = (e) => {
     const selectedPurchaseLocation = e.target.value;
     setPurchaseLocation(selectedPurchaseLocation);
-    // if (anytime) {
-    //   setPurchaseLocation("station-kiosk")
-    // } else {
-    //   setPurchaseLocation(selectedPurchaseLocation)
-    // }
-  }
+  };
 
   // change handler for quantity input
   const quantityChangeHandler = (e) => {
     const selectedQuantity = e.target.value;
     setQuantity(selectedQuantity);
-    if (anytime) {
-      setQuantity("10")
-    } 
-  }
+  };
 
   // a function to calculate fares based on user input
   const getFare = (zone, when, where, howMany) => {
-
-    // console.log(fareData)
-   
+    // convert the zone argument into a number and then subtract one to equal index of zones array
+    // so that zone 2 matches index 1, for example
+    const zoneInt = parseInt(zone) - 1;
+    // loop through fareData object and if the key equals "zones"
     for (let key in fareData) {
-      if (key === "info") {
-        for (let key1 in fareData[key]) {
-          if (key1 === when) {
-            return fareData[key][key1];
+      if (key === "zones") {
+        // then loop through the zones array to match the zone argument
+        // with the zone in the array
+        for (let zone = 0; zone < fareData.zones.length; zone++) {
+          if (zone === zoneInt) {
+            // if the zone matches then it grabs the fares array from that object and puts it into a new array
+            // that can be iterated over
+            let fares = fareData.zones[zoneInt].fares;
+            // loop over the fares array to find a match to the zone argument
+            for (let j = 0; j < fares.length; j++) {
+              // object of information of selected zone
+              let fareObj = fares[j];
+              // if "anytime is selected", set total to price of 10 "anytime tickets"
+              if (when === "anytime" && fareObj.type === "anytime") {
+                setPurchaseLocation("advance_purchase");
+                setAnytime(true)
+                setQuantity(10)
+                setTotal(fareObj.price)
+              }
+              // set price to total for other ride times
+               else if (fareObj.type === when && fareObj.purchase === where) {
+                const totalFare = fareObj.price * howMany;
+                setAnytime(false)
+                setTotal(totalFare);
+              }
+            }
           }
         }
-      }
-    }
-
-    // zone 1 fare calculation
-    if (zone === "1") {
-        if (when === "weekday" && where === "station-kiosk") {
-        let fare = fareData.zones[0].fares[0].price;
-        setTotal(fare * howMany);
-      } else if (when === "weekday" && where === "onboard") {
-        let fare = fareData.zones[0].fares[1].price;
-        setTotal(fare * howMany);
-      } else if (when === "evening_weekend" && where === "station-kiosk") {
-        let fare = fareData.zones[0].fares[2].price;
-        setTotal(fare * howMany);
-      } else if (when === "evening_weekend" && where === "onboard") {
-        let fare = fareData.zones[0].fares[3].price;
-        setTotal(fare * howMany);
-      } else if (when === "anytime" && where === "station-kiosk" &&  howMany === "10") {
-        let fare = fareData.zones[0].fares[4].price;
-        setTotal(fare);
-      }
-    // zone 2 fare calculation
-    } else if (zone === "2") {
-        if (when === "weekday" && where === "station-kiosk") {
-        let fare = fareData.zones[1].fares[0].price;
-        setTotal(fare * howMany);
-      } else if (when === "weekday" && where === "onboard") {
-        let fare = fareData.zones[1].fares[1].price;
-        setTotal(fare * howMany);
-      } else if (when === "evening_weekend" && where === "station-kiosk") {
-        let fare = fareData.zones[1].fares[2].price;
-        setTotal(fare * howMany);
-      } else if (when === "evening_weekend" && where === "onboard") {
-        let fare = fareData.zones[1].fares[3].price;
-        setTotal(fare * howMany);
-      } else if (when === "anytime" && where === "station-kiosk" &&  howMany === "10") {
-        let fare = fareData.zones[1].fares[4].price;
-        setTotal(fare);
-      }
-    }
-      // zone 3 fare calculation
-      else if (zone === "3") {
-        if (when === "weekday" && where === "station-kiosk") {
-        let fare = fareData.zones[2].fares[0].price;
-        setTotal(fare * howMany);
-      } else if (when === "weekday" && where === "onboard") {
-        let fare = fareData.zones[2].fares[1].price;
-        setTotal(fare * howMany);
-      } else if (when === "evening_weekend" && where === "station-kiosk") {
-        let fare = fareData.zones[2].fares[2].price;
-        setTotal(fare * howMany);
-      } else if (when === "evening_weekend" && where === "onboard") {
-        let fare = fareData.zones[2].fares[3].price;
-        setTotal(fare * howMany);
-      } else if (when === "anytime" && where === "station-kiosk" &&  howMany === "10") {
-        let fare = fareData.zones[2].fares[4].price;
-        setTotal(fare);
-      }
-    } else if (zone === "4") {
-        // zone 4 fare calculation
-      if (when === "weekday" && where === "station-kiosk") {
-        let fare = fareData.zones[3].fares[0].price;
-        setTotal(fare * howMany);
-      } else if (when === "weekday" && where === "onboard") {
-        let fare = fareData.zones[3].fares[1].price;
-        setTotal(fare * howMany);
-      } else if (when === "evening_weekend" && where === "station-kiosk") {
-        let fare = fareData.zones[3].fares[2].price;
-        setTotal(fare * howMany);
-      } else if (when ==="evening_weekend" && where === "onboard") {
-        let fare = fareData.zones[3].fares[3].price;
-        setTotal(fare * howMany);
-      } else if (when === "anytime" && where === "station-kiosk" &&  howMany === "10") {
-        let fare = fareData.zones[3].fares[4].price;
-        setTotal(fare);
-      }
-    } else if (zone === "5") {
-      // zone 5 fare calculation
-      if (when === "weekday" && where === "station-kiosk") {
-        let fare = fareData.zones[4].fares[0].price;
-        setTotal(fare * howMany);
-      } else if (when === "weekday" && where === "onboard") {
-        let fare = fareData.zones[4].fares[1].price;
-        setTotal(fare * howMany);
-      } else if (when === "evening_weekend" && where === "station-kiosk") {
-        let fare = fareData.zones[4].fares[2].price;
-        setTotal(fare * howMany);
-      } else if (when === "evening_weekend" && where === "onboard") {
-        let fare = fareData.zones[4].fares[3].price;
-        setTotal(fare * howMany);
-      } else if (when === "anytime" && where === "station-kiosk" &&  howMany === "10") {
-        let fare = fareData.zones[4].fares[4].price;
-        setTotal(fare);
       }
     }
   };
@@ -212,28 +129,26 @@ function App() {
           loading={loading}
         />
         {/* user select for ride time */}
-        <RideTime 
+        <RideTime
           rideTimeChangeHandler={rideTimeChangeHandler}
           rideTimeInfo={rideTimeInfo}
           rideTime={rideTime}
         />
         {/* user select for purchase location */}
-        <PurchaseLocation 
+        <PurchaseLocation
           purchaseLocationChangeHandler={purchaseLocationChangeHandler}
           purchaseLocation={purchaseLocation}
+          anytime={anytime}
         />
 
         {/* user select for number of tickets */}
-        <Quantity 
+        <Quantity
           quantity={quantity}
           quantityChangeHandler={quantityChangeHandler}
         />
-        
+
         {/* shows the total to the user */}
-        <Total 
-         total={total}
-        />
-        
+        <Total total={total} />
       </div>
     </div>
   );

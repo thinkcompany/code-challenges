@@ -1,4 +1,10 @@
+# Challenge for think frontend position
+[screen-capture.webm](https://user-images.githubusercontent.com/95545435/179364578-39af0fb8-563a-4ad1-a67a-48115f609a42.webm)
+
+## Used Tech: React, Typescript, Mui
+
 # Getting Started with Create React App
+
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 

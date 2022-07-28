@@ -1,10 +1,75 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<title>SEPTA Regional Rail Fare Calculator</title>
-</head>
-<body>
-	
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <title>SEPTA Regional Rail Fare Calculator</title>
+    <script src="./index.js"></script>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body onload="onLoad()">
+    <h4 id="alerts"></h4>
+    <div class="container">
+      <div class="component">
+        <header>
+          <img src="./img/logo.png" />
+          <h1 class="header_title">Regional Rail Fares</h1>
+        </header>
+
+        <div class="zones">
+          <section id="where" class="where">
+            <h3>Where are you going?</h3>
+            <select class="zones_dropdown" onchange="calculate()"></select>
+          </section>
+          <section class="when">
+            <h3 id="riding_when">When are you riding?</h3>
+            <select
+              id="when"
+              aria-label="when your riding options"
+              aria-labelledby="riding_when"
+              onchange="calculate()"
+            >
+              <option value="weekday">Weekday</option>
+              <option value="evening_weekend">Evening Weekend</option>
+              <option value="anytime">Anytime</option>
+            </select>
+          </section>
+          <div class="purchased-at">
+            <h3>Where will you purchase the fare?</h3>
+            <div class="purchased-at_option">
+              <input
+                type="radio"
+                id="kiosk"
+                tabindex="0"
+                name="purchased"
+                value="advance_purchase"
+                aria-label="Where will you purchase the fare?"
+                onclick="calculate()"
+                checked
+              />
+              <label for="kiosk">Station Kiosk</label>
+            </div>
+            <div class="purchased-at_option">
+              <input
+                type="radio"
+                id="onboard"
+                aria-label="Where will you purchase the fare?"
+                name="purchased"
+                value="onboard_purchase"
+                onclick="calculate()"
+              />
+              <label for="onboard">Onboard</label>
+            </div>
+          </div>
+          <section class="qty" onchange="calculate()">
+            <h3>How many rides will you need?</h3>
+            <input type="number" id="qty" aria-label="# of rides you need" />
+          </section>
+        </div>
+        <div class="display-cost">
+          <h3>Your fare will cost</h3>
+          <p id="price">$0.00</p>
+        </div>
+      </div>
+    </div>
+  </body>
 </html>

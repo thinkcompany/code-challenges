@@ -7,7 +7,7 @@
 ## Demo the Widget
 1. clone the repo
 2. open a terminal
-3. make sure you are in the folder ./septa-fare-calculator
+3. make sure you are in the root directory of this repo `code-challenges`
 4. run these commands
 ```
 npm install

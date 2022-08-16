@@ -13,9 +13,9 @@ React 18
 4. Navigate to `http://localhost:3000` in your browser
 
 ## Important features
-1. Notes provided for each choice of when to ride and where to purchase tickets. 
+1. Info provided for each choice of when to ride and where to purchase tickets. 
 2. Automatically apply discount to groups of 10 or more tickets
-3. Error handling for not available choices, for example, all day tickets cann't be purchased on board.
+3. Error handling for not available choices, for example, all day tickets can't be purchased on board.
 
 ## Contact
     Xiaowen Nie, niexiaowen90@gmail.com

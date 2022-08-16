@@ -1,0 +1,67 @@
+.form-container {
+    border: 1px solid gray;
+    width: 400px;
+    height: 700px;
+    padding: 20px;
+    color: rgb(42, 40, 40);
+    margin: auto;
+}
+.form-container > div {
+    display: flex;
+    flex-direction: column;
+    width: 350px;
+    margin: 10px auto; 
+    padding-bottom: 30px;
+}
+
+.form-container>div label {
+    width: fit-content;
+    margin: auto;
+    margin-bottom: 10px;
+}
+
+.form-container select {
+    height: 40px;
+    padding-left: 10px;
+}
+
+.form-header {
+    width: fit-content;
+    margin: 60px auto 20px auto;
+}
+
+.checkbox-div {
+    display: flex;
+}
+
+.checkbox-div input {
+    margin-left: 50px;
+    border-radius: 4px;
+}
+
+.number-input {
+    width: 50px;
+    margin: auto;
+    padding: 5px 0px 5px 30px;
+}
+
+.notes {
+    font-size: 12px;
+    margin-top: 10px;
+    color: rgb(140, 4, 4);
+}
+
+.total-cost {
+    display: flex;
+    flex-direction: column;
+
+}
+
+.total-cost span {
+    width: fit-content;
+    margin: 10px auto;
+}
+
+.final-price {
+    font-size: 30px;
+}

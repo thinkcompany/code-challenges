@@ -1,0 +1,10 @@
+/* TODO Add site wide styles */
+
+body {
+    font-family:Arial, Helvetica, sans-serif
+}
+
+.septa-header {
+    margin: 50px auto;
+    width: fit-content;
+}

@@ -3,11 +3,13 @@ import data from "./fares.json";
 import "./index.css";
 
 const Form = () => {
+  // set initial states for values in the form
   const [destination, setDestination] = useState(1);
   const [count, setCount] = useState(1);
   const [purchaseLocation, setPurchaseLocation] = useState("advance_purchase");
   const [time, setTime] = useState("weekday");
 
+  // get types of when to ride from the json data
   let types = {};
   for (let zone of data.zones) {
     for (let fare of zone.fares) {
@@ -15,6 +17,7 @@ const Form = () => {
     }
   }
 
+  // calculate and return the final price 
   const calculate = () => {
     let total;
     for (let zone of data.zones) {
@@ -30,6 +33,7 @@ const Form = () => {
         }
       }
     }
+    // itinerary not found
     alert("Not available to purchase! Choose a different location");
     setPurchaseLocation("advance_purchase");
   };

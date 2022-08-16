@@ -62,3 +62,7 @@
     width: fit-content;
     margin: 10px auto;
 }
+
+.final-price {
+    font-size: 30px;
+}

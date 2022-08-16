@@ -4,7 +4,7 @@ The Fare Caculator App is a simple React widget to caculate SEPTA Regional Rail 
 
 ## Getting started
 ### Environment
-React 17
+React 18
 
 ### Run the App
 1. cd into `fare-caculator` folder 
@@ -13,11 +13,9 @@ React 17
 4. Navigate to `http://localhost:3000` in your browser
 
 ## Important features
-1.  
-2. To run one of the tests, choose the test file name. 
-    `WeatherApplicationTests`: test whether the application context can start.
-    `WeatherApplicationHttpRequestTest`: contails a list of logical tests on all endpoints including invalid inputs error handling using `daily-weather-2020.csv` as test data source.
-
+1. Notes provided for each choice of when to ride and where to purchase tickets. 
+2. Automatically apply discount to groups of 10 or more tickets
+3. Error handling for not available choices, for example, all day tickets cann't be purchased on board.
 
 ## Contact
     Xiaowen Nie, niexiaowen90@gmail.com

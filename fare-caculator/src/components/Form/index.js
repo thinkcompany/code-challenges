@@ -22,13 +22,16 @@ const Form = () => {
         for (let fare of zone.fares) {
           if (fare.type === time && fare.purchase === purchaseLocation) {
             total = fare.price * count;
-            if (count >= 10) {total *= 0.9}
+            if (count >= 10) {
+              total *= 0.9;
+            }
             return total.toFixed(2);
           }
         }
       }
     }
     alert("Not available to purchase! Choose a different location");
+    setPurchaseLocation("advance_purchase");
   };
 
   return (
@@ -64,13 +67,15 @@ const Form = () => {
       </div>
       <div>
         <label>Where will you purchase the fare?</label>
-        <div className="checkbox-div">
+        <div
+          className="checkbox-div"
+          onChange={(e) => setPurchaseLocation(e.target.value)}
+        >
           <input
             type="radio"
             value="advance_purchase"
             name="location"
             checked={purchaseLocation === "advance_purchase"}
-            onChange={(e) => setPurchaseLocation(e.target.value)}
           ></input>{" "}
           Station Kiosk
           <input
@@ -78,7 +83,6 @@ const Form = () => {
             value="onboard_purchase"
             name="location"
             checked={purchaseLocation === "onboard_purchase"}
-            onChange={(e) => setPurchaseLocation(e.target.value)}
           />{" "}
           Onboard
         </div>
@@ -107,7 +111,7 @@ const Form = () => {
 
       <div className="total-cost">
         <span>Your fare will cost</span>
-        <span>${calculate()}</span>
+        <span className="final-price">${calculate()}</span>
       </div>
     </div>
   );

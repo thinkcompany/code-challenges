@@ -10,10 +10,10 @@ const RailCalculator = ({ url }) => {
   const [numberOfRides, setNumberOfRides] = useState(0);
 
   useEffect(() => {
-    fetch('./fares.json').then(res => res.json()).then((result) => {
+    fetch(url).then(res => res.json()).then((result) => {
       setFareData(result)
     })
-  }, [])
+  }, [url])
 
   const calulateTotal = () => {
     let price = 0;

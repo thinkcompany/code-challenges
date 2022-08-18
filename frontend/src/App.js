@@ -9,8 +9,6 @@ import { Navbar } from './components/Navbar';
 //Styling
 import styles from "./styles/App.module.css";
 
-
-
 function App() {
   return (
     <BrowserRouter>

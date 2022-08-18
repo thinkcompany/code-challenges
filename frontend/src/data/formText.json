@@ -1,0 +1,52 @@
+{
+    "labels": {
+        "english": {
+            "destination": "Where are you going?",
+            "day": "When are you riding?",
+            "location": "Where will you purchase the fare?",
+            "count": "How many rides will you need?",
+            "total": "Your fare will cost"
+        },
+        "spanish": {
+            "destination": "¿A dónde vas?",
+            "day": "¿Cuando estas montando?",
+            "location": "¿Dónde comprará el pasaje?",
+            "count": "¿Cuántos viajes necesitarás?",
+            "total": "Su tarifa costará"
+        }
+    },
+    "options": {
+        "english": {
+            "zones": [{
+                "1": "Zone 1",
+                "2": "Zone 2",
+                "3": "Zone 3",
+                "4": "Zone 4",
+                "5": "New Jersey"
+            }],
+            "day": {
+                "weekday": "Weekdays",
+                "evenings": "Weekends/Evenings",
+                "any": "Anytime"
+            },
+            "location": {
+                "kiosk": "Station Kiosk",
+                "onboard": "Onboard"
+            }
+        },
+        "spanish": {
+            "zones": [{
+                "1": "Zona 1",
+                "2": "Zona 2",
+                "3": "Zona 3",
+                "4": "Zona 4",
+                "5": "New Jersey"
+            }],
+            "day": [{
+                "weekday": "Día de la semana ",
+                "evenings": "Fines de semana/Noches",
+                "any": "Cualquier momento"
+            }]
+        }
+    }
+}

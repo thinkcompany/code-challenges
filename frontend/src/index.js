@@ -14,7 +14,8 @@ import './globalRest.css';
 import App from './App';
 
 //Performance
-import reportWebVitals from './reportWebVitals';
+//Commenting this out for now
+// import reportWebVitals from './reportWebVitals';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 //I am wrapping app with two contexts
@@ -30,4 +31,5 @@ root.render(
   </React.StrictMode>
 );
 
-reportWebVitals();
+//Commenting out web vitals right now
+// reportWebVitals();

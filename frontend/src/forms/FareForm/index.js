@@ -7,7 +7,7 @@ import { useTheme } from "../../context/themeContext";
 
 //Components
 import { Buttons } from "../../components/Buttons";
-
+import { Logo } from "../../designAssets/Logo";
 //Styling
 import styles from "./FareForm.module.css";
 
@@ -70,38 +70,64 @@ export const FareForm = () => {
 
     return (
         <section className={styles.formSection}>
-            <form>
-                <div>
-                    <div>
-                        Logo
+            <form className={styles.fareForm}>
+                <div className={styles.banner}>
+                    <div className={styles.vectorBox}>
+                        <Logo />
                     </div>
-                    <h3>Regional Rail Fares</h3>
+                    <h3 className={styles.title}>Regional Rail Fares</h3>
                 </div>
-                <div>
-                    <label>{labels.destination}</label>
-                    <select>
+                <div className={styles.inputBox}>
+                    <label className={styles.label}>{labels.destination}</label>
+                    <select className={styles.selectBox}>
                         {options.zones.map((zone, idx) => {
                             return <option key={idx}>{Object.values(zone)[0]}</option>
                         })}
                     </select>
                 </div>
-                <div>
-                    <label>{labels.day}</label>
-                    {options.zones.map((day, idx) => {
-                        return <option key={idx}>{Object.values(day)[0]}</option>
-                    })}
-                    <div>
-                        <h4>Guide:</h4>
-                        <h5>
+                <div className={styles.inputBox}>
+                    <label className={styles.label}>{labels.day}</label>
+                    <select className={styles.selectBox}>
+                        {options.day.map((eachDay, idx) => {
+                            console.log(eachDay)
+                            return <option key={idx}>{Object.values(eachDay)[0]}</option>
+                        })}    
+                    </select>
+                    <div className={styles.guide}>
+                        <p className={styles.guideTitle}>Guide:</p>
+                        <p className={styles.guideText}>
                             Weekdays: First train - 7pm
                             Evenings: 7pm - last train
-                            Anytime: One train ride anytime
-                        </h5>
+                            Anytime: One ride anytime
+                        </p>
                     </div>
                 </div>
-                <div>
-                    <button type="radio">{options.location.kiosk}</button>
-                    <button type="radio">{options.location.onboard}</button>
+                <div className={styles.inputBox}>
+                    <label>{labels.location}</label>
+                    <div className={styles.radioContainer}>
+                        <div className={styles.radioBox}>
+                            <input 
+                                id="kiosk"
+                                type="radio" 
+                                value="kiosk">
+                            </input>
+                            <label for="kiosk">
+                                {options.location.kiosk}
+                            </label>  
+                        </div>
+                        <div className={styles.radioBox}>  
+                            <input 
+                                id="onboard"
+                                type="radio" 
+                                value="onboard" 
+                                checked
+                            >
+                            </input>
+                            <label for="onboard">
+                                {options.location.onboard}
+                            </label>    
+                        </div>
+                    </div>
                 </div>
                 <div>
                     <label>{labels.count}</label>
@@ -112,7 +138,7 @@ export const FareForm = () => {
                     <p>{`$${total}`}</p>
                 </div>
                 <Buttons onClick={cancelForm} action="cancel"/>
-                <Buttons onclick={submitForm} action="submit"/>
+                <Buttons onClick={submitForm} action="submit"/>
             </form>
         </section>
     )

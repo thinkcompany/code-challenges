@@ -8,7 +8,7 @@ import LanguageContext from './context/languageContext';
 
 //Styling
 // I applied a global rest css file
-import './globalRest.css';
+import './styles/globalReset.css';
 
 //Components
 import App from './App';

@@ -1,0 +1,11 @@
+.trainImage {
+    width: 100vw;
+    height: 75px;
+    object-fit: cover;
+    object-position: center;
+}
+
+.header {
+    text-decoration: underline;
+}
+

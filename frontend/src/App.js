@@ -1,36 +1,28 @@
+//React Router
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+//Endpoints
+import { Home } from './pages/Home';
+import { FaresPage } from './pages/Fares';
+import { NotFound } from './pages/NotFound';
 //Components
 import { Navbar } from './components/Navbar';
 //Styling
 import styles from "./styles/App.module.css";
-//Images
-import trainImage from '../public/images/Septa_sideview.jpg';
-//Router
+
 
 
 function App() {
   return (
-    <div className={styles.body}>
-      <Navbar />
-      <img 
-        className={styles.trainImage} 
-        src={trainImage} 
-        alt="A sideview of a regional rail train." 
-      />
-      <h1>SEPTA Regional Rail Fare</h1>
-      <div>
-        <div><p>i</p></div>
-        <p>A 10% discount applies at checkout when you purchase 10 or more rides.</p>
+    <BrowserRouter>
+      <div className={styles.body}>
+        <Navbar />
+        <Routes>
+          <Route path='/' element={<Home />} />
+          <Route path='/fares' element={<FaresPage />} />
+          <Route path='*' element={<NotFound />} />
+        </Routes>
       </div>
-      <section>
-        <form>
-          <div></div>
-          <button></button>
-          <button></button>
-        </form>
-      </section>
-      <h2>Map</h2>
-      <h2>Prices</h2>
-    </div>
+    </BrowserRouter>
   );
 }
 

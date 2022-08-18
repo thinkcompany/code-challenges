@@ -9,11 +9,4 @@
   background: linear-gradient(#80C7F7, #36576E);
 }
 
-.trainImage {
-  width: 100vw;
-  height: 75px;
-  object-fit: cover;
-  object-position: center;
-}
-
 

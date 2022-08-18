@@ -1,0 +1,32 @@
+.switchBox {
+    width: auto;
+    height: 40px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    font-size: 16px;
+}
+
+.label {
+    color: white;
+    font-size: 16px;
+}
+
+.switchControl {
+    width: 75px;
+    height: 35px;
+    border-radius: 100px;
+    border: 1px solid #595959;
+    display: flex;
+    flex-direction: row;
+    background-color: lightgreen;
+}
+
+.switchCircle {
+    width: 30px;
+    height: 30px;
+    border-radius: 100px;
+    background-color: white;
+}

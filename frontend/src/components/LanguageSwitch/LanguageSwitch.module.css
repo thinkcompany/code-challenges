@@ -1,0 +1,13 @@
+.languageBox {
+    width: 30px;
+    height: 30px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+p {
+    color: white;
+    font-size: 14px;
+}

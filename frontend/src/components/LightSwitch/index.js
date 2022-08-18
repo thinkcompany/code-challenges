@@ -1,5 +1,7 @@
 //Theme context
 import { useTheme } from "../../context/themeContext";
+//Styling
+import styles from "./LightSwitch.module.css";
 
 export const LightSwitch = () => {
     const {theme, setTheme} = useTheme();
@@ -10,11 +12,15 @@ export const LightSwitch = () => {
     }
 
     return (
-        <div onClick={switchThemes}>
-            {theme === 'light' ? "Light mode" : "Dark mode"}
-            <div>
-                <div>
-                </div>    
+        <div 
+        className={styles.switchBox}
+        onClick={switchThemes}
+        >
+            <p className={styles.label}>
+                {theme === 'light' ? "Light mode" : "Dark mode"}
+            </p>
+            <div className={styles.switchControl}>
+                <div className={styles.switchCircle} />
             </div>
         </div>
     )

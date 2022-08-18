@@ -103,3 +103,25 @@
     flex-direction: row;
     gap: 5px;
 }
+
+.inputNumber {
+    width: 100px;
+    height: 45px;
+    text-align: center;
+    font-size: 18px;
+}
+
+.totalCount {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100px;
+    background: #595959;
+}
+
+.total {
+    font-size: 32px;
+    color: white;
+}

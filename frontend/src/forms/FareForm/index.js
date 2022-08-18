@@ -103,7 +103,7 @@ export const FareForm = () => {
                     </div>
                 </div>
                 <div className={styles.inputBox}>
-                    <label>{labels.location}</label>
+                    <label className={styles.label}>{labels.location}</label>
                     <div className={styles.radioContainer}>
                         <div className={styles.radioBox}>
                             <input 
@@ -129,13 +129,22 @@ export const FareForm = () => {
                         </div>
                     </div>
                 </div>
-                <div>
-                    <label>{labels.count}</label>
-                    <input type="number"></input>
+                <div className={styles.inputBox}>
+                    <label 
+                        className={styles.label}
+                    >
+                        {labels.count}
+                    </label>
+                    <input 
+                        type="number" 
+                        placeholder='0'
+                        className={styles.inputNumber}
+                    >
+                    </input>
                 </div>
-                <div>
-                    <h4>{labels.total}</h4>
-                    <p>{`$${total}`}</p>
+                <div className={styles.totalCount}>
+                    <h4 className={styles.label}>{labels.total}</h4>
+                    <p className={styles.total}>{`$${total}`}</p>
                 </div>
                 <Buttons onClick={cancelForm} action="cancel"/>
                 <Buttons onClick={submitForm} action="submit"/>

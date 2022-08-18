@@ -1,0 +1,43 @@
+.lightNav {
+    background-color: #CBE9FF;
+    width: 100vw;
+    height: 50px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 10px;
+}
+
+.darkNav {
+    background-color: #11466C;
+    width: 100vw;
+    height: 50px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 10px;
+}
+
+.lightText {
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 70px;
+    font-weight: 700;
+}
+
+.darkText {
+    color: #595959;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 70px;
+    font-weight: 700;
+}
+
+.vectorBox {
+    width: 50px;
+    height: 35px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

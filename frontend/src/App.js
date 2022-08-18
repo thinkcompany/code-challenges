@@ -1,10 +1,16 @@
-import trainImage from '../public/images/Septa_sideview.jpg';
+//Components
+import { Navbar } from './components/Navbar';
+//Styling
 import styles from "./styles/App.module.css";
+//Images
+import trainImage from '../public/images/Septa_sideview.jpg';
+//Router
+
 
 function App() {
   return (
     <div className={styles.body}>
-      <nav></nav>
+      <Navbar />
       <img 
         className={styles.trainImage} 
         src={trainImage} 

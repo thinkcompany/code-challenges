@@ -1,9 +1,12 @@
 //React Router
 import { NavLink } from 'react-router-dom'
-//Logo Vector
-import { Logo } from "../../designAssets/Logo";
 //Context Hook
 import { useTheme } from "../../context/themeContext";
+//Logo Vector
+import { Logo } from "../../designAssets/Logo";
+//components
+import { LightSwitch } from '../LightSwitch';
+import { LanguageSwitch } from '../LanguageSwitch';
 //Styling
 import styles from "./Navbar.module.css";
 
@@ -23,10 +26,22 @@ export const Navbar = () => {
                 <li>
                     <NavLink 
                     to="/" 
-                        className={theme === "light" ? styles.lightText : styles.darkText}
+                    className={theme === "light" ? styles.lightText : styles.darkText}
                     >
                         SEPTA
                     </NavLink>
+                </li>
+                <li>
+                    <NavLink
+                    to="/fares">
+                        Fares
+                    </NavLink>
+                </li>
+                <li>
+                    <LightSwitch />
+                </li>
+                <li>
+                    <LanguageSwitch />
                 </li>
             </ul>
         </nav>

@@ -1,11 +1,12 @@
-.trainImage {
+.fareSection {
     width: 100vw;
-    height: 75px;
-    object-fit: cover;
-    object-position: center;
+    height: calc(100vh - 50px);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
 }
 
 .header {
     text-decoration: underline;
 }
-

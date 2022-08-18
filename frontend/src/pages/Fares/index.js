@@ -2,14 +2,14 @@
 import styles from './Fares.module.css';
 //Images
 import trainImage from "../../designAssets/images/Septa_sideview.jpg";
-
+//Components
+import { InfoImages } from '../../components/InfoImages/InfoImages';
 export const FaresPage = () => {
     return (
-        <>
-            <img
-                className={styles.trainImage}
-                src={trainImage}
-                alt="A sideview of a regional rail train."
+        <section classname={styles.fareSection}>
+            <InfoImages 
+                imageSrc={trainImage} 
+                altText="A sideview of a regional rail train."
             />
             <h1 className={styles.header}>SEPTA Regional Rail Fare</h1>
             <div>
@@ -25,6 +25,6 @@ export const FaresPage = () => {
             </section>
             <h2>Map</h2>
             <h2>Prices</h2>
-        </>
+        </section>
     )
 }

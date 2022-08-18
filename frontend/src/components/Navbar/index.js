@@ -15,7 +15,7 @@ export const Navbar = () => {
 
     return (
         <nav className={theme === "light" ? styles.lightNav : styles.darkNav}>
-            <ul>
+            <ul className={styles.navList}>
                 <li>
                     <NavLink to="/">
                         <div className={styles.vectorBox}>
@@ -25,15 +25,17 @@ export const Navbar = () => {
                 </li>
                 <li>
                     <NavLink 
-                    to="/" 
-                    className={theme === "light" ? styles.lightText : styles.darkText}
+                        to="/" 
+                        className={theme === "light" ? styles.lightText : styles.darkText}
                     >
                         SEPTA
                     </NavLink>
                 </li>
                 <li>
                     <NavLink
-                    to="/fares">
+                        to="/fares"
+                        className={theme === "light" ? styles.lightFare : styles.darkFare}
+                    >
                         Fares
                     </NavLink>
                 </li>

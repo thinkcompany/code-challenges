@@ -3,10 +3,8 @@
     width: 100vw;
     height: 50px;
     display: flex;
-    flex-direction: row;
     align-items: center;
-    justify-content: flex-start;
-    gap: 10px;
+    justify-content: center;
 }
 
 .darkNav {
@@ -14,24 +12,55 @@
     width: 100vw;
     height: 50px;
     display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.navList {
+    width: 95vw;
+    height: 40px;
+    display: flex;
     flex-direction: row;
+    gap: 10px;
     align-items: center;
     justify-content: flex-start;
-    gap: 10px;
+    padding: 5px;
+}
+
+li:nth-child(n+3) {
+    margin-left: 5px;
 }
 
 .lightText {
-    color: white;
+    color: #595959;
     font-family: Arial, Helvetica, sans-serif;
-    font-size: 70px;
+    font-size: 30px;
     font-weight: 700;
+    text-decoration: none;
 }
 
 .darkText {
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 30px;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.lightFare {
     color: #595959;
     font-family: Arial, Helvetica, sans-serif;
-    font-size: 70px;
+    font-size: 18px;
     font-weight: 700;
+    text-decoration: underline;
+}
+
+.darkFare {
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 18px;
+    font-weight: 700;
+    text-decoration: underline;
 }
 
 .vectorBox {

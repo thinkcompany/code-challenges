@@ -16,11 +16,11 @@ export const LightSwitch = () => {
         className={styles.switchBox}
         onClick={switchThemes}
         >
-            <p className={styles.label}>
+            <p className={theme === "light" ? styles.lightLabel : styles.darkLabel}>
                 {theme === 'light' ? "Light mode" : "Dark mode"}
             </p>
-            <div className={styles.switchControl}>
-                <div className={styles.switchCircle} />
+            <div className={theme === 'light' ? styles.lightSwitch : styles.darkSwitch}>
+                <div className={theme === 'light' ? styles.lightCircle : styles.darkCircle} />
             </div>
         </div>
     )

@@ -31,3 +31,4 @@ When you take regional rail in and out of the city, the fare price is affected b
 * [Think Company Development Standards](https://standards.thinkcompany.dev/)
 * [SEPTA Fares](http://www.septa.org/fares/ticket/index.html)
 * [SEPTA Logo (SVG)](https://commons.wikimedia.org/wiki/File:SEPTA.svg)
+* [CSS Global reset](https://meyerweb.com/eric/tools/css/reset/)

@@ -182,3 +182,15 @@
     line-height: 24px;
     letter-spacing: 0.25px;
 }
+
+.anytimeMessage {
+    color: rgb(20, 100, 20);
+    max-width: 285px;
+    line-height: 24px;
+}
+
+.errorMessage {
+    color: red;
+    max-width: 285px;
+    line-height: 24px;
+}

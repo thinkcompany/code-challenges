@@ -228,9 +228,16 @@ export const FareForm = ({ language, theme }) => {
                             </input>
                             <label htmlFor="onboard">
                                 {options.location.onboard}
-                            </label>    
+                            </label>
                         </div>
                     </div>
+                    {day === 'anytime' &&
+                        <div>
+                            <p className={styles.anytimeMessage}>
+                                * Anytime tickets must be purchased in advance at a station kiosk.
+                            </p>
+                        </div>
+                    }    
                 </div>
                 <div className={styles.inputBox}>
                     <label 
@@ -248,7 +255,7 @@ export const FareForm = ({ language, theme }) => {
                     </input>
                     {ridesErr !== null && 
                         <div>
-                            <p>
+                            <p className={styles.errorMessage}>
                                 {ridesErr}
                             </p>
                         </div>

@@ -14,9 +14,9 @@ import languages from "../../data/formText.json";
 
 export const FareForm = ({ language, theme }) => {
     //State variables for form inputs
-    const [zone, setZone] = useState("Zone 4");
-    const [day, setDay] = useState("Weekdays");
-    const [location, setLocation] = useState("Onboard");
+    const [zone, setZone] = useState("0");
+    const [day, setDay] = useState("weekday");
+    const [advPurchase, setAdvPurchase] = useState("onboard_purchase");
     const [rides, setRides] = useState(0);
     //State variable for total counter
     const [total, setTotal] = useState(0);
@@ -32,34 +32,67 @@ export const FareForm = ({ language, theme }) => {
     const options = selectedLang.options;
 
     //Functions
+    const handleRides = (e) => {
+        e.preventDefault();
+        if(e.target.value < 0) {
+            return setRides(0);
+        }
+        if(e.target.value > 0) {
+            setRides(e.target.value);
+            return setRidesErr(null);
+        }
+    }
 
+    const fareCalculator = () => {
+        //Error handling
+        if (rides <= 0) {
+            const error = language === "english" ?
+                "Please enter a number greater than 0"
+                :
+                "Por favor, introduzca un número mayor que 0";
+            return setRidesErr(error);
+        }
+        //Arr
+        const selectedFares = fares.zones[zone].fares;
+        console.log(selectedFares)
+        //Filter the arr and get an object
+        const selectedFare = selectedFares.filter(fare => 
+            fare.type === day && fare.purchase === advPurchase
+        )
+        console.log(selectedFare)
+        const farePrice = selectedFare[0].price;
+        let totalSum = farePrice * rides;
+        console.log(totalSum);
+        setTotal(totalSum);
+        return
+    }
+
+    useEffect(() => {
+        const fareTotal = fareCalculator();
+        console.log(fareTotal)
+    },[zone, day, advPurchase, rides]);
+    
+    const submitForm = async (e) => {
+        e.preventDefault();
+        //Passing info to backend
+        console.log(total);
+        return
+    } 
+    
     const cancelForm = (e) => {
         e.preventDefault();
-        setZone("Zone 4");
-        setDay("Weekdays");
-        setLocation("Onboard");
+        e.stopPropagation();
+        setZone("0");
+        setDay("weekday");
+        setAdvPurchase("onboard_purchase");
         setRides(0);
         setTotal(0);
         setRidesErr(null);
         return
     } 
 
-    const submitForm = async (e) => {
-        e.preventDefault();
-        //Error handling
-        //Passing info to backend
 
-
-        const purchaseInfo = {
-            zone,
-            day,
-            location,
-            rides,
-            total
-        };
-
-        return
-    } 
+    
 
 
     return (
@@ -74,16 +107,31 @@ export const FareForm = ({ language, theme }) => {
                 <div className={styles.inputBox}>
                     <label className={styles.label}>{labels.destination}</label>
                     <select className={styles.selectBox}>
-                        {Object.values(options.zones).map((zone, idx) => {
-                            return <option key={idx}>{zone}</option>
+                        {Object.entries(options.zones).map((key, value) => {
+                            //key[0] is the same key for the fares.json
+                            //key[1] is the text for the option tag
+                            return <option 
+                            key={value} value={key[0]} 
+                            onChange={e => setZone(e.target.value)}
+                            >
+                                {key[1]}
+                            </option>
                         })}
                     </select>
                 </div>
                 <div className={styles.inputBox}>
                     <label className={styles.label}>{labels.day}</label>
                     <select className={styles.selectBox}>
-                        {Object.values(options.day).map((eachDay, idx) => {
-                            return <option key={idx}>{eachDay}</option>
+                        {Object.entries(options.day).map((key, value) => {
+                            //key[0] is the same key for the fares.json
+                            //key[1] is the text for the option tag
+                            return <option 
+                            key={value} 
+                            value={key[0]} 
+                            onChange={e => setDay(e.target.value)}
+                            >
+                                {key[1]}
+                            </option>
                         })}    
                     </select>
                     <div className={language === "english" ? styles.guide : styles.spanishGuide}>
@@ -100,9 +148,12 @@ export const FareForm = ({ language, theme }) => {
                             <input 
                                 id="kiosk"
                                 type="radio" 
-                                value="kiosk">
+                                value="advance_purchase"
+                                checked={advPurchase === "advance_purchase"}
+                                onChange={e => setAdvPurchase(e.target.value)}
+                            >
                             </input>
-                            <label for="kiosk">
+                            <label htmlFor="kiosk">
                                 {options.location.kiosk}
                             </label>  
                         </div>
@@ -110,11 +161,12 @@ export const FareForm = ({ language, theme }) => {
                             <input 
                                 id="onboard"
                                 type="radio" 
-                                value="onboard" 
-                                checked
+                                value="onboard_purchase"
+                                checked={advPurchase === "onboard_purchase"}
+                                onChange={e => setAdvPurchase(e.target.value)}
                             >
                             </input>
-                            <label for="onboard">
+                            <label htmlFor="onboard">
                                 {options.location.onboard}
                             </label>    
                         </div>
@@ -129,9 +181,18 @@ export const FareForm = ({ language, theme }) => {
                     <input 
                         type="number" 
                         placeholder='0'
+                        min='0'
                         className={styles.inputNumber}
+                        onChange={handleRides}
                     >
                     </input>
+                    {ridesErr !== null && 
+                        <div>
+                            <p>
+                                {ridesErr}
+                            </p>
+                        </div>
+                    }
                 </div>
                 <div className={styles.totalCount}>
                     <h4 className={styles.totalLabel}>{labels.total}</h4>

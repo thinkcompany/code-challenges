@@ -1,34 +1,54 @@
 # SEPTA Rail Fare Calculator Challenge
 
-Hello, hopeful Think Company development team member! 
+## Hello! Thank you so much for giving me the opportunity to take this coding assessment.
+## I would like to briefly walkthrough my solution to this challenge.
 
-Thank you for taking time to help us assess your front-end development skills. Part of the work we frequently are tasked with is combining complex business data with our design team's fresh new interfaces. Our development team makes these come to life with semantic, accessible HTML, CSS, and JavaScript. All of our philosophies are documented in [our development standards](https://standards.thinkcompany.dev/).
+### Tech stack
+* React (I would employ Next.js on the entire website, but SEO is not necessary for a widget.)
+* React Router and Context API
+* Module CSS (Eliminates class name collisions and improves performance.)
 
-Your challenge is to create an interactive widget for calculating SEPTA Regional Rail fare prices. (In case you're not familiar with Philadelphia's preeminent mass transit agency, here are all the railroads in map form.)
-
-![SEPTA Zone Map](img/zone-map.jpg) 
-
-When you take regional rail in and out of the city, the fare price is affected by where you purchase the ticket, when you ride, and how far you travel. You can learn more about the details on [SEPTA's website](http://www.septa.org/fares/ticket/index.html) -- or trust that we've correctly compiled this information into this [JSON file](fares.json). We'd like you to make this information easier to understand by making an interactive fare purchase widget, illustrated in the screenshot below.
-
-![Widget mockup](img/widget.png)
-
-## Instructions
-* Visit our [careers page](https://www.thinkcompany.com/careers/) and apply for one of our open positions so we have your contact information along with your pull request.
-* Develop the HTML and CSS for the widget seen in the screenshot above. Feel free to make this responsive, and keep accessibility in mind: screen readers should handle the form, helper text, and any other important content well.
-* Assume that your code would be handed off to a back-end developer for integration. It could end up on a page with other content and widgets, so keep this in mind when you are making decisions about naming conventions.
-* Write JavaScript to request [fares.json](fares.json) via AJAX and populate the widget with live data. End users should be able to see the fare total update when they use the widget controls. Think hard about the data format before starting - what does "anytime" mean, and what's the most elegant way to let users know about special pricing for items like 10-trip tickets?
-* We plan on looking at the balance of your HTML, CSS, and JS, but we'd rather see a partially-styled working prototype than a pixel-perfect widget that isn't doing fare calculations. Try to balance your time appropriately!
-* It should go without saying - please comment your code to state any assumptions or decisions you're making during this assignment -- or just to say hi. :-)
-
-## Requirements
-* *Browser Support*: Microsoft Edge, Google Chrome, Firefox, Safari for iOS, and Chrome for Android.
-* *Libraries & Frameworks*: You are welcome to bring in JavaScript libraries (like jQuery) or frameworks (like Angular, React or Polymer). You may also author your JS with vanilla DOM methods, as long as they are compatible with the browser requirements. Please don't include an entire CSS framework like Bootstrap -- we want to see your HTML and CSS, not theirs.
-* *Standards*: Your solution should be valid, semantic, accessible, and performant. To get an idea of what how we're doing things, please feel free to review [our development standards](https://standards.thinkcompany.dev/).
-* *Time*: We don't expect you to overexert yourself to deliver a perfectly finished product, but want to allow you take the time you think you need to show your stuff. We recommend spending about an hour, but let us know how much time you spend if you decide to take more time.
-* *Submission*: Fork this repository and make a pull request for us to review your code. If you're not familiar with git or Github, you can download this repo and send us a ZIP file when you're done.
-
-## Resources
+### Resources I consulted
 * [Think Company Development Standards](https://standards.thinkcompany.dev/)
 * [SEPTA Fares](http://www.septa.org/fares/ticket/index.html)
 * [SEPTA Logo (SVG)](https://commons.wikimedia.org/wiki/File:SEPTA.svg)
 * [CSS Global reset](https://meyerweb.com/eric/tools/css/reset/)
+
+### Wireframe
+* I quickly made a gameplan for styling with Adobe XD
+<img width="1680" alt="Screen Shot 2022-08-20 at 7 01 49 PM" src="https://user-images.githubusercontent.com/89368363/185768843-74b4cd77-f627-4f55-9bbd-75f1dfec5b9c.png">
+
+### Research
+* Checked the SEPTA website 
+* Called SEPTA to double check information
+
+### Modularity
+* I structed modules by pairing a component with a module CSS file to make CSS manageable
+* I employed React as a frotned library to quickly create components
+* I aimed to create small components
+* I employed React Context API to manage light and dark mode
+* I also employed a language switch to change English to Spanish and vice versa
+
+### JSON strings
+* To switch languages, I removed the majority of titles, labels and support text from JSX files
+* I made switching languages more modular and parsible to the human eye
+* This file setup allows for increased developer experience
+* If CSS-in-JS libraries are employed, JSON makes passing CSS props highly efficient
+
+### Managing state
+* I managed components with the useState hook
+* I managed side effects with the useEffect hook
+* I incorporated functional programming to make functions more DRY
+
+### Error handling
+* I accounted for various user paths and made sure to catch errors
+* I added asterisks at the beginning of message to signal that there was an error without relying just on the color red
+* I made sure to add a green color for messages that will not throw an error but are useful information to a user
+
+### Preparing for backend
+* Double checked data before preparing a JSON string for the backend
+* Backend API calls with be an asynchronous function 
+* State variables will be converted to an object and passed as a JSON string via an HTTP request 
+* The backend developer will be able to parse data easily and the keys match the original JSON file for zones and fares
+
+## Thank you!

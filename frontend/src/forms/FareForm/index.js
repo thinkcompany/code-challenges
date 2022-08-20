@@ -1,10 +1,5 @@
 //React Hooks
 import { useState, useEffect } from 'react';
-
-//Context
-import { useLanguage } from "../../context/languageContext";
-import { useTheme } from "../../context/themeContext";
-
 //Components
 import { Buttons } from "../../components/Buttons";
 import { Logo } from "../../designAssets/Logo";
@@ -17,7 +12,7 @@ import fares from "../../data/fares.json";
 //Languages
 import languages from "../../data/formText.json";
 
-export const FareForm = () => {
+export const FareForm = ({ language, theme }) => {
     //State variables for form inputs
     const [zone, setZone] = useState("Zone 4");
     const [day, setDay] = useState("Weekdays");
@@ -26,12 +21,10 @@ export const FareForm = () => {
     //State variable for total counter
     const [total, setTotal] = useState(0);
     //State variables for errors
-    const [zoneErr, setZoneErr] = useState(null);
-    const [dayErr, setDayErr] = useState(null);
     const [ridesErr, setRidesErr] = useState(null);
 
     //Language object
-    const { language } = useLanguage();
+    //The language is passed as a prop to this component from Home
     const selectedLang = languages[language];
     //Form labels text
     const labels = selectedLang.labels;
@@ -47,6 +40,7 @@ export const FareForm = () => {
         setLocation("Onboard");
         setRides(0);
         setTotal(0);
+        setRidesErr(null);
         return
     } 
 
@@ -75,30 +69,27 @@ export const FareForm = () => {
                     <div className={styles.vectorBox}>
                         <Logo />
                     </div>
-                    <h3 className={styles.title}>Regional Rail Fares</h3>
+                    <h3 className={styles.title}>{labels.formTitle}</h3>
                 </div>
                 <div className={styles.inputBox}>
                     <label className={styles.label}>{labels.destination}</label>
                     <select className={styles.selectBox}>
-                        {options.zones.map((zone, idx) => {
-                            return <option key={idx}>{Object.values(zone)[0]}</option>
+                        {Object.values(options.zones).map((zone, idx) => {
+                            return <option key={idx}>{zone}</option>
                         })}
                     </select>
                 </div>
                 <div className={styles.inputBox}>
                     <label className={styles.label}>{labels.day}</label>
                     <select className={styles.selectBox}>
-                        {options.day.map((eachDay, idx) => {
-                            console.log(eachDay)
-                            return <option key={idx}>{Object.values(eachDay)[0]}</option>
+                        {Object.values(options.day).map((eachDay, idx) => {
+                            return <option key={idx}>{eachDay}</option>
                         })}    
                     </select>
-                    <div className={styles.guide}>
-                        <p className={styles.guideTitle}>Guide:</p>
+                    <div className={language === "english" ? styles.guide : styles.spanishGuide}>
+                        <p className={styles.guideTitle}>{options.guide.label}</p>
                         <p className={styles.guideText}>
-                            Weekdays: First train - 7pm
-                            Evenings: 7pm - last train
-                            Anytime: One ride anytime
+                            {options.guide.text}
                         </p>
                     </div>
                 </div>
@@ -143,11 +134,13 @@ export const FareForm = () => {
                     </input>
                 </div>
                 <div className={styles.totalCount}>
-                    <h4 className={styles.label}>{labels.total}</h4>
+                    <h4 className={styles.totalLabel}>{labels.total}</h4>
                     <p className={styles.total}>{`$${total}`}</p>
                 </div>
-                <Buttons onClick={cancelForm} action="cancel"/>
-                <Buttons onClick={submitForm} action="submit"/>
+                <div className={styles.buttonBox}>
+                    <Buttons onClick={cancelForm} action={labels.cancel}/>
+                    <Buttons onClick={submitForm} action={labels.submit}/>    
+                </div>
             </form>
         </section>
     )

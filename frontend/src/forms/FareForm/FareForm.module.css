@@ -7,7 +7,7 @@
 }
 
 .fareForm {
-    width: 385px;
+    width: 350px;
     height: 100%;
     display: flex;
     flex-direction: column;
@@ -17,9 +17,9 @@
 }
 
 .banner {
-    width: 355px;
+    width: 320px;
     padding-left: 30px;
-    height: 75px;
+    height: 100px;
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -33,7 +33,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 50px;
+    width: 30px;
     height: 30px;
 }
 
@@ -51,6 +51,7 @@
     width: 100%;
     gap: 15px;
     border-bottom: 1px solid #CCCCCC;
+    padding: 20px 0px 20px 0px;
 }
 
 .label {
@@ -75,6 +76,16 @@
     gap: 30px;
 }
 
+.spanishGuide {
+    display: flex;
+    flex-direction: row;
+    align-items: top;
+    justify-content: space-between;
+    width: 285px;
+    height: auto;
+    gap: 15px;
+}
+
 .guideTitle {
     padding: 0px;
     margin: 0px;
@@ -87,6 +98,7 @@
     font-weight: 300;
     font-size: 14px;
     line-height: 18px;
+    letter-spacing: 0.15px;
 }
 
 .radioContainer {
@@ -95,7 +107,7 @@
     align-items: left;
     justify-content: left;
     gap: 15px;
-    width: 150px;
+    width: clamp(150px, auto, 190px);
 }
 
 .radioBox {
@@ -106,7 +118,7 @@
 
 .inputNumber {
     width: 100px;
-    height: 45px;
+    height: 30px;
     text-align: center;
     font-size: 18px;
 }
@@ -115,13 +127,28 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: space-evenly;
     width: 100%;
-    height: 100px;
+    height: 200px;
     background: #595959;
+}
+
+.totalLabel {
+    font-size: 18px;
+    padding: 0px;
+    margin: 0px;
+    color: white;
 }
 
 .total {
     font-size: 32px;
     color: white;
+}
+
+.buttonBox {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 10px;
 }

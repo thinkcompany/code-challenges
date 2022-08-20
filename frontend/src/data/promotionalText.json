@@ -1,0 +1,10 @@
+{
+    "english": {
+        "event": "discount",
+        "message": "A 10% discount applies at checkout when you purchase 10 or more rides."
+    },
+    "spanish": {
+        "event": "descuento",
+        "message": "Se aplica un descuento del 10% cuando compras 10 o más viajes."
+    }
+}

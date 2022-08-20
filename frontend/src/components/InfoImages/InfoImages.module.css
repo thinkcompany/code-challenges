@@ -4,3 +4,32 @@
     object-fit: cover;
     object-position: center;
 }
+
+.mapImage {
+    width: 545px;
+    min-width: 400px;
+    height: 480px;
+    min-height: 380px;
+    object-fit: fill;
+    object-position: center;
+    border: 1px solid white;
+    border-radius: 5px;
+}
+
+.fareImage {
+    width: 545px;
+    min-width: 400px;
+    height: 265px;
+    min-height: 165px;
+    object-fit: fill;
+    object-position: center;
+    border: 1px solid white;
+    border-radius: 5px;
+}
+
+.fareImage:after {
+    display: block;
+    background: black;
+    content: "This image will get replaced with more accurate information.";
+    color: white;
+}

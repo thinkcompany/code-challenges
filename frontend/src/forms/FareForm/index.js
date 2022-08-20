@@ -14,7 +14,8 @@ import languages from "../../data/formText.json";
 
 export const FareForm = ({ language, theme }) => {
     //State for form inputs
-    const [zone, setZone] = useState("0");
+    const [zone, setZone] = useState("CCP/1");
+    const [zoneId, setZoneId] = useState("0")
     const [day, setDay] = useState("weekday");
     const [advPurchase, setAdvPurchase] = useState("onboard_purchase");
     const [rides, setRides] = useState(0);
@@ -35,6 +36,11 @@ export const FareForm = ({ language, theme }) => {
     const options = selectedLang.options;
 
     //Functions
+    const handleZone = (e) => {
+        setZone(e.target.value.slice(2));
+        return setZoneId(e.target.value[0]);
+    }
+
     const handleAdv = (e) => {
         if(day === 'anytime') {
             setAdvPurchase('advance_purchase');
@@ -66,7 +72,7 @@ export const FareForm = ({ language, theme }) => {
 
     const findFare = () => {
         //Zone arr
-        const selectedFares = fares.zones[zone].fares;
+        const selectedFares = fares.zones[zoneId].fares;
         //Filter the arr and get a specific fare object
         const selectedFare = selectedFares.filter(fare => {
             if (day === 'anytime') {
@@ -117,7 +123,8 @@ export const FareForm = ({ language, theme }) => {
     
     const cancelForm = (e) => {
         e.preventDefault();
-        setZone("0");
+        setZone("CCP/1");
+        setZoneId('0');
         setDay("weekday");
         setAdvPurchase("onboard_purchase");
         setRides(0);
@@ -152,13 +159,15 @@ export const FareForm = ({ language, theme }) => {
                     <label className={styles.label}>{labels.destination}</label>
                     <select 
                         className={styles.selectBox} 
-                        onChange={e => setZone(e.target.value)}
+                        onChange={handleZone}
                     >
                         {Object.entries(options.zones).map((key, value) => {
                             //key[0] is the same key for the fares.json
                             //key[1] is the text for the option tag
                             return <option 
-                            key={value} value={key[0]} 
+                            key={value} 
+                            value={[`${key[0]}`, `${key[1]}`]}
+                            id={key[0]}
                             >
                                 {key[1]}
                             </option>
@@ -253,8 +262,8 @@ export const FareForm = ({ language, theme }) => {
                 </div>
             </form>
             {complete && (
-                <div className={styles.popupBox}>
-                    <p className={styles.popupMessage}>Once the API routes are established and state management libraries are determined, the backend developer will receive the following object:</p>
+                <div className={styles.popupBox} onClick={() => setComplete(!complete)}>
+                    <p className={styles.popupMessage}>Once the API routes are established and state management libraries are determined, the backend developer will receive the following JSON string:</p>
                     <p className={styles.popupMessage}>{printTicket()}</p>
                 </div>
             )}

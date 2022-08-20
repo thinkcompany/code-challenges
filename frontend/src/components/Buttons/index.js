@@ -4,9 +4,12 @@ import styles from "./Buttons.module.css";
 export const Buttons = ({ action }) => {
     return (
         <button 
-            type='submit'
+            type={
+                action === 'Cancel' || action === 'Cancelar' ? 
+                'reset' : 'submit'
+            }
             className={
-                action === 'cancel' || action === 'cancelar' ? 
+                action === 'Cancel' || action === 'Cancelar' ? 
                 styles.cancel : styles.submit
             }>
             {action}

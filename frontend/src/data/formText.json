@@ -7,9 +7,10 @@
             "day": "When are you riding?",
             "location": "Where will you purchase the fare?",
             "count": "How many rides will you need?",
+            "discount": "How many packages will you need?",
             "total": "Your fare will cost",
-            "cancel": "cancel",
-            "submit": "submit"
+            "cancel": "Cancel",
+            "submit": "Submit"
         },
         "options": {
             "zones": {
@@ -26,7 +27,7 @@
             },
             "guide": {
                 "label": "Guide:",
-                "text": "Weekdays: First train - 7pm Evenings: 7pm - last train Anytime: One ride anytime"
+                "text": "Weekdays: First train - 7pm Evenings: 7pm - last train Anytime: Ten rides anytime"
             },
             "location": {
                 "kiosk": "Station Kiosk",
@@ -42,9 +43,10 @@
             "day": "¿Cuando estas montando?",
             "location": "¿Dónde comprará el pasaje?",
             "count": "¿Cuántos viajes necesitarás?",
+            "discount": "¿Cuántos paquetes necesitarás?",
             "total": "Su tarifa costará",
-            "cancel": "cancelar",
-            "submit": "enviar"
+            "cancel": "Cancelar",
+            "submit": "Enviar"
         },
         "options": {
             "zones": {

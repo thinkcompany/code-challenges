@@ -1,30 +1,68 @@
+//Context Hook
+import { useLanguage } from '../../context/languageContext';
+import { useTheme } from "../../context/themeContext";
 //Styling
 import styles from './Fares.module.css';
 //Images
 import trainImage from "../../designAssets/images/Septa_sideview.jpg";
+import mapImage from "../../designAssets/images/zone-map.jpg";
+import fareImage from "../../designAssets/images/SEPTA_ticket.png";
 //Components
-import { InfoImages } from '../../components/InfoImages/InfoImages';
+import { InfoImages } from '../../components/InfoImages';
+import { PromoMessage } from '../../components/PromoMessage/PromoMessage';
+//Form
+import { FareForm } from "../../forms/FareForm";
+//Data
+import data from "../../data/formText.json";
+
+//This marks the assessment portion for this interview
+//I added images to guide users in understanding SEPTA's system better
+//The fares are slightly different from the JSON data provided to me
+//However, I kept it in as a placeholder.
 export const FaresPage = () => {
+    const { language } = useLanguage();
+    const { theme } = useTheme();
+    const label = data[language].labels.name;
+
     return (
-        <section classname={styles.fareSection}>
+        <div className={styles.fareSection}>
             <InfoImages 
                 imageSrc={trainImage} 
                 altText="A sideview of a regional rail train."
+                type="train"
             />
-            <h1 className={styles.header}>SEPTA Regional Rail Fare</h1>
-            <div>
-                <div><p>i</p></div>
-                <p>A 10% discount applies at checkout when you purchase 10 or more rides.</p>
-            </div>
-            <section>
-                <form>
-                    <div></div>
-                    <button></button>
-                    <button></button>
-                </form>
+            <section className={styles.mobileSection}>
+                <h1 className={theme === 'light' ? styles.header : styles.darkHeader}>{label}</h1>
+                <InfoImages
+                    imageSrc={mapImage}
+                    altText="A map of the SEPTA rail system."
+                    type="map"
+                />
+                <InfoImages
+                    imageSrc={fareImage}
+                    altText="A table showing ticket information."
+                    type="fare"
+                />
             </section>
-            <h2>Map</h2>
-            <h2>Prices</h2>
-        </section>
+            <main className={styles.main}>
+                <section className={styles.section}>
+                    <h1 className={theme === 'light' ? styles.header : styles.darkHeader}>{label}</h1>
+                    <InfoImages
+                        imageSrc={mapImage}
+                        altText="A map of the SEPTA rail system."
+                        type="map"
+                    />
+                    <InfoImages
+                        imageSrc={fareImage}
+                        altText="A table showing ticket information."
+                        type="fare"
+                    />
+                </section>
+                <aside className={styles.aside}>
+                    <PromoMessage language={language} theme={theme}/>
+                    <FareForm language={language} theme={theme}/>    
+                </aside>
+            </main>
+        </div>
     )
 }

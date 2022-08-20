@@ -1,4 +1,14 @@
 .title {
+    color: #0C2A3F;
+    font-family: Arial, Helvetica, sans-serif;
+    text-decoration: underline;
+    font-size: 21px;
+    font-weight: 900;
+    letter-spacing: 0.25px;
+    margin-top: 20px;
+}
+
+.darkTitle {
     color: white;
     font-family: Arial, Helvetica, sans-serif;
     text-decoration: underline;
@@ -9,6 +19,15 @@
 }
 
 .text {
+    color: #0C2A3F;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;
+    width: 375px;
+    line-height: 21px;
+    letter-spacing: 0.25px;
+}
+
+.darkText {
     color: white;
     font-family: Arial, Helvetica, sans-serif;
     font-size: 16px;

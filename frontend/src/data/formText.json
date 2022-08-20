@@ -1,0 +1,74 @@
+{
+    "english": {
+        "labels": {
+            "name": "SEPTA Regional Rail Fares",
+            "formTitle": "Regional Rail Fares",
+            "destination": "Where are you going?",
+            "day": "When are you riding?",
+            "location": "Where will you purchase the fare?",
+            "count": "How many rides will you need?",
+            "discount": "How many packages will you need?",
+            "total": "Your fare will cost",
+            "cancel": "Cancel",
+            "submit": "Submit"
+        },
+        "options": {
+            "zones": {
+                "0": "CCP/1",
+                "1": "Zone 2",
+                "2": "Zone 3",
+                "3": "Zone 4",
+                "4": "NJ"
+            },
+            "day": {
+                "weekday": "Weekdays",
+                "evening_weekend": "Weekends/Evenings",
+                "anytime": "Anytime"
+            },
+            "guide": {
+                "label": "Guide:",
+                "text": "Weekdays: First train - 7pm Evenings: 7pm - last train Anytime: Ten rides anytime"
+            },
+            "location": {
+                "kiosk": "Station Kiosk",
+                "onboard": "Onboard"
+            }
+        }
+    }, 
+    "spanish": {
+        "labels": {
+            "name": "SEPTA Tarifas del Tren Regional",
+            "formTitle": "Tarifas del Tren Regional",
+            "destination": "¿A dónde vas?",
+            "day": "¿Cuando estas montando?",
+            "location": "¿Dónde comprará el pasaje?",
+            "count": "¿Cuántos viajes necesitarás?",
+            "discount": "¿Cuántos paquetes necesitarás?",
+            "total": "Su tarifa costará",
+            "cancel": "Cancelar",
+            "submit": "Enviar"
+        },
+        "options": {
+            "zones": {
+                "1": "CCP/1",
+                "2": "Zona 2",
+                "3": "Zona 3",
+                "4": "Zona 4",
+                "5": "New Jersey"
+            },
+            "day": {
+                "weekday": "Día de la semana ",
+                "evening_weekend": "Fines de semana/Noches",
+                "anytime": "Cualquier momento"
+            },
+            "guide": {
+                "label": "Guía:",
+                "text": "Días de semana: Primer tren - 7PM Noches: 7PM - Último tren Cualquier momento: Un viaje en cualquier momento"
+            },
+            "location": {
+                "kiosk": "Quiosco de la estación",
+                "onboard": "En el tren"
+            }
+        }
+    }
+}

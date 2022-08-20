@@ -1,19 +1,27 @@
 .body {
   width: 100vw;
-  height: 100vh;
+  min-height: 100vh;
+  height: auto;
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
-  justify-content: center;
+  align-items: center;
+  justify-content: flex-start;
   gap: 15px;
   background: linear-gradient(#80C7F7, #36576E);
+  overflow-x: hidden;
+  overflow-y: scroll;
 }
 
-.trainImage {
+.darkBody {
   width: 100vw;
-  height: 75px;
-  object-fit: cover;
-  object-position: center;
+  min-height: 100vh;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 15px;
+  background: linear-gradient(#36576E, #80C7F7);
+  overflow-x: hidden;
+  overflow-y: scroll;
 }
-
-

@@ -253,9 +253,9 @@ export const FareForm = ({ language, theme }) => {
                 </div>
             </form>
             {complete && (
-                <div>
-                    <p>Once the API routes are established and state management libraries are determined, the backend developer will receive the following object:</p>
-                    <p>{printTicket()}</p>
+                <div className={styles.popupBox}>
+                    <p className={styles.popupMessage}>Once the API routes are established and state management libraries are determined, the backend developer will receive the following object:</p>
+                    <p className={styles.popupMessage}>{printTicket()}</p>
                 </div>
             )}
         </section>

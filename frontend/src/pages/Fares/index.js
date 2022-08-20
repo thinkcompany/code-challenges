@@ -6,7 +6,7 @@ import styles from './Fares.module.css';
 //Images
 import trainImage from "../../designAssets/images/Septa_sideview.jpg";
 import mapImage from "../../designAssets/images/zone-map.jpg";
-import fareImage from "../../designAssets/images/SEPTA_fares.png";
+import fareImage from "../../designAssets/images/SEPTA_ticket.png";
 //Components
 import { InfoImages } from '../../components/InfoImages';
 import { PromoMessage } from '../../components/PromoMessage/PromoMessage';
@@ -14,6 +14,11 @@ import { PromoMessage } from '../../components/PromoMessage/PromoMessage';
 import { FareForm } from "../../forms/FareForm";
 //Data
 import data from "../../data/formText.json";
+
+//This marks the assessment portion for this interview
+//I added images to guide users in understanding SEPTA's system better
+//The fares are slightly different from the JSON data provided to me
+//However, I kept it in as a placeholder.
 export const FaresPage = () => {
     const { language } = useLanguage();
     const { theme } = useTheme();
@@ -27,7 +32,7 @@ export const FaresPage = () => {
                 type="train"
             />
             <section className={styles.mobileSection}>
-                <h1 className={styles.header}>{label}</h1>
+                <h1 className={theme === 'light' ? styles.header : styles.darkHeader}>{label}</h1>
                 <InfoImages
                     imageSrc={mapImage}
                     altText="A map of the SEPTA rail system."
@@ -41,7 +46,7 @@ export const FaresPage = () => {
             </section>
             <main className={styles.main}>
                 <section className={styles.section}>
-                    <h1 className={styles.header}>{label}</h1>
+                    <h1 className={theme === 'light' ? styles.header : styles.darkHeader}>{label}</h1>
                     <InfoImages
                         imageSrc={mapImage}
                         altText="A map of the SEPTA rail system."

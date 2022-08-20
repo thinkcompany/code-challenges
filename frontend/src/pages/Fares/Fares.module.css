@@ -62,6 +62,13 @@
     color: black;
 }
 
+.darkHeader {
+    font-family: Arial, Helvetica, sans-serif;
+    text-decoration: underline;
+    font-size: 24px;
+    color: white;
+}
+
 .aside {
     display: flex;
     flex-direction: column;

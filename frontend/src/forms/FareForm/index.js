@@ -37,8 +37,10 @@ export const FareForm = ({ language, theme }) => {
 
     //Functions
     const handleZone = (e) => {
-        setZone(e.target.value.slice(2));
-        return setZoneId(e.target.value[0]);
+        const zoneInt = e.target.value[0]
+        const zoneName = e.target.value.slice(2);
+        setZoneId(zoneInt)
+        return setZone(zoneName)
     }
 
     const handleAdv = (e) => {
@@ -162,8 +164,8 @@ export const FareForm = ({ language, theme }) => {
                         onChange={handleZone}
                     >
                         {Object.entries(options.zones).map((key, value) => {
-                            //key[0] is the same key for the fares.json
-                            //key[1] is the text for the option tag
+                            //key[0] is an integer used as an index to find the zone object
+                            //key[1] is the name of the destination i.e. NJ, Zone 3, etc.
                             return <option 
                             key={value} 
                             value={[`${key[0]}`, `${key[1]}`]}

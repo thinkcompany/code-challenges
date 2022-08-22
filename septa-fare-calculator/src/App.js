@@ -1,13 +1,10 @@
 import React from 'react';
+import Calculator from './components/calculator';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <p>
-        SEPTA Regional Rail Fare Calculator
-        </p>
-      </header>
+    <div className="septa-calculator-container">
+     <Calculator />
     </div>
   );
 }

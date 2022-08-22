@@ -1,4 +1,7 @@
 import {useState, useEffect} from 'react'
+import { findZone } from '../helpers/helper_functions';
+import './form.css'
+
 export default function Form() {
   const url ='/fares.json'
   const [zones, setZones] = useState([]);
@@ -7,13 +10,15 @@ export default function Form() {
   const [currZone, setCurrZone] = useState(null)
   const [checked, setChecked] = useState('advance')
   const [purch, setPurch] = useState('advance_purchase')
-
+  const [riders, setRiders] = useState('');
+  
   const fetchdata = async ()=> {
     const res = await fetch(url);
     const data = await res.json()
     setZones(data.zones)
     setDays(data.info);
   }
+
   const handleChange = (e) => {
     const name = e.target.name;
     const val = e.target.value;
@@ -22,14 +27,23 @@ export default function Form() {
         setCurrDay(val)
         break;
       case "zones":
-        //add zone logic here
+        findZone(zones, Number(val), setCurrZone)
         break;
       case "purchase":
         setChecked(checked === 'advance' ? 'onboard' : 'advance')
         setPurch(val)
         break;
+      case "riders": 
+        handleNum(e)
       default:
         break;
+    }
+  }
+  
+  const handleNum = (e) => {
+    const regex = /^[0-9\b]+$/;
+    if (e.currentTarget.value === '' || regex.test(e.currentTarget.value)) {
+      setRiders(Number(e.currentTarget.value));
     }
   }
   useEffect(()=> {
@@ -37,9 +51,8 @@ export default function Form() {
     fetchdata()
   }, [])
 
-   console.log(checked)
-    return (
-      <div>
+  return (
+      <div className = 'container'>
         <header>
           <h1>Regional Rail Fares</h1>
         </header>
@@ -67,13 +80,14 @@ export default function Form() {
             <option value={null}>Select a time</option> 
             {Object.keys(days).slice(0,3).map((day, i) => (
               <option key = {i} value = {day}>{day}</option>
-            ))}
+              ))}
           </select>
         </label>
+        <p className = 'helper'>{currDay === 'anytime' ? `${days[currDay]} (10 ride deal !)` : days[currDay]}</p>
       </section>
       <section>
         <h3>Where will you purchase the fare?</h3>
-          <div role= 'radio-btn container'>
+        <div className='radio-btns' role= 'radio-btn container'>
             <input 
             type = "radio"
             value = "advance_purchase"
@@ -85,7 +99,7 @@ export default function Form() {
              /> 
             <label htmlFor='advance-purchase'>Station Kiosk</label>
           </div>
-          <div role= 'radio-btn container'>
+        <div className='radio-btns' role= 'radio-btn container'>
             <input 
             type = "radio" 
             value = "onboard_purchase"
@@ -99,6 +113,16 @@ export default function Form() {
         </div>
       </section>
       <section>
+        <h3>How many rides will you need?</h3>
+        <input 
+        type="text" 
+        name = 'riders'
+          className='number-of-riders'
+        onChange = {handleNum}
+        value = {riders}
+        />
+      </section>
+      <section className = 'cost'>
         <h3>Your fare will cost</h3>
       </section>
       </div>

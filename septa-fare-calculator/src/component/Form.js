@@ -25,7 +25,7 @@ export default function Form() {
   const handleChange = (e) => {
     const name = e.target.name;
     const val = e.target.value;
-    //versatile handleChange function to keep the code DRY
+    //I created a versatile handleChange function to keep the code DRY
     switch (name) {
       case "days":
         setCurrDay(val)
@@ -46,7 +46,7 @@ export default function Form() {
   
   const handleNum = (e) => {
     const regex = /^[0-9\b]+$/;
-    //only allow people to type in numbers for cost section
+    //This only allows users to type in numbers for the number of riders section
     if (e.currentTarget.value === '' || regex.test(e.currentTarget.value)) {
       setRiders(Number(e.currentTarget.value));
     }
@@ -58,15 +58,17 @@ export default function Form() {
       setRiders(10);
       setChecked('advance')
       /* 
-      Set the price to a fixed price, update the checked radio button to advanced option, and the riders to 10 because of the special deal for 10 advanced tickets. Don't allow users to change the amount of tickets because the deal is specifically for 10 tickets
+      Set the price to a fixed price, update the checked radio button to advanced option, and the riders to 10 because of the special deal for 10 advanced tickets. Functionality does not allow users to change the amount of tickets because the deal is specifically for 10 tickets
        */
     } else if (!fares || !time || !location || !riders) {
-      //unless all fields are selected set Cost to 0
+      //Set the cost to 0 unless all the neccesary fields are selected
       setCost(0)
     } else {
       for (let fare of fares) {
         const { type, purchase, price } = fare;
-
+        /* 
+        iterate over the fare array for the correct zone to find the accurate price for the given parameters(time of day and location of purchase)
+        */
         if (type === time && purchase === location) {
           setCost(price * riders);
           return;
@@ -76,7 +78,7 @@ export default function Form() {
   }
 
   useEffect(()=> {
-    //use an empty dependency array so API is called only once
+    //I used an empty dependency array so API is called only once
     fetchdata()
   }, [])
 

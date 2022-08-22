@@ -1,5 +1,8 @@
 import {useState, useEffect} from 'react'
 import { findZone } from '../helpers/helper_functions';
+import { ReactComponent as SepLogo } from "./SEPTA.svg"
+
+import septa from  './SEPTA.svg'
 import './form.css'
 
 export default function Form() {
@@ -54,7 +57,8 @@ export default function Form() {
   return (
       <div className = 'container'>
         <header>
-          <h1>Regional Rail Fares</h1>
+        <SepLogo />
+        <h1>Regional Rail Fares</h1>
         </header>
       <section>
         <h3>Where are you going?</h3>

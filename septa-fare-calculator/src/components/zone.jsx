@@ -1,3 +1,5 @@
+import '../stylesheets/zone.css';
+
 const Zone = ({zone, setZone, options}) => {
   return (
     <div className="zone-container">

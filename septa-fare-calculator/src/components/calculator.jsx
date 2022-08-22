@@ -1,4 +1,5 @@
 import React, {useState, useEffect} from 'react';
+
 import Zone from './zone.jsx';
 import Time from './time.jsx';
 import Purchase from './purchase.jsx';
@@ -6,8 +7,13 @@ import Quantity from './quantity.jsx';
 import Cost from './cost.jsx';
 import septaLogo from '../SEPTA.png';
 
+import '../stylesheets/reset.css';
+import '../stylesheets/calculator.css';
+
 const Calculator = () => {
 
+
+  //set hook variables that I need for calculating total cost
   const [data, setData] = useState('');
   const [zone, setZone] = useState('');
   const [time, setTime] = useState('');
@@ -15,6 +21,7 @@ const Calculator = () => {
   const [quantity, setQuantity] = useState('')
   const [cost, setCost] = useState('');
 
+  //useEffect to load data from URL from fares.json to populate widget with live data
   useEffect(() => {
     const fareInfo = async () => {
       await fetch("https://raw.githubusercontent.com/jasonkim0105/code-challenges-jason-kim/master/septa-fare-calculator/fares.json")
@@ -46,9 +53,11 @@ const Calculator = () => {
   return (
 
     <div className="septa">
-      Septa Fare Calculator
       <div className="calculater-title">
-        <img src={septaLogo} alt="Pic" className="septa-logo" /> Regional Rail Fares
+        <img src={septaLogo} alt="Pic" className="septa-logo" />
+        <h3>
+          Regional Rail Fares
+        </h3>
       </div>
       <Zone zone={zone} setZone={setZone} options={data ? data.zones : []} />
       <Time time={time} setTime={setTime} options={data ? Object.entries(data.info).slice(0,3) : []} timeInfo={data ? data.info[time] : ''}/>

@@ -1,3 +1,5 @@
+import '../stylesheets/time.css';
+
 const Time = ({time, setTime, options, timeInfo}) => {
   if (timeInfo === 'Valid anytime') {
     timeInfo = "Valid anytime. May only be advance purchases and comes in a bundle of 10 tickets."

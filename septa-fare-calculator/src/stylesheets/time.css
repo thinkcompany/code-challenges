@@ -1,0 +1,25 @@
+.time-container {
+  height: 20vh;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: space-around;
+  border-style: solid;
+  border-color: lightgray;
+  font-size: 1em;
+}
+
+.time-dropdown {
+  height: 30%;
+  width: 40vh;
+  border-radius: 5px;
+  border-color: rgb(163, 160, 160);
+}
+
+.time-info {
+  font-size: 0.7em;
+  color: gray;
+  width: 85%;
+  text-align: center;
+  height: 40%;
+}

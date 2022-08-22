@@ -1,11 +1,17 @@
+import '../stylesheets/purchase.css'
+
 const Purchase = ({purchase, setPurchase, options, timeInfo}) => {
   if (timeInfo !== 'Valid anytime') {
     return (
       <div className="purchase-container">
           Where will you purchase the fare?
           <div className="purchase-radio-buttons">
-            <input type="radio" checked={purchase === "advance_purchase"} name="Station Kiosky" value="advance_purchase" onChange={(e) => setPurchase(e.target.value)}/>Staion Kiosky
-            <input type="radio" checked={purchase === "onboard_purchase"} name="Onboard" value="onboard_purchase" onChange={(e) => setPurchase(e.target.value)}/>Onboard
+            <div>
+              <input type="radio" checked={purchase === "advance_purchase"} name="Station Kiosk" value="advance_purchase" onChange={(e) => setPurchase(e.target.value)}/>Station Kiosk
+            </div>
+            <div>
+              <input type="radio" checked={purchase === "onboard_purchase"} name="Onboard" value="onboard_purchase" onChange={(e) => setPurchase(e.target.value)}/>Onboard
+            </div>
           </div>
       </div>
     )
@@ -14,7 +20,9 @@ const Purchase = ({purchase, setPurchase, options, timeInfo}) => {
       <div className="purchase-container">
           Where will you purchase the fare?
           <div className="purchase-radio-buttons">
-            <input type="radio" checked={purchase === "advance_purchase"} name="Station Kiosky" value="advance_purchase" onChange={(e) => setPurchase(e.target.value)}/>Staion Kiosky
+            <div>
+              <input type="radio" checked={purchase === "advance_purchase"} name="Station Kiosk" value="advance_purchase" onChange={(e) => setPurchase(e.target.value)}/>Station Kiosk
+            </div>
           </div>
       </div>
     )

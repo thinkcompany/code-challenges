@@ -2,7 +2,7 @@
   border: solid 2px lightgrey;
   width: 25rem;
   margin: 0 auto;
-    text-align: center;
+  text-align: center;
 }
 
 section {
@@ -38,6 +38,7 @@ header,.cost{
   background-color:#3a3b3c;
   color:white;
 }
+
 header {
   display: flex;
   align-items: center;
@@ -46,7 +47,6 @@ header {
 
 h1,h3{
   text-align:center;
-  
 }
 
 h1 {
@@ -64,6 +64,11 @@ h1 {
 .helper {
   font-size: .8em;
   color: grey;
+}
+.total-amount {
+  font-size: 3rem;
+  margin: 0;
+  text-align: center;
 }
 @media (max-width:490px) {
   .container {

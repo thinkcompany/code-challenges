@@ -1,5 +1,5 @@
 import {useState, useEffect} from 'react'
-import { findZone } from '../helpers/helper_functions';
+import { findZone,formatName, formatCost } from '../helpers/helper_functions';
 import { ReactComponent as SepLogo } from "./SEPTA.svg"
 
 import septa from  './SEPTA.svg'
@@ -9,17 +9,19 @@ export default function Form() {
   const url ='/fares.json'
   const [zones, setZones] = useState([]);
   const [days, setDays] = useState({});
-  const [currDay, setCurrDay] = useState(null)
-  const [currZone, setCurrZone] = useState(null)
+  const [currDay, setCurrDay] = useState('weekday')
+  const [currZone, setCurrZone] = useState({})
   const [checked, setChecked] = useState('advance')
   const [purch, setPurch] = useState('advance_purchase')
   const [riders, setRiders] = useState('');
-  
+  const [cost, setCost] = useState(0);
+
   const fetchdata = async ()=> {
     const res = await fetch(url);
     const data = await res.json()
     setZones(data.zones)
     setDays(data.info);
+    setCurrZone(data.zones[0])
   }
 
   const handleChange = (e) => {
@@ -49,10 +51,44 @@ export default function Form() {
       setRiders(Number(e.currentTarget.value));
     }
   }
+
+  const findPrice = (fares, time, location, riders) => {
+    if (time === 'anytime') {
+      setCost(fares[4].price);
+      setRiders(10);
+      setChecked('advance')
+      /* 
+      Set the price to a fixed price, update the checked radio button to advanced option, and the riders to 10 because of the special deal for 10 advanced tickets
+      Only do this if 
+       */
+    } else if (!fares || !time || !location || !riders) {
+      //unless are fields are selected set Cost to 0
+      setCost(0)
+    } else {
+      for (let fare of fares) {
+        const { type, purchase, price } = fare;
+
+        if (type === time && purchase === location) {
+          setCost(price * riders);
+          return;
+        }
+      }
+    }
+  }
+
   useEffect(()=> {
     //use an empty dependency array so API is called only once
     fetchdata()
   }, [])
+
+ useEffect(() => {
+  //  if (currZone.fares) {
+  //   findPrice(currZone.fares, currDay, purch, riders)
+  //  }
+   if (currZone && currDay && currZone.fares) {
+     findPrice(currZone.fares, currDay, purch, riders)
+   }
+  },[currZone,currDay,purch,riders])
 
   return (
       <div className = 'container'>
@@ -64,7 +100,6 @@ export default function Form() {
         <h3>Where are you going?</h3>
         <label htmlFor="zones">
           <select name="zones" autoFocus onChange={handleChange}>
-          <option value={null}>Select a destination</option> 
           {zones.map((zone, i) => (
             /* 
             I made the list of options dynamic in case more zones were added to the railway system
@@ -80,10 +115,9 @@ export default function Form() {
       <section>
         <h3>When are you riding?</h3>
         <label htmlFor="day-options">
-          <select name="days" id="day-options" onChange = {handleChange} >
-            <option value={null}>Select a time</option> 
+          <select name="days" id="day-options" value={currDay} onChange = {handleChange} >
             {Object.keys(days).slice(0,3).map((day, i) => (
-              <option key = {i} value = {day}>{day}</option>
+              <option key = {i} value = {day}>{formatName(day)}</option>
               ))}
           </select>
         </label>
@@ -128,6 +162,7 @@ export default function Form() {
       </section>
       <section className = 'cost'>
         <h3>Your fare will cost</h3>
+        <p className='total-amount'><strong>{formatCost.format(cost)}</strong></p>
       </section>
       </div>
     )

@@ -31,7 +31,7 @@ const Calculator = () => {
     fareInfo()
   }, [])
 
-  /*useEffect to calculate total cost depending on which option is clicked for zone, time, purchase, and quantity. Should update automatically everytime a new option is selected. */
+  /*useEffect to calculate total cost depending on which option is clicked for zone, time, purchase, and quantity. Should update automatically everytime a new option is selected. Goes into effect once zone, time, purchase, and quantity are set. Set cost with final cost number in the end.*/
   useEffect(() => {
     let multiplier = 1;
     if (zone && time && purchase && quantity) {

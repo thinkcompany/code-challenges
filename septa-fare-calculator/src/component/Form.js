@@ -3,6 +3,10 @@ export default function Form() {
   const url ='/fares.json'
   const [zones, setZones] = useState([]);
   const [days, setDays] = useState({});
+  const [currDay, setCurrDay] = useState(null)
+  const [currZone, setCurrZone] = useState(null)
+  const [checked, setChecked] = useState('advance')
+  const [purch, setPurch] = useState('advance_purchase')
 
   const fetchdata = async ()=> {
     const res = await fetch(url);
@@ -10,14 +14,30 @@ export default function Form() {
     setZones(data.zones)
     setDays(data.info);
   }
- 
+  const handleChange = (e) => {
+    const name = e.target.name;
+    const val = e.target.value;
+    switch (name) {
+      case "days":
+        setCurrDay(val)
+        break;
+      case "zones":
+        //add zone logic here
+        break;
+      case "purchase":
+        setChecked(checked === 'advance' ? 'onboard' : 'advance')
+        setPurch(val)
+        break;
+      default:
+        break;
+    }
+  }
   useEffect(()=> {
     //use an empty dependency array so API is called only once
     fetchdata()
   }, [])
-  if (!zones.length) {
-    return <h2>Loading...</h2>
-  } else {
+
+   console.log(checked)
     return (
       <div>
         <header>
@@ -26,7 +46,8 @@ export default function Form() {
       <section>
         <h3>Where are you going?</h3>
         <label htmlFor="zones">
-          <select name="zones">
+          <select name="zones" autoFocus onChange={handleChange}>
+          <option value={null}>Select a destination</option> 
           {zones.map((zone, i) => (
             /* 
             I made the list of options dynamic in case more zones were added to the railway system
@@ -41,8 +62,9 @@ export default function Form() {
       </section>
       <section>
         <h3>When are you riding?</h3>
-        <label htmlFor="days">
-          <select name="days" >
+        <label htmlFor="day-options">
+          <select name="days" id="day-options" onChange = {handleChange} >
+            <option value={null}>Select a time</option> 
             {Object.keys(days).slice(0,3).map((day, i) => (
               <option key = {i} value = {day}>{day}</option>
             ))}
@@ -52,12 +74,28 @@ export default function Form() {
       <section>
         <h3>Where will you purchase the fare?</h3>
           <div role= 'radio-btn container'>
-          <label htmlFor="">
-            <input type="radio" />Station Kiosk
-          </label>
-          <div role= 'radio-btn container'>
-            <input type="radio" />
+            <input 
+            type = "radio"
+            value = "advance_purchase"
+            name = "purchase"
+            id = "advance-purchase"
+            onChange = {handleChange}
+            checked = {checked === 'advance'}
+            aria-checked = {checked === 'advance' ? 'true' : 'false'}
+             /> 
+            <label htmlFor='advance-purchase'>Station Kiosk</label>
           </div>
+          <div role= 'radio-btn container'>
+            <input 
+            type = "radio" 
+            value = "onboard_purchase"
+            name = 'purchase'
+            id = "onboard-purchase"
+            onChange = {handleChange}
+            checked ={checked === 'onboard'}
+            aria-checked = {checked === 'onboard' ? 'true' : 'false'}
+            />
+            <label htmlFor='onboard-purchase'>Onboard</label>
         </div>
       </section>
       <section>
@@ -65,6 +103,5 @@ export default function Form() {
       </section>
       </div>
     )
-
-  }
+  
 }

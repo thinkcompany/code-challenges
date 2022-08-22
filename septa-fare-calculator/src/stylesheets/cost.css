@@ -1,0 +1,21 @@
+.cost-container {
+  background-color: gray;
+  color: white;
+  height: 14.2vh;
+  text-align: center;
+}
+
+.cost-container > p {
+  height: 2em;
+  display: flex;
+  justify-content: space-evenly;
+  font-size: 1em;
+  align-items: center;
+}
+
+.total-cost {
+  font-weight: bold;
+  font-size: 2em;
+  display: flex;
+  justify-content: space-evenly;
+}

@@ -1,0 +1,19 @@
+.quantity-containter {
+  height: 17vh;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: space-around;
+  border-style: solid;
+  border-color: lightgray;
+  font-size: 1em;
+}
+
+.quantity-dropdown {
+  height: 30%;
+  width: 8vh;
+  border: solid;
+  border-radius: 5px;
+  border-color: rgb(163, 160, 160);
+  text-align: center;
+}

@@ -1,0 +1,18 @@
+.purchase-container {
+  height: 17vh;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: space-around;
+  border-style: solid;
+  border-color: lightgray;
+  font-size: 1em;
+}
+
+.purchase-radio-buttons {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 10vh;
+  line-height: 1.5em;
+}

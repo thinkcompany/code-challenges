@@ -1,0 +1,17 @@
+.zone-container {
+  height: 20vh;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: space-around;
+  border-style: solid;
+  border-color: lightgray;
+  font-size: 1em;
+}
+
+.zone-dropdown {
+  width: 40vh;
+  height: 30%;
+  border-radius: 5px;
+  border-color: rgb(163, 160, 160);
+}

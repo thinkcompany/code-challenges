@@ -1,0 +1,33 @@
+.septa-calculator-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.septa {
+  border-style: solid;
+  border-color: lightgray;
+  border-width: .2em;
+  height: 100vh;
+  width: 40%;
+}
+
+
+.calculater-title {
+  background: gray;
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  height: 10vh;
+  color: white;
+  font-size: 1.3em;
+  align-items: center;
+}
+
+.septa-logo {
+  width: 2em;
+  height: 2em;
+}
+
+
+

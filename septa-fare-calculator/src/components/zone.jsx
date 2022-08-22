@@ -1,7 +1,6 @@
 const Zone = ({zone, setZone, options}) => {
   return (
     <div className="zone-container">
-      {/* {console.log(options)} */}
       Where are you going?
       <select className="zone-dropdown" value={zone} onChange={(e) => setZone(e.target.value)} >
         <option value="">Select Zone</option>

@@ -4,6 +4,7 @@ import Time from './time.jsx';
 import Purchase from './purchase.jsx';
 import Quantity from './quantity.jsx';
 import Cost from './cost.jsx';
+import septaLogo from '../SEPTA.png';
 
 const Calculator = () => {
 
@@ -26,13 +27,10 @@ const Calculator = () => {
   useEffect(() => {
     let multiplier = 1;
     if (zone && time && purchase && quantity) {
-      console.log(zone, time, purchase, quantity)
       for (let el of data.zones) {
-        console.log(el)
         if (el.name === zone) {
           for (let i = 0; i < el.fares.length; i++) {
             if (el.fares[i].type === time && el.fares[i].purchase === purchase) {
-              console.log(el.fares[i].price, el.fares[i].trips, el.fares[i].type)
               multiplier = el.fares[i].price / el.fares[i].trips;
             }
           }
@@ -50,8 +48,7 @@ const Calculator = () => {
     <div className="septa">
       Septa Fare Calculator
       <div className="calculater-title">
-        {console.log(data)}
-        Regional Rail Fares
+        <img src={septaLogo} alt="Pic" className="septa-logo" /> Regional Rail Fares
       </div>
       <Zone zone={zone} setZone={setZone} options={data ? data.zones : []} />
       <Time time={time} setTime={setTime} options={data ? Object.entries(data.info).slice(0,3) : []} timeInfo={data ? data.info[time] : ''}/>

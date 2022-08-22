@@ -4,7 +4,6 @@ const Time = ({time, setTime, options, timeInfo}) => {
   }
   return (
     <div className="time-container">
-      {/* {console.log(options, timeInfo)} */}
         When are you riding?
         <select className="time-dropdown" value={time} onChange={(e) => setTime(e.target.value) || null}>
           <option value="">Select Travel Time</option>

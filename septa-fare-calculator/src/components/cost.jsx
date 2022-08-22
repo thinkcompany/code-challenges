@@ -4,7 +4,7 @@ const Cost = ({cost, timeInfo}) => {
   if (!cost) {
     return (
     <div className="cost-container">
-        You fare will cost ___
+        {/* You fare will cost $ */}
     </div>
   )} else {
     return (

@@ -1,8 +1,6 @@
 import {useState, useEffect} from 'react'
 import { findZone,formatName, formatCost } from '../helpers/helper_functions';
 import { ReactComponent as SepLogo } from "./SEPTA.svg"
-
-import septa from  './SEPTA.svg'
 import './form.css'
 
 export default function Form() {
@@ -27,6 +25,7 @@ export default function Form() {
   const handleChange = (e) => {
     const name = e.target.name;
     const val = e.target.value;
+    //versatile handleChange function to keep the code DRY
     switch (name) {
       case "days":
         setCurrDay(val)
@@ -47,6 +46,7 @@ export default function Form() {
   
   const handleNum = (e) => {
     const regex = /^[0-9\b]+$/;
+    //only allow people to type in numbers for cost section
     if (e.currentTarget.value === '' || regex.test(e.currentTarget.value)) {
       setRiders(Number(e.currentTarget.value));
     }
@@ -58,11 +58,10 @@ export default function Form() {
       setRiders(10);
       setChecked('advance')
       /* 
-      Set the price to a fixed price, update the checked radio button to advanced option, and the riders to 10 because of the special deal for 10 advanced tickets
-      Only do this if 
+      Set the price to a fixed price, update the checked radio button to advanced option, and the riders to 10 because of the special deal for 10 advanced tickets. Don't allow users to change the amount of tickets because the deal is specifically for 10 tickets
        */
     } else if (!fares || !time || !location || !riders) {
-      //unless are fields are selected set Cost to 0
+      //unless all fields are selected set Cost to 0
       setCost(0)
     } else {
       for (let fare of fares) {
@@ -82,10 +81,7 @@ export default function Form() {
   }, [])
 
  useEffect(() => {
-  //  if (currZone.fares) {
-  //   findPrice(currZone.fares, currDay, purch, riders)
-  //  }
-   if (currZone && currDay && currZone.fares) {
+   if (currZone.fares) {
      findPrice(currZone.fares, currDay, purch, riders)
    }
   },[currZone,currDay,purch,riders])
@@ -166,5 +162,4 @@ export default function Form() {
       </section>
       </div>
     )
-  
 }

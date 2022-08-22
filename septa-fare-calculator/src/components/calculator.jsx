@@ -5,7 +5,7 @@ import Time from './time.jsx';
 import Purchase from './purchase.jsx';
 import Quantity from './quantity.jsx';
 import Cost from './cost.jsx';
-import septaLogo from '../SEPTA.png';
+import SeptaLogo from '../SEPTA.png';
 
 import '../stylesheets/reset.css';
 import '../stylesheets/calculator.css';
@@ -31,6 +31,7 @@ const Calculator = () => {
     fareInfo()
   }, [])
 
+  /*useEffect to calculate total cost depending on which option is clicked for zone, time, purchase, and quantity. Should update automatically everytime a new option is selected. */
   useEffect(() => {
     let multiplier = 1;
     if (zone && time && purchase && quantity) {
@@ -45,16 +46,17 @@ const Calculator = () => {
       }
     }
     setCost(multiplier * quantity)
+
+    //useEffect cleanup
     return () => {
       setCost(0)
   }
   }, [zone, time, purchase, quantity, cost, data])
 
   return (
-
     <div className="septa">
       <div className="calculater-title">
-        <img src={septaLogo} alt="Pic" className="septa-logo" />
+        <img src={SeptaLogo} alt="Pic" className="septa-logo" />
         <h3>
           Regional Rail Fares
         </h3>

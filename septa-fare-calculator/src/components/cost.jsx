@@ -1,7 +1,9 @@
 import '../stylesheets/cost.css'
 
 const Cost = ({cost, timeInfo}) => {
-  if (timeInfo === 'Valid anytime') cost = cost * 10;
+
+  //if "anytime" is clicked, the cost should be multiplied by 10, as it only caclulates for one ticket at the moment
+  if (timeInfo === "Valid anytime") cost = cost * 10;
 
   if (!cost) {
     return (

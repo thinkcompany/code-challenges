@@ -1,7 +1,8 @@
 import '../stylesheets/time.css';
 
 const Time = ({time, setTime, options, timeInfo}) => {
-  if (timeInfo === 'Valid anytime') {
+  //if "anytime" is clicked, change the infomation from the data to include the fact that these tickets can only be purchased in a bundle of 10
+  if (timeInfo === "Valid anytime") {
     timeInfo = "Valid anytime. May only be advance purchases and comes in a bundle of 10 tickets."
   }
   return (
@@ -17,7 +18,6 @@ const Time = ({time, setTime, options, timeInfo}) => {
         </select>
         <div className="time-info">
           {timeInfo ? timeInfo : ''}
-
         </div>
     </div>
   )

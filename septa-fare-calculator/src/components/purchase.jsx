@@ -1,7 +1,9 @@
 import '../stylesheets/purchase.css'
 
 const Purchase = ({purchase, setPurchase, options, timeInfo}) => {
-  if (timeInfo !== 'Valid anytime') {
+  //if "anytime" is clicked, only the station kiosk radio button should show
+
+  if (timeInfo !== "Valid anytime") {
     return (
       <div className="purchase-container">
           Where will you purchase the fare?

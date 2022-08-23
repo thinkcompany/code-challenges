@@ -1,0 +1,15 @@
+.App {
+  text-align: center;
+  width: calc(100% - 60px);
+  padding: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@media screen and (max-width: 450px) {
+  .App {
+    padding: 0;
+    width: 100%;
+  }
+}

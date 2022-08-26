@@ -25,7 +25,9 @@ class App extends React.Component {
             // stores values of zone, type, and purchase the user chooses to quickly search in objects above
             userZone: 0,
             userType: "weekday",
-            userPurchase: ""
+            userPurchase: "advance_purchase",
+
+            ticketQuantity: 0
         };
 
         // iterates through all prices for each zone's fares to store in corresponding array in state above
@@ -57,6 +59,8 @@ class App extends React.Component {
         this.showType = this.showType.bind(this);
         this.showTypeExplanations = this.showTypeExplanations.bind(this);
         this.updatePurchase = this.updatePurchase.bind(this);
+        this.updateQuantity = this.updateQuantity.bind(this);
+        this.calculateTotal = this.calculateTotal.bind(this);
     };
 
     // componentDidMount() {
@@ -139,7 +143,33 @@ class App extends React.Component {
             this.setState({userPurchase: 'onboard_purchase'});
         };
     };
-    
+
+    updateQuantity() {
+        return(e) => {
+            this.setState({ticketQuantity: e.currentTarget.value});
+        };
+    };
+
+    //this.state[this.state.userType][this.state.userPurchase][this.state.userZone]
+    calculateTotal() {
+        if (this.state.ticketQuantity && this.state.ticketQuantity != 0) {
+            debugger
+            let userType = this.state.userType;
+            let userPurchase = this.state.userPurchase;
+            let userZone = this.state.userZone;
+            let price = this.state[this.state.userType][this.state.userPurchase][this.state.userZone];
+            // let typeInfo = this.state[this.state.userType];
+            // let userPurchase = this.state.userPurchase;
+            // let purchaseInfo = typeInfo[userPurchase];
+            // let userZone = this.state.userZone;
+            // let price = purchaseInfo[userZone];
+            let total = price * this.state.ticketQuantity;
+            return (<h5>{total}</h5>)
+        } else {
+            return (<h5></h5>)
+        }
+    };
+
     render() {
         return (
             <div className="form-container">
@@ -159,13 +189,33 @@ class App extends React.Component {
                 {this.showTypeExplanations()}
                 <h2>Where will you purchase the fare?</h2>
                 <label for="station-kiosk">
-                    <input onChange={() => this.updatePurchase('Station Kiosk')} type="radio" name="purchase" value="station-kiosk" checked />
+                    <input 
+                        onChange={() => this.updatePurchase('Station Kiosk')} 
+                        type="radio" 
+                        name="purchase" 
+                        value="station-kiosk" 
+                        checked 
+                    />
                     Station Kiosk
                 </label>
                 <label for="onboard">
-                    <input onChange={() => this.updatePurchase('Onboard')} type="radio" name="purchase" value="onboard" />
+                    <input 
+                        onChange={() => this.updatePurchase('Onboard')} 
+                        type="radio" 
+                        name="purchase" 
+                        value="onboard" 
+                    />
                     Onboard
                 </label>
+                <h2>How many rides will you need?</h2>
+                <input 
+                    type='text'
+                    onChange={this.updateQuantity()}
+                    value={this.state.ticketQuantity}
+                />
+                <button onClick={this.calculateTotal}>Calculate</button>
+                <h2>Your fare will cost</h2>
+                {this.calculateTotal()}
             </div>
         )
     }

@@ -1,0 +1,75 @@
+/* .form-container {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    justify-content: center;
+    align-items: center;
+}; */
+
+.form-sections {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    align-items: center;
+    border: 1 px solid green;
+};
+
+.form-heading {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 1px solid green;
+}
+
+/* #heading {
+    color: red;
+    background-color: lightgray;
+    padding: 25%;
+} */
+
+.form-zone {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid lightgray;
+    padding: 10%;
+}
+
+#form-zone-heading {
+
+}
+
+.form-zone-zone {
+    border: 1px solid lightgray;
+    border-radius: 8%;
+    padding: 5% 0 5% 4%;
+}
+
+.form-type {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 1px solid green;
+    width: 51.5%;
+}
+
+.form-purchase {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 1px solid green;
+}
+
+.form-ticket-quantity {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 1px solid green;
+}
+
+.form-ticket-price {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 1px solid green;
+}
+

@@ -1,5 +1,6 @@
 import React from "react";
 import myData from './fares.json';
+import './app.css';
 
 class App extends React.Component {
     constructor(props) {
@@ -85,15 +86,15 @@ class App extends React.Component {
 
     showZone() {
         if (this.state.userZone === 0) {
-            return (<h3>CCP/1</h3>);
+            return (<h3 className="form-zone-zone">CCP/1</h3>);
         } else if (this.state.userZone === 1) {
-            return (<h3>Zone 2</h3>);
+            return (<h3 className="form-zone-zone">Zone 2</h3>);
         } else if (this.state.userZone === 2) {
-            return (<h3>Zone 3</h3>);
+            return (<h3 className="form-zone-zone">Zone 3</h3>);
         } else if (this.state.userZone === 3) {
-            return (<h3>Zone 4</h3>);
+            return (<h3 className="form-zone-zone">Zone 4</h3>);
         } else if (this.state.userZone === 4) {
-            return (<h3>NJ</h3>);
+            return (<h3 className="form-zone-zone">NJ</h3>);
         };
     };
 
@@ -164,50 +165,64 @@ class App extends React.Component {
     render() {
         return (
             <div className="form-container">
-                <header>Regional Rail Fares</header>
-                <h2>Where are you going?</h2>
-                {this.showZone()}
-                <button onClick={() => this.updateZone('CCP/1')}>CCP/1</button>
-                <button onClick={() => this.updateZone('Zone 2')}>Zone 2</button>
-                <button onClick={() => this.updateZone('Zone 3')}>Zone 3</button>
-                <button onClick={() => this.updateZone('Zone 4')}>Zone 4</button>
-                <button onClick={() => this.updateZone('NJ')}>NJ</button>
-                <h2>When are you riding?</h2>
-                {this.showType()}
-                <button onClick={() => this.updateType('Weekdays')}>Weekdays</button>
-                <button onClick={() => this.updateType('Weekends')}>Weekends</button>
-                <button onClick={() => this.updateType('Anytime')}>Anytime</button>
-                {this.showTypeExplanations()}
-                <h2>Where will you purchase the fare?</h2>
-                <label for="station-kiosk">
-                    <input 
-                        onChange={() => this.updatePurchase('Station Kiosk')} 
-                        type="radio" 
-                        name="purchase" 
-                        value="station-kiosk" 
-                        checked 
-                    />
-                    Station Kiosk
-                </label>
-                <label for="onboard">
-                    <input 
-                        onChange={() => this.updatePurchase('Onboard')} 
-                        type="radio" 
-                        name="purchase" 
-                        value="onboard" 
-                    />
-                    Onboard
-                </label>
-                <h2>How many rides will you need?</h2>
-                <input 
-                    type='number'
-                    onChange={this.updateQuantity()}
-                    value={this.state.ticketQuantity}
-                    name="quantity"
-                    min="0"
-                />
-                <h2>Your fare will cost</h2>
-                {this.calculateTotal()}
+                <div className="form-sections">
+                    <div className="form-heading">
+                        <h2 id='heading'>Regional Rail Fares</h2>
+                    </div>
+                    <div className="form-zone">
+                        <h2 id='form-zone-heading'>Where are you going?</h2>
+                        {this.showZone()}
+                        <button onClick={() => this.updateZone('CCP/1')}>CCP/1</button>
+                        <button onClick={() => this.updateZone('Zone 2')}>Zone 2</button>
+                        <button onClick={() => this.updateZone('Zone 3')}>Zone 3</button>
+                        <button onClick={() => this.updateZone('Zone 4')}>Zone 4</button>
+                        <button onClick={() => this.updateZone('NJ')}>NJ</button>
+                    </div>
+                    <div className="form-type">
+                        <h2>When are you riding?</h2>
+                        {this.showType()}
+                        <button onClick={() => this.updateType('Weekdays')}>Weekdays</button>
+                        <button onClick={() => this.updateType('Weekends')}>Weekends</button>
+                        <button onClick={() => this.updateType('Anytime')}>Anytime</button>
+                        {this.showTypeExplanations()}
+                    </div>
+                    <div className="form-purchase">
+                        <h2>Where will you purchase the fare?</h2>
+                        <label for="station-kiosk">
+                            <input 
+                                onChange={() => this.updatePurchase('Station Kiosk')} 
+                                type="radio" 
+                                name="purchase" 
+                                value="station-kiosk" 
+                                checked 
+                            />
+                            Station Kiosk
+                        </label>
+                        <label for="onboard">
+                            <input 
+                                onChange={() => this.updatePurchase('Onboard')} 
+                                type="radio" 
+                                name="purchase" 
+                                value="onboard" 
+                            />
+                            Onboard
+                        </label>
+                    </div>
+                    <div className="form-ticket-quantity">
+                        <h2>How many rides will you need?</h2>
+                        <input 
+                            type='number'
+                            onChange={this.updateQuantity()}
+                            value={this.state.ticketQuantity}
+                            name="quantity"
+                            min="0"
+                        />
+                    </div>
+                    <div className="form-ticket-price">
+                        <h2>Your fare will cost</h2>
+                        {this.calculateTotal()}
+                    </div>
+                </div>
             </div>
         )
     }

@@ -53,6 +53,10 @@ class App extends React.Component {
 
         this.updateZone = this.updateZone.bind(this);
         this.showZone = this.showZone.bind(this);
+        this.updateType = this.updateType.bind(this);
+        this.showType = this.showType.bind(this);
+        this.showTypeExplanations = this.showTypeExplanations.bind(this);
+        this.updatePurchase = this.updatePurchase.bind(this);
     };
 
     // componentDidMount() {
@@ -86,8 +90,23 @@ class App extends React.Component {
             return (<h3>Zone 4</h3>);
         } else if (this.state.userZone === 4) {
             return (<h3>NJ</h3>);
-        }
-    }
+        };
+    };
+
+    showType() {
+        if (this.state.userType === 'weekday') {
+            return (<h3>Weekdays</h3>);
+        } else if (this.state.userType === 'evening_weekend') {
+            return (<h3>Weekends</h3>);
+        } else if (this.state.userType === 'anytime') {
+            return (<h3>Anytime</h3>);
+        };
+    };
+
+    showTypeExplanations() {
+        let type = this.state.userType;
+        return (<h5>{this.state.info[type]}</h5>)
+    };
 
     updateZone(zone) {
         if (zone === 'CCP/1') {
@@ -105,9 +124,21 @@ class App extends React.Component {
 
     updateType(type) {
         if (type === 'Weekdays') {
-            this.setState({userType: 'weekday'})
-        }
-    }
+            this.setState({userType: 'weekday'});
+        } else if (type === 'Weekends') {
+            this.setState({userType: 'evening_weekend'});
+        } else if (type === 'Anytime') {
+            this.setState({userType: 'anytime'});
+        };
+    };
+
+    updatePurchase(purchase) {
+        if (purchase === 'Station Kiosk') {
+            this.setState({userPurchase: 'advance_purchase'});
+        } else {
+            this.setState({userPurchase: 'onboard_purchase'});
+        };
+    };
     
     render() {
         return (
@@ -121,9 +152,20 @@ class App extends React.Component {
                 <button onClick={() => this.updateZone('Zone 4')}>Zone 4</button>
                 <button onClick={() => this.updateZone('NJ')}>NJ</button>
                 <h2>When are you riding?</h2>
-                <button>Weekdays</button>
-                <button>Weekends</button>
-                <button>Anytime</button>
+                {this.showType()}
+                <button onClick={() => this.updateType('Weekdays')}>Weekdays</button>
+                <button onClick={() => this.updateType('Weekends')}>Weekends</button>
+                <button onClick={() => this.updateType('Anytime')}>Anytime</button>
+                {this.showTypeExplanations()}
+                <h2>Where will you purchase the fare?</h2>
+                <label for="station-kiosk">
+                    <input onChange={() => this.updatePurchase('Station Kiosk')} type="radio" name="purchase" value="station-kiosk" checked />
+                    Station Kiosk
+                </label>
+                <label for="onboard">
+                    <input onChange={() => this.updatePurchase('Onboard')} type="radio" name="purchase" value="onboard" />
+                    Onboard
+                </label>
             </div>
         )
     }

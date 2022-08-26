@@ -1,0 +1,41 @@
+body {
+  display: flex;
+  justify-content: center;
+  font-family: 'Roboto', sans-serif;
+}
+
+button {
+  padding: .5em;
+  margin: .5em;
+}
+
+.label {
+  margin-bottom: .5em;
+}
+
+.form-section {
+  display: flex;
+  flex-direction: column;
+  padding: 1em;
+  border-bottom: 1px solid #dadce0;
+}
+
+.container {
+  border: 3px #D3D3D3;
+  border-style: solid;
+}
+
+.form-header{
+  display: flex;
+  justify-content: space-around;
+  background-color: gray;
+  color: white;
+  padding: .5em;
+}
+
+#form-container {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 20px 20px #98999c;
+}

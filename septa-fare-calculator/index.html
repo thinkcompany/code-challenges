@@ -1,10 +1,70 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<title>SEPTA Regional Rail Fare Calculator</title>
-</head>
-<body>
-	
-</body>
+  <head>
+    <link rel="stylesheet" href="style.css" type="text/css" />
+    <meta charset="UTF-8" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto&display=swap"
+      rel="stylesheet"
+    />
+    <title>SEPTA Regional Rail Fare Calculator</title>
+  </head>
+  <body>
+    <section class="form-section">
+      <div id="form-container" class="container">
+        <div class="form-header">
+          <img src="./img/64px-SEPTA.svg.png" alt="" />
+          <h1>Regional Rail Faires</h1>
+        </div>
+        <form action="submit" id="form">
+          <div class="form-section">
+            <label for="destination" class="label">Where are you going?</label>
+            <select id="destination" type="text" required>
+              <option value="0">Zone 1</option>
+              <option value="1">Zone 2</option>
+              <option value="2">Zone 3</option>
+              <option value="3">Zone 4</option>
+              <option value="4">Zone 5</option>
+            </select>
+          </div>
+          <div class="form-section">
+            <label for="time" class="label">When are you riding?</label>
+            <select id="time" required>
+              <option value="weekday">Weekday</option>
+              <option value="evening_weekend">Weekend</option>
+              <option value="anytime">Anytime</option>
+            </select>
+          </div>
+          <div class="form-section radio-value" id="purchase-location">
+            <p>Where will you be purchasing your ticket?</p>
+            <label for="station_kiosk" class="label">Station Kiosk</label>
+            <input
+              type="radio"
+              id="station_kiosk"
+              name="purchase-location"
+              value="advance_purchase"
+            />
+            <label for="onboard" class="label">Onboard?</label>
+            <input
+              type="radio"
+              id="onboard"
+              name="purchase-location"
+              value="onboard_purchase"
+            />
+          </div>
+          <div class="form-total form-section">
+            <label for="ride-amount" class="label"
+              >How many rides will you need?</label
+            >
+            <input type="number" id="ride-amount" />
+          </div>
+          <button type="submit" class="submit_btn">Submit</button>
+        </form>
+      </div>
+      <!-- in javascript, create an element that will be placed here, set its class, id etc as well -->
+    </section>
+    <script src="fare_calculation.js"></script>
+  </body>
 </html>

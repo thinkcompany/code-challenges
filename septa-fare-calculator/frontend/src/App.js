@@ -5,8 +5,6 @@ class App extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            error: null,
-            isLoaded: false,
             info: myData.info,
 
             // stores the prices of each zone based on their type and purchase
@@ -19,15 +17,17 @@ class App extends React.Component {
                 onboard: []
             },
             anytime: {
-                advance: []
+                advance: [],
+                onboard: [0, 0, 0, 0, 0]
             },
 
             // stores values of zone, type, and purchase the user chooses to quickly search in objects above
             userZone: 0,
             userType: "weekday",
-            userPurchase: "advance_purchase",
+            userPurchase: "advance",
 
-            ticketQuantity: 0
+            ticketQuantity: 0,
+            totalPrice: 0
         };
 
         // iterates through all prices for each zone's fares to store in corresponding array in state above
@@ -112,6 +112,7 @@ class App extends React.Component {
         return (<h5>{this.state.info[type]}</h5>)
     };
 
+
     updateZone(zone) {
         if (zone === 'CCP/1') {
             this.setState({userZone: 0});
@@ -130,7 +131,7 @@ class App extends React.Component {
         if (type === 'Weekdays') {
             this.setState({userType: 'weekday'});
         } else if (type === 'Weekends') {
-            this.setState({userType: 'evening_weekend'});
+            this.setState({userType: 'weekend'});
         } else if (type === 'Anytime') {
             this.setState({userType: 'anytime'});
         };
@@ -138,9 +139,9 @@ class App extends React.Component {
 
     updatePurchase(purchase) {
         if (purchase === 'Station Kiosk') {
-            this.setState({userPurchase: 'advance_purchase'});
+            this.setState({userPurchase: 'advance'});
         } else {
-            this.setState({userPurchase: 'onboard_purchase'});
+            this.setState({userPurchase: 'onboard'});
         };
     };
 
@@ -152,22 +153,12 @@ class App extends React.Component {
 
     //this.state[this.state.userType][this.state.userPurchase][this.state.userZone]
     calculateTotal() {
-        if (this.state.ticketQuantity && this.state.ticketQuantity != 0) {
-            debugger
-            let userType = this.state.userType;
-            let userPurchase = this.state.userPurchase;
-            let userZone = this.state.userZone;
-            let price = this.state[this.state.userType][this.state.userPurchase][this.state.userZone];
-            // let typeInfo = this.state[this.state.userType];
-            // let userPurchase = this.state.userPurchase;
-            // let purchaseInfo = typeInfo[userPurchase];
-            // let userZone = this.state.userZone;
-            // let price = purchaseInfo[userZone];
-            let total = price * this.state.ticketQuantity;
-            return (<h5>{total}</h5>)
-        } else {
-            return (<h5></h5>)
-        }
+        let typeInfo = this.state[this.state.userType];
+        let userPurchase = this.state.userPurchase;
+        let purchaseInfo = typeInfo[userPurchase];
+        let price = purchaseInfo[this.state.userZone];
+        let total = (Math.round(price * this.state.ticketQuantity * 100) / 100).toFixed(2);
+        return (<h5>${total}</h5>)
     };
 
     render() {
@@ -209,11 +200,12 @@ class App extends React.Component {
                 </label>
                 <h2>How many rides will you need?</h2>
                 <input 
-                    type='text'
+                    type='number'
                     onChange={this.updateQuantity()}
                     value={this.state.ticketQuantity}
+                    name="quantity"
+                    min="0"
                 />
-                <button onClick={this.calculateTotal}>Calculate</button>
                 <h2>Your fare will cost</h2>
                 {this.calculateTotal()}
             </div>

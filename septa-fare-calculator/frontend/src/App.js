@@ -64,6 +64,9 @@ class App extends React.Component {
         this.calculateTotal = this.calculateTotal.bind(this);
     };
 
+    // Below is an AJAX request to get the data from json file
+    // However, I could not figure out why it was not working so instead I just imported the file at the top
+
     // componentDidMount() {
     //     fetch("septa-fare-calculator/frontend/src/fares.json")
     //         .then(res => res.json())
@@ -84,6 +87,8 @@ class App extends React.Component {
     //         )
     // };
 
+
+    // Depending on what zone the user chooses, the corresponding zone will show
     showZone() {
         if (this.state.userZone === 0) {
             return (<h3 className="form-slots">CCP/1</h3>);
@@ -98,6 +103,7 @@ class App extends React.Component {
         };
     };
 
+    // Depending on what type the user chooses, the corresponding type will show
     showType() {
         if (this.state.userType === 'weekday') {
             return (<h3 className="form-slots type">Weekdays</h3>);
@@ -108,12 +114,14 @@ class App extends React.Component {
         };
     };
 
+    // Depending on what type the user chooses, the corresponding explanation of the type will show
     showTypeExplanations() {
         let type = this.state.userType;
         return (<h5 className="text">{this.state.info[type]}</h5>)
     };
 
 
+    // Will update the user's choice of zone in state upon button click
     updateZone(zone) {
         if (zone === 'CCP/1') {
             this.setState({userZone: 0});
@@ -128,6 +136,7 @@ class App extends React.Component {
         };
     };
 
+    // Will update the user's choice of type in state upon button click
     updateType(type) {
         if (type === 'Weekdays') {
             this.setState({userType: 'weekday'});
@@ -138,6 +147,7 @@ class App extends React.Component {
         };
     };
 
+    // Will update the user's choice of purchase in state upon radio input click
     updatePurchase(purchase) {
         if (purchase === 'Station Kiosk') {
             this.setState({userPurchase: 'advance'});
@@ -146,12 +156,16 @@ class App extends React.Component {
         };
     };
 
+    // Updates ticket quantity based on user input
     updateQuantity() {
         return(e) => {
             this.setState({ticketQuantity: e.currentTarget.value});
         };
     };
 
+    // Uses the corresponding user type and purchase to find the array that matches
+    // Then uses the zone as an index to return the specified price based on their choice
+    // Returns a display of the total based on price times quanitity they entered in
     calculateTotal() {
         let typeInfo = this.state[this.state.userType];
         let userPurchase = this.state.userPurchase;

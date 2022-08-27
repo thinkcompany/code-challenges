@@ -13,7 +13,7 @@ class App extends React.Component {
                 advance: [],
                 onboard: []
             },
-            weekend: {
+            evening_weekend: {
                 advance: [],
                 onboard: []
             },
@@ -44,9 +44,9 @@ class App extends React.Component {
                     };
                 } else if (currentType === 'evening_weekend') {
                     if (currentPurchase === 'advance_purchase') {
-                        this.state.weekend.advance.push(fare.price);
+                        this.state.evening_weekend.advance.push(fare.price);
                     } else {
-                        this.state.weekend.onboard.push(fare.price);
+                        this.state.evening_weekend.onboard.push(fare.price);
                     };
                 } else {
                     this.state.anytime.advance.push(fare.price);
@@ -86,31 +86,31 @@ class App extends React.Component {
 
     showZone() {
         if (this.state.userZone === 0) {
-            return (<h3 className="form-zone-zone">CCP/1</h3>);
+            return (<h3 className="form-slots">CCP/1</h3>);
         } else if (this.state.userZone === 1) {
-            return (<h3 className="form-zone-zone">Zone 2</h3>);
+            return (<h3 className="form-slots">Zone 2</h3>);
         } else if (this.state.userZone === 2) {
-            return (<h3 className="form-zone-zone">Zone 3</h3>);
+            return (<h3 className="form-slots">Zone 3</h3>);
         } else if (this.state.userZone === 3) {
-            return (<h3 className="form-zone-zone">Zone 4</h3>);
+            return (<h3 className="form-slots">Zone 4</h3>);
         } else if (this.state.userZone === 4) {
-            return (<h3 className="form-zone-zone">NJ</h3>);
+            return (<h3 className="form-slots">NJ</h3>);
         };
     };
 
     showType() {
         if (this.state.userType === 'weekday') {
-            return (<h3>Weekdays</h3>);
+            return (<h3 className="form-slots type">Weekdays</h3>);
         } else if (this.state.userType === 'evening_weekend') {
-            return (<h3>Weekends</h3>);
+            return (<h3 className="form-slots type">Weekends</h3>);
         } else if (this.state.userType === 'anytime') {
-            return (<h3>Anytime</h3>);
+            return (<h3 className="form-slots type">Anytime</h3>);
         };
     };
 
     showTypeExplanations() {
         let type = this.state.userType;
-        return (<h5>{this.state.info[type]}</h5>)
+        return (<h5 className="text">{this.state.info[type]}</h5>)
     };
 
 
@@ -132,7 +132,7 @@ class App extends React.Component {
         if (type === 'Weekdays') {
             this.setState({userType: 'weekday'});
         } else if (type === 'Weekends') {
-            this.setState({userType: 'weekend'});
+            this.setState({userType: 'evening_weekend'});
         } else if (type === 'Anytime') {
             this.setState({userType: 'anytime'});
         };
@@ -152,14 +152,13 @@ class App extends React.Component {
         };
     };
 
-    //this.state[this.state.userType][this.state.userPurchase][this.state.userZone]
     calculateTotal() {
         let typeInfo = this.state[this.state.userType];
         let userPurchase = this.state.userPurchase;
         let purchaseInfo = typeInfo[userPurchase];
         let price = purchaseInfo[this.state.userZone];
         let total = (Math.round(price * this.state.ticketQuantity * 100) / 100).toFixed(2);
-        return (<h5>${total}</h5>)
+        return (<h5 className="price-text">${total}</h5>)
     };
 
     render() {
@@ -187,7 +186,7 @@ class App extends React.Component {
                         {this.showTypeExplanations()}
                     </div>
                     <div className="form-purchase">
-                        <h2>Where will you purchase the fare?</h2>
+                        <h2 className="text">Where will you purchase the fare?</h2>
                         <label for="station-kiosk">
                             <input 
                                 onChange={() => this.updatePurchase('Station Kiosk')} 
@@ -211,6 +210,7 @@ class App extends React.Component {
                     <div className="form-ticket-quantity">
                         <h2>How many rides will you need?</h2>
                         <input 
+                            className="form-slots"
                             type='number'
                             onChange={this.updateQuantity()}
                             value={this.state.ticketQuantity}
@@ -219,7 +219,7 @@ class App extends React.Component {
                         />
                     </div>
                     <div className="form-ticket-price">
-                        <h2>Your fare will cost</h2>
+                        <h2 className="price-text">Your fare will cost</h2>
                         {this.calculateTotal()}
                     </div>
                 </div>

@@ -9,67 +9,80 @@
 .form-sections {
     display: flex;
     flex-direction: column;
-    width: 50%;
+    width: 25%;
     align-items: center;
-    border: 1 px solid green;
+    border: 1px solid lightgray;
 };
 
 .form-heading {
     display: flex;
     flex-direction: column;
     align-items: center;
-    border: 1px solid green;
+    border: 1px solid lightgray;
 }
 
-/* #heading {
-    color: red;
-    background-color: lightgray;
-    padding: 25%;
-} */
 
 .form-zone {
     display: flex;
     flex-direction: column;
     border: 1px solid lightgray;
     padding: 10%;
+    width: 75%;
 }
 
-#form-zone-heading {
 
-}
-
-.form-zone-zone {
+.form-slots {
     border: 1px solid lightgray;
     border-radius: 8%;
     padding: 5% 0 5% 4%;
+}
+
+.type {
+    padding-right: 10%;
+    width: 70%;
 }
 
 .form-type {
     display: flex;
     flex-direction: column;
     align-items: center;
-    border: 1px solid green;
-    width: 51.5%;
+    border: 1px solid lightgray;
+    width: 95%;
 }
 
 .form-purchase {
     display: flex;
     flex-direction: column;
     align-items: center;
-    border: 1px solid green;
+    border: 1px solid lightgray;
+    width: 95%;
+    padding: 5% 0 5% 0;
 }
 
 .form-ticket-quantity {
     display: flex;
     flex-direction: column;
     align-items: center;
-    border: 1px solid green;
+    border: 1px solid lightgray;
+    width: 95%;
+    padding: 5% 0 5% 0;
 }
 
 .form-ticket-price {
     display: flex;
     flex-direction: column;
     align-items: center;
-    border: 1px solid green;
+    border: 1px solid lightgray;
+    width: 95%;
+    background-color: gray;
 }
+
+.price-text {
+    color: white;
+}
+
+.text {
+    text-align: center;
+}
+
 

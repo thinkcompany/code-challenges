@@ -19,7 +19,6 @@ function App() {
     const [zones, setZones] = useState([]);
 
     // assumption:
-    // I see no submit button.
     // form is dynamicly calculating purchase costs
     // with no submit button to get all form values at once
     // best to access on form change form values via refs rather than local state to minimize renders
@@ -54,7 +53,7 @@ function App() {
         }
     }, [zones]);
 
-    // not sure how to manipulate radio buttons from a different field
+    // not sure how to manipulate radio buttons from a different form field update
     // using this function to do so after 'anytime' travel is selected
     const selectPurchaseType = (e) => {
         const { selected } = formRef.current.purchaseType;
@@ -63,7 +62,7 @@ function App() {
         formRef.current.purchaseType.unselected = tempUnselected;
     };
 
-    // not sure how to manipulate radio buttons from a different field
+    // not sure how to manipulate radio buttons from a different form field update
     // using this function to do so after 'anytime' travel is selected
     // and advanced purchase is not selected
     const setAdvancedPurchaseType = (advancedPurchaseType) => {
@@ -96,8 +95,8 @@ function App() {
             return fare.type === ANYTIME_VALUE || (typeMatch && purchaseMatch);
         });
 
+        // disabling other purchase methods when travel time is 'anytime'
         // 'anyime' travel only allows advance purchase
-        // disabling the ability to choose other purchase methods
         if (matchingFare.type === ANYTIME_VALUE) {
             setAdvancedPurchaseType(matchingFare.purchase);
             purchaseType.selected.disabled = true;
@@ -154,10 +153,7 @@ function App() {
                 ref={(ref) => (formRef.current.travelNote = ref)}
                 id="anytime-travel-note"
             ></div>
-            <section
-            // even though the toggling of this element is done in handleChange
-            // explicitly using disabled attribute to remind reader that this element is toggled
-            >
+            <section>
                 <div>
                     <h4>Where are will you purchase the fare?</h4>
                 </div>

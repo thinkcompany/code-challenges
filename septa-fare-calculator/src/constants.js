@@ -5,6 +5,7 @@ const ONBOARD_PURCHASE_LABEL = "Onboard";
 
 export const ADVANCE_PURCHASE_VALUE = "advance_purchase";
 const ONBOARD_PURCHASE_VALUE = "onboard_purchase";
+export const MINIMUM_TICKET_PURCHASE = "At least 1 ticket must be purchased";
 
 export const PURCHASE_TYPES = [
     { label: ADVANCE_PURCHASE_LABEL, value: ADVANCE_PURCHASE_VALUE },

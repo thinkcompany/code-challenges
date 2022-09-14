@@ -4,6 +4,7 @@ import {
     PURCHASE_TYPES,
     TRAVEL_TIMES,
     ANYTIME_TRAVEL_NOTE,
+    MINIMUM_TICKET_PURCHASE,
 } from "./constants";
 
 // to do:
@@ -80,9 +81,12 @@ function App() {
     const calcFare = (fare) => {
         const { purchaseCost, purchaseCount } = formRef.current;
         // purchase value must be a minimum of 1
-        if (!purchaseCount.value) purchaseCount.value = 1;
-        purchaseCost.innerText =
-            "$" + parseInt(purchaseCount.value) * fare.price;
+        if (!purchaseCount.value) {
+            purchaseCost.innerText = MINIMUM_TICKET_PURCHASE;
+        } else {
+            purchaseCost.innerText =
+                "$" + parseInt(purchaseCount.value) * fare.price;
+        }
     };
 
     const handleChange = (e) => {

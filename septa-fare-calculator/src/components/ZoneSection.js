@@ -7,8 +7,7 @@ const ZoneSection = ({ prompt, zoneOptions, setZoneId }) => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
 
     const onFocus = ({ focused, isDisabled }) => {
-        const msg = `You are currently focused on option ${focused.label}${isDisabled ? ', disabled' : ''
-            }`;
+        const msg = `You are currently focused on option ${focused.label}${isDisabled ? ', disabled' : ''}`;
         setAriaFocusMsg(msg);
         return msg;
     };
@@ -28,7 +27,7 @@ const ZoneSection = ({ prompt, zoneOptions, setZoneId }) => {
             >{prompt}</h3>
             <label
                 style={ariaStyle.label}
-                id="aria-label"
+                id="zone-id-aria-label"
                 htmlFor="zone-id-input"
             >
                 Select a zone
@@ -39,7 +38,7 @@ const ZoneSection = ({ prompt, zoneOptions, setZoneId }) => {
                 >"{ariaFocusMsg}"</blockquote>
             )}
             <Select
-                aria-labelledby="aria-label"
+                aria-labelledby="zone-id-aria-label"
                 ariaLiveMessages={{ onFocus }}
                 onMenuOpen={onMenuOpen}
                 onMenuClose={onMenuClose}

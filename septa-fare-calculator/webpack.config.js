@@ -1,6 +1,7 @@
 const webpack = require('webpack');
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const data = require('./fares.json');
 
 const config = {
   entry: ['react-hot-loader/patch', './src/index.js'],
@@ -39,11 +40,25 @@ const config = {
           },
         ],
       },
+      {
+        test: /\.json$/,
+        loader: 'json-loader',
+      },
     ],
   },
   devServer: {
+    setupMiddlewares: (middlewares, devServer) => {
+      if (!devServer) {
+        throw new Error('webpack-dev-server is not defined');
+      }
+
+      devServer.app.get('/fares.json', (_, response) => {
+        response.send(data);
+      });
+    },
     static: {
-      directory: './dist',
+      publicPath: '/',
+      directory: path.resolve(__dirname, 'dist'),
     },
   },
   plugins: [new HtmlWebpackPlugin({ template: './index.html' })],

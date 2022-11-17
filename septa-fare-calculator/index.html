@@ -14,7 +14,12 @@
   <body onload="onLoad()">
     <!-- Tried to keep things super semantic, but called in aria-labels when necessary -->
     <main name="main content" class="widget-body">
-      <header name="header">Regional Rail Fares</header>
+      <header name="header">
+        <img
+          src="favicon.ico"
+          alt="The logo of SEPTA Regional Rail, two opposite arrows dividing a red and blue background"
+        />Regional Rail Fares
+      </header>
       <section id="where-going" class="widget-section">
         <label for="where-going-select">Where are you going?</label>
         <select id="where-going-select" autocomplete="off">
@@ -36,6 +41,12 @@
           <option tabindex="" value="holiday">Federal Holiday</option>
           <option tabindex="" value="anytime">Anytime</option>
         </select>
+        <span
+          class="when-riding-helper"
+          name="extra info about when you are riding"
+          aria-labelled="extra fare info"
+          id="when-riding-helper-text"
+        ></span>
       </section>
       <section id="where-fare" class="widget-section">
         <span>Where will you purchase the fare?</span>

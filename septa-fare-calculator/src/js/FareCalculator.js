@@ -25,7 +25,6 @@ class FareCalculator {
   setWhenRiding(str) {
     const whenRiding =
       str === "anytime" || str === "weekday" ? str : "evening_weekend";
-    console.log(str);
     this.whenRiding = whenRiding;
   }
 

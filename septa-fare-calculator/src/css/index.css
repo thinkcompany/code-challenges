@@ -1,0 +1,20 @@
+.widget-body {
+  border: 2px solid lightgrey;
+  width: 50%;
+  margin: auto;
+}
+
+.widget-body,
+.widget-section,
+.widget-section div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.widget-section {
+  border-bottom: 1px solid lightgrey;
+  width: 100%;
+  margin: 2em;
+}

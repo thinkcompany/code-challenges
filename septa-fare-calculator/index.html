@@ -1,10 +1,74 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<title>SEPTA Regional Rail Fare Calculator</title>
-</head>
-<body>
-	
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta
+      name="Septa Fare Calculator"
+      content="width=device-width, initial-scale=1.0"
+    />
+    <title>SEPTA Regional Rail Fare Calculator</title>
+    <link rel="stylesheet" href="./src/css/index.css" />
+    <link rel="icon" href="./favicon.ico" />
+  </head>
+  <body onload="onLoad()">
+    <main role="" name="" aria-label="" class="widget-body">
+      <header name="">Regional Rail Fares</header>
+      <section id="where-going" class="widget-section">
+        <label for="where=going-select">Where are you going?</label>
+        <select id="where=going-select">
+          <option tabindex="" value="Zone 1">Zone 1</option>
+          <option tabindex="" value="Zone 2">Zone 2</option>
+          <option tabindex="" value="Zone 3">Zone 3</option>
+          <option tabindex="" value="Zone 4">Zone 4</option>
+          <option tabindex="" value="Zone 5">Zone 5</option>
+        </select>
+      </section>
+      <section id="when-riding" class="widget-section">
+        <label for="">When are you riding?</label>
+        <select id="1" name="">
+          <option tabindex="" value="weekday" select>Weekday</option>
+          <option tabindex="" value="weekday_evening">
+            Weekday (After 7pm)
+          </option>
+          <option tabindex="" value="weekend">Weekend</option>
+          <option tabindex="" value="holiday">Federal Holiday</option>
+        </select>
+      </section>
+      <section id="where-fare" class="widget-section">
+        <span role="">Where will you purchase the fare?</span>
+        <div role="radiogroup">
+          <label for="kiosk">Station Kiosk</label>
+          <input
+            role="radio"
+            type="radio"
+            name="kioskOrOnboard"
+            id="kiosk"
+            value="kiosk"
+          />
+          <label for="onboard">Onboard</label>
+          <input
+            role="radio"
+            type="radio"
+            name="kioskOrOnboard"
+            id="onboard"
+            value="onboard"
+          />
+        </div>
+      </section>
+      <section id="num-rides" class="widget-section">
+        <label for="num-rides-input">How many rides will you need?</label>
+        <input
+          id="num-rides-input"
+          name="number of rides"
+          type="number"
+          value="1"
+        />
+      </section>
+      <section id="price-calc" class="widget-section">
+        <div class="price-calc-output"></div>
+      </section>
+      <script type="text/javascript" src="./src/js/index.js"></script>
+    </main>
+  </body>
 </html>

@@ -12,35 +12,38 @@
     <link rel="icon" href="./favicon.ico" />
   </head>
   <body onload="onLoad()">
-    <main role="" name="" aria-label="" class="widget-body">
-      <header name="">Regional Rail Fares</header>
+    <!-- Tried to keep things super semantic, but called in aria-labels when necessary -->
+    <main name="main content" class="widget-body">
+      <header name="header">Regional Rail Fares</header>
       <section id="where-going" class="widget-section">
-        <label for="where=going-select">Where are you going?</label>
-        <select id="where=going-select">
+        <label for="where-going-select">Where are you going?</label>
+        <select id="where-going-select" autocomplete="off">
           <option tabindex="" value="Zone 1">Zone 1</option>
           <option tabindex="" value="Zone 2">Zone 2</option>
           <option tabindex="" value="Zone 3">Zone 3</option>
-          <option tabindex="" value="Zone 4">Zone 4</option>
+          <option tabindex="" value="Zone 4" selected>Zone 4</option>
           <option tabindex="" value="Zone 5">Zone 5</option>
         </select>
       </section>
       <section id="when-riding" class="widget-section">
-        <label for="">When are you riding?</label>
-        <select id="1" name="">
-          <option tabindex="" value="weekday" select>Weekday</option>
+        <label for="when-riding-select">When are you riding?</label>
+        <select id="when-riding-select" name="select menu" autocomplete="off">
+          <option tabindex="" value="weekday" selected>Weekday</option>
           <option tabindex="" value="weekday_evening">
             Weekday (After 7pm)
           </option>
           <option tabindex="" value="weekend">Weekend</option>
           <option tabindex="" value="holiday">Federal Holiday</option>
+          <option tabindex="" value="anytime">Anytime</option>
         </select>
       </section>
       <section id="where-fare" class="widget-section">
-        <span role="">Where will you purchase the fare?</span>
+        <span>Where will you purchase the fare?</span>
         <div role="radiogroup">
           <label for="kiosk">Station Kiosk</label>
           <input
             role="radio"
+            class="kioskOrOnboardRadio"
             type="radio"
             name="kioskOrOnboard"
             id="kiosk"
@@ -50,9 +53,11 @@
           <input
             role="radio"
             type="radio"
+            class="kioskOrOnboardRadio"
             name="kioskOrOnboard"
             id="onboard"
             value="onboard"
+            checked
           />
         </div>
       </section>
@@ -62,12 +67,26 @@
           id="num-rides-input"
           name="number of rides"
           type="number"
-          value="1"
+          value="4"
+          min="1"
+          max="20"
+          autocomplete="off"
         />
       </section>
       <section id="price-calc" class="widget-section">
-        <div class="price-calc-output"></div>
+        <div class="price-calc-output">
+          <span class="price-calc-output-text" id="fare-cost"
+            >Your fare will cost</span
+          >
+          <span
+            class="price-calc-output-number"
+            name="price of fare"
+            aria-labelledby="fare-cost"
+            >$0.00</span
+          >
+        </div>
       </section>
+      <script type="text/javascript" src="./src/js/FareCalculator.js"></script>
       <script type="text/javascript" src="./src/js/index.js"></script>
     </main>
   </body>

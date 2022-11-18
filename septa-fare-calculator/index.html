@@ -1,10 +1,109 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<title>SEPTA Regional Rail Fare Calculator</title>
-</head>
-<body>
-	
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SEPTA Regional Rail Fare Calculator</title>
+    <link rel="stylesheet" href="./src/css/index.css" />
+    <link rel="icon" href="./favicon.ico" />
+  </head>
+  <body onload="onLoad()">
+    <!-- Tried to keep things super semantic, but called in aria-labels when necessary -->
+    <main name="main content" class="widget-body">
+      <header name="header" class="widget-header">
+        <img
+          src="favicon.ico"
+          alt="The logo of SEPTA Regional Rail, two opposite arrows dividing a red and blue background"
+        />Regional Rail Fares
+      </header>
+      <section id="where-going" class="widget-section">
+        <label for="where-going-select">Where are you going?</label>
+        <select id="where-going-select" autocomplete="off">
+          <option tabindex="" value="Zone 1">Zone 1</option>
+          <option tabindex="" value="Zone 2">Zone 2</option>
+          <option tabindex="" value="Zone 3">Zone 3</option>
+          <option tabindex="" value="Zone 4" selected>Zone 4</option>
+          <option tabindex="" value="Zone 5">Zone 5</option>
+        </select>
+      </section>
+      <section id="when-riding" class="widget-section">
+        <label for="when-riding-select">When are you riding?</label>
+        <select id="when-riding-select" name="select menu" autocomplete="off">
+          <option tabindex="" value="weekday" selected>Weekday</option>
+          <option tabindex="" value="weekday_evening">
+            Weekday (After 7pm)
+          </option>
+          <option tabindex="" value="weekend">Weekend</option>
+          <option tabindex="" value="holiday">Federal Holiday</option>
+          <option tabindex="" value="anytime">Anytime</option>
+        </select>
+        <span
+          class="when-riding-helper"
+          name="extra info about when you are riding"
+          aria-labelled="extra fare info"
+          id="when-riding-helper-text"
+          >Valid Monday through Friday, 4:00 a.m. - 7:00 p.m. On trains arriving
+          or departing 30th Street Station, Suburban and Jefferson Station</span
+        >
+      </section>
+      <section id="where-fare" class="widget-section">
+        <span>Where will you purchase the fare?</span>
+        <div role="radiogroup" class="kioskOrOnboardContainer">
+          <label for="kiosk" class="kioskOrOnboardContainer-label"
+            >Station Kiosk</label
+          >
+          <input
+            name="kioskOrOnboardBtn"
+            role="radio"
+            class="kioskOrOnboardRadio"
+            type="radio"
+            id="kiosk"
+            value="kiosk"
+          />
+          <label
+            for="onboard"
+            class="kioskOrOnboardContainer-label checked-label"
+            >Onboard</label
+          >
+          <input
+            name="kioskOrOnboardBtn"
+            role="radio"
+            type="radio"
+            class="kioskOrOnboardRadio"
+            id="onboard"
+            value="onboard"
+            checked="checked"
+          />
+        </div>
+      </section>
+      <section id="num-rides" class="widget-section">
+        <label for="num-rides-input">How many rides will you need?</label>
+        <input
+          id="num-rides-input"
+          name="number of rides"
+          type="number"
+          value="4"
+          min="1"
+          max="10"
+          autocomplete="off"
+        />
+      </section>
+      <section id="price-calc" class="widget-section">
+        <div class="price-calc-output">
+          <span class="price-calc-output-text" id="fare-cost"
+            >Your fare will cost</span
+          >
+          <span
+            class="price-calc-output-number"
+            name="price of fare"
+            aria-labelledby="fare-cost"
+            >$28.00</span
+          >
+        </div>
+      </section>
+      <script type="text/javascript" src="./src/js/FareCalculator.js"></script>
+      <script type="text/javascript" src="./src/js/index.js"></script>
+    </main>
+  </body>
 </html>

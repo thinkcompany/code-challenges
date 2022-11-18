@@ -70,8 +70,19 @@ const handleWhenRidingSelectChange = (e) => {
 const handleKioskOrOnboardButtonsClick = (e) => {
   const purchasedAtOnboardBoolean = e.target.value === "kiosk" ? false : true;
   WidgetFareCalculator.setPurchasedAtOnboard(purchasedAtOnboardBoolean);
+
   displayPrice();
   displayHelperText(true);
+};
+
+const handleKioskOrOnboardButtonsLabelChange = (e) => {
+  const currentBtn = e.target.labels[0];
+  const prevBtn = document.querySelector(".checked-label");
+
+  console.log(currentBtn);
+
+  prevBtn.classList.remove("checked-label");
+  currentBtn.classList.add("checked-label");
 };
 
 const handleNumRidesInputChange = (e) => {
@@ -112,6 +123,7 @@ whenRidingSelect.addEventListener("change", (e) => {
 for (let i = 0; i < kioskOrOnboardButtons.length; i++) {
   kioskOrOnboardButtons[i].addEventListener("click", (e) => {
     handleKioskOrOnboardButtonsClick(e);
+    handleKioskOrOnboardButtonsLabelChange(e);
   });
 }
 
@@ -132,8 +144,6 @@ const displayPrice = () => {
 
 const displayHelperText = (purchasedOrWhenRidingBoolean) => {
   const helperTextSpan = document.getElementById("when-riding-helper-text");
-
-  console.log(helperTextSpan);
 
   const isAskingWherePurchased = purchasedOrWhenRidingBoolean;
 

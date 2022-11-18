@@ -5,7 +5,7 @@ body {
 
 .widget-body {
   border: 2px solid lightgrey;
-  width: 20%;
+  width: 100%;
   margin: auto;
 }
 
@@ -14,12 +14,112 @@ body {
 .widget-section div {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
 }
 
 .widget-section {
   border-bottom: 1px solid lightgrey;
   width: 100%;
-  margin: 2em;
+  height: 20vh;
+}
+
+.widget-section input[type="number"],
+.widget-section select {
+  font-size: 1.25em;
+}
+
+.kioskOrOnboardContainer-label {
+  font-size: 1.5em;
+  margin: 5px;
+  color: grey;
+}
+
+.widget-section select,
+.widget-section input[type="number"] {
+  background: none;
+  text-align: left;
+  border: 1px solid lightgrey;
+  border-radius: 10px;
+  width: 75%;
+  padding: 0.5em;
+  color: grey;
+}
+
+.widget-section input[type="number"] {
+  text-align: center;
+  color: black;
+}
+
+.widget-section > label,
+.widget-section > span:first-child {
+  margin: 0.5rem;
+  font-size: 1.25em;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  color: grey;
+}
+
+.widget-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  font-size: 1.5em;
+  background-color: grey;
+  color: white;
+  height: 2em;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-weight: bold;
+}
+
+.widget-header img {
+  margin-right: 20px;
+}
+
+.when-riding-helper {
+  color: grey;
+  font-size: 0.8rem;
+  width: 80%;
+  text-align: center;
+}
+
+.kioskOrOnboardContainer input {
+  display: none;
+}
+
+.kioskOrOnboardContainer-label {
+  padding: 5px;
+  border: 1px solid lightgrey;
+  border-radius: 10px;
+  width: 100%;
+  text-align: center;
+}
+
+.checked-label {
+  background: grey;
+  color: white;
+  border: 2px solid grey;
+}
+
+input:hover,
+label:hover {
+  cursor: pointer;
+}
+
+#price-calc {
+  font-size: 1.25em;
+  background: gray;
+  color: white;
+}
+
+.price-calc-output-number {
+  font-size: 3em;
+}
+
+@media screen and (min-width: 600px) {
+  body {
+    width: 30%;
+    margin: auto;
+  }
 }

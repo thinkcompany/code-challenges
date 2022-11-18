@@ -61,7 +61,7 @@ class FareCalculator {
     );
 
     price = farePurchase.price;
-
-    return price;
+    if (this.numberOfRides > 9) return price;
+    return price * this.numberOfRides;
   }
 }

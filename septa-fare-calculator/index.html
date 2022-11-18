@@ -3,10 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta
-      name="Septa Fare Calculator"
-      content="width=device-width, initial-scale=1.0"
-    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>SEPTA Regional Rail Fare Calculator</title>
     <link rel="stylesheet" href="./src/css/index.css" />
     <link rel="icon" href="./favicon.ico" />
@@ -14,7 +11,7 @@
   <body onload="onLoad()">
     <!-- Tried to keep things super semantic, but called in aria-labels when necessary -->
     <main name="main content" class="widget-body">
-      <header name="header">
+      <header name="header" class="widget-header">
         <img
           src="favicon.ico"
           alt="The logo of SEPTA Regional Rail, two opposite arrows dividing a red and blue background"
@@ -46,29 +43,37 @@
           name="extra info about when you are riding"
           aria-labelled="extra fare info"
           id="when-riding-helper-text"
-        ></span>
+          >Valid Monday through Friday, 4:00 a.m. - 7:00 p.m. On trains arriving
+          or departing 30th Street Station, Suburban and Jefferson Station</span
+        >
       </section>
       <section id="where-fare" class="widget-section">
         <span>Where will you purchase the fare?</span>
-        <div role="radiogroup">
-          <label for="kiosk">Station Kiosk</label>
+        <div role="radiogroup" class="kioskOrOnboardContainer">
+          <label for="kiosk" class="kioskOrOnboardContainer-label"
+            >Station Kiosk</label
+          >
           <input
+            name="kioskOrOnboardBtn"
             role="radio"
             class="kioskOrOnboardRadio"
             type="radio"
-            name="kioskOrOnboard"
             id="kiosk"
             value="kiosk"
           />
-          <label for="onboard">Onboard</label>
+          <label
+            for="onboard"
+            class="kioskOrOnboardContainer-label checked-label"
+            >Onboard</label
+          >
           <input
+            name="kioskOrOnboardBtn"
             role="radio"
             type="radio"
             class="kioskOrOnboardRadio"
-            name="kioskOrOnboard"
             id="onboard"
             value="onboard"
-            checked
+            checked="checked"
           />
         </div>
       </section>
@@ -80,7 +85,7 @@
           type="number"
           value="4"
           min="1"
-          max="20"
+          max="10"
           autocomplete="off"
         />
       </section>
@@ -93,7 +98,7 @@
             class="price-calc-output-number"
             name="price of fare"
             aria-labelledby="fare-cost"
-            >$0.00</span
+            >$28.00</span
           >
         </div>
       </section>

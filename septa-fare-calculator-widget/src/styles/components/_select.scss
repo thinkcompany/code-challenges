@@ -1,0 +1,28 @@
+/**
+ * Select
+ */
+
+.septa-widget-select {
+  width: 100%;
+  border: rem(2) solid $component-border-color;
+  border-radius: rem(8);
+  padding: rem(24);
+  font-size: rem(32);
+  color: $primary-text-color;
+  appearance: none;
+  background: url("data:image/svg+xml,<svg viewBox='0 0 16 16' fill='%23737373' xmlns='http://www.w3.org/2000/svg'><path d='M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z'/></svg>")
+    no-repeat;
+  background-position: right rem(24) center;
+  background-size: auto rem(16);
+  cursor: pointer;
+
+  &-container {
+    width: 100%;
+  }
+
+  &__helper {
+    margin-top: rem(28);
+    font-size: rem(20);
+    color: $secondary-text-color;
+  }
+}

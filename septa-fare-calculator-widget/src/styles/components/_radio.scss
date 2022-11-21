@@ -1,0 +1,34 @@
+/**
+ * Radio
+ */
+
+.septa-widget-radio {
+  font-size: rem(32);
+  color: $primary-text-color;
+  margin-bottom: rem(20);
+  display: flex;
+  align-items: center;
+
+  [type='radio'] {
+    border: rem(2) solid $component-border-color;
+    width: rem(28);
+    height: rem(28);
+    cursor: pointer;
+
+    & + label {
+      margin-left: rem(20);
+      cursor: pointer;
+    }
+  }
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+
+  &-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+}

@@ -1,0 +1,16 @@
+/**
+ * Input
+ */
+
+.septa-widget-input {
+  font-size: rem(32);
+  color: $primary-text-color;
+  text-align: center;
+  border: rem(2) solid $component-border-color;
+  border-radius: rem(8);
+  padding: rem(24);
+
+  &-container {
+    width: 100%;
+  }
+}

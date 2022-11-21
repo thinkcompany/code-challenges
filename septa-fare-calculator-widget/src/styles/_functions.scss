@@ -1,0 +1,13 @@
+/**
+ * Functions
+ */
+
+@use 'sass:math';
+
+@function strip-unit($value) {
+  @return math.div($value, ($value * 0 + 1));
+}
+
+@function rem($px) {
+  @return #{math.div(strip-unit($px), strip-unit($font-size))}rem;
+}

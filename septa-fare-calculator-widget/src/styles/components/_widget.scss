@@ -1,0 +1,19 @@
+/**
+ * Widget
+ */
+
+.septa-widget {
+  background-color: $widget-bg-color;
+  border: rem(4) solid $widget-border-color;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  font-family: Arial, Helvetica, sans-serif;
+  text-align: center;
+  position: relative;
+
+  &-result {
+    font-size: rem(88);
+    font-weight: 600;
+  }
+}

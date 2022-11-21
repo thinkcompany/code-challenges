@@ -1,0 +1,35 @@
+{
+  "extends": ["eslint:recommended", "react-app", "react-app/jest", "prettier"],
+  "plugins": ["prettier"],
+  "rules": {
+    "prettier/prettier": "error",
+    "react/jsx-closing-bracket-location": [
+      2,
+      { "selfClosing": "tag-aligned", "nonEmpty": "tag-aligned" }
+    ],
+    "no-multi-spaces": ["error", { "ignoreEOLComments": false }],
+    "react/jsx-tag-spacing": [
+      2,
+      {
+        "closingSlash": "never",
+        "beforeSelfClosing": "always",
+        "afterOpening": "never",
+        "beforeClosing": "allow"
+      }
+    ],
+    "react/jsx-curly-spacing": [2, "never", {
+      "allowMultiline": true,
+      "spacing": {"objectLiterals": "always"}
+    }],
+    "react/jsx-boolean-value": "error",
+    "react/no-string-refs": "error",
+    "react/jsx-wrap-multilines": "error",
+    "react/self-closing-comp": ["error", {
+      "component": true,
+      "html": true
+    }],
+    "react/jsx-no-bind": ["error", {"allowArrowFunctions": true}],
+    "react/require-render-return": "error"
+  },
+  "ignorePatterns": ["**/build", "**/public"]
+}

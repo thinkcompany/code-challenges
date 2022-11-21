@@ -1,0 +1,29 @@
+* {
+  box-sizing: border-box;
+  line-height: 1;
+}
+
+html {
+  font-size: 5px;
+
+  @media screen and (min-width: 480px) {
+    font-size: 6px;
+  }
+
+  @media screen and (min-width: 640px) {
+    font-size: 7px;
+  }
+}
+
+p,
+input {
+  margin: 0;
+}
+
+.placeholder {
+  min-height: rem(300);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: rem(32);
+}

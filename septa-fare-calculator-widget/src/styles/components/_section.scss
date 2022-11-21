@@ -1,0 +1,33 @@
+/**
+ * Section
+ */
+
+.septa-widget-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: rem(40);
+  color: $primary-text-color;
+  border-bottom: rem(2) solid $section-border-color;
+
+  &:last-child {
+    border-bottom: none;
+  }
+
+  &.septa-widget-section--dark {
+    background-color: $dark-bg-color;
+    color: #ffffff;
+  }
+
+  &__title {
+    margin: 0;
+    font-size: rem(32);
+    width: 100%;
+  }
+
+  &-body {
+    margin-top: rem(30);
+    width: 100%;
+  }
+}

@@ -1,0 +1,26 @@
+/**
+ * Header
+ */
+
+.septa-widget {
+  &-header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    background-color: $dark-bg-color;
+    padding: rem(24) rem(60);
+    color: #fff;
+  }
+
+  &-logo {
+    width: rem(64);
+    margin-right: rem(30);
+    flex-shrink: 0;
+  }
+
+  &-name {
+    margin: 0;
+    font-size: rem(42);
+  }
+}

@@ -1,0 +1,11 @@
+.calculator-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  background-color: #595959;
+
+  .header-label {
+    color: white;
+  }
+}

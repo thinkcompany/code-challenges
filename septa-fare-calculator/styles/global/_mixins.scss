@@ -1,0 +1,51 @@
+// set base font size
+$base-font-size: 16;
+
+// to rem function
+@function rem($val) {
+    @return ($val/$base-font-size) + rem;
+}
+
+// font size, tracking, leading
+@mixin font($font-size, $tracking, $leading) {
+    font-size: ($font-size / $base-font-size) + rem;
+    letter-spacing: $tracking + px;
+    line-height: ($leading / $base-font-size) + rem;
+}
+
+// media queries
+@mixin tablet {
+    @media screen and (min-width: 768px) {
+        @content;
+    }
+}
+
+@mixin laptop {
+    @media screen and (min-width: 992px) {
+        @content;
+    }
+}
+
+@mixin desktop-sm {
+    @media screen and (min-width: 1200px) {
+        @content;
+    }
+}
+
+@mixin desktop {
+    @media screen and (min-width: 1850px) {
+        @content;
+    }
+}
+
+@mixin desktop-lg {
+    @media screen and (min-width: 1600px) {
+        @content;
+    }
+}
+
+@mixin desktop-xl {
+    @media screen and (min-width: 1921px) {
+        @content;
+    }
+}

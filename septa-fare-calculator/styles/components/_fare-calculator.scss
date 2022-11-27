@@ -1,0 +1,41 @@
+.fare-calculator {
+    border: rem(4) solid $md-gray;
+    color: $dark-gray;
+    text-align: center;
+    width: rem(635);
+    .header,
+    .section {
+        padding: 0 rem(40);
+    }
+    .header {
+        align-items: center;
+        background-color: $gray;
+        color: $white;
+        display: flex;
+        justify-content: center;
+        .logo {
+            height: auto;
+            margin: 0 rem(30) 0 0;
+            width: rem(60);
+        }
+    }
+    .section {
+        padding-top: rem(16);
+        position: relative;
+        & + .section {
+            padding-top: rem(48);
+
+            &:before {
+                display: block;
+                content: "";
+                position: absolute;
+                width: 100%;
+                height: rem(2);
+                top: rem(40);
+                left: 0;
+                z-index: -1;
+                background: $light-gray;
+            }
+        }
+    }
+}

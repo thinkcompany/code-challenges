@@ -1,0 +1,36 @@
+.select {
+    position: relative;
+    select {
+        border-radius: rem(8);
+        border: 1px solid $md-gray;
+        font-size: rem(32);
+        margin-top: rem(10);
+        padding: rem(20) rem(16);
+        width: 100%;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+        transition: opacity 0.25s ease-in-out;
+    }
+    &:after {
+        display: block;
+        content: "";
+        position: absolute;
+        width: rem(24);
+        height: rem(16);
+        bottom: rem(28);
+        right: rem(24);
+        z-index: 1;
+        background-image: url("/assets/images/icon-triangle.svg");
+        background-repeat: no-repeat;
+        background-size: contain;
+        pointer-events: none;
+        transition: opacity 0.25s ease-in-out;
+    }
+    &.disabled {
+        select[disabled],
+        &:after {
+            opacity: 0.4;
+        }
+    }
+}

@@ -1,0 +1,27 @@
+body {
+    @include font-montserrat-book;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    @include font-montserrat-semibold;
+}
+
+// reset fieldset view
+legend {
+    padding: 0;
+    display: table;
+}
+fieldset {
+    border: 0;
+    padding: 0;
+    margin: 0;
+    min-width: 0;
+}
+body:not(:-moz-handler-blocked) fieldset {
+    display: table-cell;
+}

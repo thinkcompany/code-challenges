@@ -1,0 +1,53 @@
+// font files
+// using Montserrat as generic sans-serif due to lack of font specified
+@font-face {
+    font-family: "Montserrat";
+    src: url("/assets/fonts/Montserrat-Regular.woff2") format("woff2"),
+        url("/assets/fonts/Montserrat-Regular.woff") format("woff");
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+@font-face {
+    font-family: "Montserrat";
+    src: url("/assets/fonts/Montserrat-Medium.woff2") format("woff2"),
+        url("/assets/fonts/Montserrat-Medium.woff") format("woff");
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Montserrat";
+    src: url("/assets/fonts/Montserrat-SemiBold.woff2") format("woff2"),
+        url("/assets/fonts/Montserrat-SemiBold.woff") format("woff");
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+}
+@font-face {
+    font-family: "Montserrat";
+    src: url("/assets/fonts/Montserrat-Bold.woff2") format("woff2"),
+        url("/assets/fonts/Montserrat-Bold.woff") format("woff");
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
+
+// font mixins
+@mixin font-montserrat-book {
+    font-family: "Montserrat", sans-serif;
+    font-weight: 400;
+}
+@mixin font-montserrat-medium {
+    font-family: "Montserrat", sans-serif;
+    font-weight: 500;
+}
+@mixin font-montserrat-semibold {
+    font-family: "Montserrat", sans-serif;
+    font-weight: 600;
+}
+@mixin font-montserrat-bold {
+    font-family: "Montserrat", sans-serif;
+    font-weight: 700;
+}

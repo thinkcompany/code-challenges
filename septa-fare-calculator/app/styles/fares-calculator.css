@@ -1,0 +1,132 @@
+p {
+    margin: 0;
+}
+
+.calculator {
+    width: min(90%, 34rem);
+    color: #4D4D4D;
+    border: solid 3px #CCCCCC;
+    font-size: 1.5rem;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin-inline: auto;
+    text-align: center;
+}
+
+.header-calculator {
+    font-weight: 600;
+    font-size: 2.5rem;
+    line-height: 1;
+}
+
+.header-calculator, .footer-calculator {
+    background-color: #595959;
+    color: white;
+    padding: .2rem;
+}
+
+@media (max-width: 600px) {
+    .header-calculator {
+        font-size: 1.5rem;
+    }
+}
+
+.header-calculator p img {
+    max-height: 50px;
+    vertical-align: middle;
+    margin: 1rem;
+}
+
+.question {
+    display: inline-grid;
+    width: 90%;
+    font-weight: 600;
+}
+
+hr {
+    border: thin solid #eeeef0;
+}
+
+fieldset {
+    border: none;
+}
+
+fieldset[role=radiogroup] label {
+    font-weight: 400;
+}
+
+input, select {
+    padding: .5rem;
+    margin: 1rem;
+    font-size: large;
+    border-radius: 6px;
+    border: solid 2px #CCCCCC;
+}
+
+input[type=number] {
+    text-align: center;
+    width: 4rem;
+    margin-inline: auto;
+
+    /* Firefox */
+    -moz-appearance: textfield;
+}
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.radios {
+    display: grid;
+    align-items: center;
+    justify-content: center;
+}
+
+.radio {
+    text-align: left;
+}
+
+.helper-text {
+    font-size: medium;
+    color: #6A6A6A;
+    display: block;
+}
+
+.footer-calculator {
+    font-size: 2rem;
+}
+
+.total {
+    display: block;
+    font-size: 2em;
+    font-weight: bold;
+}
+
+.error {
+    color: red;
+    font-size: 20px;
+    padding: 2rem;
+}
+
+/*
+    The following was taken from
+    https://a11y-guidelines.orange.com/en/web/components-examples/accessible-hiding/
+    and not yet tested on all browsers
+*/
+.visually-hidden {
+    position: absolute;
+    /* position: absolute !important; */
+    /* width: 1px !important; */
+    width: 1px;
+    /* height: 1px !important; */
+    height: 1px;
+    /* padding: 0 !important; */
+    /* margin: -1px !important; */
+    /* overflow: hidden !important; */
+    overflow: hidden;
+    /* clip: rect(0,0,0,0) !important; */
+    /* white-space: nowrap !important; */
+    /* border: 0 !important; */
+}

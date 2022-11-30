@@ -16,6 +16,8 @@ const App = () => {
   const [purchaseLocation, setPurchaseLocation] = useState('');
   const [rideNumber, setRideNumber] = useState('');
   const [showTicketAmountNote, setShowTicketAmountNote] = useState(false);
+  const [helperTextNote, setHelperTextNote] = useState(false);
+  const [purchaseHelperTextNote, setPurchaseHelperTextNote] = useState(false);
 
   // Handle zone selection
   const handleZoneChange = (event) => {
@@ -44,11 +46,42 @@ const App = () => {
   let ticketPrice = ticketPriceInitial.toString();
   let totalPrice = ((rideNumber * ticketPrice).toFixed(2))
 
-  // Set helper text
+  // Set time helper text
   let helperTextInitial = rideData
   .filter((item) => item.type === ridingTime)
   .map((filteredItem) => filteredItem.time_helper_text);
   let helperText = helperTextInitial[0];
+
+   // Set purchase helper text
+  let purchaseHelperTextInitial = rideData
+  .filter((item) => item.purchase === purchaseLocation)
+  .map((filteredItem) => filteredItem.purchase_helper_text);
+  let purchaseHelperText = purchaseHelperTextInitial[0];
+
+  // Show & hide helper texts
+  useEffect(() => {
+    if (ridingTime.length === 0) {
+      setHelperTextNote(false)
+    }
+  },[ridingTime]);
+
+  useEffect(() => {
+    if (ridingTime.length > 0) {
+      setHelperTextNote(true)
+    }
+  },[ridingTime]);
+
+  useEffect(() => {
+    if (purchaseLocation.length === 0) {
+      setPurchaseHelperTextNote(false)
+    }
+  },[purchaseLocation]);
+
+  useEffect(() => {
+    if (purchaseLocation.length > 0) {
+      setPurchaseHelperTextNote(true)
+    }
+  },[purchaseLocation]);
 
   // Restrict purchase on Any Time pass if ticket amount less than 10
   useEffect(() => {
@@ -99,7 +132,9 @@ const App = () => {
             <option value="weekday">Weekday</option>
             <option value="evening_weekend">Evening Weekend</option>
           </select>
-          <div className="helper-text">{helperText}</div>
+          {helperTextNote && (
+            <div className="helper-text">{helperText}</div>
+          )}          
         </div>
 
         <div className="ride-form__field-group ride-form__field-group--radio">
@@ -126,6 +161,9 @@ const App = () => {
             />
             Onboard
           </label>
+          {purchaseHelperTextNote && (
+            <div className="helper-text">{purchaseHelperText}</div>
+          )}
         </div>
 
         <div className="ride-form__field-group">
@@ -154,7 +192,6 @@ const App = () => {
             </>
           )}
         </div>
-
       </form>
 
     </div>

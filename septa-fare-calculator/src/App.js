@@ -1,5 +1,5 @@
 // Base imports
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 // Style imports
 import './App.css';
@@ -15,6 +15,7 @@ const App = () => {
   const [ridingTime, setRidingTime] = useState('');
   const [purchaseLocation, setPurchaseLocation] = useState('');
   const [rideNumber, setRideNumber] = useState('');
+  const [showTicketAmountNote, setShowTicketAmountNote] = useState(false);
 
   // Handle zone selection
   const handleZoneChange = (event) => {
@@ -47,9 +48,26 @@ const App = () => {
   let helperTextInitial = rideData
   .filter((item) => item.type === ridingTime)
   .map((filteredItem) => filteredItem.time_helper_text);
-  let helperText = helperTextInitial[0]
+  let helperText = helperTextInitial[0];
 
+  // Restrict purchase on Any Time pass if ticket amount less than 10
+  useEffect(() => {
+    if (rideNumber < 10 && ridingTime === 'anytime') {
+      setShowTicketAmountNote(true)
+    }
+  },[rideNumber, ridingTime]);
 
+  useEffect(() => {
+    if (rideNumber >= 10 && ridingTime === 'anytime' ) {
+      setShowTicketAmountNote(false)
+    }
+  },[rideNumber, ridingTime]);
+
+  useEffect(() => {
+    if (ridingTime !== 'anytime' ) {
+      setShowTicketAmountNote(false)
+    }
+  },[rideNumber, ridingTime]);
 
   return (
     <div className="App">
@@ -122,9 +140,19 @@ const App = () => {
           />
         </div>
 
-        <div className="ride-form__totals-box">
-          <div className="ride-form__total-text">Your fare will cost</div>
-          <div className="ride-form__total-amount">${totalPrice}</div>
+        <div className="ride-form__totals-box">       
+          {!showTicketAmountNote && (
+            <>
+              <div className="ride-form__total-text">Your fare will cost</div>
+              <div className="ride-form__total-amount">${totalPrice}</div>
+            </>
+          )}
+
+          {showTicketAmountNote && (
+            <>
+             10 or more tickets must be purchased for Any Time passes.
+            </>
+          )}
         </div>
 
       </form>

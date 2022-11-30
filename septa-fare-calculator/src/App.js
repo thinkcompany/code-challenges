@@ -36,15 +36,19 @@ const App = () => {
     setRideNumber(event.target.value);
   }
 
-  // Find the zone based on user choice of zone
+  // Get the ticket price, based on user selections
   let ticketPriceInitial = rideData
     .filter((item) => item.zone_number === zone && item.type === ridingTime && item.purchase === purchaseLocation)
     .map((filteredItem) => filteredItem.price);
-  let ticketPrice = ticketPriceInitial.toString()
-
+  let ticketPrice = ticketPriceInitial.toString();
   let totalPrice = ((rideNumber * ticketPrice).toFixed(2))
 
-  console.log('Total price: ' + totalPrice)
+  // Set helper text
+  let helperTextInitial = rideData
+  .filter((item) => item.type === ridingTime)
+  .map((filteredItem) => filteredItem.time_helper_text);
+  let helperText = helperTextInitial[0]
+
 
 
   return (
@@ -77,7 +81,7 @@ const App = () => {
             <option value="weekday">Weekday</option>
             <option value="evening_weekend">Evening Weekend</option>
           </select>
-          <div className="helper-text">Helper text here</div>
+          <div className="helper-text">{helperText}</div>
         </div>
 
         <div className="ride-form__field-group ride-form__field-group--radio">

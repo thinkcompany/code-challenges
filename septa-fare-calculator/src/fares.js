@@ -43,11 +43,11 @@ export const rideData = [
         "name": "CCP/1",
         "zone_number": "1",
         "type": "anytime",
-        "time_helper_text": "Valid anytime",
+        "time_helper_text": "Valid anytime. NOTE: Minimum of 10 tickets must be purchased for this pass.",
         "purchase": "advance_purchase",
         "purchase_helper_text": "Tickets available for purchase at all SEPTA offices.",
         "trips": "10",
-        "price": "38.00"
+        "price": "3.80"
     },
 //         {
 //         "name": "Zone 2",

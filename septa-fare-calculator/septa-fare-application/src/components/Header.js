@@ -39,7 +39,7 @@ Header.propTypes = {
 };
 
 Header.defaultProps = {
-  header: "",
+  header: "Regional Rail Fares",
 };
 
 export default Header

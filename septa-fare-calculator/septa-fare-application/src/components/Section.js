@@ -25,7 +25,7 @@ const Section = (
     dark, 
   }) => {
 
-  const renderInputType = () => {
+  const renderContent = () => {
     switch (true) {
       case inputType === "radio":
         return <RadioSelection/>;
@@ -33,6 +33,8 @@ const Section = (
         return <DropdownSelection/>;
       case inputType === "number":
         return <NumberSelection/>;
+      case inputType === "":
+        return <Text text={text} dark={dark}/>;
       default: return null;
     }
   };
@@ -40,9 +42,8 @@ const Section = (
   return (
     <StyledContainer dark={dark}>
       <SubHeading dark={dark} subheading={subheading} />
-      {renderInputType()}
+      {renderContent()}
       <SubInfoText subtext={subtext} />
-      <Text text={text} dark={dark}/>
     </StyledContainer>
   )
 }

@@ -13,8 +13,16 @@ const SubHeading = ({subheading, dark}) => {
   return (
     <StyledSubHeading dark={dark}>{subheading}</StyledSubHeading>
   )
-}
+};
 
-SubHeading.propTypes = {}
+SubHeading.propTypes = {
+  subheading: PropTypes.string,
+  dark: PropTypes.bool,
+};
+
+SubHeading.defaultProps = {
+  subheading: "",
+  dark: false,
+};
 
 export default SubHeading

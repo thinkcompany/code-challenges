@@ -14,7 +14,7 @@ const StyledInput = styled.input`
 
 const NumberSelection = props => {
   return (
-        <StyledInput type="text" name="ride-quantity" placeholder="1" max="10" required></StyledInput>
+    <StyledInput type="text" name="ride-quantity" placeholder="1" max="10" required></StyledInput>
   )
 }
 

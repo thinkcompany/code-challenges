@@ -14,6 +14,12 @@ const SubInfoText = ({subtext}) => {
   )
 }
 
-SubInfoText.propTypes = {}
+SubInfoText.propTypes = {
+  subtext: PropTypes.string,
+};
+
+SubInfoText.defaultProps = {
+  subtext: "",
+}
 
 export default SubInfoText

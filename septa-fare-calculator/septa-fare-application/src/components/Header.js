@@ -34,6 +34,12 @@ const Header = ({header}) => {
   )
 }
 
-Header.propTypes = {}
+Header.propTypes = {
+  header: PropTypes.string,
+};
+
+Header.defaultProps = {
+  header: "",
+};
 
 export default Header

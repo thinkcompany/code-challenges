@@ -14,6 +14,14 @@ const Text = ({text, dark}) => {
   )
 }
 
-Text.propTypes = {}
+Text.propTypes = {
+  text: PropTypes.string,
+  dark: PropTypes.bool,
+};
+
+Text.defaultProps = {
+  text: "",
+  dark: false,
+};
 
 export default Text

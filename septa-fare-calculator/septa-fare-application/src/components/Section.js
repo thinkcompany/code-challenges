@@ -1,6 +1,5 @@
 import React from 'react'
-// import PropTypes from 'prop-types'
-// import SubHeading from './SubHeading'
+import PropTypes from 'prop-types'
 import styled from 'styled-components';
 import SubHeading from "./SubHeading";
 import RadioSelection from './RadioSelection';
@@ -48,6 +47,20 @@ const Section = (
   )
 }
 
-Section.propTypes = {}
+Section.propTypes = {
+  inputType: PropTypes.string,
+  subheading: PropTypes.string,
+  subtext: PropTypes.string,
+  text: PropTypes.string,
+  dark: PropTypes.bool,
+};
+
+Section.defaultProps = {
+  inputType: "",
+  subheading: "",
+  subtext: "",
+  text: "",
+  dark: false,
+};
 
 export default Section

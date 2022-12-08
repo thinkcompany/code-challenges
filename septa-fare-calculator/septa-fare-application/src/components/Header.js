@@ -1,9 +1,9 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-const Header = props => {
+const Header = ({header}) => {
   return (
-    <div>Header</div>
+    <div>{header}</div>
   )
 }
 

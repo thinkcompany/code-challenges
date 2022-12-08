@@ -1,9 +1,9 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-const SubHeading = props => {
+const SubHeading = ({subheading}) => {
   return (
-    <div>SubHeading</div>
+    <div>{subheading}</div>
   )
 }
 

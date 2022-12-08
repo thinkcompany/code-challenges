@@ -1,9 +1,9 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-const Text = props => {
+const Text = ({text}) => {
   return (
-    <div>Text</div>
+    <div>{text}</div>
   )
 }
 

@@ -1,9 +1,9 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-const SubInfoText = props => {
+const SubInfoText = ({subtext}) => {
   return (
-    <div>SubInfoText</div>
+    <div>{subtext}</div>
   )
 }
 

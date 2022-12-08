@@ -1,6 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components';
+import uuid4 from 'uuid4';
 
 const StyledDropdown = styled.div`
   margin-bottom: 1rem;
@@ -13,21 +14,28 @@ const StyledSelect = styled.select`
   border: 2px solid #D3D3D3;
 `;
 
-// TODO: Usfrome Array.() to create the dropdowns instead of the hardcoded values
-const DropdownSelection = props => {
+const DropdownSelection = ({options, type}) => {
+  const optionsList = type ? options.map(option => <option key={uuid4} value={option}>Zone {option}</option>) : options.map(option => <option key={uuid4} value={option}>{option}</option>);
+
   return (
     <StyledDropdown>
       <StyledSelect id="zone-input" name="zone-input"true>
-        <option value="1">Zone 1</option>
-        <option value="2">Zone 2</option>
-        <option value="3">Zone 3</option>
-        <option value="4">Zone 4</option>
-        <option value="5">Zone 5</option>
+        {optionsList}
       </StyledSelect>
     </StyledDropdown>
   )
 }
 
-DropdownSelection.propTypes = {}
+DropdownSelection.propTypes = {
+  type: PropTypes.string,
+  options: PropTypes.array,
+};
+
+DropdownSelection.defaultProps = {
+  type: "",
+  options: [],
+};
+
+
 
 export default DropdownSelection

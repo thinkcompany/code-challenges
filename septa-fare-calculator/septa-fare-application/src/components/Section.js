@@ -22,7 +22,8 @@ const Section = (
     subtext, 
     text, 
     dark, 
-    fares,
+    options,
+    type,
   }) => {
 
   const renderContent = () => {
@@ -30,7 +31,7 @@ const Section = (
       case inputType === "radio":
         return <RadioSelection/>;
       case inputType === "dropdown":
-        return <DropdownSelection/>;
+        return <DropdownSelection type={type} options={options}/>;
       case inputType === "number":
         return <NumberSelection/>;
       case inputType === "":
@@ -53,6 +54,7 @@ Section.propTypes = {
   subheading: PropTypes.string,
   subtext: PropTypes.string,
   text: PropTypes.string,
+  type: PropTypes.string,
   dark: PropTypes.bool,
   fares: PropTypes.shape({
     info: PropTypes.object,
@@ -65,6 +67,7 @@ Section.defaultProps = {
   subheading: "",
   subtext: "",
   text: "",
+  type: "",
   dark: false,
   fares: {
     info: {},

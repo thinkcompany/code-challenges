@@ -17,7 +17,10 @@ const ApplicationContainer = props => {
   // State management for the ajax call
   const [error, setError] = useState(null);
   const [isLoaded, setIsLoaded] = useState(false);
-  const [fares, setFares] = useState([]);
+  const [fares, setFares] = useState({
+    info: {},
+    zones: [],
+  });
 
   const [zone, setZone] = useState("");
   const [travelTime, setTravelTime] = useState("");
@@ -35,7 +38,10 @@ const ApplicationContainer = props => {
       .then(
         (result) => {
           setIsLoaded(true);
-          setFares(result);
+          setFares({
+            info: result["info"],
+            zones: result["zones"],
+          });
         },
         (error) => {
           setIsLoaded(true);
@@ -43,14 +49,23 @@ const ApplicationContainer = props => {
         }
       )
   }, []);
-    
+
   const SectionList = () => {
     // TODO: comment this function and what's happening here
+    const zones = Array.from(fares["zones"], element => element.zone);
+    const times = ["Weekday", "Evening Weekend", "Anytime"];
+
     return sections.map(({subheading, inputType, dark, subtext}, i, sections) => {
+      // if the last section in the list
       if (i + 1 === sections.length){
-        return <Section key={uuid4()} fares={fares} subheading={subheading} inputType={inputType} dark={dark} subtext={subtext} text="$28.00"/>;
-      } else {
-        return <Section key={uuid4()} fares={fares} subheading={subheading} inputType={inputType} dark={dark} subtext={subtext}/>;
+        return <Section key={uuid4()} options={fares} subheading={subheading} inputType={inputType} dark={dark} subtext={subtext} text="$28.00"/>;
+      } 
+      // if the first section in teh list  
+      else if (i === 0){
+        return <Section key={uuid4()} type="zones" options={zones} subheading={subheading} inputType={inputType} dark={dark} subtext={subtext}/>;
+      }
+      else {
+        return <Section key={uuid4()} options={times} subheading={subheading} inputType={inputType} dark={dark} subtext={subtext}/>;
       }
     });
   };

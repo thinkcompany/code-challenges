@@ -1,9 +1,16 @@
-import React from 'react'
-import PropTypes from 'prop-types'
+import React from 'react';
+import PropTypes from 'prop-types';
+import styled from 'styled-components';
 
-const Text = ({text}) => {
+const StyledText = styled.div`
+  font-size: 3rem;
+  font-weight: 600;
+  color: ${props => props.dark ? "white" : "black"};
+`;
+
+const Text = ({text, dark}) => {
   return (
-    <div>{text}</div>
+    <StyledText dark={dark}>{text}</StyledText>
   )
 }
 

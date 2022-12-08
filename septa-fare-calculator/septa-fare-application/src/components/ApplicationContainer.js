@@ -48,9 +48,9 @@ const ApplicationContainer = props => {
     // TODO: comment this function and what's happening here
     return sections.map(({subheading, inputType, dark, subtext}, i, sections) => {
       if (i + 1 === sections.length){
-        return <Section key={uuid4()} subheading={subheading} inputType={inputType} dark={dark} subtext={subtext} text="$28.00"/>;
+        return <Section key={uuid4()} fares={fares} subheading={subheading} inputType={inputType} dark={dark} subtext={subtext} text="$28.00"/>;
       } else {
-        return <Section key={uuid4()} subheading={subheading} inputType={inputType} dark={dark} subtext={subtext}/>;
+        return <Section key={uuid4()} fares={fares} subheading={subheading} inputType={inputType} dark={dark} subtext={subtext}/>;
       }
     });
   };

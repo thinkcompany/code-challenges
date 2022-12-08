@@ -22,6 +22,7 @@ const Section = (
     subtext, 
     text, 
     dark, 
+    fares,
   }) => {
 
   const renderContent = () => {
@@ -53,6 +54,10 @@ Section.propTypes = {
   subtext: PropTypes.string,
   text: PropTypes.string,
   dark: PropTypes.bool,
+  fares: PropTypes.shape({
+    info: PropTypes.object,
+    zones: PropTypes.array,
+  }),
 };
 
 Section.defaultProps = {
@@ -61,6 +66,10 @@ Section.defaultProps = {
   subtext: "",
   text: "",
   dark: false,
+  fares: {
+    info: {},
+    zones: []
+  },
 };
 
 export default Section

@@ -16,10 +16,11 @@ const Option = styled.div`
 `;
 
 const RadioSelection = ({data, onRadioChange, options}) => {
-	const {purchaseLocation} = data;
+	const {purchaseLocation, travelTime} = data;
+	const constrainedOptions = travelTime === "anytime" ? options.filter(option => option.label !== options[1].label) : options;
 
 	const OptionList = () =>
-		options.map(option => (
+		constrainedOptions.map(option => (
 			<Option>
 				<label class='location-button'>
 					<input

@@ -17,15 +17,15 @@ const NumberSelection = ({data, onInputChange}) => {
 
 	return (
 		<StyledInput
-			type="number"
-			name="ride-quantity"
-			placeholder="1"
+			type='number'
+			name='ride-quantity'
+			placeholder='1'
 			min={1}
 			max={10}
 			value={ticketQuantity}
 			required
-			onChange={(e) =>
-				onInputChange((previousState) => ({
+			onChange={e =>
+				onInputChange(previousState => ({
 					...previousState,
 					ticketQuantity: Number(e.target.value),
 				}))

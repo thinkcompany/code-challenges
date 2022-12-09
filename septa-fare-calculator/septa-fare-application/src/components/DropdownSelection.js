@@ -15,44 +15,32 @@ const StyledSelect = styled.select`
 `;
 
 const DropdownSelection = ({options, type, data, onDropdownChange}) => {
-	// Const isSelected = type ? option.value === data.zone : option.value === data.travelTime;
-
-	console.log(options);
-
-	const OptionsList = () => {
-		// Const isSelected = type
-		// ? data.zone === option
-		// : data.travelTime === option.toLowerCase().split(' ').join('_');
-
-		return type
-			? options.map((option) => <option value={option}>Zone {option}</option>)
-			: options.map((option) => (
-					<option value={option.toLocaleLowerCase().split(' ').join('_')}>
-						{option}
-					</option>
+	const OptionsList = () => type
+		? options.map(option => <option value={option}>Zone {option}</option>)
+		: options.map(option => (
+			<option value={option.toLocaleLowerCase().split(' ').join('_')}>
+				{option}
+			</option>
 			  ));
-	};
 
-	const generateOnChange = (e) => {
-		return type
-			? onDropdownChange((previousState) => ({
-					...previousState,
-					zone: e.target.value,
+	const generateOnChange = e => type
+		? onDropdownChange(previousState => ({
+			...previousState,
+			zone: e.target.value,
 			  }))
-			: onDropdownChange((previousState) => ({
-					...previousState,
-					travelTime: e.target.value.toLocaleLowerCase().split(' ').join('_'),
+		: onDropdownChange(previousState => ({
+			...previousState,
+			travelTime: e.target.value.toLocaleLowerCase().split(' ').join('_'),
 			  }));
-	};
 
 	return (
 		<StyledDropdown>
 			<StyledSelect
-				id="zone-input"
-				name="zone-input"
+				id='zone-input'
+				name='zone-input'
 				value={type ? data.zone : data.travelTime}
-				autocomplete="off"
-				onChange={(e) => generateOnChange(e)}
+				autocomplete='off'
+				onChange={e => generateOnChange(e)}
 			>
 				<OptionsList />
 			</StyledSelect>

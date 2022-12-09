@@ -19,16 +19,16 @@ const RadioSelection = ({data, onRadioChange, options}) => {
 	const {purchaseLocation} = data;
 
 	const OptionList = () =>
-		options.map((option) => (
+		options.map(option => (
 			<Option>
-				<label class="location-button">
+				<label class='location-button'>
 					<input
-						type="radio"
-						name="purchase-location-button"
+						type='radio'
+						name='purchase-location-button'
 						defaultValue={option.value}
 						checked={purchaseLocation === option.value}
-						onChange={(e) =>
-							onRadioChange((previousState) => ({
+						onChange={e =>
+							onRadioChange(previousState => ({
 								...previousState,
 								purchaseLocation: e.target.value,
 							}))

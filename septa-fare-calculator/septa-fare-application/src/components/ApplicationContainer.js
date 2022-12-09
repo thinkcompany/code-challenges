@@ -12,7 +12,7 @@ const StyledContainer = styled.div`
 	margin: 0 auto;
 `;
 
-const AppContainer = (props) => {
+const AppContainer = props => {
 	// State management for the ajax call
 	const [error, setError] = useState(null);
 	const [isLoaded, setIsLoaded] = useState(false);
@@ -22,11 +22,6 @@ const AppContainer = (props) => {
 	});
 
 	// State management for the user inputed data
-	// const [zone, setZone] = useState("");
-	// const [travelTime, setTravelTime] = useState("");
-	// const [purchaseLocation, setPurchaseLocation] = useState("");
-	// const [ticketQuantity, setTicketQuantity] = useState(null);
-
 	const [data, setData] = useState({
 		zone: '1',
 		travelTime: 'anytime',
@@ -38,20 +33,20 @@ const AppContainer = (props) => {
   componentDidMount method to make the AJAX request */
 	useEffect(() => {
 		console.log('use effect triggered');
-		const url =
-			'https://raw.githubusercontent.com/emcgilldev/code-challenges/3360706bc9ebd7715aecc7f2c3ebb5df1d09cae8/septa-fare-calculator/fares.json';
+		const url
+			= 'https://raw.githubusercontent.com/emcgilldev/code-challenges/3360706bc9ebd7715aecc7f2c3ebb5df1d09cae8/septa-fare-calculator/fares.json';
 
 		fetch(url)
-			.then((res) => res.json())
+			.then(res => res.json())
 			.then(
-				(result) => {
+				result => {
 					setIsLoaded(true);
 					setFares({
 						info: result.info,
 						zones: result.zones,
 					});
 				},
-				(error) => {
+				error => {
 					setIsLoaded(true);
 					setError(error);
 				},
@@ -60,7 +55,7 @@ const AppContainer = (props) => {
 
 	const SectionList = () => {
 		// TODO: comment this function and what's happening here
-		const zones = Array.from(fares.zones, (element) => element.zone);
+		const zones = Array.from(fares.zones, element => element.zone);
 		// TODO: do not hardcode this; figure out how to acccess this
 		const times = ['Weekday', 'Evening Weekend', 'Anytime'];
 		const locations = [
@@ -74,7 +69,6 @@ const AppContainer = (props) => {
 			},
 		];
 
-		// TODO: reduce this with a switch case statement if necessary
 		return sections.map(
 			({subheading, inputType, dark, subtext}, i, sections) => {
 				// If the last section in the list
@@ -86,7 +80,7 @@ const AppContainer = (props) => {
 							inputType={inputType}
 							dark={dark}
 							subtext={subtext}
-							text="$28.00"
+							text='$28.00'
 						/>
 					);
 				}
@@ -98,7 +92,7 @@ const AppContainer = (props) => {
 							setData={setData}
 							data={data}
 							key={uuid4()}
-							type="zones"
+							type='zones'
 							options={zones}
 							subheading={subheading}
 							inputType={inputType}
@@ -141,14 +135,14 @@ const AppContainer = (props) => {
 
 	return error ? (
 		<div>{error}</div>
-	) : !isLoaded ? (
+	) : (!isLoaded ? (
 		<div>Loading...</div>
 	) : (
 		<StyledContainer>
 			<Header />
 			<SectionList />
 		</StyledContainer>
-	);
+	));
 };
 
 AppContainer.propTypes = {};

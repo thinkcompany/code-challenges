@@ -13,7 +13,7 @@ const StyledContainer = styled.div`
 	height: auto;
 	border-bottom: 1px solid #d3d3d3;
 	padding: 1rem 0;
-	background-color: ${(props) => (props.dark ? '#5A5A5A' : 'white')};
+	background-color: ${props => (props.dark ? '#5A5A5A' : 'white')};
 `;
 
 const Section = ({

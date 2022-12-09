@@ -21,7 +21,7 @@
     "eject": "react-scripts eject",
     "lint": "xo",
     "lint-help": "xo --help",
-    "lint-me": "xo --fix --prettier"
+    "lint-me": "xo --fix"
   },
   "eslintConfig": {
     "extends": [

@@ -31,7 +31,7 @@ const AppContainer = props => {
 	const {info, zones} = fares;
 	const {zone, travelTime, purchaseLocation, ticketQuantity} = data;
 
-	/*  Since we're using a functional component here, we must use a useEffect hook that runs once to mimic the 
+	/*  Since we're using a functional component here, we must use a useEffect hook that runs once to mimic the
 	componentDidMount method to make the AJAX request */
 	useEffect(() => {
 		// Shortened url that leads to the raw json on github
@@ -54,23 +54,28 @@ const AppContainer = props => {
 			);
 	}, []);
 
+	// Automatically sets the purchaseLocation state based on whether "anytime" option is selected
 	useEffect(() => {
-		if (travelTime === 'anytime') {
-			setData(previousState => ({...previousState, purchaseLocation: 'advance_purchase'}));
+		if (travelTime === Object.keys(info)[0]) {
+			setData(previousState => ({...previousState, purchaseLocation: Object.keys(info)[3]}));
 		}
 	}, [travelTime]);
 
 	const SectionList = () => {
 		const zoneArray = Array.from(zones, element => element.zone);
-		const times = ['Weekday', 'Evening Weekend', 'Anytime'];
+		/* 	It creates an array of the first three keys in the info object, and then it maps over that array and 
+		replaces the underscores with spaces, and then it maps over that array and capitalizes the first letter of 
+		each word, and then it joins the words together. */
+		const times = Object.keys(info).slice(0, 3).map(element => element.replace('_', ' ')).map(element => element.split(' ').map(word => word[0].toUpperCase() + word.slice(1)).join(' '));
+		const locationAray = Object.keys(info).slice(3, 5);
 		const locations = [
 			{
 				label: 'Onboard',
-				value: 'onboard_purchase',
+				value: locationAray[1],
 			},
 			{
 				label: 'Station Kiosk',
-				value: 'advance_purchase',
+				value: locationAray[0],
 			},
 		];
 
@@ -85,7 +90,7 @@ const AppContainer = props => {
 							inputType={inputType}
 							dark={dark}
 							subtext={subtext}
-							text={calculateFare(fares, zone, travelTime, purchaseLocation, ticketQuantity).toString()}
+							text={`$${calculateFare(fares, zone, travelTime, purchaseLocation, ticketQuantity).toString()}`}
 						/>
 					);
 				}

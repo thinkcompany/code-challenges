@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
+import uuid4 from 'uuid4';
 
 const StyledDropdown = styled.div`
 	margin-bottom: 1rem;
@@ -15,9 +16,9 @@ const StyledSelect = styled.select`
 
 const DropdownSelection = ({options, type, data, onDropdownChange}) => {
 	const OptionsList = () => type
-		? options.map(option => <option value={option}>Zone {option}</option>)
+		? options.map(option => <option key={uuid4()} value={option}>Zone {option}</option>)
 		: options.map(option => (
-			<option value={option.toLocaleLowerCase().split(' ').join('_')}>
+			<option key={uuid4()} value={option.toLocaleLowerCase().split(' ').join('_')}>
 				{option}
 			</option>
 			  ));

@@ -22,7 +22,7 @@ const RadioSelection = ({data, onRadioChange, options}) => {
 	const OptionList = () =>
 		options.map(option => (
 			<Option key={uuid4()}>
-				<label class='location-button'>
+				<label className='location-button'>
 					<input
 						type='radio'
 						name='purchase-location-button'

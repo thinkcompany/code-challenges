@@ -13,7 +13,6 @@ const StyledContainer = styled.div`
 `;
 
 const ApplicationContainer = props => {
-  // TODO: verify that state represenation is complete
   // State management for the ajax call
   const [error, setError] = useState(null);
   const [isLoaded, setIsLoaded] = useState(false);
@@ -22,10 +21,18 @@ const ApplicationContainer = props => {
     zones: [],
   });
 
-  const [zone, setZone] = useState("");
-  const [travelTime, setTravelTime] = useState("");
-  const [purchaseLocation, setPurchaseLocation] = useState("");
-  const [ticketQuantity, setTicketQuantity] = useState(null);
+  // State management for the user inputed data
+  // const [zone, setZone] = useState("");
+  // const [travelTime, setTravelTime] = useState("");
+  // const [purchaseLocation, setPurchaseLocation] = useState("");
+  // const [ticketQuantity, setTicketQuantity] = useState(null);
+
+  const [data, setData] = useState({
+    zone: "1",
+    travelTime: "anytime",
+    purchaseLocation: "onboard_purchase",
+    ticketQuantity: 1,
+  });
 
   /*  Since we're using a functional component here, we must use a useEffect hook that runs once to mimic the 
   componentDidMount method to make the AJAX request */
@@ -53,19 +60,34 @@ const ApplicationContainer = props => {
   const SectionList = () => {
     // TODO: comment this function and what's happening here
     const zones = Array.from(fares["zones"], element => element.zone);
+    // TODO: do not hardcode this; figure out how to acccess this
     const times = ["Weekday", "Evening Weekend", "Anytime"];
+    const locations = [
+      {
+        label: "Onboard",
+        value: "onboard_purchase",
+      },
+      {
+        label: "Station Kiosk",
+        value: "advance_purchase",
+      }
+    ];
 
+    // TODO: reduce this with a switch case statement if necessary
     return sections.map(({subheading, inputType, dark, subtext}, i, sections) => {
       // if the last section in the list
       if (i + 1 === sections.length){
-        return <Section key={uuid4()} options={fares} subheading={subheading} inputType={inputType} dark={dark} subtext={subtext} text="$28.00"/>;
+        return <Section key={uuid4()} subheading={subheading} inputType={inputType} dark={dark} subtext={subtext} text="$28.00"/>;
       } 
       // if the first section in teh list  
-      else if (i === 0){
-        return <Section key={uuid4()} type="zones" options={zones} subheading={subheading} inputType={inputType} dark={dark} subtext={subtext}/>;
+      if (i === 0){
+        return <Section data={data} key={uuid4()} type="zones" options={zones} subheading={subheading} inputType={inputType} dark={dark} subtext={subtext}/>;
+      }
+      if (i === 2){
+        return <Section data={data} key={uuid4()} options={locations} subheading={subheading} inputType={inputType} dark={dark} subtext={subtext}/>;
       }
       else {
-        return <Section key={uuid4()} options={times} subheading={subheading} inputType={inputType} dark={dark} subtext={subtext}/>;
+        return <Section data={data} key={uuid4()} options={times} subheading={subheading} inputType={inputType} dark={dark} subtext={subtext}/>;
       }
     });
   };

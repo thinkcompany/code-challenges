@@ -15,20 +15,46 @@ const Option = styled.div`
   margin: .25rem;
 `;
 
-// TODO: loop through this information instead of hard coding
-const RadioSelection = props => {
+const RadioSelection = ({data, options}) => {
+  const {purchaseLocation} = data;
+
+  const OptionList = () => {
+    return options.map(option => (
+      <Option>
+        <label class="location-button"><input type="radio" name="purchase-location-button" value={option.value} checked={purchaseLocation === option.value ? true : false}/>{option.label}</label>
+      </Option>
+    ))
+  };
+
+  // if name property is equal to purchase location then add check attribute to that jsx element
   return (
     <StyledRadio>
-      <Option>
-        <label class="location-button"><input type="radio" name="purchase-location-button" checked/>Station Kiosk</label>
-      </Option>
-      <Option>
-        <label class="location-button"><input type="radio" name="purchase-location-button"/>Onboard</label>
-      </Option>
+      <OptionList />
     </StyledRadio>
   )
 }
 
-RadioSelection.propTypes = {}
+RadioSelection.propTypes = {
+  options: PropTypes.array,
+  data: PropTypes.shape({
+    zone: PropTypes.string,
+    travelTime: PropTypes.string,
+    purchaseLocation: PropTypes.string,
+    ticketQuantity: PropTypes.number,
+  }),
+};
+
+RadioSelection.defaultProps = {
+  options: {
+    onboard_purchase: "",
+    advance_purchase: "",
+  },
+  data: {
+    zone: "",
+    travelTime: "",
+    purchaseLocation: "",
+    ticketQuantity: null,
+  },
+};
 
 export default RadioSelection

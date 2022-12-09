@@ -24,16 +24,17 @@ const Section = (
     dark, 
     options,
     type,
+    data,
   }) => {
 
   const renderContent = () => {
     switch (true) {
       case inputType === "radio":
-        return <RadioSelection/>;
+        return <RadioSelection data={data} options={options}/>;
       case inputType === "dropdown":
-        return <DropdownSelection type={type} options={options}/>;
+        return <DropdownSelection data={data} type={type} options={options}/>;
       case inputType === "number":
-        return <NumberSelection/>;
+        return <NumberSelection data={data}/>;
       case inputType === "":
         return <Text text={text} dark={dark}/>;
       default: return null;
@@ -60,6 +61,12 @@ Section.propTypes = {
     info: PropTypes.object,
     zones: PropTypes.array,
   }),
+  data: PropTypes.shape({
+    zone: PropTypes.string,
+    travelTime: PropTypes.string,
+    purchaseLocation: PropTypes.string,
+    ticketQuantity: PropTypes.number,
+  }),
 };
 
 Section.defaultProps = {
@@ -69,9 +76,11 @@ Section.defaultProps = {
   text: "",
   type: "",
   dark: false,
-  fares: {
-    info: {},
-    zones: []
+  data: {
+    zone: "",
+    travelTime: "",
+    purchaseLocation: "",
+    ticketQuantity: null,
   },
 };
 

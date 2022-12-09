@@ -12,12 +12,37 @@ const StyledInput = styled.input`
   border: 2px solid #D3D3D3;
 `;
 
-const NumberSelection = props => {
+const NumberSelection = ({data}) => {
+  const {ticketQuantity} = data;
+
   return (
-    <StyledInput type="text" name="ride-quantity" placeholder="1" max="10" required></StyledInput>
+    <StyledInput 
+      type="text" 
+      name="ride-quantity" 
+      placeholder="1" 
+      max="10" 
+      value={ticketQuantity} 
+      required
+    />
   )
+};
+
+NumberSelection.propTypes = {
+  data: PropTypes.shape({
+    zone: PropTypes.string,
+    travelTime: PropTypes.string,
+    purchaseLocation: PropTypes.string,
+    ticketQuantity: PropTypes.number,
+  }),
 }
 
-NumberSelection.propTypes = {}
+NumberSelection.defaultProps = {
+  data: {
+    zone: "",
+    travelTime: "",
+    purchaseLocation: "",
+    ticketQuantity: null,
+  },
+};
 
 export default NumberSelection

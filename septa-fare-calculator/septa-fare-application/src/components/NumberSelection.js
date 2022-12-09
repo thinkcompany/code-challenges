@@ -4,7 +4,7 @@ import styled from 'styled-components';
 
 const StyledInput = styled.input`
 	display: flex;
-	width: 4%;
+	width: 15%;
 	margin: 0 auto;
 	padding: 0.5rem 2rem;
 	border-radius: 0.25rem;
@@ -17,12 +17,12 @@ const NumberSelection = ({data, onInputChange}) => {
 
 	return (
 		<StyledInput
-			type="text"
+			type="number"
 			name="ride-quantity"
 			placeholder="1"
 			min={1}
 			max={10}
-			defaultValue={ticketQuantity}
+			value={ticketQuantity}
 			required
 			onChange={(e) =>
 				onInputChange((previousState) => ({

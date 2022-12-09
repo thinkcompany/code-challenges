@@ -17,28 +17,33 @@ const StyledSelect = styled.select`
 const DropdownSelection = ({options, type, data, onDropdownChange}) => {
 	// Const isSelected = type ? option.value === data.zone : option.value === data.travelTime;
 
-	const isSelected = type
-		? data.zone === option
-		: data.travelTime === option.toLowerCase().split(' ').join('_');
+	console.log(options);
 
-	const optionsList = () =>
-		type
-			? options.map((option) => {
-					<option key={uuid4} defaultValue={option} option={option}>
-						Zone {option}
-					</option>;
-			  })
+	const OptionsList = () => {
+		// Const isSelected = type
+		// ? data.zone === option
+		// : data.travelTime === option.toLowerCase().split(' ').join('_');
+
+		return type
+			? options.map((option) => <option value={option}>Zone {option}</option>)
 			: options.map((option) => (
-					<option
-						key={uuid4}
-						defaultValue={option.toLowerCase().split(' ').join('_')}
-					>
+					<option value={option.toLocaleLowerCase().split(' ').join('_')}>
 						{option}
 					</option>
 			  ));
+	};
 
-	// Const optionsList = type ? options.map(option => {
-	//   <option key={uuid4} defaultValue={option} option={option}>Zone {option}</option>}) : options.map(option => <option key={uuid4} defaultValue={option.toLowerCase().split(" ").join("_")}>{option}</option>);
+	const generateOnChange = (e) => {
+		return type
+			? onDropdownChange((previousState) => ({
+					...previousState,
+					zone: e.target.value,
+			  }))
+			: onDropdownChange((previousState) => ({
+					...previousState,
+					travelTime: e.target.value.toLocaleLowerCase().split(' ').join('_'),
+			  }));
+	};
 
 	return (
 		<StyledDropdown>
@@ -46,19 +51,10 @@ const DropdownSelection = ({options, type, data, onDropdownChange}) => {
 				id="zone-input"
 				name="zone-input"
 				value={type ? data.zone : data.travelTime}
-				onChange={(e) =>
-					type
-						? onDropdownChange((previousState) => ({
-								...previousState,
-								zone: e.target.value.split(' ')[1],
-						  }))
-						: onDropdownChange((previousState) => ({
-								...previousState,
-								travelTime: e.target.value,
-						  }))
-				}
+				autocomplete="off"
+				onChange={(e) => generateOnChange(e)}
 			>
-				{optionsList}
+				<OptionsList />
 			</StyledSelect>
 		</StyledDropdown>
 	);

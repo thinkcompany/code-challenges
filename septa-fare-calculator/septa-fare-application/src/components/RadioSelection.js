@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import uuid4 from 'uuid4';
@@ -17,30 +17,7 @@ const Option = styled.div`
 `;
 
 const RadioSelection = ({data, onRadioChange, options}) => {
-	const {purchaseLocation, travelTime} = data;
-	// const constrainedOptions = travelTime === 'anytime' ? options.filter(option => option.label === options[1].label) : options;
-
-
-	console.log("options", options)
-
-	// useEffect(() => {
-	// 	// if (travelTime === "anytime") {
-	// 	// 	console.log("condition triggered");
-	// 	// 	onRadioChange(previousState => ({
-	// 	// 		...previousState,
-	// 	// 		purchaseLocation: options[1].value,
-	// 	// 	}));
-	// 	// }
-	// 		if (!options){onRadioChange(previousState => ({
-	// 			...previousState,
-	// 			purchaseLocation: options[0].value,
-	// 		}))}
-
-	// 	// Whenever teh prop time changes and is equal to anytime,
-	// 	// we immediately want to update the state using the radioonchange on radio change function
-	// 	// change teh state to advance_purchase
-	// }, []);
-	
+	const {purchaseLocation} = data;
 
 	const OptionList = () =>
 		options.map(option => (
@@ -63,7 +40,6 @@ const RadioSelection = ({data, onRadioChange, options}) => {
 			</Option>
 		));
 
-	// If name property is equal to purchase location then add check attribute to that jsx element
 	return (
 		<StyledRadio>
 			<OptionList />

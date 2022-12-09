@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import uuid4 from 'uuid4';
 
 const StyledDropdown = styled.div`
 	margin-bottom: 1rem;
@@ -15,8 +14,6 @@ const StyledSelect = styled.select`
 `;
 
 const DropdownSelection = ({options, type, data, onDropdownChange}) => {
-	// If the user clicks "anytime" the dropdown should only render the advance purchase item, station kiosk
-
 	const OptionsList = () => type
 		? options.map(option => <option value={option}>Zone {option}</option>)
 		: options.map(option => (

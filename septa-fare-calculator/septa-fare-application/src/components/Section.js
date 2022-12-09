@@ -28,7 +28,7 @@ const Section = ({
 	setData,
 }) => {
 	const {travelTime} = data;
-	
+
 	const renderContent = () => {
 		switch (true) {
 			case inputType === 'radio': {

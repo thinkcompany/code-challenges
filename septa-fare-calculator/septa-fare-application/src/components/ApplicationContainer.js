@@ -1,5 +1,4 @@
 import React, {useState, useEffect} from 'react';
-import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import uuid4 from 'uuid4';
 import {sections} from '../sections.js';
@@ -21,7 +20,6 @@ const AppContainer = props => {
 		info: {},
 		zones: [],
 	});
-
 	// State management for the user inputed data
 	const [data, setData] = useState({
 		zone: '1',
@@ -29,13 +27,15 @@ const AppContainer = props => {
 		purchaseLocation: 'onboard_purchase',
 		ticketQuantity: 1,
 	});
-	const [total, setTotal] = useState(null);
+	// Destructure object for ease of reference
+	const {info, zones} = fares;
+	const {zone, travelTime, purchaseLocation, ticketQuantity} = data;
 
-	/*  Since we're using a functional component here, we must use a useEffect hook that runs once to mimic the
-  componentDidMount method to make the AJAX request */
+	/*  Since we're using a functional component here, we must use a useEffect hook that runs once to mimic the 
+	componentDidMount method to make the AJAX request */
 	useEffect(() => {
-		const url
-			= 'https://raw.githubusercontent.com/emcgilldev/code-challenges/3360706bc9ebd7715aecc7f2c3ebb5df1d09cae8/septa-fare-calculator/fares.json';
+		// Shortened url that leads to the raw json on github
+		const url = 'https://tinyurl.com/mryz6k2f';
 
 		fetch(url)
 			.then(res => res.json())
@@ -54,14 +54,14 @@ const AppContainer = props => {
 			);
 	}, []);
 
-  useEffect(() => {
-    if (data.travelTime === "anytime"){
-      setData(prevState => ({ ...prevState, purchaseLocation: "advance_purchase"}));
-    }
-  }, [data.travelTime])
+	useEffect(() => {
+		if (travelTime === 'anytime') {
+			setData(previousState => ({...previousState, purchaseLocation: 'advance_purchase'}));
+		}
+	}, [travelTime]);
 
 	const SectionList = () => {
-		const zones = Array.from(fares.zones, element => element.zone);
+		const zoneArray = Array.from(zones, element => element.zone);
 		const times = ['Weekday', 'Evening Weekend', 'Anytime'];
 		const locations = [
 			{
@@ -85,7 +85,7 @@ const AppContainer = props => {
 							inputType={inputType}
 							dark={dark}
 							subtext={subtext}
-							text={calculateFare(fares.zones, data.zone, data.travelTime, data.purchaseLocation, data.ticketQuantity).toString()}
+							text={calculateFare(fares, zone, travelTime, purchaseLocation, ticketQuantity).toString()}
 						/>
 					);
 				}
@@ -98,7 +98,7 @@ const AppContainer = props => {
 							data={data}
 							key={uuid4()}
 							type='zones'
-							options={zones}
+							options={zoneArray}
 							subheading={subheading}
 							inputType={inputType}
 							dark={dark}
@@ -114,7 +114,7 @@ const AppContainer = props => {
 							data={data}
 							key={uuid4()}
 							options={locations}
-							time={data.travelTime}
+							time={travelTime}
 							subheading={subheading}
 							inputType={inputType}
 							dark={dark}

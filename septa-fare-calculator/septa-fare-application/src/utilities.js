@@ -1,12 +1,10 @@
 export const calculateFare = (data, zone, type, purchase, trips) => {
-	console.log(type);
-	console.log(purchase);
-	// Create an array that contains only the fare info and use the zone state to access the necessary index
-	const zoneFares = Array.from(data, element => element.fares)[zone - 1];
-	const fare = zoneFares.filter(element => element.type == type && element.purchase == purchase);
-
-    const total = fare[0]?.type === "anytime" ? (fare[0]?.price / 10) * trips : fare[0]?.price * trips;
-    console.log(total);
+    const {zones, info} = data;
+    // Creates an array of fares for the zone that was selected
+    const zoneFares = Array.from(zones, element => element.fares)[zone - 1];
+    // It finds the fare for the given type and purchase from state and then calculates the total
+    const fare = zoneFares.find(element => element.type == type && element.purchase == purchase);
+    const total = fare?.type === Object.keys(info)[0] ? (fare?.price / 10) * trips : fare?.price * trips;
 
 	return total.toFixed(2);
 };

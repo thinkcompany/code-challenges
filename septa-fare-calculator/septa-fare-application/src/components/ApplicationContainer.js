@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import uuid4 from 'uuid4';
 import {sections} from '../sections.js';
+import {calculateFare} from '../utilities.js';
 import Section from './Section.js';
 import Header from './Header.js';
 
@@ -24,15 +25,15 @@ const AppContainer = props => {
 	// State management for the user inputed data
 	const [data, setData] = useState({
 		zone: '1',
-		travelTime: 'anytime',
+		travelTime: 'weekday',
 		purchaseLocation: 'onboard_purchase',
 		ticketQuantity: 1,
 	});
+	const [total, setTotal] = useState(null);
 
 	/*  Since we're using a functional component here, we must use a useEffect hook that runs once to mimic the
   componentDidMount method to make the AJAX request */
 	useEffect(() => {
-		console.log('use effect triggered');
 		const url
 			= 'https://raw.githubusercontent.com/emcgilldev/code-challenges/3360706bc9ebd7715aecc7f2c3ebb5df1d09cae8/septa-fare-calculator/fares.json';
 
@@ -53,10 +54,14 @@ const AppContainer = props => {
 			);
 	}, []);
 
+  useEffect(() => {
+    if (data.travelTime === "anytime"){
+      setData(prevState => ({ ...prevState, purchaseLocation: "advance_purchase"}));
+    }
+  }, [data.travelTime])
+
 	const SectionList = () => {
-		// TODO: comment this function and what's happening here
 		const zones = Array.from(fares.zones, element => element.zone);
-		// TODO: do not hardcode this; figure out how to acccess this
 		const times = ['Weekday', 'Evening Weekend', 'Anytime'];
 		const locations = [
 			{
@@ -80,7 +85,7 @@ const AppContainer = props => {
 							inputType={inputType}
 							dark={dark}
 							subtext={subtext}
-							text='$28.00'
+							text={calculateFare(fares.zones, data.zone, data.travelTime, data.purchaseLocation, data.ticketQuantity).toString()}
 						/>
 					);
 				}
@@ -109,6 +114,7 @@ const AppContainer = props => {
 							data={data}
 							key={uuid4()}
 							options={locations}
+							time={data.travelTime}
 							subheading={subheading}
 							inputType={inputType}
 							dark={dark}

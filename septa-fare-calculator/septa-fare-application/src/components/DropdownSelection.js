@@ -15,9 +15,7 @@ const StyledSelect = styled.select`
 `;
 
 const DropdownSelection = ({options, type, data, onDropdownChange}) => {
-	// if the user clicks "anytime" the dropdown should only render the advance purchase item, station kiosk
-	
-	
+	// If the user clicks "anytime" the dropdown should only render the advance purchase item, station kiosk
 
 	const OptionsList = () => type
 		? options.map(option => <option value={option}>Zone {option}</option>)

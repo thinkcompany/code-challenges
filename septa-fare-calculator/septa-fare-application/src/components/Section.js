@@ -27,6 +27,8 @@ const Section = ({
 	data,
 	setData,
 }) => {
+	const {travelTime} = data;
+	
 	const renderContent = () => {
 		switch (true) {
 			case inputType === 'radio': {
@@ -34,7 +36,7 @@ const Section = ({
 					<RadioSelection
 						onRadioChange={setData}
 						data={data}
-						options={options}
+						options={travelTime === 'anytime' ? options.filter(option => option.label === options[1].label) : options}
 					/>
 				);
 			}

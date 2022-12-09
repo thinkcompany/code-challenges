@@ -21,8 +21,8 @@ const StyledLogo = styled.img`
 `;
 
 const Header = ({header}) => {
-	const src
-		= 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/SEPTA.svg/1000px-SEPTA.svg.png?20101113155338';
+	// Shortened url to the SEPTA logo
+	const src = 'https://tinyurl.com/2zcdk35r';
 
 	return (
 		<>

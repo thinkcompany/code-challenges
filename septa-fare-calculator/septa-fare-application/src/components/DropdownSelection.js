@@ -15,14 +15,16 @@ const StyledSelect = styled.select`
 `;
 
 const DropdownSelection = ({options, type, data, onDropdownChange}) => {
+	// Creates a list of options for the dropdown menu based on whether the dropdown select is zones or times.
 	const OptionsList = () => type
 		? options.map(option => <option key={uuid4()} value={option}>Zone {option}</option>)
 		: options.map(option => (
 			<option key={uuid4()} value={option.toLocaleLowerCase().split(' ').join('_')}>
 				{option}
 			</option>
-			  ));
+		));
 
+	// Generates a function that takes in an event and returns a function that takes in the previous state and returns a new state.
 	const generateOnChange = e => type
 		? onDropdownChange(previousState => ({
 			...previousState,
@@ -31,7 +33,7 @@ const DropdownSelection = ({options, type, data, onDropdownChange}) => {
 		: onDropdownChange(previousState => ({
 			...previousState,
 			travelTime: e.target.value.toLocaleLowerCase().split(' ').join('_'),
-			  }));
+		}));
 
 	return (
 		<StyledDropdown>

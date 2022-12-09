@@ -62,12 +62,13 @@ const AppContainer = props => {
 	}, [travelTime]);
 
 	const SectionList = () => {
-		const zoneArray = Array.from(zones, element => element.zone);
-		/* 	It creates an array of the first three keys in the info object, and then it maps over that array and 
-		replaces the underscores with spaces, and then it maps over that array and capitalizes the first letter of 
+		/* 	It creates an array of the first three keys in the info object, and then it maps over that array and
+		replaces the underscores with spaces, and then it maps over that array and capitalizes the first letter of
 		each word, and then it joins the words together. */
 		const times = Object.keys(info).slice(0, 3).map(element => element.replace('_', ' ')).map(element => element.split(' ').map(word => word[0].toUpperCase() + word.slice(1)).join(' '));
+
 		const locationAray = Object.keys(info).slice(3, 5);
+		const zoneArray = Array.from(zones, element => element.zone);
 		const locations = [
 			{
 				label: 'Onboard',

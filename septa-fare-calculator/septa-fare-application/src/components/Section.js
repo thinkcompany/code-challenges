@@ -25,16 +25,17 @@ const Section = (
     options,
     type,
     data,
+    setData,
   }) => {
 
   const renderContent = () => {
     switch (true) {
       case inputType === "radio":
-        return <RadioSelection data={data} options={options}/>;
+        return <RadioSelection onRadioChange={setData} data={data} options={options}/>;
       case inputType === "dropdown":
-        return <DropdownSelection data={data} type={type} options={options}/>;
+        return <DropdownSelection onDropdownChange={setData} data={data} type={type} options={options}/>;
       case inputType === "number":
-        return <NumberSelection data={data}/>;
+        return <NumberSelection onInputChange={setData} data={data}/>;
       case inputType === "":
         return <Text text={text} dark={dark}/>;
       default: return null;
@@ -67,6 +68,7 @@ Section.propTypes = {
     purchaseLocation: PropTypes.string,
     ticketQuantity: PropTypes.number,
   }),
+  setData: PropTypes.func,
 };
 
 Section.defaultProps = {
@@ -82,6 +84,7 @@ Section.defaultProps = {
     purchaseLocation: "",
     ticketQuantity: null,
   },
+  setData: () => {},
 };
 
 export default Section

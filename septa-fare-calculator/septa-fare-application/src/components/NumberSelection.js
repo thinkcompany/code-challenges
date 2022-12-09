@@ -12,7 +12,7 @@ const StyledInput = styled.input`
   border: 2px solid #D3D3D3;
 `;
 
-const NumberSelection = ({data}) => {
+const NumberSelection = ({data, onInputChange}) => {
   const {ticketQuantity} = data;
 
   return (
@@ -20,9 +20,11 @@ const NumberSelection = ({data}) => {
       type="text" 
       name="ride-quantity" 
       placeholder="1" 
-      max="10" 
-      value={ticketQuantity} 
+      min={1}
+      max={10} 
+      defaultValue={ticketQuantity} 
       required
+      onChange={(e) => onInputChange(prevState => ({...prevState, ticketQuantity: Number(e.target.value) }))}
     />
   )
 };
@@ -34,6 +36,7 @@ NumberSelection.propTypes = {
     purchaseLocation: PropTypes.string,
     ticketQuantity: PropTypes.number,
   }),
+  onInputChange: PropTypes.func,
 }
 
 NumberSelection.defaultProps = {
@@ -43,6 +46,7 @@ NumberSelection.defaultProps = {
     purchaseLocation: "",
     ticketQuantity: null,
   },
+  onInputChange: () => {},
 };
 
 export default NumberSelection

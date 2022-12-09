@@ -81,13 +81,13 @@ const ApplicationContainer = props => {
       } 
       // if the first section in teh list  
       if (i === 0){
-        return <Section data={data} key={uuid4()} type="zones" options={zones} subheading={subheading} inputType={inputType} dark={dark} subtext={subtext}/>;
+        return <Section setData={setData} data={data} key={uuid4()} type="zones" options={zones} subheading={subheading} inputType={inputType} dark={dark} subtext={subtext}/>;
       }
       if (i === 2){
-        return <Section data={data} key={uuid4()} options={locations} subheading={subheading} inputType={inputType} dark={dark} subtext={subtext}/>;
+        return <Section setData={setData} data={data} key={uuid4()} options={locations} subheading={subheading} inputType={inputType} dark={dark} subtext={subtext}/>;
       }
       else {
-        return <Section data={data} key={uuid4()} options={times} subheading={subheading} inputType={inputType} dark={dark} subtext={subtext}/>;
+        return <Section setData={setData} data={data} key={uuid4()} options={times} subheading={subheading} inputType={inputType} dark={dark} subtext={subtext}/>;
       }
     });
   };

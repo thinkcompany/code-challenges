@@ -15,13 +15,22 @@ const Option = styled.div`
   margin: .25rem;
 `;
 
-const RadioSelection = ({data, options}) => {
+const RadioSelection = ({data, onRadioChange, options}) => {
   const {purchaseLocation} = data;
 
   const OptionList = () => {
     return options.map(option => (
       <Option>
-        <label class="location-button"><input type="radio" name="purchase-location-button" value={option.value} checked={purchaseLocation === option.value ? true : false}/>{option.label}</label>
+        <label class="location-button">
+          <input 
+            type="radio" 
+            name="purchase-location-button" 
+            defaultValue={option.value} 
+            checked={purchaseLocation === option.value ? true : false}
+            onChange={(e) => onRadioChange(prevState => ({...prevState, purchaseLocation: e.target.value}))}
+            />
+            {option.label}
+        </label>
       </Option>
     ))
   };
@@ -42,6 +51,7 @@ RadioSelection.propTypes = {
     purchaseLocation: PropTypes.string,
     ticketQuantity: PropTypes.number,
   }),
+  onRadioChange: PropTypes.func,
 };
 
 RadioSelection.defaultProps = {
@@ -55,6 +65,7 @@ RadioSelection.defaultProps = {
     purchaseLocation: "",
     ticketQuantity: null,
   },
+  onRadioChange: () => {},
 };
 
 export default RadioSelection

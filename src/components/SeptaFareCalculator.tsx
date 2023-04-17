@@ -28,18 +28,15 @@ export const SeptaFareCalculator = ({ data }: SeptaFareCalculatorProps) => {
             return totalFare;
         }
 
-        if (numRides >= 10) {
-            // Find the fare for ten rides with the given parameters.
-            const tenRideFare = selectedZone.fares.find(
-                (fare) =>
-                    fare.purchase === purchaseLocation && fare.trips === 10
-            );
+        // Find the fare for ten rides with the given parameters.
+        const tenRideFare = selectedZone.fares.find(
+            (fare) => fare.purchase === purchaseLocation && fare.trips === 10
+        );
 
+        if (tenRideFare) {
             // Add the price of the ten ride fare to the total fare.
-            if (tenRideFare) {
-                const numTenRideFares = Math.floor(numRides / 10);
-                totalFare += tenRideFare.price * numTenRideFares;
-            }
+            const numTenRideFares = Math.floor(numRides / 10);
+            totalFare += tenRideFare.price * numTenRideFares;
         }
 
         // Find the fare for a single ride with the given parameters.
@@ -52,7 +49,7 @@ export const SeptaFareCalculator = ({ data }: SeptaFareCalculatorProps) => {
 
         // Add the price of the single ride fare to the total fare.
         if (singleRideFare) {
-            const numSingleRideFares = numRides % 10;
+            const numSingleRideFares = tenRideFare ? numRides % 10 : numRides;
             totalFare += singleRideFare.price * numSingleRideFares;
         }
 

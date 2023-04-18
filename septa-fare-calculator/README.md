@@ -18,5 +18,19 @@
 |Day/Time of the Week       | `anytime`, `weekday`, `evening_weekend` |
 | Payment Method            | `advance`, `onboard`                  |
 
+### Widget Planning
+![Widget Planning Notes](img/septa-widget-planning.png)
+
+### Component Planning
+- `<CalculatorWidget />`
+    - Can be used for different calculations beside the Rail fare, like their Pass program, Airport line fares, or Share Ride Fares. 
+    - `<CalculatorHeader />`
+        - Displays logo and title
+    - `<RailForm />`
+        - Includes the form, selects, radio button, and input field. 
+        - controlled inputs with state variables.
+    - `<FareResult />`
+        - "Your fare will cost" 
+        - calculation made after querying for the right fare times the number of rides.
 
 ## Implementation

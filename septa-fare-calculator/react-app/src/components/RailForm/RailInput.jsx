@@ -7,7 +7,7 @@ export default function RailInput({
     helperText,
     anytime
 }) {
-    // selection, setSelection = useState
+    // selection, setSelection = useState variables
     // selections = all the options; array
     // selectionType = zones, times, or purchaseLocations; string
     // helperText = extra info on options; string
@@ -18,6 +18,8 @@ export default function RailInput({
     }
     
     // Zones and Times are select inputs and the purchaseLocations is a radio button.
+    // numOfTrips is input type number
+    // helperText at the bottom are conditionally rendered if they are passed down as a prop
     return (
         <div className="rail-input-container">
             {selectionType === "zones" || selectionType === "times" ?

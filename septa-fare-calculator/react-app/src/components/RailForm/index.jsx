@@ -10,8 +10,6 @@ export default function RailForm({ setFarePrice, farePrice }) {
     const [purchaseLocation, setPurchaseLocation] = useState("");
     const [numOfRides, setNumOfRides] = useState("1");
 
-    console.log(numOfRides)
-
     // Defaulted as Empty Arrays so no error on JSX maps
     const initialSelections = { times: [], zones: [], purchaseLocations: []}
     const [selections, setSelections] = useState(initialSelections)
@@ -60,7 +58,7 @@ export default function RailForm({ setFarePrice, farePrice }) {
                 fare.type === "anytime"
             )
         })
-        console.log(typeof farePrice, farePrice)
+
         // Find the fare with the correct purchase location
         let finalFare = timeFares?.find(fare => {
             return (
@@ -71,7 +69,8 @@ export default function RailForm({ setFarePrice, farePrice }) {
                 fare.purchase === "advance_purchase"
             )
         })
-        console.log(finalFare)
+
+        // If there is a finalFare then update the total fare price
         if (finalFare) {
             setFarePrice((finalFare.price / finalFare.trips * numOfRides).toFixed(2))
         }

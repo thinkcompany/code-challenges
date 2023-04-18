@@ -17,7 +17,7 @@ fieldset {
     justify-content: center;
 }
 
-.rail-select-container {
+.rail-input-container {
     display: flex;
     flex-direction: column;
     width: 100%;
@@ -29,4 +29,20 @@ fieldset {
     width: 50%;
     justify-content: center;
     text-align: left;
+}
+
+
+/* Remove Number Arrows: */
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+  appearance: textfield;
 }

@@ -1,4 +1,4 @@
-export default function RailSelect({
+export default function RailInput({
     text,
     selectionType,
     setSelection,
@@ -16,7 +16,7 @@ export default function RailSelect({
     
     // Zones and Times are select inputs and the purchaseLocations is a radio button.
     return (
-        <div className="rail-select-container">
+        <div className="rail-input-container">
             {selectionType === "zones" || selectionType === "times" ?
                 <>
                     <label className="fare-label" htmlFor={selectionType}>{text}</label>
@@ -31,7 +31,7 @@ export default function RailSelect({
                         ))}
                     </select>
                 </>
-            :
+            : selectionType === "purchaseLocations" ?
             <fieldset>
                 <legend className="fare-label">{text}</legend>
                 <div className="radio-container">
@@ -48,6 +48,20 @@ export default function RailSelect({
                     </label>))}
                 </div>
             </fieldset>
+            : 
+            <>
+                <label className="fare-label" htmlFor={selectionType}>{text}</label>
+                <input
+                    type="number"
+                    min={1}
+                    max={1000000}
+                    value={selection}
+                    onChange={changeSelection}
+                    name={selectionType}
+                    id={selectionType}
+                >
+                </input>
+            </>
             }
             
         </div>

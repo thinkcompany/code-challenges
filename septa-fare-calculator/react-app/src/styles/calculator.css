@@ -1,0 +1,62 @@
+/*----------------------------------------------*\
+    CALCULATOR
+\*----------------------------------------------*/
+
+
+.calculator {
+    display: flex;
+    flex-direction: column;
+    border: 2px solid lightgray;
+    /* width should be adjusted to fit wherever its put; this is temporary to just have it widget sized based on the screen */
+    width: 30vw;
+    min-width: 350px;
+    height: auto;
+    margin: auto;
+}
+
+
+/*----------------------------------------------*\
+    HEADER of WIDGET
+\*----------------------------------------------*/
+
+.header {
+    display: flex;
+    flex-direction: row;
+    background-color: rgb(93, 93, 93);
+    justify-content: center;
+    padding: 0.6rem;
+}
+
+.header > h2 {
+    color: white;
+    margin: 0;
+}
+
+.header-logo {
+    width: 30px;
+    object-fit: contain;
+    margin-right: 0.5rem;
+}
+
+/*----------------------------------------------*\
+FareResult
+\*----------------------------------------------*/
+
+.result-container {
+    background-color: rgb(93, 93, 93);
+    padding: 0.6rem;
+}
+
+.result-container > p {
+    color: white;
+    margin: 0;
+    font-size: 1.2rem;
+    width: 100%;
+    text-overflow: ellipsis;
+}
+
+.result-container > p:nth-child(2) {
+    font-size: 3.0rem;
+    margin-top: 0;
+    font-weight: 700;
+}

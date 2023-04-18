@@ -1,33 +1,75 @@
-# SEPTA Rail Fare Calculator Challenge
+# Whit Minson SEPTA Fare Calculator Widget Submission
 
-Hello, hopeful Think Company development team member! 
+## Technologies
+- React
+    - `npx create-react-app` command
+    - I understand this is deprecated but I wanted to have a very simple react app for the purposes of this challenge.
+- Fetch/AJAX
+- HTML
+- CSS
 
-Thank you for taking time to help us assess your front-end development skills. Part of the work we frequently are tasked with is combining complex business data with our design team's fresh new interfaces. Our development team makes these come to life with semantic, accessible HTML, CSS, and JavaScript. All of our philosophies are documented in [our development standards](https://standards.thinkcompany.dev/).
+## To Set-up and Run Locally
+1. `cd react-app`
+2. `npm i`
+3. `npm start`
 
-Your challenge is to create an interactive widget for calculating SEPTA Regional Rail fare prices. (In case you're not familiar with Philadelphia's preeminent mass transit agency, here are all the railroads in map form.)
+## Planning
+### Brainstorming
+![Whiteboarding SEPTA Fare Info](img/septa-fare-brainstorming.png)
+- I wanted to look through the provided resources of SEPTA's site and parse through the `fares.json` to make sure I understood how the widget should perform.
+> This whiteboarding would not usually be client/team-facing and below I have cleaned up the information that would be more appropriate to share.
 
-![SEPTA Zone Map](img/zone-map.jpg) 
+| Price Factors             | Choices                           |
+|---------------------------|-----------------------------------|
+| Station where trip starts | *always going to be city center            |
+| Station where trip ends   | `CCP/1`, `Zone 2`, `Zone 3`, `Zone 4`, `NJ` |
+|Day/Time of the Week       | `anytime`, `weekday`, `evening_weekend` |
+| Payment Method            | `advance`, `onboard`                  |
 
-When you take regional rail in and out of the city, the fare price is affected by where you purchase the ticket, when you ride, and how far you travel. You can learn more about the details on [SEPTA's website](http://www.septa.org/fares/ticket/index.html) -- or trust that we've correctly compiled this information into this [JSON file](fares.json). We'd like you to make this information easier to understand by making an interactive fare purchase widget, illustrated in the screenshot below.
+### Widget Planning
+![Widget Planning Notes](img/septa-widget-planning.png)
 
-![Widget mockup](img/widget.png)
+### Component Planning
+- `<CalculatorWidget />`
+    - Can be used for different calculations beside the Rail fare, like their Pass program, Airport line fares, or Share Ride Fares. 
+    - `<CalculatorHeader />`
+        - Displays logo and title
+    - `<RailForm />`
+        - Includes the form, selects, radio button, and input field. 
+        - controlled inputs with state variables.
+        - ended up refactoring and making a separate component for the inputs and just passed down the appropriate information
+            - `<RailInput />`
+    - `<FareResult />`
+        - "Your fare will cost" 
+        - calculation made after querying for the right fare times the number of rides.
 
-## Instructions
-* Visit our [careers page](https://www.thinkcompany.com/careers/) and apply for one of our open positions so we have your contact information along with your pull request.
-* Develop the HTML and CSS for the widget seen in the screenshot above. Feel free to make this responsive, and keep accessibility in mind: screen readers should handle the form, helper text, and any other important content well.
-* Assume that your code would be handed off to a back-end developer for integration. It could end up on a page with other content and widgets, so keep this in mind when you are making decisions about naming conventions.
-* Write JavaScript to request [fares.json](fares.json) via AJAX and populate the widget with live data. End users should be able to see the fare total update when they use the widget controls. Think hard about the data format before starting - what does "anytime" mean, and what's the most elegant way to let users know about special pricing for items like 10-trip tickets?
-* We plan on looking at the balance of your HTML, CSS, and JS, but we'd rather see a partially-styled working prototype than a pixel-perfect widget that isn't doing fare calculations. Try to balance your time appropriately!
-* It should go without saying - please comment your code to state any assumptions or decisions you're making during this assignment -- or just to say hi. :-)
+## Implementation
+- Utilized React `useEffect` and `useState`
+    - to async-ly fetch the data
+    - to dynamically update the total fare cost as the user changes selections with controlled inputs.
+- Utilized conditional rendering to show warnings and extra information under appropriate form fields
+    - when certain fields were selected
+    - when user inputs decimal points
+    - when user has anytime bundle selected
+        - extra information displayed
+        - removes "Onboard" radio button
+        - multiples of 10 warning
 
-## Requirements
-* *Browser Support*: Microsoft Edge, Google Chrome, Firefox, Safari for iOS, and Chrome for Android.
-* *Libraries & Frameworks*: You are welcome to bring in JavaScript libraries (like jQuery) or frameworks (like Angular, React or Polymer). You may also author your JS with vanilla DOM methods, as long as they are compatible with the browser requirements. Please don't include an entire CSS framework like Bootstrap -- we want to see your HTML and CSS, not theirs.
-* *Standards*: Your solution should be valid, semantic, accessible, and performant. To get an idea of what how we're doing things, please feel free to review [our development standards](https://standards.thinkcompany.dev/).
-* *Time*: We don't expect you to overexert yourself to deliver a perfectly finished product, but want to allow you take the time you think you need to show your stuff. We recommend spending about an hour, but let us know how much time you spend if you decide to take more time.
-* *Submission*: Fork this repository and make a pull request for us to review your code. If you're not familiar with git or Github, you can download this repo and send us a ZIP file when you're done.
+## Future Refactoring Thoughts
+-  Some of the conditional rendering could be cleaned up to make it flow better
+    - like including the warnings within the same info key as the json data.
+    - or using the actual keys as the values instead of the displayed value to reduce the size of the ternaries and similar statements.
+- More testing needs to be done to make the design more responsive and check how it fairs on smaller devices.
+    - media queries would be a good addition if different views would be better
+- Would like the limit what the user can type instead of just warning them on the number input.
+    - either give selection of multiples of 10 instead of allowing them to type
+    - add in more customization to the `onChange` to remove users ability to type decimal points.
+    - I attempted to add a `step` attribute so the arrow keys would go up in multiples of 10 but it did not work
+        - if you're on 3 it will just go up to 13 and so on.
+        - I also  didn't want to manually shift the number to 10 when they selected Anytime just in case they didn't want to lose the number they were working with.
+- The querying through the JSON data would be better in a separate file
+    - Preferred to have more specific fetches to grab the right data
+    - Would be more appropriate on a larger scale, though. 
 
 ## Resources
-* [Think Company Development Standards](https://standards.thinkcompany.dev/)
-* [SEPTA Fares](http://www.septa.org/fares/ticket/index.html)
-* [SEPTA Logo (SVG)](https://commons.wikimedia.org/wiki/File:SEPTA.svg)
+- SEPTA logo (larger size and favicon) from Wikipedia

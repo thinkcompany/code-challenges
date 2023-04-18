@@ -5,10 +5,31 @@ fieldset {
     align-items: center;
 }
 
+
 .fare-label {
     font-size: 1.2rem;
     font-weight: 500;
     color: rgb(74, 74, 74);
+    margin-bottom: 1.2rem;
+}
+
+.fare-input {
+    width: 85%;
+    padding: 0.5rem;
+    border-radius: 5px;
+    border: 1px solid rgb(189, 189, 189);
+    font-size: 1.1rem;
+    color: rgb(74, 74, 74);
+}
+
+
+.fare-number {
+    width: 30%;
+    text-align: center;
+    font-size: 1.1rem;
+    padding: 0.5rem;
+    border-radius: 5px;
+    border: 1px solid rgb(189, 189, 189);
 }
 
 .rail-fare-form {
@@ -21,14 +42,24 @@ fieldset {
     display: flex;
     flex-direction: column;
     width: 100%;
+    align-items: center;
+    border-bottom: 1px solid rgb(74, 74, 74);
+    padding: 10px 0px;
 }
 
 .radio-container {
     display: flex;
     flex-direction: column;
-    width: 50%;
+    /* width: 50%; */
     justify-content: center;
     text-align: left;
+}
+
+.radio-label {
+    display: flex;
+    flex-direction: row;
+    font-size: 1.1rem;
+    color: rgb(74, 74, 74);
 }
 
 

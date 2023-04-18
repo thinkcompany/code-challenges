@@ -25,6 +25,7 @@ export default function RailInput({
                         onChange={changeSelection}
                         name={selectionType}
                         id={selectionType}
+                        className="fare-input"
                         >
                         {selections.map(ele => (
                             <option value={ele}>{ele}</option>
@@ -59,6 +60,7 @@ export default function RailInput({
                     onChange={changeSelection}
                     name={selectionType}
                     id={selectionType}
+                    className="fare-number"
                 >
                 </input>
             </>

@@ -37,6 +37,8 @@ export default function RailForm({ setFarePrice }) {
 
     // Set the total fare price dynamically
     useEffect(() => {
+        // "Anytime" can only be purchases at the Station Kiosk
+        if (dayTime === "Anytime") setPurchaseLocation("Station Kiosk")
         // Find the correct Zone and key into the fares
         let zoneFares = data.zones?.find(z => z.name === zone).fares
         
@@ -90,7 +92,7 @@ export default function RailForm({ setFarePrice }) {
                 selectionType="purchaseLocations"
                 setSelection={setPurchaseLocation}
                 selection={purchaseLocation}
-                selections={selections.purchaseLocations}
+                selections={dayTime === "Anytime" ? [selections.purchaseLocations[1]] : selections.purchaseLocations}
             />
             <RailInput
                 text="How many rides will you need?"

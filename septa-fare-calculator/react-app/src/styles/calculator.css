@@ -9,6 +9,7 @@
     width: 30%;
     min-width: 300px;
     height: auto;
+    margin: auto;
 }
 
 
@@ -19,8 +20,8 @@
 .header {
     display: flex;
     flex-direction: row;
-    justify-content: center;
     background-color: rgb(74, 74, 74);
+    justify-content: center;
 }
 
 .header > h2 {
@@ -31,4 +32,23 @@
     width: 30px;
     object-fit: contain;
     margin-right: 0.5rem;
+}
+
+/*----------------------------------------------*\
+FareResult
+\*----------------------------------------------*/
+
+.result-container {
+    background-color: rgb(74, 74, 74);
+}
+
+.result-container > p {
+    color: white;
+}
+
+.result-container > p:nth-child(2) {
+    font-size: 2.5rem;
+    margin-top: 0;
+    margin-bottom: 1rem;
+    font-weight: 700;
 }

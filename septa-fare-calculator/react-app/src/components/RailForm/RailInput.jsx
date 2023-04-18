@@ -54,7 +54,7 @@ export default function RailInput({
                 <input
                     type="number"
                     min={1}
-                    max={1000000}
+                    max={100000}
                     value={selection}
                     onChange={changeSelection}
                     name={selectionType}

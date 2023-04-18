@@ -65,8 +65,8 @@ export default function RailForm({ setFarePrice }) {
                 :
                 fare.purchase === "advance_purchase"
             )
-        }).price
-        setFarePrice(finalFare * numOfRides)
+        })?.price
+        setFarePrice((finalFare * numOfRides).toFixed(2))
     }, [zone, dayTime, purchaseLocation, numOfRides])
 
     return (

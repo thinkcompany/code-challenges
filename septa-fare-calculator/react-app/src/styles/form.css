@@ -71,6 +71,7 @@ fieldset {
     color: rgb(227, 2, 2);
 }
 
+
 .helper-text {
     color: rgb(162, 162, 162);
     font-size: 0.7rem;
@@ -79,6 +80,9 @@ fieldset {
     margin: 0;
 }
 
+.anytime {
+    color: rgb(46, 46, 214);
+}
 
 /* Remove Number Arrows: */
 

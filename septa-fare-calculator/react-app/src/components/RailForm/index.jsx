@@ -70,8 +70,11 @@ export default function RailForm({ setFarePrice, farePrice }) {
                 :
                 fare.purchase === "advance_purchase"
             )
-        })?.price
-        setFarePrice((finalFare * numOfRides).toFixed(2))
+        })
+        console.log(finalFare)
+        if (finalFare) {
+            setFarePrice((finalFare.price / finalFare.trips * numOfRides).toFixed(2))
+        }
     }, [zone, dayTime, purchaseLocation, numOfRides])
 
     return (
@@ -82,7 +85,8 @@ export default function RailForm({ setFarePrice, farePrice }) {
                 setSelection={setZone}
                 selection={zone}
                 selections={selections.zones}
-            />
+                anytime={dayTime === "Anytime"}
+                />
             <RailInput
                 text="When are you riding?"
                 selectionType="times"
@@ -90,7 +94,8 @@ export default function RailForm({ setFarePrice, farePrice }) {
                 selection={dayTime}
                 selections={selections.times}
                 helperText={dayTime === "Anytime" ? data.info.anytime : dayTime === "Weekdays" ? data.info.weekday : data.info?.evening_weekend}
-            />
+                anytime={dayTime === "Anytime"}
+                />
             <RailInput
                 text="Where will you purchase the fare?"
                 selectionType="purchaseLocations"
@@ -98,14 +103,16 @@ export default function RailForm({ setFarePrice, farePrice }) {
                 selection={purchaseLocation}
                 selections={dayTime === "Anytime" ? [selections.purchaseLocations[1]] : selections.purchaseLocations}
                 helperText={purchaseLocation === "Onboard" ? data.info?.onboard_purchase : data.info?.advance_purchase}
-            />
+                anytime={dayTime === "Anytime"}
+                />
             <RailInput
                 text="How many rides will you need?"
                 selectionType="numOfRides"
                 setSelection={setNumOfRides}
                 selection={numOfRides}
                 helperText={numOfRides.includes(".") ? "Please only use whole numbers; Purchasing portions of a ride is not possible" : undefined}
-            />
+                anytime={dayTime === "Anytime"}
+                />
         </form>
     );
 }

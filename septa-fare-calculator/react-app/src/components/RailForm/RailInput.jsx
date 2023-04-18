@@ -4,7 +4,8 @@ export default function RailInput({
     setSelection,
     selection,
     selections,
-    helperText
+    helperText,
+    anytime
 }) {
     // selection, setSelection = useState
     // selections = all the options; array
@@ -30,7 +31,7 @@ export default function RailInput({
                         className="fare-input"
                         >
                         {selections.map(ele => (
-                            <option value={ele}>{ele}</option>
+                            <option value={ele}>{ele === "Anytime" ? `*${ele} Bundle` : ele}</option>
                         ))}
                     </select>
                 </>
@@ -71,9 +72,13 @@ export default function RailInput({
                 <>
                     <p className="helper-text">{helperText}</p>
                     {selection === "Anytime" &&
-                        <p className="helper-text">Anytime tickets can only be purchased in advance at a Station Kiosk</p>
+                        <p className="helper-text anytime">*Anytime tickets are bundled in groups of 10 rides and can only be purchased in advance at a Station Kiosk</p>
                     }
+
                 </>
+            }
+            {anytime && selectionType === "numOfRides" && selection % 10 !== 0 &&
+                <p className="helper-text anytime">Please select a multiple of 10 when checking the cost of Anytime Bundles!</p>
             }
         </div>
     );

@@ -20,6 +20,7 @@ export default function RailInput({
     // Zones and Times are select inputs and the purchaseLocations is a radio button.
     // numOfTrips is input type number
     // helperText at the bottom are conditionally rendered if they are passed down as a prop
+    // Keys for the mapped elements utilize their values since a unique id is not attached to them
     return (
         <div className="rail-input-container">
             {selectionType === "zones" || selectionType === "times" ?
@@ -33,7 +34,7 @@ export default function RailInput({
                         className="fare-input"
                         >
                         {selections.map(ele => (
-                            <option value={ele}>{ele === "Anytime" ? `*${ele} Bundle` : ele}</option>
+                            <option key={"option-" + ele} value={ele}>{ele === "Anytime" ? `*${ele} Bundle` : ele}</option>
                         ))}
                     </select>
                 </>
@@ -42,7 +43,7 @@ export default function RailInput({
                 <legend className="fare-label">{text}</legend>
                 <div className="radio-container">
                 {selections.map(ele => (
-                    <label className="radio-label">
+                    <label key={"radio-" + ele} className="radio-label">
                         <input
                             type="radio"
                             value={ele}

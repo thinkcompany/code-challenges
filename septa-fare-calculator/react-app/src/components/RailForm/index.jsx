@@ -3,12 +3,14 @@ import "../../styles/form.css"
 import getFares from "../../utils";
 import RailInput from "./RailInput";
 
-export default function RailForm({ setFarePrice }) {
+export default function RailForm({ setFarePrice, farePrice }) {
 
     const [zone, setZone] = useState("");
     const [dayTime, setDayTime] = useState("");
     const [purchaseLocation, setPurchaseLocation] = useState("");
-    const [numOfRides, setNumOfRides] = useState(1);
+    const [numOfRides, setNumOfRides] = useState("1");
+
+    console.log(numOfRides)
 
     // Defaulted as Empty Arrays so no error on JSX maps
     const initialSelections = { times: [], zones: [], purchaseLocations: []}
@@ -39,6 +41,7 @@ export default function RailForm({ setFarePrice }) {
     useEffect(() => {
         // "Anytime" can only be purchases at the Station Kiosk
         if (dayTime === "Anytime") setPurchaseLocation("Station Kiosk")
+
         // Find the correct Zone and key into the fares
         let zoneFares = data.zones?.find(z => z.name === zone).fares
         
@@ -57,7 +60,7 @@ export default function RailForm({ setFarePrice }) {
                 fare.type === "anytime"
             )
         })
-        
+        console.log(typeof farePrice, farePrice)
         // Find the fare with the correct purchase location
         let finalFare = timeFares?.find(fare => {
             return (
@@ -86,6 +89,7 @@ export default function RailForm({ setFarePrice }) {
                 setSelection={setDayTime}
                 selection={dayTime}
                 selections={selections.times}
+                helperText={dayTime === "Anytime" ? data.info.anytime : dayTime === "Weekdays" ? data.info.weekday : data.info?.evening_weekend}
             />
             <RailInput
                 text="Where will you purchase the fare?"
@@ -93,12 +97,14 @@ export default function RailForm({ setFarePrice }) {
                 setSelection={setPurchaseLocation}
                 selection={purchaseLocation}
                 selections={dayTime === "Anytime" ? [selections.purchaseLocations[1]] : selections.purchaseLocations}
+                helperText={purchaseLocation === "Onboard" ? data.info?.onboard_purchase : data.info?.advance_purchase}
             />
             <RailInput
                 text="How many rides will you need?"
                 selectionType="numOfRides"
                 setSelection={setNumOfRides}
                 selection={numOfRides}
+                helperText={numOfRides.includes(".") ? "Please only use whole numbers; Purchasing portions of a ride is not possible" : undefined}
             />
         </form>
     );

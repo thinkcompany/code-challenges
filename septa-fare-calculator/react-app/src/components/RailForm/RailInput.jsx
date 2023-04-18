@@ -3,11 +3,13 @@ export default function RailInput({
     selectionType,
     setSelection,
     selection,
-    selections
+    selections,
+    helperText
 }) {
     // selection, setSelection = useState
     // selections = all the options; array
     // selectionType = zones, times, or purchaseLocations; string
+    // helperText = extra info on options; string
 
     
     const changeSelection = (e) => {
@@ -56,7 +58,7 @@ export default function RailInput({
                     type="number"
                     min={1}
                     max={100000}
-                    value={selection}
+                    value={+selection}
                     onChange={changeSelection}
                     name={selectionType}
                     id={selectionType}
@@ -65,7 +67,14 @@ export default function RailInput({
                 </input>
             </>
             }
-            
+            {helperText && 
+                <>
+                    <p className="helper-text">{helperText}</p>
+                    {selection === "Anytime" &&
+                        <p className="helper-text">Anytime tickets can only be purchased in advance at a Station Kiosk</p>
+                    }
+                </>
+            }
         </div>
     );
 }

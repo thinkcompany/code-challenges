@@ -9,7 +9,7 @@ fieldset {
 .fare-label {
     font-size: 1.2rem;
     font-weight: 500;
-    color: rgb(74, 74, 74);
+    color: rgb(93, 93, 93);
     margin-bottom: 1.2rem;
 }
 
@@ -19,7 +19,7 @@ fieldset {
     border-radius: 5px;
     border: 1px solid rgb(189, 189, 189);
     font-size: 1.1rem;
-    color: rgb(74, 74, 74);
+    color: rgb(93, 93, 93);
 }
 
 
@@ -43,8 +43,8 @@ fieldset {
     flex-direction: column;
     width: 100%;
     align-items: center;
-    border-bottom: 1px solid rgb(74, 74, 74);
-    padding: 10px 0px;
+    border-bottom: 1.5px solid rgba(173, 173, 173, 0.443);
+    padding: 1.3rem 0px;
 }
 
 .radio-container {
@@ -59,7 +59,24 @@ fieldset {
     display: flex;
     flex-direction: row;
     font-size: 1.1rem;
-    color: rgb(74, 74, 74);
+    color: rgb(93, 93, 93);
+}
+
+.fare-input + .helper-text {
+    margin-top: 10px;
+}
+
+.fare-number + .helper-text {
+    margin-top: 10px;
+    color: rgb(227, 2, 2);
+}
+
+.helper-text {
+    color: rgb(162, 162, 162);
+    font-size: 0.7rem;
+    padding: 0 10px;
+    width: 80%;
+    margin: 0;
 }
 
 

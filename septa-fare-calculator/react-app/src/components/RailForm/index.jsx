@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import "../../styles/form.css"
 import getFares from "../../utils";
+import RailSelect from "./RailSelect";
 
 export default function RailForm({ setFarePrice }) {
 
@@ -26,23 +27,35 @@ export default function RailForm({ setFarePrice }) {
             })
 
             // Set the default values
-            setZone(zones[0])
+            setZone(zones[0].name)
             setDayTime(times[0])
             setPurchaseLocation(purchaseLocations[0])
         })
     }, [])
-    console.log(selections)
 
     return (
         <form onSubmit={e => e.preventDefault()} className="rail-fare-form">
-            <label>
-                Where are you going?
-                <select name="zones">
-                    {selections.zones.map(zone => (
-                        <option value={zone}>{zone}</option>
-                    ))}
-                </select>
-            </label>
+            <RailSelect
+                text="Where are you going?"
+                selectionType="zones"
+                setSelection={setZone}
+                selection={zone}
+                selections={selections.zones}
+            />
+            <RailSelect
+                text="When are you riding?"
+                selectionType="times"
+                setSelection={setDayTime}
+                selection={dayTime}
+                selections={selections.times}
+            />
+            <RailSelect
+                text="Where will you purchase the fare?"
+                selectionType="purchaseLocations"
+                setSelection={setPurchaseLocation}
+                selection={purchaseLocation}
+                selections={selections.purchaseLocations}
+            />
         </form>
     );
 }

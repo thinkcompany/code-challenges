@@ -1,0 +1,32 @@
+fieldset {
+    border: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.fare-label {
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: rgb(74, 74, 74);
+}
+
+.rail-fare-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.rail-select-container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.radio-container {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    justify-content: center;
+    text-align: left;
+}

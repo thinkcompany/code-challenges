@@ -1,0 +1,65 @@
+.fare-calculator {
+    background: white;
+    border: 1px solid gray;
+    color: black;
+}
+
+.fare-calculator-cost-container,
+.fare-calculator-header {
+    background: gray;
+    color: white;
+}
+
+.fare-calculator-cost-container>.calculated-price {
+    font-size: 3rem;
+    margin: 0;
+}
+
+.fare-calculator-header {
+    padding: 1rem;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items: center;
+
+    img {
+        width: 4rem;
+        height: auto;
+
+    }
+
+    h1 {
+        margin: 0;
+        margin-left: 1rem;
+    }
+}
+
+.ticket-amount-input {
+    width: 10%;
+}
+
+.purchase-option-description {
+    display: block;
+    font-size: .75rem;
+    color: gray;
+    margin: .5rem 0;
+}
+
+fieldset {
+    border: none;
+}
+
+section {
+    border: 1px solid gray;
+    padding-bottom: 1rem;
+
+    h2 {
+        margin-bottom: .5rem;
+    }
+
+    p {
+        color: gray;
+        font-size: .75rem;
+        margin: .5rem;
+    }
+}

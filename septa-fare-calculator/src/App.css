@@ -1,0 +1,85 @@
+/* Ran out of time, but I would fix the stylings to match the designs with font, padding, color, etc.
+I would alse add in media queries to scale the application to different screen sizes
+ */
+
+.App {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 30px;
+}
+
+.App-form {
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 40%
+}
+
+.App-header {
+  background-color: #595959;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  font-size: 40px;
+  color: white;
+  padding: 20px;
+}
+
+.App-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-style: none solid solid solid;
+  border-color: lightgray;
+  padding: 25px 20px 20px 20px
+}
+
+.App-price {
+  background-color: #595959;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: white;
+}
+
+#price-text {
+  font-weight: 700;
+  font-size: 40px
+}
+
+label {
+  margin-bottom: 20px;
+  font-size: 20px;
+  font-weight: 500;
+  color: gray
+}
+
+input {
+  border-width: 1px;
+  border-radius: 5px;
+  padding: 10px;
+  font-size: 25px;
+}
+
+p {
+  margin: 0;
+  text-align: center;
+}
+
+select {
+  width: 250px;
+  height: 50px;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+input[type="number"] {
+  width: 250px;
+  height: 40px;
+  padding: 10px;
+  margin-bottom: 10px;
+}

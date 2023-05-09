@@ -1,0 +1,41 @@
+.container {
+    color: black;
+    background-color: white;
+}
+
+.container > div:not(:last-child) {
+    border-bottom: 1px solid darkgray;
+}
+
+.container > div {
+    padding: 16px;
+}
+
+.purchase {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.radio-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: fit-content;
+}
+
+label {
+    font-size: 14px;
+}
+
+select {
+    padding: 2px 6px;
+}
+
+input[type=text]{
+    padding: 2px;
+}
+
+p {
+    margin-bottom: 8px;
+}

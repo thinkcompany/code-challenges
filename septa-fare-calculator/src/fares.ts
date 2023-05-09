@@ -1,27 +1,27 @@
 export interface Fares {
-    info:  Info;
+    info: Info;
     zones: Zone[];
 }
 
 export interface Info {
-    anytime:          string;
-    weekday:          string;
-    evening_weekend:  string;
+    anytime: string;
+    weekday: string;
+    evening_weekend: string;
     advance_purchase: string;
     onboard_purchase: string;
 }
 
 export interface Zone {
-    name:  string;
-    zone:  number;
+    name: string;
+    zone: number;
     fares: Fare[];
 }
 
 export interface Fare {
-    type:     Type;
+    type: Type;
     purchase: Purchase;
-    trips:    number;
-    price:    number;
+    trips: number;
+    price: number;
 }
 
 export enum Purchase {

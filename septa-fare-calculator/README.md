@@ -1,3 +1,17 @@
+## Developer Notes
+Hello and thank you for the oppurtunity to take this challenge! I look forward to discussing it!
+I limited myself to 2.5 hours, so I have a small list of improvements I would make.
+
+1.) I used the fastest method to start react, using the quick-start tool vite. I did not do any cleanup from that, so that would be a priority. For example, my main component is still called App.jsx. That should be better named to FareCalulator.
+2.) There are no tests. There should definetly be AT LEAST basic tests for functionallity. Namely checking that the fare caclulation is correct, and for any errors if values are unexpected.
+3.) I used a fairly simple method to go through the array and create the options. This could be much more robust, and for longer arrays, more efficient. For example I filter the entire array every time any element in the form changes. That's fine for 5 entries, but would be inefficient for bigger arrays. 
+4.) This component could be made to handle any type of data thrown at it, but currently makes some assumptions of the data passed to it.
+5.) More components broken out instead of placing them in the parent.
+6.) Small usibility things, like making it responsive, disabling fields, providing more explination.
+7.) I chose to use normal SCSS/CSS, but I would consider styled-components.
+8.) Design wise I tried to match the image exactly, but it is very tall and it would be nice to see it all on one screen.
+9.) Browser compatibility, I mostly used Chrome and did not look further.
+
 # SEPTA Rail Fare Calculator Challenge
 
 Hello, hopeful Think Company development team member! 
@@ -31,3 +45,5 @@ When you take regional rail in and out of the city, the fare price is affected b
 * [Think Company Development Standards](https://standards.thinkcompany.dev/)
 * [SEPTA Fares](http://www.septa.org/fares/ticket/index.html)
 * [SEPTA Logo (SVG)](https://commons.wikimedia.org/wiki/File:SEPTA.svg)
+
+

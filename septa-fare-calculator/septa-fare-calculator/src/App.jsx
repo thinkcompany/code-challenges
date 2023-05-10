@@ -11,7 +11,6 @@ function App() {
   const [purchasePlace, setPurchasePlace] = useState('advance_purchase');
   const [numRides, setNumRides] = useState(0);
   const [isAnytime, setIsAnytime] = useState(false);
-  const [helperText, setHelperText] = useState('');
 
   useEffect(() => {
     const getFareInfo = async () => {
@@ -33,9 +32,7 @@ function App() {
   }, [])
 
   useEffect(() => {
-    console.log('draopdownadata', dropDownData);
     if (dropDownData) {
-      console.log(dropDownData);
       const zone = dropDownData.zones[zoneData];
       let fares = zone.fares;
       //filter array by current type

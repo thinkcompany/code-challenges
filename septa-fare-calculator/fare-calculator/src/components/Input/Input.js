@@ -1,8 +1,6 @@
 import React, { Component } from 'react'
-import './Container.css'
+import './Input.css'
 
-export const Container = () => (
-  <main>
-    <p>Hello World</p>
-  </main>
+export const Input = (props) => (
+  <input type="number" value={e => props.handleInput(e.target.value)} />
 )

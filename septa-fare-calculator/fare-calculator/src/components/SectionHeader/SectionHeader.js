@@ -1,8 +1,6 @@
 import React, { Component } from 'react'
-import './Container.css'
+import './SectionHeader.css'
 
-export const Container = () => (
-  <main>
-    <p>Hello World</p>
-  </main>
+export const SectionHeader = (props) => (
+  <h2>{props.sectionHeader}</h2>
 )

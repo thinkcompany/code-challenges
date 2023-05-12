@@ -1,8 +1,6 @@
 import React, { Component } from 'react'
-import './Container.css'
+import './RadioButton.css'
 
-export const Container = () => (
-  <main>
-    <p>Hello World</p>
-  </main>
+export const RadioButton = (props) => (
+  <input type="radio" value={e => props.handleRadio(e.target.value)} />
 )

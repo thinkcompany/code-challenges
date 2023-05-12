@@ -1,8 +1,9 @@
 import React, { Component } from 'react'
-import './Container.css'
+import './Total.css'
 
-export const Container = () => (
-  <main>
-    <p>Hello World</p>
-  </main>
+export const Total = (props) => (
+  <section>
+    <h3>Your Fare Will Cost</h3>
+    <div>{props.finalFare}</div>
+  </section>
 )

@@ -1,8 +1,7 @@
 import React, { Component } from 'react'
-import './Container.css'
+import './Select.css'
 
-export const Container = () => (
-  <main>
-    <p>Hello World</p>
-  </main>
+export const Select = (props) => (
+  <label for={props.label} />
+  <select value={e => props.handleSelect(e.target.value)} />
 )

@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import './HelperText.css'
 
 export const HelperText = () => (
-  <main>
-    <p>Hello World</p>
-  </main>
+  <p>
+    <p>Helper text that explains the options above.</p>
+  </p>
 )

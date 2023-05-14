@@ -78,7 +78,7 @@ const RadioInputWithLabel = ({
    */
   useEffect(() => {
     if (daytimeSelected === "Anytime") setPurchaseLocation("advance_purchase");
-  }, [daytimeSelected]);
+  }, [daytimeSelected, setPurchaseLocation]);
 
   return (
     <RadioGroup role="radiogroup">

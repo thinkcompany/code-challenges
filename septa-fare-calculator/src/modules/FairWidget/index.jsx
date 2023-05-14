@@ -70,7 +70,13 @@ const FairWidget = () => {
       calculateTotalRidePrice(data);
     };
     fetchData();
-  }, [selectedZone, selectedDaytime, selectedPurchaseLocation, selectedRides]);
+  }, [
+    selectedZone,
+    selectedDaytime,
+    selectedPurchaseLocation,
+    selectedRides,
+    calculateTotalRidePrice,
+  ]);
 
   return (
     <MaxWidthContainer>

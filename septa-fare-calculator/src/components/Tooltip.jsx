@@ -49,7 +49,7 @@ const Tooltip = () => {
         X
       </CloseButton>
       <Notification aria-describedby="saleClose">
-        Buy anytime tickets in bundles of 10's and SAVE MORE!
+        Buy anytime tickets in bundles of 10&apos;s and SAVE MORE!
       </Notification>
     </TooltipContainer>
   );

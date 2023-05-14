@@ -6,20 +6,19 @@ const PriceContaier = styled.section`
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  min-height: 140px;
-  padding: 30px;
+  padding: 15px;
   background-color: #595959;
 `;
 
 const PriceTitle = styled.p`
-  font-size: 28px;
+  font-size: 24px;
   color: #fff;
-  margin-bottom: 10px;
+  margin-bottom: 8px;
 `;
 
 const PriceAmount = styled.p`
   text-align: center;
-  font-size: 70px;
+  font-size: 56px;
   font-weight: 600;
   color: #fff;
 `;

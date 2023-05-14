@@ -11,9 +11,9 @@ const Flex = styled.div`
 
 const RadioGroup = styled(Flex)`
   flex-direction: column;
-  min-height: 160px;
+  min-height: 130px;
   border-bottom: 2px solid #e6e6e6;
-  padding: 30px;
+  padding: 15px;
 `;
 
 const Fieldset = styled.fieldset`
@@ -22,9 +22,9 @@ const Fieldset = styled.fieldset`
 
 const Legend = styled.legend`
   text-align: center;
-  font-size: 28px;
+  font-size: 20px;
   color: #4d4d4d;
-  margin-bottom: 24px;
+  margin-bottom: 16px;
 `;
 
 const InputContainer = styled(Flex)`
@@ -39,7 +39,7 @@ const InputSetContainer = styled(Flex)`
 `;
 
 const Label = styled.label`
-  font-size: 24px;
+  font-size: 18px;
   color: #4d4d4d;
   margin-left: 10px;
 `;
@@ -52,8 +52,8 @@ const Input = styled.input`
 // used in other inputs
 export const HelperMesage = styled.p`
   color: #6d6d6d;
-  font-size: 18px;
-  margin-top: 16px;
+  font-size: 14px;
+  margin-top: 10px;
   text-align: center;
   padding: 0 10px;
 `;

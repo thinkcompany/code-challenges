@@ -8,20 +8,20 @@ const InputContainer = styled.div`
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  min-height: 160px;
+  min-height: 130px;
   border-bottom: 2px solid #e6e6e6;
-  padding: 30px;
+  padding: 15px;
 `;
 
 const Label = styled.label`
-  font-size: 28px;
+  font-size: 20px;
   color: #4d4d4d;
   margin-bottom: 24px;
 `;
 
 const Input = styled.input`
-  width: 140px;
-  height: 60px;
+  width: 80px;
+  height: 50px;
   padding: 10px 0px;
   text-align: center;
   border: solid 2px #ccc;

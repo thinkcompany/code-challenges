@@ -9,15 +9,15 @@ const InputContainer = styled.div`
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  min-height: 160px;
+  height: 130px;
   border-bottom: 2px solid #e6e6e6;
-  padding: 30px;
+  padding: 15px 30px;
 `;
 
 const Label = styled.label`
-  font-size: 30px;
+  font-size: 20px;
   color: #4d4d4d;
-  margin-bottom: 24px;
+  margin-bottom: 10px;
 `;
 
 const SelectInput = styled.select`
@@ -25,10 +25,11 @@ const SelectInput = styled.select`
   background: #fff url(./static/downArrow.png) no-repeat 96% 50%;
   background-size: 10%;
   position: relative;
-  width: 100%;
-  height: 70px;
+  /* width: 100%; */
+  width: 300px;
+  height: 30px;
   padding: 0px 20px;
-  font-size: 24px;
+  font-size: 18px;
   font-weight: 400;
   color: #4d4d4d;
   -webkit-appearance: none;
@@ -78,7 +79,7 @@ const SelectInputWithLabel = ({
           ))}
       </SelectInput>
       {includeHelperText && (
-        <HelperMesage aria-labelledby={inputName}>
+        <HelperMesage aria-labelledby={inputName} lang="en">
           {helperText.text}
         </HelperMesage>
       )}

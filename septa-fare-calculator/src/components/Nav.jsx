@@ -1,11 +1,12 @@
 import styled from "styled-components";
 
 const NavContainer = styled.header`
+  width: 100%;
   background-color: #595959;
   display: flex;
   align-items: flex-start;
   justify-content: center;
-  padding: 20px;
+  padding: 20px 15px;
 `;
 
 const SeptaLogo = styled.img`

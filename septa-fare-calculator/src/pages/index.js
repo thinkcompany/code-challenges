@@ -1,5 +1,6 @@
 import Head from "next/head";
 import styled from "styled-components";
+import { useState, useEffect } from "react";
 
 import FairWidget from "../modules/FairWidget";
 
@@ -49,6 +50,19 @@ const MainContainer = styled.main`
  */
 
 const Home = () => {
+  const [isMounted, setIsMounted] = useState(false);
+
+  /**
+   * Usually we want to use the serverStylesheet from styled-components
+   * so we can add it to a context for example and provide it to the tree of the code
+   * that way we will make sure there is no cummulative layout shift upon first loading the app
+   * This was done as I will show the web vitals of the app but didn't want to spend much type
+   * fully setting up the app for styled-components
+   */
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
+
   return (
     <>
       <Head>
@@ -58,9 +72,11 @@ const Home = () => {
         <meta charSet="UTF-8" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <MainContainer>
-        <FairWidget />
-      </MainContainer>
+      {isMounted && (
+        <MainContainer>
+          <FairWidget />
+        </MainContainer>
+      )}
     </>
   );
 };

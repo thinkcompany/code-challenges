@@ -40,7 +40,6 @@ const Tooltip = () => {
   return (
     <TooltipContainer id="saleClose">
       <CloseButton
-        // onClick={handleTooltip}
         onKeyDown={(e) => handleTooltip(e)}
         role="button"
         aria-describedby="saleClose"

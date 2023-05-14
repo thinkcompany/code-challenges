@@ -21,7 +21,7 @@ const WidgetContainer = styled.div`
 `;
 
 const FairWidget = () => {
-  // state to keep track of selected values
+  // state to keep track of selected values.
   const [selectedZone, setSelectedZone] = useState("CCP/1");
   const [selectedDaytime, setSelectedDaytime] = useState("Weekday");
   const [selectedPurchaseLocation, setSelectedPurchaseLocation] = useState("");

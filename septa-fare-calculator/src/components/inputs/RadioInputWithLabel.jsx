@@ -1,4 +1,3 @@
-import { daytime } from "@/data/inputData";
 import React, { useEffect } from "react";
 import styled from "styled-components";
 

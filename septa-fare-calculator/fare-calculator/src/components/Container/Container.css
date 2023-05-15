@@ -1,0 +1,35 @@
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+
+container {
+    border: #CCCCCC 3px solid;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.input-rideNumber {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.main-section:last-child {
+    border: 0;
+    padding: 0;
+}
+
+.main-section:first-of-type {
+    padding: 10px 0 30px 0;
+}
+
+.main-section {
+    width: 100%;
+    border-bottom: 1px solid #E6E6E6;
+    padding: 10px 0 15px 0;
+}

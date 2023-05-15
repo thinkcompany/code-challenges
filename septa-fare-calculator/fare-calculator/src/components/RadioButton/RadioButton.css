@@ -1,0 +1,16 @@
+.radio-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+.radio-entry {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.radio-button {
+    width: auto;
+}

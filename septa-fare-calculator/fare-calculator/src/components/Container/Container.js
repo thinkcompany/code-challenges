@@ -41,8 +41,8 @@ export const Container = () => {
   const [ridePurchaseMethod, setRidePurchaseMethod] = useState('')
   const [totalFarePrice, setTotalFarePrice] = useState(0)
 
-  const [dataReceived, setDataReceived] = useState({})
-  
+  const [dataReceived, setDataReceived] = useState({} || '')
+
   // I know the readme said ajax but I really don't like using it...
   // and it would take a long time to remember how to do it
   // so I used fetch() instead. Hope that's alright!
@@ -83,10 +83,9 @@ export const Container = () => {
         if (rideTime === 'anytime') {
           const findSpecialFare = findZone.fares.find(fare => fare.trips === 10)
           setTotalFarePrice(findSpecialFare.price)
-        } 
-        else {
+        } else {
           const findFare = findZone.fares.find(fare => fare.purchase === ridePurchaseMethod && fare.type === rideTime)
-          const total = findFare.price * parseInt(rideNumber)
+          const total = findFare?.price * parseInt(rideNumber)
           setTotalFarePrice(total)
         }
       }
@@ -95,52 +94,54 @@ export const Container = () => {
 
   return (
     <main>
+      <container>
       <Header />
-        <div>
-          <SectionHeader sectionHeader="Where are you going?" />
-          <Select
-            data={destinations.length ? destinations : []}
-            handleSelect={(value) => handleDestinationSelect(value)}
-            label="Where are you going?"
-          />
-        </div>
-        <div>
-          <SectionHeader sectionHeader="When are you riding?" />
-          <Select
-            data={times}
-            handleSelect={(value) => handleTimeSelect(value)}
-            label="When are you riding?"
-          />
-          <HelperText helperText={''} />
-        </div>
-        <div>
-          <SectionHeader sectionHeader="Where will you purchase the fare?" />
-          <RadioButton
-            disable={rideTime === 'anytime' ? true : false }
-            data={purchaseMethods}
-            label={'purchaseMethods'}
-            handleRadio={(value) => handlePurchaseMethod(value)}
-          />
-          <HelperText helperText={''} />
-        </div>
-        <div>
-        <SectionHeader sectionHeader="How many rides will you need?" />
-          <Input
-            disable={rideTime === 'anytime' ? true : false }
-            handleInput={(value) => handleRideNumber(value)}
-          />
-          {
-            // since the deal seems to be evening weekend fare/onboard purchase * 9 but for 10 tickets
-            // I only decided to show the helper text when someone is purchasing 7, 8 or 9 tickets in that time
-            // frame. Hope that makes sense? No reason to show it to someone who isn't going to save on the deal, right?
-            rideTime === 'evening_weekend' &&
-            ridePurchaseMethod === 'onboard_purchase' &&
-            rideNumber >= 7 &&
-            rideNumber < 10 ?
-            <HelperText helperText="Did you know that purchasing 10 rides Anytime give you special discount?" /> : null
-          }
-        </div>
-        <Total finalFare={totalFarePrice} />
+          <section className="main-section">
+            <SectionHeader sectionHeader="Where are you going?" />
+            <Select
+              data={destinations.length ? destinations : []}
+              handleSelect={(value) => handleDestinationSelect(value)}
+              label="Where are you going?"
+            />
+          </section>
+          <section className="main-section">
+            <SectionHeader sectionHeader="When are you riding?" />
+            <Select
+              data={times}
+              handleSelect={(value) => handleTimeSelect(value)}
+              label="When are you riding?"
+            />
+            <HelperText helperText={rideTime === 'anytime' ? 'When using Special Anytime, you have to purchase 10 tickets.' : ''} />
+          </section>
+          <section className="main-section">
+            <SectionHeader sectionHeader="Where will you purchase the fare?" />
+            <RadioButton
+              disable={rideTime === 'anytime' ? true : false }
+              data={purchaseMethods}
+              label={'purchaseMethods'}
+              handleRadio={(value) => handlePurchaseMethod(value)}
+            />
+            <HelperText helperText={''} />
+          </section>
+          <section className="input-rideNumber">
+            <SectionHeader sectionHeader="How many rides will you need?" />
+            <Input
+              disable={rideTime === 'anytime' ? true : false }
+              handleInput={(value) => handleRideNumber(value)}
+            />
+            {
+              // since the deal seems to be evening weekend fare/onboard purchase * 9 but for 10 tickets
+              // I only decided to show the helper text when someone is purchasing 7, 8, 9 or 10 tickets in that time
+              // frame. Hope that makes sense? No reason to show it to someone who isn't going to save on the deal, right?
+              rideTime === 'evening_weekend' &&
+              ridePurchaseMethod === 'onboard_purchase' &&
+              rideNumber >= 7 &&
+              rideNumber <= 10 ?
+              <HelperText helperText="Did you know that purchasing 10 rides Anytime give you special discount?" /> : null
+            }
+          </section>
+          <Total finalFare={totalFarePrice} />
+      </container>
     </main>
   )
 }

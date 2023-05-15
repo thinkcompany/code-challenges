@@ -2,7 +2,7 @@ import React from 'react'
 import './HelperText.css'
 
 export const HelperText = (props) => (
-  <p>
+  <div className="helper-text">
     <p>{props.helperText}</p>
-  </p>
+  </div>
 )

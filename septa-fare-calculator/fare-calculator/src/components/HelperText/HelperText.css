@@ -1,0 +1,12 @@
+p {
+    color: #929292;
+    font-size: 10px;
+}
+
+.helper-text {
+    display: flex;
+    justify-content: center;
+    word-wrap: break-word;
+    max-width: 70%;
+    text-align: center;
+}

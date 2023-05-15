@@ -1,6 +1,6 @@
-import React, { Component } from 'react'
+import React from 'react'
 import './SectionHeader.css'
 
 export const SectionHeader = (props) => (
-  <h2>{props.sectionHeader}</h2>
+  <h3>{props.sectionHeader}</h3>
 )

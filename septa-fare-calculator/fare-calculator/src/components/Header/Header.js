@@ -1,8 +1,8 @@
-import React, { Component } from 'react'
+import React from 'react'
 import './Header.css'
 
 export const Header = () => (
   <header>
-    Septa Fare Calculator
+    Regional Fare Calculator
   </header>
 )

@@ -1,0 +1,10 @@
+select {
+    width: 70%;
+    padding: 5px;
+}
+
+.select-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}

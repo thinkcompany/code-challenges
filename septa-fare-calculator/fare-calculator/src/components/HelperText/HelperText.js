@@ -1,8 +1,8 @@
-import React, { Component } from 'react'
+import React from 'react'
 import './HelperText.css'
 
-export const HelperText = () => (
+export const HelperText = (props) => (
   <p>
-    <p>Helper text that explains the options above.</p>
+    <p>{props.helperText}</p>
   </p>
 )

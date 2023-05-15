@@ -1,7 +1,12 @@
-import React, { Component } from 'react'
+import React from 'react'
 import './Select.css'
 
 export const Select = (props) => (
-  <label for={props.label} />
-  <select value={e => props.handleSelect(e.target.value)} />
+  <>
+    <label htmlFor={props.label} value={props.label}/>
+    <select id={props.label} onChange={e => props.handleSelect(e.target.value)}>
+      <option value="">-- Select your option --</option>
+      { props.data.map((entry, id) => <option key={id} value={entry.value}>{entry.name}</option>) }
+    </select>
+  </>
 )

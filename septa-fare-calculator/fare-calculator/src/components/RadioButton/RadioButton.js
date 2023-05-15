@@ -1,6 +1,23 @@
-import React, { Component } from 'react'
+import React from 'react'
 import './RadioButton.css'
 
 export const RadioButton = (props) => (
-  <input type="radio" value={e => props.handleRadio(e.target.value)} />
+  <>
+    {
+      props.data.map(option => {
+        return (
+          <>
+            <label htmlFor={option.label}>{option.label}
+              <input
+                type="radio"
+                name={props.label}
+                id={option.value}
+                value={option.label}
+                onChange={(e) => props.handleRadio(e.target.value)}
+              />
+            </label>
+          </>)
+      })
+    }
+  </>
 )

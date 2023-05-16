@@ -11,7 +11,7 @@ const root = ReactDOM.createRoot(
 root.render(
   <React.StrictMode>
     <GlobalStyles key="GlobalStyles" />
-       <App />
+    <App />
   </React.StrictMode>
 );
 

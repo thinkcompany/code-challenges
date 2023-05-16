@@ -1,11 +1,7 @@
-import { CalculatorContainer } from './containers';
+import { SEPTACalculatorWidgetContainer } from './containers';
 
 function App() {
-  return (
-    <div className="App">
-      <CalculatorContainer />
-    </div>
-  );
+  return <SEPTACalculatorWidgetContainer />;
 }
 
 export default App;

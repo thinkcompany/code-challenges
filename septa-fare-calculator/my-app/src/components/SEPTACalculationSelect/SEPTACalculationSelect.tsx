@@ -1,15 +1,13 @@
 import * as S from './SEPTACalculationSelect.styled';
+
 import { SEPTACalculationSelectProps } from './interfaces';
 
 export const SEPTACalculationSelect = ({
-  label,
   options,
   info,
 }: SEPTACalculationSelectProps) => {
   return (
     <S.SEPTACalculationSelect>
-      <S.Label>{label}</S.Label>
-
       <S.Select>
         <option value="" hidden>
           Type

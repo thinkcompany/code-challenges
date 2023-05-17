@@ -1,10 +1,18 @@
-import * as S from "./SEPTACalculationOutput.styled"
+import * as S from './SEPTACalculationOutput.styled';
 
-export const SEPTACalculationOutput = () => {
+export const SEPTACalculationOutput = ({
+  calculatedPrice,
+}: {
+  calculatedPrice: string;
+}) => {
   return (
     <S.SEPTACalculationOutput>
-        <S.SEPTACalculationOutputLabel>Your fair will cost</S.SEPTACalculationOutputLabel>
-        <S.SEPTACalculationOutputPrice>$28.00</S.SEPTACalculationOutputPrice>
+      <S.SEPTACalculationOutputLabel>
+        Your fair will cost
+      </S.SEPTACalculationOutputLabel>
+      <S.SEPTACalculationOutputPrice>
+        ${calculatedPrice}
+      </S.SEPTACalculationOutputPrice>
     </S.SEPTACalculationOutput>
-  )
-}
+  );
+};

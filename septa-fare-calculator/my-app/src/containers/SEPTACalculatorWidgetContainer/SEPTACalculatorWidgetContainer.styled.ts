@@ -5,7 +5,7 @@ import { secondaryColors, primaryColors } from '../../assets/styles/theme';
 export const SEPTACalculatorWidgetContainer = styled.div`
   border: 4px solid ${secondaryColors.gray};
   max-width: 410px;
-  margin: 15px auto;
+  margin: auto;
 
   header {
     background-color: ${secondaryColors.darkGray};

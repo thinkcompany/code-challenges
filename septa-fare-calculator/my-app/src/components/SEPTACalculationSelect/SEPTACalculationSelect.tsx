@@ -5,16 +5,14 @@ import { SEPTACalculationSelectProps } from './interfaces';
 export const SEPTACalculationSelect = ({
   options,
   info,
+  onChange,
 }: SEPTACalculationSelectProps) => {
   return (
     <S.SEPTACalculationSelect>
-      <S.Select>
-        <option value="" hidden>
-          Type
-        </option>
-
+      <S.Select onChange={(event) => onChange(event.target.value)}>
+        <option value="">Please choose an option</option>
         {options?.map((option: any) => {
-          return <option value="1">Audi</option>;
+          return <option key={option.name} value={option.name}>{option.name}</option>;
         })}
       </S.Select>
 

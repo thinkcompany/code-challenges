@@ -11,7 +11,7 @@ export const Input = styled.input`
   border-color: ${secondaryColors.gray};
 	color: ${secondaryColors.darkGray};
 	font-size: ${pxToRem(28)};
-  width: 140px;
+  width: 120px;
   border-radius: 5px;
   padding: 8px;
   margin: auto;

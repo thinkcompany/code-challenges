@@ -1,4 +1,3 @@
 export interface SEPTACalculationRadioProps {
-  value: string;
-  selectedOption: string;
+  onChange: (value: string) => void
 }

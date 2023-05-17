@@ -1,3 +1,3 @@
 export interface SEPTACalculationInputProps {
-  info?: string;
+  setCalculationValue: (event: any) => void
 }

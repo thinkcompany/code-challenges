@@ -35,10 +35,6 @@ export const SEPTACalculatorWidgetContainer = () => {
     return <div>Error: {error}</div>;
   }
 
-  console.log('HERE', responseData,     purchaseOptions,
-  calculatedPrice,);
-  
-
   return (
     <S.SEPTACalculatorWidgetContainer>
       <header>

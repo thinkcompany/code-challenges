@@ -14,6 +14,7 @@ export const Select = styled.select`
   width: 100%;
   border-radius: 5px;
   padding: 13px;
+  text-transform: capitalize;
 `;
 
 export const Info = styled.p`

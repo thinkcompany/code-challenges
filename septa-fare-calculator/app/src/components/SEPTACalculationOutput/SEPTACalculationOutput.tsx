@@ -11,7 +11,7 @@ export const SEPTACalculationOutput = ({
         Your fair will cost
       </S.SEPTACalculationOutputLabel>
       <S.SEPTACalculationOutputPrice>
-        ${calculatedPrice}
+        ${calculatedPrice ? calculatedPrice : 0}
       </S.SEPTACalculationOutputPrice>
     </S.SEPTACalculationOutput>
   );

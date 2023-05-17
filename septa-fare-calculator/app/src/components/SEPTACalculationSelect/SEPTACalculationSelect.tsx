@@ -12,7 +12,9 @@ export const SEPTACalculationSelect = ({
       <S.Select onChange={(event) => onChange(event.target.value)}>
         <option value="">Please choose an option</option>
         {options?.map((option: any) => {
-          return <option key={option.name} value={option.name}>{option.name}</option>;
+          console.log('HERE', option.name.replace("_", " "));
+          
+          return <option key={option.name} value={option.name}>{option.name.replace("_", " ")}</option>;
         })}
       </S.Select>
 

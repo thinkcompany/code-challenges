@@ -16,6 +16,8 @@ import * as S from './SEPTACalculatorWidgetContainer.styled';
 export const SEPTACalculatorWidgetContainer = () => {
   const { responseData, loading, error } = useFetchAPI();
 
+  //TODO: Need to show a right info message below the selects and input for the all possible cases. 
+
   const {
     purchaseOptions,
     calculatedPrice,
@@ -32,6 +34,10 @@ export const SEPTACalculatorWidgetContainer = () => {
   if (error) {
     return <div>Error: {error}</div>;
   }
+
+  console.log('HERE', responseData,     purchaseOptions,
+  calculatedPrice,);
+  
 
   return (
     <S.SEPTACalculatorWidgetContainer>

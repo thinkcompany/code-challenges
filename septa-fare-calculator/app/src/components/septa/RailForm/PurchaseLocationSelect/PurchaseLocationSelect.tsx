@@ -1,5 +1,6 @@
 import RadioButton from "../../../common/RadioButton/RadioButton";
 import Section from "../../../common/Section/Section";
+import './styles.css';
 
 interface PurchaseLocationInputProps {
 	location: string;

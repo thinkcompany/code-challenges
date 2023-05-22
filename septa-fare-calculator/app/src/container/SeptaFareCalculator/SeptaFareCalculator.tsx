@@ -41,15 +41,17 @@ const SeptaFareCalculator: React.FC<SeptaFareCalculatorProps> = ({ faresData }) 
 
 	return (
 		<>
-			<ZoneSelect zone={zone} setZone={setZone} options={faresData.zones} />
-			<TimeTravelSelect
-				timeTravel={timeTravel}
-				setTimeTravel={setTimeTravel}
-				options={timeTravelOptions}
-				info={info[timeTravel]}
-			/>
-			<PurchaseLocationSelect location={location} setLocation={setLocation} />
-			<RideAmountInput amount={amount} setAmount={setAmount} />
+			<div className="septa-body">
+				<ZoneSelect zone={zone} setZone={setZone} options={faresData.zones} />
+				<TimeTravelSelect
+					timeTravel={timeTravel}
+					setTimeTravel={setTimeTravel}
+					options={timeTravelOptions}
+					info={info[timeTravel]}
+				/>
+				<PurchaseLocationSelect location={location} setLocation={setLocation} />
+				<RideAmountInput amount={amount} setAmount={setAmount} />
+			</div>
 			<FareResult fareCost={fareCost} />
 		</>
 	);

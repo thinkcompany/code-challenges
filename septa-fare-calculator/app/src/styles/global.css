@@ -1,7 +1,11 @@
 .septa-container {
-	width: 400px;
-	min-height: 70vh;
-	margin: auto;
-	margin-top: 40px;
+	display: flex;
+	flex-direction: column;
+	width: 450px;
+	margin: 40px auto;
 	border: 4px solid #cdcdcd;
+}
+
+.septa-body {
+	flex-grow: 1;
 }

@@ -1,0 +1,17 @@
+.septa-fare-result {
+	padding: 1rem 0;
+	box-sizing: border-box;
+	text-align: center;
+	background-color: #666;
+	color: white;
+}
+
+.fare-label {
+	font-size: 1.5rem;
+	font-weight: 600;
+}
+
+.fare-value {
+	font-size: 4rem;
+	font-weight: 800;
+}

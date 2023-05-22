@@ -1,0 +1,12 @@
+.septa-header {
+	display: flex;
+	align-items: center;
+	justify-content: space-evenly;
+	padding: 0 7%;
+	background-color: #666;
+	color: white;
+}
+
+.septa-header-logo {
+	height: 40px;
+}

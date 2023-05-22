@@ -1,0 +1,10 @@
+.ride-amount-input {
+	width: 100px;
+	height: 50px;
+	color: #4d4d4d;
+	text-align: center;
+	font-size: 1.4rem;
+	border-radius: 5px;
+	border: 2px solid #cdcdcd;
+	outline: none;
+}

@@ -14,7 +14,7 @@ const App = () => {
 			) : error ? (
 				<div>Page Error</div>
 			) : (
-				<SeptaFareCalculator />
+				data && <SeptaFareCalculator faresData={data} />
 			)}
 		</div>
 	);

@@ -2,6 +2,8 @@
 	padding: 1rem 0;
 	box-sizing: border-box;
 	text-align: center;
+	background-color: #666;
+	color: white;
 }
 
 .fare-label {

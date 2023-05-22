@@ -7,7 +7,7 @@ interface FareResultProps {
 
 const FareResult: React.FC<FareResultProps> = ({ fareCost }) => {
 	return (
-		<div className="septa-fare-result">
+		<div className="septa-fare-result bg-gray text-white">
 			<div className="fare-label">Your fare will cost</div>
 			<div className="fare-value">${fareCost || ""}</div>
 		</div>

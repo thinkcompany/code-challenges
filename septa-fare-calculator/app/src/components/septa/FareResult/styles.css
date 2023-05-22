@@ -1,17 +1,11 @@
 .septa-fare-result {
-	display: flex;
-	align-items: center;
-	flex-direction: column;
-	justify-content: space-around;
-	color: white;
-	background-color: #666666;
-	min-height: 150px;
+	padding: 1rem 0;
 	box-sizing: border-box;
 	text-align: center;
 }
 
 .fare-label {
-	font-size: 2rem;
+	font-size: 1.5rem;
 	font-weight: 600;
 }
 

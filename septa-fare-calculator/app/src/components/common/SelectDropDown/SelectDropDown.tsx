@@ -1,4 +1,5 @@
 import React from "react";
+import { getTransformedLabel } from "../../../utils/utils";
 import "./styles.css";
 
 interface SelectDropdownProps {
@@ -18,7 +19,7 @@ const SelectDropdown: React.FC<SelectDropdownProps> = ({
 		{placeholder && <option value="">{placeholder}</option>}
 		{options.map((option) => (
 			<option key={option} value={option}>
-				{option}
+				{getTransformedLabel(option)}
 			</option>
 		))}
 	</select>

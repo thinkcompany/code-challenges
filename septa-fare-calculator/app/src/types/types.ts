@@ -4,6 +4,7 @@ export interface IInfo {
 	evening_weekend: string;
 	advance_purchase: string;
 	onboard_purchase: string;
+	[key: string]: string;
 }
 
 export interface IFare {

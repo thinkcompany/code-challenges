@@ -1,0 +1,17 @@
+.section {
+	color: #4d4d4d;
+	padding: 20px;
+	border-bottom: 2px solid #e6e6e6;
+	text-align: center;
+}
+
+.section-label {
+	font-size: 1.2rem;
+	font-weight: 500;
+	padding: 10px 20px;
+}
+
+.section-info {
+	font-size: 0.8rem;
+	padding: 10px 20px 0px 20px;
+}

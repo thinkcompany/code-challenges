@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import FareResult from "../../components/septa/FareResult/FareResult";
 import PurchaseLocationSelect from "../../components/septa/RailForm/PurchaseLocationSelect/PurchaseLocationSelect";
 import RideAmountInput from "../../components/septa/RailForm/RideAmountInput/RideAmountInput";
@@ -11,7 +11,8 @@ interface SeptaFareCalculatorProps {
 }
 
 const SeptaFareCalculator: React.FC<SeptaFareCalculatorProps> = ({ faresData }) => {
-	const [fareCost, setFareCost] = useState(0);
+	const { zones, info } = faresData;
+	const [fareCost, setFareCost] = useState("");
 	const [zone, setZone] = useState("");
 	const [timeTravel, setTimeTravel] = useState("");
 	const [location, setLocation] = useState("");
@@ -23,6 +24,21 @@ const SeptaFareCalculator: React.FC<SeptaFareCalculatorProps> = ({ faresData }) 
 			? Object.keys(faresData.info).slice(0, 3)
 			: Object.keys(faresData.info).slice(1, 3);
 
+	// calculate fare cost based on zone, location, time travel, and ride amount
+	const calcFareCost = () => {
+		const selectedZone = zones.find((z) => z.name === zone);
+		const fare = selectedZone?.fares?.find(
+			(f) => f.type === timeTravel && f.purchase === location
+		);
+		if (fare) setFareCost(((fare.price / fare.trips) * amount).toFixed(2));
+	};
+
+	useEffect(() => {
+		if (zone && timeTravel && location && amount) {
+			calcFareCost();
+		}
+	}, [zone, timeTravel, location, amount]);
+
 	return (
 		<>
 			<ZoneSelect zone={zone} setZone={setZone} options={faresData.zones} />
@@ -30,7 +46,7 @@ const SeptaFareCalculator: React.FC<SeptaFareCalculatorProps> = ({ faresData }) 
 				timeTravel={timeTravel}
 				setTimeTravel={setTimeTravel}
 				options={timeTravelOptions}
-				info={faresData.info[timeTravel]}
+				info={info[timeTravel]}
 			/>
 			<PurchaseLocationSelect location={location} setLocation={setLocation} />
 			<RideAmountInput amount={amount} setAmount={setAmount} />

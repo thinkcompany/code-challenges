@@ -2,7 +2,7 @@ import React from "react";
 import "./styles.css";
 
 interface FareResultProps {
-	fareCost: number;
+	fareCost: number | string;
 }
 
 const FareResult: React.FC<FareResultProps> = ({ fareCost }) => {

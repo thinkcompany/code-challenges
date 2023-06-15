@@ -6,7 +6,9 @@
         "advance_purchase": "Tickets available for purchase at all SEPTA offices.",
         "onboard_purchase": "Tickets available for purchase from a train conductor aboard SEPTA regional rail trains."
     },
-    "zones": [{
+    "zones": [
+        
+        {
         "name": "CCP/1",
         "zone": 1,
         "fares": [{

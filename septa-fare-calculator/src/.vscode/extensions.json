@@ -1,0 +1,6 @@
+{
+    "recommendations": [
+        "esbenp.prettier-sxcode",
+        "stylelint.vscode-stylelint"
+    ]
+}

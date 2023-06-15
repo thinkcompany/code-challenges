@@ -1,6 +1,23 @@
-# Getting Started with Create React App
+# SEPTA fare calculator
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Hi there! As per the requirement, the septa fare calculator has been built.
+I decided to spend less time on making it pixel perfect and dedicate more time on functionality. 
+
+Please enjoy the working product.
+
+### Quick overview:
+- used React
+- made a couple assumptions and added comment in the code accordingly
+- didn't bring in any css framework or libraries
+
+### Space for improvement:
+- css - would refactor scc and have a dedicated css file for each component 
+- address all the @DEBT comments in the code 
+- define failure user flow, if something is not working or the api is failing, there should be an error scenario, currently only happy path is accounted for 
+- make it pixel perfect, for now styled it so it's not bad to look at
+
+Thanks for your time! 
+
 
 ## Available Scripts
 

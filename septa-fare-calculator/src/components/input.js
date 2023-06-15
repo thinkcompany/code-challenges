@@ -31,13 +31,14 @@ export const Input = ({
           })}
         </div>
       ) : (
-        <div className="box-with-description">
+        <div className="description-box">
           <input
             type="number"
             step={singeTicketPurchase ? 1 : 10}
             value={inputValue}
             onChange={onChange}
             aria-label="Chose number of rides"
+            min="0"
           />
           {descriptionText ? (
             <span className="info-text"> {descriptionText} </span>

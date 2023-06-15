@@ -2,7 +2,7 @@ export const Select = ({ title, options, descriptionText, onChange }) => {
   return (
     <div className="select-wrapper border">
       <h3>{title}</h3>
-      <div className="box-with-description">
+      <div className="description-box">
         <select
           name="Purchase location"
           className="select"
